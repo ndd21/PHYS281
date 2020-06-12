@@ -111,3 +111,6 @@ Describe testing code with simple unit tests.
 
 Maybe describe how to throw and catch errors
 
+### Accessing help
+
+Help of function in terminal and using Google!
