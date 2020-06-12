@@ -47,3 +47,7 @@ In [1]: x = 1 + 4
 In [2]: print(x)
 5
 ```
+
+## Resources
+
+See, for example, [Chapter 1 of the Python Data Science Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html) for lots of useful tips in using an IPython terminal.
