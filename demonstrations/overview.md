@@ -44,7 +44,7 @@ Describe what is meant be a script - a short self-contained bit of code to gener
 Show how to write a script and run a script (from VS Code, from command line, from within IPython).
 Show how running script within IPython means that any variables within it can be used.
 
-Decribe adding comments.
+Describe adding comments.
 
 Code etiquette - useful naming conventions for variables, functions and files, commenting
 code, sensible spacing, sensible line lengths.
@@ -62,6 +62,8 @@ Show a docstring for a function.
 
 Describe for loops (including the range and enumerate built-in functions),
 while loops, if...elif...else statements.
+
+Some basics on iterators.
 
 ### Objects and classes
 
