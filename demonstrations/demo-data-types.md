@@ -7,6 +7,10 @@ of alphanumeric values (known as a string).
 * a **variable** is any object that you create in a code, e.g., in `x = 2` I have defined a
   variable called `x`, which can be reused later in the code.
 
+> Note:  Variable names must start with a letter, but can then contain numbers, hyphens or
+> underscores. Variable names are case sensitive, i.e., `a = 2` and `A = 2` are difference
+> variables. It is useful to have descriptive variable names.
+
 Some languages have *static typing*, where you must explicitly tell the code what the variable's type
 is. In the `C` language you would have define a variable that hold an integer with, e.g.,
 
@@ -30,7 +34,7 @@ is a built-in Python function that returns the type of a variable.
 > Note: everything in Python is an **object** (hence *object oriented programming*, or OOP). In OOP
 > an object is a thing that contain data in the form of variables and/or functions to act on that
 > data. All variables are objects and therefore the **type** refers to the "type" of object. "Type"
-> is sometimes used interchangably with "**class**", where a class this the thing that defines a
+> is sometimes used interchangeably with "**class**", where a class this the thing that defines a
 > type.
 
 The main basic data types (in Python and many languages) are:
@@ -41,5 +45,15 @@ The main basic data types (in Python and many languages) are:
 * `bool`: represents True or False 
 
 ```python
+# defining an integer
+katherineJohnson = 2
 
+# defining a float (note the decimal point)
+dorothyVaughan = -59.87534
+
+# define a string
+melbaMouton = "Hello"
+
+# define a boolean
+marshaWilliams = True
 ```
