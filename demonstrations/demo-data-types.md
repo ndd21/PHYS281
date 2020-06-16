@@ -46,14 +46,61 @@ The main basic data types (in Python and many languages) are:
 
 ```python
 # defining an integer
-katherineJohnson = 2
+myInteger = 2
 
 # defining a float (note the decimal point)
-dorothyVaughan = -59.87534
+myFloat = -59.87534
 
 # define a string
-melbaMouton = "Hello"
+myString = "Hello"
 
 # define a boolean
-marshaWilliams = True
+myBool = True
+```
+
+The basic data types are objects, and have **attributes** and **methods**:
+
+* **attributes** are variables that are contained within an object.
+* **methods** are functions within an object.
+
+Examples:
+
+```
+x = 1
+# int and float objects contain real and imag attributes
+x.real
+1
+```
+
+```
+y = 1.5
+# floats contain an is_integer() method
+y.is_integer()
+False
+
+# the float can be returned as an integer ratio
+y.as_integer_ratio()
+(3, 2)
+```
+
+## Strings
+
+Strings can be defined in three different, but equivalent, ways:
+
+```
+z1 = "Hello"
+z2 = 'Hello'
+z3 = """Hello"""
+```
+
+Strings have a lot of [methods](https://www.w3schools.com/python/python_ref_string.asp), for example:
+
+```
+z = "Hello"
+# show the string in upper case
+z.upper()
+'HELLO'
+# replace l's with x's
+z.replace("l", "x")
+'Hexxo'
 ```
