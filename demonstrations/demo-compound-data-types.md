@@ -7,7 +7,7 @@ pieces of data.
 ## Lists
 
 Lists can hold an array of **any** other Python object. Lists are defined using square brackets `[]`
-or the `list` keyword.
+or the `list` class name.
 
 ```python
 # a list containing some integers
@@ -17,8 +17,8 @@ print(type(x))
 <class 'list'>
 ```
 
-You can access values in a list using their index. The index is an integer giving an items location
-within the list. In Python indexes start at zero, e.g.:
+You can access values in a list using their index placed within square brackets `[idx]`. The index
+is an integer giving an items location within the list. In Python indexes start at zero, e.g.:
 
 ```python
 print(x[0])
@@ -54,6 +54,35 @@ to contain 10 zeros, with:
 x = [0] * 10
 print(x)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+```
+
+You can combine lists together using the `+` operator. To get a new list that is the combination of
+two other lists you could use:
+
+```python
+x = [1, 2]
+y = [3, 4]
+z = x + y
+print(z)
+[1, 2, 3, 4]
+```
+
+Or, you could extend an existing list in a couple of ways:
+
+```python
+x = [1, 2]
+y = [3, 4]
+
+# using the += operator
+x += y
+print(x)
+[1, 2, 3, 4]
+
+# or using the extend method
+x = [1, 2]
+x.extend(y)
+print(x)
+[1, 2, 3, 4]
 ```
 
 ### Slices
@@ -221,10 +250,140 @@ print(y)
 ['a', 'b', 'c', 'd']
 ```
 
-## Tuples and sets
+## Tuples
+
+Tuples are very similar to lists, but they are immutable. This means that you cannot change any of
+the values they contain once they have been created. Tuples are defined using regular brackets `()`
+or with the `tuple` class name.
+
+```python
+x = (1, 2, 3, 4, 5)
+print(x[1])
+2
+
+x[3] = 12
+TypeError: 'tuple' object does not support item assignment
+```
+
+They can be sliced in the same way a lists.
+
+```python
+print(x[::2])
+(1, 3, 5)
+```
+
+If you want to create a tuple with a single value you have to use a comma after the value, otherwise
+it will not be treated as a tuple:
+
+```python
+x = (1)
+print(type(x))
+<class 'int'>
+
+x = (1,)
+print(type(x))
+<class 'tuple'>
+```
+
+You cannot extend or append to a tuples, but you can concatenate two tuples to get a new tuple:
+
+```python
+x = (1, 2)
+y = (3, 4)
+z = x + y
+print(z)
+(1, 2, 3, 4)
+```
 
 ## Dictionaries
 
-Dictionaries are a very useful data type as rather than referencing a value by its index in the
-array you can reference it with a key. This key can be a word, so you don't have to know the
-position you just have to know the key.
+Dictionaries are a very useful array-like data type. Rather than referencing a value by its index in
+the array you can reference it with a key. This key can be a word, so you don't have to know the
+position you just have to know the key. Dictionaries are defined with curly brackets `{}` or the
+`dict` class name using "key-value" pairs. The "key" can be any integer or a string (generally I
+find descriptive strings are most useful) and the value can be any object, e.g., integers, floats,
+lists, ... even other dictionaries.
+
+```python
+x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
+```
+
+You can access values from a dictionary by using its associated key in square brackets:
+
+```python
+print(x["firstname"])
+'Matthew'
+```
+
+You can create an empty dictionary and add values to it with:
+
+```python
+x = {}
+x["value1"] = 1
+x["value2"] = 2
+print(x)
+{'value1': 1, 'value2': 2}
+```
+
+> Note: From Python 3.5 onwards the order than you place values into a dictionary will be preserved.
+
+You can return just the keys in a dictionary using the `keys` method:
+
+```python
+x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
+print(x.keys())
+dict_keys(['firstname', 'lastname', 'age'])
+```
+
+and return just the values using the `values` method:
+
+```python
+print(x.values())
+dict_keys(['firstname', 'lastname', 'age'])
+dict_values(['Matthew', 'Pitkin', 39])
+```
+
+Theses are useful for _iterating_ over, for example in a for-loop:
+
+You can remove values from a dictionary using `del` or the `pop` method. `del` just deletes a value,
+while `pop` deletes, but also returns that deleted value:
+
+```python
+x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
+
+del x["age"]
+print(x)
+{'firstname': 'Matthew', 'lastname': 'Pitkin'}
+
+lastname = x.pop("lastname")
+print(x)
+print(lastname)
+{'firstname': 'Matthew'}
+Pitkin
+```
+
+## Sets
+
+Set are a _bit_ like dictionaries that only contain keys. They can only contain one of any value and
+they are automatically sorted. Like dictionaries they are defined using curly brackets `{}` or the
+class name `set`. You cannot access values in a set using indexing. In general, you won't come
+across sets very much. They are mainly useful for doing faster comparisons if you are trying to work
+out if a value is in a "set" of other values.
+
+```python
+x = {1, 1, 5, 2, 3, 4, 4}
+print(x)
+{1, 2, 3, 4, 5}
+
+# show some timing information (set vs list)
+%timeit 2 in x
+39 ns ± 0.238 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+y = [1, 2, 3, 4, 5]
+%timeit 2 in y
+49.5 ns ± 1.32 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+
+%timeit 10 in x
+37.5 ns ± 0.93 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+%timeit 10 in y
+97.7 ns ± 0.924 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+```
