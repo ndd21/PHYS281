@@ -101,9 +101,59 @@ print(x[:8:3])
 [1, 4, 7]
 ```
 
+You can return a reversed version of the list with:
+
+```python
+print(x[::-1])
+[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+```
+
+### Copying lists
+
+If you set a new variable to be equal to another list variable then the new variable is **not** a
+copy of the original list, it is just another name assigned to the same bit of memory as the
+original variable name (in `C` jargon it's a pointer). So, if you change the new variable then
+original one will also be changed. E.g.
+
+```python
+x = [1, 2, 3]
+y = x  # new variable "pointing" to the same list as x
+
+y.append(4)
+print(x)
+[1, 2, 3, 4]
+```
+
+To create a new variable that is a copy of another list you must use the copy method:
+
+```python
+x = [1, 2, 3]
+y = x.copy()  # a copy of the list x
+
+y.append(4)
+print(x)
+[1, 2, 3]
+print(y)
+[1, 2, 3, 4]
+```
+
+You can also make a copy by using `list`, e.g.,
+
+```python
+y = list(x)
+```
+
+or explicitly using the built-in [`copy`](https://docs.python.org/3/library/copy.html) module:
+
+```
+import copy
+y = copy.deepcopy(x)
+```
+
 ### List methods
 
-Like everything in Python lists are objects and have a variety of useful methods:
+Like everything in Python lists are objects and have a variety of useful methods. I'll show a few
+here, but they can all be seen by typing `help(list)` in a terminal.
 
 #### Append
 
@@ -129,7 +179,47 @@ print(x)
 [1, 'Hello', 'World', 3.4, 2]
 ```
 
+#### Index
 
+Find the index of a particular value in the list:
+
+```python
+x = ["a", "b", "c", "d"]
+idx = x.index("b")
+print(idx)
+1
+print(x[idx])
+b
+```
+
+#### Sort
+
+Sort the values in numerical or alphabetical order.
+
+```python
+x = ["b", "d", "a", "c"] 
+x.sort()
+print(x)
+['a', 'b', 'c', 'd']
+
+# sort in reverse order
+x = ["b", "d", "a", "c"] 
+x.sort(reverse=True)
+print(x)
+['d', 'c', 'b', 'a']
+```
+
+> Note: `sort` works "in place", i.e., it actually changes the list. To return a sorted version of a
+> list, but keep the original list as it is you can use the built-in `sorted()` function, e.g.
+
+```python
+x = ["b", "d", "a", "c"]
+y = sorted(x)
+print(x)
+['b', 'd', 'a', 'c']
+print(y)
+['a', 'b', 'c', 'd']
+```
 
 ## Tuples and sets
 
