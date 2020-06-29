@@ -75,6 +75,103 @@ In [3]: print(x)
 
 It is not recommended to store and use variables this way though!
 
+## Python as a calculator
+
+You can use the Python terminal as a calculator using standard arithmetic operators:
+
+ * `+` - add to numbers
+ * `-` - substract two numbers
+ * `*` - multiply two numbers
+ * `/` - divide two numbers
+
+```python
+a = 1 + 8
+print(a)
+9
+
+b = 9 - 2.4
+print(b)
+6.6
+
+c = 12.1 * 3.7
+print(c)
+44.77
+
+d = 3 / 4
+print(d)
+0.75
+```
+
+If you add, subtract or multiply two integers you will get an integer value back. For division it
+will return a floating pointer number (i.e., a non-integer number with a decimal point in it) even
+if the inputs are integers. To perform division that returns an integer rounded down to the nearest
+integer value use `//`, e.g.
+
+```python
+a = 3 // 4
+print(a)
+0
+
+b = 34 // 13
+print(b)
+2
+```
+
+> Note: If you're using Python 2 (which is not recommended, but you may come across some old code)
+> division of two integers will return an integer based on the result rounded down to the nearest
+> integer.
+
+A couple of other useful operators are:
+
+ * `**` - raise to the power
+ * `%` - the remainder after division
+
+```python
+a = 2 ** 4
+print(a)
+16
+
+b = 13 % 4
+1
+```
+
+### The `math` library
+
+For most complex mathematical operators you can use the built-in
+[`math`](https://docs.python.org/3/library/math.html) library. Some non-exhaustive examples are:
+
+```python
+import math
+
+# square root
+x = math.sqrt(4)
+print(x)
+2.0
+
+# trigonometry (inputs are in radians)
+x = math.sin(2.3)
+print(x)                                                                           
+0.7457052121767203
+
+# use the constant pi from within math 
+y = math.cos(math.pi)
+print(y)
+-1.0
+
+z = math.tan(0.0)
+print(z)
+0.0
+
+# natural and base 10 logarithm
+x = math.log(100.0)
+print(x)
+4.605170185988092
+
+y = math.log10(100.0)
+print(y)
+2.0
+```
+
 ## Shell commands
 
 Within IPython you can use some standard shell commands for example:

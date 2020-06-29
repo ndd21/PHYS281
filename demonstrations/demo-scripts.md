@@ -90,18 +90,4 @@ sydneyhour = (hour + 9) % 24
 print("The current time in Sydney is {}:{}:{}".format(sydneyhour, minute, seconds))
 ```
 
-## Editing in VS Code
-
-Virtual Studio (VS) Code is a text editor produced by Microsoft. Many other very good text editors
-are available! It can be used for writing and edited any plain text files, but is mostly used for
-writing code. The main useful features for code editing are syntax highlighting and code linting.
-
-If writing Python code you should install the "Python" extension for VS Code:
-
- * click on the "Extension" button in the left hand panel (four squares with the upper right one detached),
- * type "Python" in the search box,
- * click the green install box.
-
-### Linting
-
 ## Command line arguments
