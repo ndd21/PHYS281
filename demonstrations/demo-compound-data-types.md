@@ -364,11 +364,11 @@ Pitkin
 
 ## Sets
 
-Set are a _bit_ like dictionaries that only contain keys. They can only contain one of any value and
-they are automatically sorted. Like dictionaries they are defined using curly brackets `{}` or the
-class name `set`. You cannot access values in a set using indexing. In general, you won't come
-across sets very much. They are mainly useful for doing faster comparisons if you are trying to work
-out if a value is in a "set" of other values.
+Set are a _bit_ like dictionaries that only contain keys. They can only contain one of any value
+(i.e., no duplicates) and they are automatically sorted. Like dictionaries they are defined using
+curly brackets `{}` or the class name `set`. You cannot access values in a set using indexing. In
+general, you won't come across sets very much. They are mainly useful for doing faster comparisons
+if you are trying to work out if a value is in a "set" of other values.
 
 ```python
 x = {1, 1, 5, 2, 3, 4, 4}
@@ -386,4 +386,19 @@ y = [1, 2, 3, 4, 5]
 37.5 ns ± 0.93 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
 %timeit 10 in y
 97.7 ns ± 0.924 ns per loop (mean ± std. dev. of 7 runs, 10000000 loops each)
+```
+
+Another use for sets is as a quick way of removing duplicates from a list, e.g.,
+
+```python
+# a list containing some duplicate values
+x = [1, 2, 3, 1, 6, 2, 5, 7, 8, 8, 10, 2, 4, 9, 9]
+
+# convert to a set
+y = set(x)
+
+# convert back to a list
+newx = list(y)
+print(newx)
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
