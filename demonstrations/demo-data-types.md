@@ -4,8 +4,8 @@ In code you can define **variables** and these have a **type**, where the type i
 *thing* that the variable represents. For example, a variable might hold an integer number, or a set
 of alphanumeric values (known as a string).
 
-* a **variable** is any object that you create in a code, e.g., in `x = 2` I have defined a
-  variable called `x`, which can be reused later in the code.
+* a **variable** is _name_ you give any object that you create in a code, e.g., in `x = 2` I have
+  defined a variable called `x`, which can be reused later in the code.
 
 > Note:  Variable names must start with a letter, but can then contain numbers, hyphens or
 > underscores. Variable names are case sensitive, i.e., `a = 2` and `A = 2` are difference

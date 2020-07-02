@@ -82,6 +82,22 @@ import numpy
 x = numpy.sin(3.2)
 ```
 
+> Warning: you can define a variable whose name is the namespace of an imported module. You then
+> won't be able to use the imported module as it has been redefined as a new variable!
+
+```python
+import numpy as np
+
+# define a variable with the name np!
+np = 2
+
+# try and use the numpy sin function
+x = np.sin(1.2)
+AttributeError: 'int' object has no attribute 'sin'
+```
+
+In this case `np` is now an integer rather than an alias to the `numpy` module.
+
 ## Glossary
 
 `import`: load a module into a Python terminal session or script
