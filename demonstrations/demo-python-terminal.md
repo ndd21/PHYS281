@@ -77,7 +77,8 @@ It is not recommended to store and use variables this way though!
 
 ## Python as a calculator
 
-You can use the Python terminal as a calculator using standard arithmetic operators:
+You can use the Python terminal as a calculator using standard arithmetic
+[operators](https://www.w3schools.com/python/python_operators.asp):
 
  * `+` - add to numbers
  * `-` - substract two numbers

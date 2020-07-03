@@ -102,14 +102,17 @@ print(expression)
 True
 ```
 
-These expressions can be combined with the logical statements `and`, `or`, `not`:
+These expressions can be combined with the logical statements
+[`and`](https://www.w3schools.com/python/ref_keyword_and.asp),
+[`or`](https://www.w3schools.com/python/ref_keyword_or.asp),
+[`not`](https://www.w3schools.com/python/ref_keyword_not.asp):
 
- * `x and y`: "`x` is `True` and `y` is `True`"
- * `x or y`: "`x` is `True` or `y` is `True`"
- * `not x`: "`x` is not `True`" (i.e., "`x` is `False`")
+ * `x and y`: `True` if both `x` is `True` **and** `y` is `True`
+ * `x or y`: `True` if either `x` is `True` **or** `y` is `True`
+ * `not x`: `True` if `x` is **not** `True` (i.e., `x` is `False`)
 
-where `x` and `y` can be variables, or other conditional expression like above. These also return
-boolean values:
+where `x` and `y` can be variables, or other conditional expression like above. These expressions
+return boolean values:
 
 ```python
 a = 1
