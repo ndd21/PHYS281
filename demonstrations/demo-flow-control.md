@@ -222,18 +222,228 @@ You can have as many `elif` statements as required.
 
 > Note: you do not have to end with an `else` if you've covered all the condition that are required.
 
-## `for` loops
+## `for` and `while` loops
 
-## Iterators
+You often need to get code to repeat a task multiple times. Rather than having to repeatedly write
+the same piece of code over and over you can place it inside a
+[`for`](https://www.w3schools.com/python/ref_keyword_for.asp) statement or
+[`while`](https://www.w3schools.com/python/ref_keyword_while.asp) statement.
 
-A very useful built-in function that returns an iterator is the
-[`range`](https://docs.python.org/3/library/functions.html#func-range) function. `range`
+A `for` statement is used to increment though a sequence of values (i.e., those in a list or a
+tuple) and run whatever is within the statement at each iteration. The code within the `for`
+statement is often dependent on the current value in the sequence. Some basic examples are:
+
+```python
+values = [0, 1, 2, 3, 4]
+squaredvalues = []  # empty list that we'll append to
+for i in values:
+    # code within the loop must be indented
+    print(i)
+    squaredvalues.append(i ** 2)
+
+# unindent to exit the loop code
+print(squaredvalues)
+0
+1
+2
+3
+4
+[0, 1, 4, 9, 16]
+```
+
+```python
+sentence = ""
+words = ["Coding", "in", "Python", "is", "fun!"]
+for word in words:
+    sentence += word + " "
+print(sentence)
+Coding in Python is fun!
+```
+
+The [keywords][keyword] used here are `for` and `in`. The value after `in` is the sequence to be
+iterated through; it can be any
+[**iterator**](https://www.w3schools.com/python/python_iterators.asp), which in Python is any object
+that contains a set of values that can be moved through. The value between `for` and `in` will
+contain the current value from the sequence and can be used within the loop. It is a variable and
+can be named whatever you want it to be.
+
+### Useful `for` loop tips
+
+#### `range`
+
+The [`range`](https://docs.python.org/3/library/functions.html#func-range) built-in function is very
+useful in `for` loops to allow you to loop over a set of increasing or decreasing integer numbers.
+`range` can take either one, two or three integer value arguments:
+
+```python
+# loop over the numbers 0 to 4 in steps to 1 (range goes from 0 to one less than the argument)
+for i in range(5):
+    print(i)
+0
+1
+2
+3
+4
+
+# loop over the numbers from 3 to 7 in steps of 1
+for i in range(3, 8):
+    print(i)
+3
+4
+5
+6
+7
+
+# loop over the numbers 2 to 10 in steps of 2
+for i in range(2, 11, 2):
+    print(i)
+2
+4
+6
+8
+10
+
+# loop backwards from 10 to 2 in steps of -2
+for i in range(10, 1, -2):
+    print(i)
+10
+8
+6
+4
+2
+```
+
+Why do you give it an integer one bigger than the last value? Because Python indexing starts at 0
+and therefore this works:
+
+```python
+x = [3, 1, 5, 7]
+# use the length of x as the argument to range
+for i in range(len(x)):
+    print(x[i])
+3
+1
+5
+7
+```
+
+> Note: in Python 3 `range` does not return a list, so if you want to use it to create a list you
+> must do, e.g., `x = list(range(10))`
+
+#### `enumerate`
+
+The [`enumerate`](https://docs.python.org/3/library/functions.html#enumerate) built-in function
+allow you to loop over both the indexes and values of a sequence that you give it. For each
+iteration of a loop it returns a tuple pair containing the index and value (you can name these
+whatever you want), e.g.:
+
+```python
+x = ["a", "b", "c"]
+for i, xvalue in enumerate(x):
+    # i contains the index, and x value contains the value
+    print(i, xvalue)
+0 a
+1 b
+2 c
+```
+
+#### `zip`
+
+The [`zip`](https://docs.python.org/3/library/functions.html#zip) built-in function allows you to
+"zip" together two or more equal length sequences. If used in a `for` loop it will return a tuple
+with the groups items, e.g.:
+
+```python
+x = ["a", "b", "c"]
+y = [12.4, 1.5, 6.7]
+for xvalue, yvalue in zip(x, y):
+    print(xvalue, yvalue)
+a 12.4
+b 1.5
+c 6.7
+```
+
+#### `break` and `continue`
+
+The [`break`](https://www.w3schools.com/python/ref_keyword_break.asp) and
+[`continue`](https://www.w3schools.com/python/ref_keyword_continue.asp) keywords, combined with
+`if...elif...else` conditional statements, are ways of using flow control within a loop. `break`
+allows you to exit a loop if a certain condition is fulfilled, e.g.,
+
+```python
+for i in range(-5, 6):
+    # exit the loop if the numbers become positive
+    if i >= 0:
+        # indent again in the if statement
+        break
+    print(i)
+-5
+-4
+-3
+-2
+-1
+```
+
+`continue` returns to the start of the loop without implementing any of the code below it within the
+loop, e.g.,:
+
+```python
+for i in range(-5, 6):
+    if i < 0:
+        # do not reach the print statement if i is negative
+        continue
+    print(i)
+0
+1
+2
+3
+4
+5
+```
+
+### `while` loops
+
+A [`while`](https://www.w3schools.com/python/ref_keyword_while.asp) loop takes a conditional
+expression and keeps looping over the code within it until that condition is satisfied:
+
+```python
+x = 4
+while x < 10:
+    # indent the code within the loop
+    x += 2
+print(x)
+```
+
+> Note: Even if the condition is fulfilled at the start of the loop the rest of the code below will still be run for that iteration:
+
+```python
+x = 4
+while x > 0:
+    x -= 1
+    print(x)
+3
+2
+1
+0
+```
+
+You can have "infinite" while loops by setting the condition to `True`, however these must contain a
+`break` statement otherwise they will never stop, e.g.,
+
+```python
+x = 0
+while True:
+    if x > 10:
+        # have a break statement within the loop
+        break
+    x += 1
+```
 
 # List comprehension
 
-You can use the `for` statement to create lists using a single line of code. This is called list
-comprehension. For example, suppose we had a list of values and we wanted to create a new list with
-the square of each of those values:
+You can use the `for` statement to create lists using a single line of code. This is called **list
+comprehension**. For example, suppose we had a list of values and we wanted to create a new list
+with the square of each of those values:
 
 ```python
 values = [1, 2, 3, 4, 5]
@@ -254,4 +464,12 @@ print(x)
 [1.0, 1.4142135623730951, 1.7320508075688772]
 ```
 
-There is a very similar way of 
+There is a very similar construct for dictionaries, called **dictionary comprehension**:
+
+```python
+values = [1, 2, 3]
+keys = ["a", "b", "c"]
+x = {keys[i]: values[i] for i in range(3)}
+print(x)
+{'a': 1, 'b': 2, 'c': 3}
+```
