@@ -12,7 +12,7 @@ something multiple times. To do this you can use flow control:
 
 In Python the way to specify that you are defining something "inside" a flow control
 statement/function/class is by using indenting. Most other languages use parentheses (brackets) of
-some sort, but in Python indenting is vital.
+some sort, but in Python indenting is **essential**.
 
 Things that are together within the same statement or definition must be indented using whitespace
 (regular spaces or tabs) to the same level.
@@ -22,6 +22,17 @@ Things that are together within the same statement or definition must be indente
 
 If you are nesting statements (i.e., flow control within a function definition, or loops within
 loops), each statement definition my be further indented.
+
+```python
+if a == b:
+    # first level of indentation (within if statement)
+    for x in range(y):
+        # second level of indenting (within for loop and if statement)
+        if x > a:
+            # third level of indenting (within if statement within for loop
+            # within outer if statement)
+            ...
+```
 
 **Correct examples**
 
