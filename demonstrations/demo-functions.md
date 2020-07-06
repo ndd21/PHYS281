@@ -17,6 +17,7 @@ b = "world!"
 
 # use (or "call") the function with the two variable a and b
 my_function(a, b)
+Hello world!
 ```
 
 The function name must start with an upper or lowercase letter, but can then contain any letters,
@@ -252,6 +253,66 @@ I can sing a rainbow too!
 ## Variable scope
 
 ## Documenting functions
+
+The above examples are lacking one key feature. Documentation! It is very good practice to document
+your code. This helps you and others know what your code is supposed to do. The documentation of a
+function should briefly describe what it does, list its arguments, and state what it returns. Using
+a couple of the above examples we could have:
+
+```python
+def sum_and_product(a, b):
+    """
+    Calculate the sum and product of two numbers.
+
+    Parameters
+    ----------
+    a: float
+        A floating point number
+    b: float
+        A floating point number
+
+    Returns
+    -------
+    sum, product: tuple
+        The resulting sum and product
+    """
+
+    totalsum = a + b
+    totalproduct = a * b
+
+    # return both values
+    return totalsum, totalproduct
+```
+
+The text between the `"""`'s is known as a "docstring". In IPython you can access a function's
+docstring using `?`, e.g.,
+
+```python
+sum_and_product?
+
+Signature: sum_and_product(a, b)
+Docstring:
+Calculate the sum and product of two numbers.
+
+Parameters
+----------
+a: float
+    A floating point number
+b: float
+    A floating point number
+
+Returns
+-------
+sum, product: tuple
+    The resulting sum and product
+File:      ~/repositories/<ipython-input-27-b49e20c31d46>
+Type:      function
+
+```
+
+As well as the _docstring_ you should liberally comment your code using comment lines starting with
+`#`. Using descriptive variable names and leaving blank space lines between less closely related
+code blocks will help with code readability.
 
 [argument]: an *argument* is a variable that is passed to a function, so that it can be used within
 the function.
