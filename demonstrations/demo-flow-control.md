@@ -463,6 +463,20 @@ print(x)
 [1, 4, 9, 16, 25]
 ```
 
+For reference, in case you see it in other code, another way of doing this is to use the
+[`map`](https://docs.python.org/3/library/functions.html#map) built-in function and a function (or a
+[`lambda`](https://www.w3schools.com/python/python_lambda.asp) function):
+
+```python
+values = [1, 2, 3, 4, 5]
+x = list(map(lambda x: x ** 2, values))
+print(x)
+```
+
+> Note: for ease of readability, among other things, it is [highly
+> recommended](https://www.geeksforgeeks.org/python-map-vs-list-comprehension/) to use list
+> comprehension rather than `map`.
+
 We can also use an `if` statement within list comprehension if we require a specific condition to be
 met, e.g.:
 
@@ -474,6 +488,8 @@ x = [math.sqrt(y) for y in values if y > 0]
 print(x)
 [1.0, 1.4142135623730951, 1.7320508075688772]
 ```
+
+An equivlane
 
 There is a very similar construct for dictionaries, called **dictionary comprehension**:
 

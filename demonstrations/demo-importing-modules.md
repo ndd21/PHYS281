@@ -7,7 +7,7 @@ Python contains a range of [built-in modules](https://docs.python.org/3/py-modin
  * **built-in** modules are files that are automatically bundled with, and accessible by, every
    Python installation (the bundled modules can change for different Python versions).
 
-There are also a huge range of third-party packages  that can be installed and then used within Python. 
+There are also a huge range of third-party packages that can be installed and then used within Python. 
 
  * a **package**, or *library*, is a bundle of files that may contain one or more modules and submodules
 
@@ -21,11 +21,16 @@ print(datatime.date.today())
 2020-06-10
 ```
 
-Once imported, the module functions and classes exist within the module's *namespace*. In the example, to use the `date` class that exists within the `datetime` module I've had to write `datatime.date`.
+Once imported, the module functions and classes exist within the module's *namespace*. In the
+example, to use the `date` class that exists within the `datetime` module I've had to write
+`datatime.date`.
 
- * a **namespace** is generally way to try and keep names used within a program unique (i.e., if another module was imported that also had a `date` class it would still be separate from that in `datetime`)
+ * a **namespace** is generally way to try and keep names used within a program unique (i.e., if
+   another module was imported that also had a `date` class it would still be separate from that in
+   `datetime`)
 
-You don't need to keep the namespace, e.g., I could just import the `date` class from `datetime` using the `from` keyword:
+You don't need to keep the namespace, e.g., I could just import the `date` class from `datetime`
+using the `from` keyword:
 
 ```python
 from datetime import date
@@ -36,7 +41,8 @@ print(date.today())
 But, this runs more risk of clashing names.
 
 As the module definition states, you can import from any Python file, where a Python file is one
-saved with the "`.py`" file extension, e.g., `myfunctions.py` (it's best have have file names that are representative of the contents). If I had a file called `message.py` with the following content:
+saved with the "`.py`" file extension, e.g., `myfunctions.py` (it's best have have file names that
+are representative of the contents). If I had a file called `message.py` with the following content:
 
 ```python
 def message_in_box(a):
@@ -71,7 +77,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 ```
 
-In the first instance this means that the `numpy` namespace is aliases to `np` and in the second the `pyplot` submodule of `matplotlib` is aliased to `plt`, e.g.,
+In the first instance this means that the `numpy` namespace is aliases to `np` and in the second the
+`pyplot` submodule of `matplotlib` is aliased to `plt`, e.g.,
 
 ```python
 import numpy as np
