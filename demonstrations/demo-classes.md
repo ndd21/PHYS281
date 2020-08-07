@@ -7,7 +7,7 @@ template for creating an object of that type.
 
 Objects can combine holding data with functionality. Anything that you can access in an object is
 known as an **attribute**. Attributes can either be **data attributes** (sometime also known as
-class properties or members) or function attributes (alss known as **class methods**).
+class properties or members) or **function attributes** (also known as **class methods**).
 
 A new object class can be defined using the [`class`] keyword.
 
@@ -36,6 +36,14 @@ print(electron.mass)
 9.1e-31
 ```
 
+For an instance of the class these data attributes can be altered:
+
+```python
+electron.mass = 2
+print(electron.mass)
+2
+```
+
 ## A class with initialisation
 
 The above class has been created with a fixed set values of the data attributes. Every time an
@@ -54,7 +62,8 @@ class Particle:
         self.mass = mass
 ```
 
-Now, this method can be used to create different particles by supplying their values, e.g.:
+Now, creating an instance of a `Particle` class different particles can be created by supplying
+their values, e.g.:
 
 ```python
 electron = Particle("electron", -1.6e-19, 9.1e-31)
@@ -66,8 +75,42 @@ electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```
 
-There are a set of special method names (sometimes called "dunder" methods as they start and end
-with a double underscore) that can be defined in a class.
+The `__init__` method of a class can can have positional and/or keyword arguments, just like any
+other function. Using keyword arguments allows the setting of default initialisation values if no
+user supplied values are given, e.g.,
+
+```python
+class Particle:
+    def __init__(self, name="electron", charge=-1.6e-19, mass=9.1e-31)
+        # if no values are supplied the default values will be used
+        self.name = name
+        self.charge = charge
+        self.mass = mass
+
+myparticle = Particle()
+print()
+```
+
+### `self`
+
+The `__init__` method, and any other regular method defined in a class, takes `self` as its first
+argument. But when creating the new object nothing was passed for `self`. When defining a class
+method it has to be explicitly told to take a copy of itself. This allows that method to access all
+the class attributes of the current class instance via `self`. But, when using a method `self` is
+passed implicitly, i.e., the user does not have to supply it as it is supplied automatically.
+
+### Special methods
+
+There are a set of [special method names](https://rszalski.github.io/magicmethods/) (sometimes
+called "dunder", or magic, methods as they start and end with a double underscore) like `__init__`
+that can be defined in a class. These can be used
+
+ * to allow comparions of objects of specific class
+ * define how mathematical operators work on a class
+ * access attributes within a class
+ * provide representations of class
+
+One 
 
 ### Adding methods
 
