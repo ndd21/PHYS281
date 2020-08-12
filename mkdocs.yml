@@ -1,0 +1,35 @@
+site_name: PHYS281
+
+site_author: Matthew Pitkin
+
+nav:
+  - Home: 'index.md'
+  - Demonstrations:
+    - Python functions: 'demo-functions.md'
+    - Python classes: 'demo-classes.md'
+    - Error checking and debugging: 'demo-error-checking.md'
+
+docs_dir: 'demonstrations'
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.highlight:
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.tabbed
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options: {
+        "attributes": {
+          "height": "25px",
+          "width": "25px"
+        }
+      }
+  - toc:
+      permalink: true

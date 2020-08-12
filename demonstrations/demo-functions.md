@@ -254,6 +254,10 @@ I can sing a rainbow too!
 
 A variable's scope relates to where in a code a particular variable is recognised
 
+## Unknown numbers of arguments
+
+Discuss `*args` and `**kwargs`.
+
 ## Documenting functions
 
 The above examples are lacking one key feature. Documentation! It is very good practice to document
