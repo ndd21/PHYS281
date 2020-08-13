@@ -5,7 +5,7 @@ useful to define it as a function.
 
 To define a function you use the [`def`](https://www.w3schools.com/python/ref_keyword_def.asp)
 keyword followed by the name you want to give the function followed by brackets containing any
-[arguments][arguement] that the function takes:
+@(argument)s that the function takes:
 
 ```python
 def my_function(variable1, variable2):
@@ -62,11 +62,15 @@ CountToTen()
 ## Function arguments
 
 In the above examples there are some functions that take arguments, i.e., you pass variables to them
-that they then use. In the definition each variable with the brackets is separated by a comma. The
-name of the variable used in the definition is what that variable will be known as _within_ the
-function even if the variable had a different name outside the function. As with function names, it
-is useful for variable names to be descriptive. You can have as many arguments to a function as you
-want, including no arguments at all!
+that they then use. In the function definition each variable within the brackets is separated by a
+comma.
+
+!!! note
+    The name of the variable used in the function definition is what that variable will be known as
+    *within* the function even if the variable passed to the function had a different name.
+    
+As with function names, it is useful for variable names to be descriptive. You can have as many
+arguments to a function as you want, including no arguments at all!
 
 ```python
 # a function with no arguments
@@ -78,8 +82,9 @@ PiratePete()
 Aarrrrrrrr! Where's me treasure.
 ```
 
-Notice that when using the function, even when they take no arguments, you need to include the
-brackets.
+!!! note
+    Notice that when using the function, even if it takes no arguments, you need to include the
+    brackets.
 
 ```python
 # a function with two arguments
@@ -111,8 +116,21 @@ the function their order (or position) matters. Positional arguments are always 
 you use the function, i.e., you cannot leave any out when calling the function.
 
 It's best not to have too many arguments or you can lose track of them. If you do require lots of
-arguments it can be useful to group them and instead define the function to take single variable
-that has a type such as a list or dictionary.
+inputs to a function it can be useful to group them and instead define the function to take single
+variable that has a type such as a list or dictionary.
+
+!!! note
+    You can use the names of positional arguments (see [keyword arguments
+    below](#keyword-arguments)) when parsing values to a function if you want, are they can then
+    be passed in any order:
+
+    ```python
+    def hey_there(firstname, lastname):
+        print("Hello {} {}".format(firstname, lastname))
+    
+    hey_there(lastname="Pitkin", firstname="Matt")
+    Hello Matt Pitkin
+    ```
 
 ### Keyword arguments
 
@@ -154,16 +172,29 @@ print(in_range(99, maximum=lower, minimum=upper))
 False
 ```
 
+!!! note
+    Sometimes you might see code where the user has given then variable being passed to a
+    keyword argument the same name as the keyword argument itself, e.g.:
+
+    ```python
+    minimum = 12
+    maximum = 100
+    is_in_range = in_range(34, minimum=minimum, maximum=maximum)
+    ```
+
+    While this may look a bit confusing
+
+
 ## Returning values
 
-Many of the above example using the `print` built-in function to print a message to the screen.
-However, you cannot use the output of the function if it just prints it, e.g., if you had a function
-that calculated the sine of an angle and it just prints it to the screen it would be fine if that is
-all you ever used it for, but if you wanted to use that output as part of a larger equation it
-wouldn't be much use.
+Many of the above example use the `print` built-in function to print a message to the screen.
+However, you cannot then *use* the output of the function if it just prints it, e.g., if you had a
+function that calculated the sine of an angle and it just prints it to the screen it would be fine
+if that is all you ever used it for, but if you wanted to use that output as part of a larger
+equation it wouldn't be much use.
 
-Most functions should return something to the user and that they can assign to a variable that can
-then be used later in the code. To do this the
+Most functions should return something to the user. This returned value can be assigned to a
+variable that can then be used later in the code. To do this the
 [`return`](https://www.w3schools.com/python/ref_keyword_return.asp) keyword is used within the
 function definition. As well as returning a variable from the function it also tells to function to
 exit, i.e., there shouldn't be code after the return (unless you're using it in a conditional
@@ -254,9 +285,100 @@ I can sing a rainbow too!
 
 A variable's scope relates to where in a code a particular variable is recognised
 
-## Unknown numbers of arguments
+## Unknown numbers of keyword arguments
 
-Discuss `*args` and `**kwargs`.
+!!! question
+    What if your function uses another function that takes in multiple keyword arguments. Does your
+    function then have to be defined with all those keyword arguments too?
+
+    ```python
+    def somefunc(firstname="Default", lastname="Name"):
+        # do something with args...
+        return "{} {}".format(firstname, lastname)
+
+    # another function that uses somefunc
+    def anotherfunc(message="Hello", firstname="Default", lastname="Name"):
+        # we've had to define this function to take firstname and last name as well,
+        # and redo their default values too
+
+        # use somefunc
+        output = somefunc(firstname=firstname, lastname=lastname)
+
+        return "{} {}".format(message, output)
+    ```
+
+There are a couple of ways to make this slightly simpler, both of which use the ability to "unpack"
+a dictionary.
+
+A function can be defined to take a parameter named `**kwargs`. This is special syntax that means
+that when you use the function you can pass it any number of keyword arguments. `**kwargs` must be
+the final argument in your function, but you can have other positional and explicit keyword
+arguments before it.
+
+Within the function `kwargs` (without the two asterisks) is just a Python dictionary containing the
+keywords and their values as key-value pairs.
+
+If you know that you are only ever going to pass the additional keywords `"firstname"` and `"lastname"`
+to `anotherfunc` then you could do:
+
+```python
+def anotherfunc(message="Hello", **kwargs):
+    print(kwargs)  # print statement is just for show here
+
+    # use somefunc
+    output = somefunc(**kwargs)
+
+    return "{} {}".format(message, output)
+
+print(anotherfunc(firstname="Matt", lastname="Pitkin"))
+{'lastname': 'Pitkin', 'firstname': 'Matt'}
+Hello Matt Pitkin
+```
+
+By passing `**kwargs` to `somefunc` it "unpacks" the dictionary, so that essentially `{'lastname':
+'Pitkin', 'firstname': 'Matt'}` becomes `lastname="Pitkin", firstname="Matt"` when input into
+function.  If you did not supply either `firstname` or `lastname` to `anotherfunc` then the default
+values defined in `somefunc` would be used.
+
+If there are other keyword arguments that you could pass to `anotherfunc` then trying to pass them
+to `somefunc` won't work:
+
+```python
+print(anotherfunc(firstname="Matt", lastname="Pitkin", random="blah"))
+{'random': 'blah', 'lastname': 'Pitkin', 'firstname': 'Matt'}
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-8-cf7c1c75bd94> in <module>()
+----> 1 print(anotherfunc(firstname="Matt", lastname="Pitkin", random="blah"))
+
+<ipython-input-6-b382a5e46b0e> in anotherfunc(message, **kwargs)
+      3 
+      4     # use somefunc
+----> 5     output = somefunc(**kwargs)
+      6 
+      7     return "{} {}".format(message, output)
+
+TypeError: somefunc() got an unexpected keyword argument 'random'
+```
+
+So, alternatively you could have:
+
+```python
+def anotherfunc(message="Hello", **kwargs):
+    print(kwargs)  # print statement is just for show here
+
+    # only get keyword args required for somefunc
+    somefunckwargs = {}
+    somefunckwargs["firstname"] = kwargs.pop("firstname")
+
+    # use somefunc
+    output = somefunc(**kwargs)
+
+    return "{} {}".format(message, output)
+```
+
+There is similar unpacking for positional arguments using the `*args` syntax in the function
+definition, but it is generally safer to use keyword arguments.
 
 ## Documenting functions
 
@@ -316,9 +438,12 @@ Type:      function
 
 ```
 
-As well as the _docstring_ you should liberally comment your code using comment lines starting with
-`#`. Using descriptive variable names and leaving blank space lines between less closely related
-code blocks will help with code readability.
+!!! note
+    There are various styles of docstrings. The above example, and others in these notes, use the
+    [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard) style. But
+    others are available. The best advice is to pick one and be consistent when using it.
 
-[argument]: an *argument* is a variable that is passed to a function, so that it can be used within
-the function.
+!!! tip
+    As well as the *docstring* you should liberally comment your code using comment lines starting
+    with `#`. Using descriptive variable names and leaving blank space lines between less closely
+    related code blocks will also help with code readability.

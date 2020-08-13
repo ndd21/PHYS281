@@ -20,6 +20,9 @@ docs_dir: 'demonstrations'
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - footnotes
+  - mdtooltips
   - pymdownx.highlight:
       use_pygments: True
   - pymdownx.superfences

@@ -250,11 +250,37 @@ class Particle:
         return F
 
 
-myparticle = Particle()
+electron = Particle("electron", -1.6e-19, 9.1e-31)
 
-# calculate the Lorentz force
-F = Particle.lorentz_force()
+# calculate the Lorentz force (forgetting the required positional argument!)
+F = electron.lorentz_force()
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-23-14143ee08c6d> in <module>
+----> 1 F = electron.lorentz_force()
 
+TypeError: lorentz_force() missing 1 required positional argument: 'E'
+
+# try again (with E being the wrong length!)
+F = electron.lorentz_force([0.1, 0.2])
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+<ipython-input-24-966d81233b8b> in <module>
+----> 1 F = electron.lorentz_force([0.1, 0.2])
+
+<ipython-input-20-98635895214d> in lorentz_force(self, E, B, v)
+     42         if len(E) != 3:
+     43             # check E is the right length
+---> 44             raise ValueError("E is not the right length")
+     45
+     46         F = 3 * [0.0]  # initialise F as zeros
+
+ValueError: E is not the right length
+
+# try again!
+F = electron.lorentz_force([0.1, 0.2, 0.3])
+print(F)
+[-1.6e-20, -3.2e-20, -4.8e-20]
 ```
 
 The `lorentz_force` method above takes one positional argument and two keyword arguments (that give
@@ -278,3 +304,137 @@ definition, e.g.:
 A `classmethod`
 
 ## Class inheritance
+
+You may want to define a new class that is very similar to an already existing class, but adds new
+attributes. Rather than redefining all of the aspects of the existing class in the new class you can
+[inherit](https://www.w3schools.com/python/python_inheritance.asp) them from the existing class.
+
+Suppose we have a `Galaxy` class:
+
+```python
+class Galaxy:
+    """
+    A class defining a galaxy.
+
+    Parameters
+    ----------
+    mass: float
+        The galaxy mass (in solar masses)
+    distance: float
+        The distance (in Mpc)
+    type: str
+        The type of galaxy, e.g., "spiral"
+    name: str
+        The galaxy's name. Defaults to None.
+    """
+
+    def __init__(self, mass, distance, type, name=None):
+        self.mass = mass
+        self.distance = distance
+        self.type = type
+        self.name = name
+
+    def redshift(self, H0=70.0):
+        """
+        Calculate the redshift using Hubble's law.
+
+        Parameters
+        ----------
+        H0: float
+            Hubble's constant (defaults to 70 km/s/Mpc)
+        """
+
+        # recession velocity
+        v = H0 * self.distance
+
+        return v / 3e5  # velocity / speed of light (km/s)
+```
+
+Now, suppose we want a class specifically for a spiral galaxy, but keeping the attributes of a
+`Galaxy`, i.e. `Galaxy` is the **parent** class and `SpiralGalaxy` will be its **child**. We can
+create a new class with:
+
+```python
+class SpiralGalaxy(Galaxy):  # this is where the Galaxy gets inherited
+    """
+    A class defining a spiral galaxy.
+    """
+
+    def __init__(self, bulge_mass, disc_mass, halo_mass, distance, name=None, barred=False):
+        # the special "super" function allows initialisation of the common
+        # Galaxy attributes
+        super().__init__(bulge_mass + halo_mass + disc_mass, distance, "spiral", name=name)
+
+        # add spiral specific properties
+        self.bulge_mass = bulge_mass
+        self.disc_mass = disc_mass
+        self.halo_mass = halo_mass
+        self.barred = barred  # has it got a bar
+
+    def disc_circular_velocity(self, Rd, r):
+        """"
+        Calculate the contribute to the circular velocity contribution of the
+        disc (see Eqn. 1 of astro-ph/9909252).
+
+        Parameters
+        ----------
+        Rd: float
+            The disc scale-length (kpc)
+        r: array_like
+            A set of positive radial values at which to calculate the velocity (kpc)
+
+        Returns
+        -------
+        velocity: array_like
+            A set of circular velocity values (km/s).
+        """
+
+        # import modified Bessel functions from scipy
+        from scipy.special import iv, kn
+        from math import sqrt 
+
+        disc_mass_si = self.disc_mass * 1.99e30  # disc mass in kg
+
+        velocities = []  # list to hold velocities
+
+        for rval in r:
+            x = rval / Rd
+            B = iv(0, x / 2) * kn(0, x / 2) - iv(1, x / 2) * kn(1, x / 2)
+            G = 6.67e-11  # Newton's gravitational constant
+            v = sqrt(0.5 * G * (disc_mass_si / (Rd * 3.086e19)) * x ** 2 * B)
+            velocities.append(v / 1e3)  # convert to km/s
+
+        return velocities
+```
+
+It we create a `SpiralGalaxy`:
+
+```python
+bulge_mass = 3.0e8  # solar masses
+disc_mass = 6.0e9
+halo_mass = 5.0e10
+distance = 0.84  # Mpc
+m33 = SpiralGalaxy(bulge_mass, disc_mass, halo_mass, distance, name="M33")
+```
+
+we can then use attributes from the `Galaxy` class like:
+
+```python
+z = m33.redshift()
+print("{}'s redshift is {}".format(m33.name, z))
+M33's redshift is 0.000196
+```
+
+or use the new attributes:
+
+```python
+rs = list(range(1, 16))  # range of distances
+Rd = 1.2  # disk scale in kpc
+vs = m33.disc_circular_velocity(Rd, rs)
+
+from matplotlib import pyplot as plt
+plt.plot(rs, vs)
+plt.xlabel("Distance from Galactic centre (kpc)")
+plt.ylabel("Circular velocity (km/s)")
+plt.show()
+```

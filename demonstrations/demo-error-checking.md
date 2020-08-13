@@ -53,7 +53,7 @@ SyntaxError: invalid syntax
 
 #### Forgotten closing bracket
 
-```python hl_lines="3"
+```python hl_lines="3 4"
 --8<-- "demonstrations/showsyntaxerror_bracket.py"
 ```
 
@@ -77,7 +77,7 @@ Trying to import a module that is not installed or present in your path will res
 [`ImportError`](https://docs.python.org/3/library/exceptions.html#ImportError) or a
 [`ModuleNotFoundError`](https://docs.python.org/3/library/exceptions.html#ModuleNotFoundError):
 
-```python
+```python hl_lines="4"
 import blahblahblah
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -190,7 +190,7 @@ TypeError: 'float' object is not callable
 Trying to open a file that does not exist will raise a
 [`FileNotFoundError`](https://docs.python.org/3/library/exceptions.html#FileNotFoundError):
 
-```python hl_lines="6"
+```{.py3 hl_lines="6"}
 # try opening a non-existant file
 with open("blah.txt", "r") as fp:
     fp.readlines()
@@ -272,8 +272,8 @@ Here are a few general tips for debugging:
    requests like "Why does my code not work?". Be aware, StackOverflow is a community of volunteers,
    and some members are more courteous than others!
 
-### "Rubber duck" debugging :duck:
+### "Rubber duck" debugging
 
 To make sure you understand what your code is doing, compared to what it is supposed to do, it can
 be useful to walk through your code section by section describing it to, e.g., a [rubber
-duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging).
+duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging) :duck:.
