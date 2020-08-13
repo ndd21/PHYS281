@@ -2,6 +2,13 @@ site_name: PHYS281
 
 site_author: Matthew Pitkin
 
+theme:
+  name: material
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
 nav:
   - Home: 'index.md'
   - Demonstrations:
@@ -13,11 +20,11 @@ docs_dir: 'demonstrations'
 
 markdown_extensions:
   - admonition
+  - pymdownx.highlight:
+      use_pygments: True
   - pymdownx.superfences
   - pymdownx.details
   - pymdownx.keys
-  - pymdownx.highlight:
-      use_pygments: true
   - pymdownx.inlinehilite
   - pymdownx.snippets:
       check_paths: true
@@ -25,11 +32,5 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-      options: {
-        "attributes": {
-          "height": "25px",
-          "width": "25px"
-        }
-      }
   - toc:
       permalink: true
