@@ -15,14 +15,19 @@ nav:
     - Python functions: 'demo-functions.md'
     - Python classes: 'demo-classes.md'
     - Error checking and debugging: 'demo-error-checking.md'
+  - glossary.md
 
-docs_dir: 'demonstrations'
+docs_dir: 'docs'
+
+extra_css:
+  - css/tooltips.css
 
 markdown_extensions:
   - admonition
   - attr_list
   - footnotes
-  - mdtooltips
+  - mdtooltipslink:
+      header: True
   - pymdownx.highlight:
       use_pygments: True
   - pymdownx.superfences

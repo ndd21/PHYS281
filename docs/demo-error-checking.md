@@ -38,14 +38,14 @@ brackets if you click on one of them. This can help finding missing brackets.
 #### Forgotten colon
 
 ```python hl_lines="1"
---8<-- "demonstrations/showsyntaxerror_colon.py"
+--8<-- "docs/showsyntaxerror_colon.py"
 ```
 
 ```python hl_lines="7"
 from showsyntaxerror_colon import myfunc
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/home/matthew/repositories/PHYS281/demonstrations/showsyntaxerror_colon.py", line 1
+  File "/home/matthew/repositories/PHYS281/docs/showsyntaxerror_colon.py", line 1
     def myfunc()  # look, no colon!
                                   ^
 SyntaxError: invalid syntax
@@ -54,14 +54,14 @@ SyntaxError: invalid syntax
 #### Forgotten closing bracket
 
 ```python hl_lines="3 4"
---8<-- "demonstrations/showsyntaxerror_bracket.py"
+--8<-- "docs/showsyntaxerror_bracket.py"
 ```
 
 ```python hl_lines="7"
 from showsyntaxerror_bracket import myfunc
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/home/matthew/repositories/PHYS281/demonstrations/showsyntaxerror_bracket.py", line 4
+  File "/home/matthew/repositories/PHYS281/docs/showsyntaxerror_bracket.py", line 4
     return x
          ^
 SyntaxError: invalid syntax
@@ -90,14 +90,14 @@ If a function, class or flow-control definition contains inconsistent indentatio
 an [`IndentationError`](https://docs.python.org/3/library/exceptions.html#IndentationError). 
 
 ```python hl_lines="2 3"
---8<-- "demonstrations/indentationerror.py"
+--8<-- "docs/indentationerror.py"
 ```
 
 ```python hl_lines="7"
 from indentationerror import myfunc
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "/home/matthew/repositories/PHYS281/demonstrations/indentationerror.py", line 3
+  File "/home/matthew/repositories/PHYS281/docs/indentationerror.py", line 3
     y = 2  # indented with 5 spaces!
     ^
 IndentationError: unexpected indent
