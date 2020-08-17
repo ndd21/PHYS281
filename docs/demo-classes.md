@@ -7,21 +7,22 @@ date: 2020-08-12
 
 # Classes
 
-Almost everything in Python is an object. All objects (e.g., named variables, functions) have a
-type. An object's type is also known as its
-[**class**](https://docs.python.org/3/tutorial/classes.html). A class can also be thought of as a
-template for creating an object of that type.
+Almost everything in Python is an @(object). All objects (e.g., variables, functions) have a type.
+An object's type is also known as its [**class**](https://docs.python.org/3/tutorial/classes.html).
+A @(class) can also be thought of as a template for creating an object of that type.
 
 Objects can combine holding data with functionality. Anything that you can access in an object is
-known as an **attribute**. Attributes can either be **data attributes** (sometime also known as
-class properties or members) or **function attributes** (also known as **class methods**).
+known as an @(attribute). Attributes can either be **data attributes** (sometime also known as class
+properties, class members or class variables) or **function attributes** (also known as **class
+methods**). In Python all of a classes attributes are public, i.e., you can access them from an
+instance of a class.
 
 A new object class can be defined using the
 [`class`](https://www.w3schools.com/python/ref_keyword_class.asp) keyword.
 
 ## A simple class
 
-A simple class containing just data attributes can be created using:
+A simple class containing just @(data attribute)s can be created using:
 
 ```python
 class Particle:
@@ -31,7 +32,7 @@ class Particle:
     mass = 9.1e-31  # mass in kg
 ```
 
-An instance of this class can then be created with:
+An variable can then be created from this class (also known as a @(class instance)) with:
 
 ```python
 electron = Particle()  # note the brackets are required
@@ -52,15 +53,23 @@ print(electron.mass)
 2
 ```
 
+!!! note
+    Even though class attributes are public, it is generally considered (by some!) good
+    practice to **not** alter a class' data attributes via the class instance. If you want to set
+    data attributes it is best to do it when initialising the class, through a class method, or
+    using [properties](https://www.python-course.eu/python3_properties.php) (setters are not covered
+    in this course).
+
 ## A class with initialisation
 
 The above class has been created with a fixed set values of the data attributes. Every time an
 instance of the class is created the attributes will be the same.
 
-It is often useful to be able to create an instance of a class with a set of user defined values
-rather than fixed values. Python classes can have a special method called `__init__` that defines
-how the class is initialised and can take in user supplied arguments. In OOP languages like `C++`
-the `__init__` method is equivalent to what is called a constructor.
+It is often useful to be able to create an instance of a class with user defined values rather than
+fixed values. Python classes can have a special method called `__init__` that defines how the class
+is initialised and can take in user supplied arguments. In OOP languages, like `C++`, the `__init__`
+method is equivalent to what is called a
+[constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)).
 
 ```python
 class Particle:
@@ -71,15 +80,15 @@ class Particle:
         self.mass = mass
 ```
 
-Now, creating an instance of a `Particle` class different particles can be created by supplying
-their values, e.g.:
+Now, `Particle` class instances for different particles can be created by supplying their values,
+e.g.,:
 
 ```python
 electron = Particle("electron", -1.6e-19, 9.1e-31)
 proton = Particle("proton", 1.6e-19, 1.7e-27)
 
-for part in [electon, proton]:
-    print("{} mass = {}".format(part.name, part.mass))
+for p in [electon, proton]:
+    print("{} mass = {}".format(p.name, p.mass))
 electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```

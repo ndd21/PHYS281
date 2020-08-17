@@ -31,12 +31,14 @@ markdown_extensions:
   - pymdownx.highlight:
       use_pygments: True
   - pymdownx.superfences
+  - pymdownx.caret
   - pymdownx.details
   - pymdownx.keys
   - pymdownx.inlinehilite
   - pymdownx.snippets:
       check_paths: true
   - pymdownx.tabbed
+  - pymdownx.tilde
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
