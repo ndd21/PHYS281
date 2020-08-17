@@ -67,7 +67,7 @@ instance of the class is created the attributes will be the same.
 
 It is often useful to be able to create an instance of a class with user defined values rather than
 fixed values. Python classes can have a special method called `__init__` that defines how the class
-is initialised and can take in user supplied arguments. In OOP languages, like `C++`, the `__init__`
+is initialised and can take in user supplied arguments. In OOP languages like `C++` the `__init__`
 method is equivalent to what is called a
 [constructor](https://en.wikipedia.org/wiki/Constructor_(object-oriented_programming)).
 
@@ -80,7 +80,7 @@ class Particle:
         self.mass = mass
 ```
 
-Now, `Particle` class instances for different particles can be created by supplying their values,
+Now, `Particle` class instances can be created for different particles by supplying their values,
 e.g.,:
 
 ```python
@@ -93,9 +93,9 @@ electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```
 
-The `__init__` method of a class can can have positional and/or keyword arguments, just like any
-other function. Using keyword arguments allows the setting of default initialisation values if no
-user supplied values are given, e.g.,
+The `__init__` method of a class can can have @(positional argument)s and/or @(keyword argument)s,
+just like any other function. Using keyword arguments allows the setting of default initialisation
+values if no user supplied values are given, e.g.,
 
 ```python
 class Particle:
@@ -119,6 +119,21 @@ passed to it. This allows that method to access all the class attributes of the 
 instance via `self`. But, when using a method `self` is passed implicitly, i.e., the user does not
 have to supply it as it is supplied automatically.
 
+!!! note
+    The usage of the word "self" is just convention. In reality any word can be used in place
+    of self as long as it is consistently used throughout the class, e.g.,
+
+    ```python
+    class whatsit:
+        def __init__(cheesy, name="Blah"):  # using cheesy instead of self!
+            cheesy.name = name
+
+        def show_name(cheesy):
+            print("My name is {}".format(cheesy.name))
+    ```
+
+    It is recommended to stick to using `self`!
+
 ### Special methods
 
 There are a set of [special method names](https://rszalski.github.io/magicmethods/) (sometimes
@@ -126,14 +141,17 @@ called "dunder", or magic, methods as they start and end with a double underscor
 that can be defined in a class. These can be used
 
  * to allow comparisons of objects of specific class
- * define how mathematical operators work on a class
+ * define how mathematical operators work on a class (see [Operator overloading](#operator-overloading))
  * access attributes within a class
  * provide representations of class
+
+The full set of special methods can be found
+[here](https://docs.python.org/3/reference/datamodel.html#special-method-names).
 
 One particular special method is
 [`__str__`](https://thomas-cokelaer.info/blog/2017/12/difference-between-__repr__-and-__str__-in-python/).
 This defines how to displayed a class instance as a string, for example if trying to print the
-object, e.g.:
+object, e.g.,:
 
 ```python
 class Particle:
@@ -146,7 +164,7 @@ class Particle:
     def __str__(self):
         # a string representing the object
         vowel = self.name[0].lower() in ["a", "e", "i", "o", "u"]
-        firstword = "An" if vowel else "A"
+        firstword = "An" if vowel else "A"  # shorthand if else statment!
 
         return "{} {} with mass of {} kg and charge of {} C".format(
             firstword, self.name, self.mass, self.charge
@@ -447,3 +465,198 @@ plt.xlabel("Distance from Galactic centre (kpc)")
 plt.ylabel("Circular velocity (km/s)")
 plt.show()
 ```
+
+## Operator overloading
+
+Mathematical operators (e.g.. `+`, `-`, `*`, `/`) can be applied to number classes like `int`s or
+`float`s. But, if it's sensible to do so, you can define how the mathematical operators act on any class you define.
+
+If you want to be able to define a way to, for example, add two instances of a particular object you
+can used the special [`__add__`](https://docs.python.org/3/reference/datamodel.html#object.__add__)
+method. The are equivalent methods for the other mathematical
+[operators](https://docs.python.org/3/reference/datamodel.html#emulating-numeric-types) and logical
+expressions.
+
+Suppose you had a class representing a vector in 3D Cartesian coordinates:
+
+```python
+class Vector:
+    """
+    A class representing a vector in 3D Cartesian coordinates.
+
+    Parameters
+    ----------
+    x: int, float
+        The component of the vector in the x-dimension
+    y: int, float
+        The component of the vector in the y-dimension
+    z: int, float
+        The component of the vector in the z-dimension
+    """
+
+    def __init__(self, x, y, z):
+        self.vector = []  # store vector as a list
+        for v in [x, y, z]:
+            # test that we've given the class numbers
+            if not isinstance(v, (int, float)):
+                raise ValueError("Vector can only contain numbers")
+
+            self.vector.append(v)
+
+    @property
+    def x(self):
+        return self.vector[0]
+
+    @property
+    def y(self):
+        return self.vector[1]
+
+    @property
+    def z(self):
+        return self.vector[2]
+
+    def norm(self):
+        """
+        Return the length of the vector.
+        """
+        from math import sqrt
+        return math.sqrt(sum([v ** 2 for v in self.vector]))
+
+    def unit(self):
+        """
+        Return the unit vector.
+        """
+
+        norm = self.norm()
+        return [v / norm for v in self.vector]
+
+    def __len__(self):
+        # the length of the vector (__len__ is another magic method for
+        # returning the "length" of a class, if applicable)
+        return len(self.vector)
+```
+
+!!! note
+    In the above definition it has used the `@property` function decorator. This is a way to
+    define methods in a class that can allow data to be accessed as data attributes with a new
+    name. Here it is handy to store the vector as a list, but it is also nice to be able to access
+    the individual components in an intuitive manner. Hence defining properties for `x`, `y` and
+    `z`.
+
+    These attributes can be accesses with, e.g.:
+
+    ```python
+    v1 = Vector(1, 2, 3)
+    print(v1.x)  # despite being defined as a function x can be access with the () 
+    1
+    ```
+
+It would be useful to be able to add two of these vectors together and return a new vector. But,
+trying this leads to:
+
+```python
+v1 = Vector(1, 2, 3)
+v2 = Vector(4, 5, 6)
+v3 = v1 + v2  # try adding the vector
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+<ipython-input-7-13b475227a38> in <module>
+----> 1 v3 = v1 + v2
+
+TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
+```
+
+However, the `__add__` special method can be used to define how to do standard vector addition
+(i.e., adding each component separately), e.g.,:
+
+```python
+class Vector:
+    """
+    A class representing a vector in 3D Cartesian coordinates.
+
+    Parameters
+    ----------
+    x: int, float
+        The component of the vector in the x-dimension
+    y: int, float
+        The component of the vector in the y-dimension
+    z: int, float
+        The component of the vector in the z-dimension
+    """
+
+    def __init__(self, x, y, z):
+        self.vector = []  # store vector as a list
+        for v in [x, y, z]:
+            # test that we've given the class numbers
+            if not isinstance(v, (int, float)):
+                raise ValueError("Vector can only contain numbers")
+
+            self.vector.append(v)
+
+    @property
+    def x(self):
+        return self.vector[0]
+
+    @property
+    def y(self):
+        return self.vector[1]
+
+    @property
+    def z(self):
+        return self.vector[2]
+
+    def norm(self):
+        """
+        Return the length of the vector.
+        """
+        from math import sqrt
+
+        return math.sqrt(sum([v ** 2 for v in self.vector]))
+
+    def unit(self):
+        """
+        Return the unit vector.
+        """
+
+        norm = self.norm()
+        return [v / norm for v in self.vector]
+
+    def __len__(self):
+        # the length of the vector
+        return len(self.vector)
+
+    def __add__(self, other):
+        # use the argument "other" to represent the other vector to be added
+
+        # check that other is actually also a vector
+        if not isinstance(other, Vector):
+            raise TypeError("Can only add two Vectors")
+
+        # return a new Vector object
+        return Vector(self.x + other.x, self.y + other.y, self.z + other.z)
+```
+
+then we could do:
+
+```
+v1 = Vector(1, 2, 3)
+v2 = Vector(4, 5, 6)
+v3 = v1 + v2
+print(v3.vector)
+[5, 7, 9]
+```
+
+!!! note
+    In reality, for something like a vector, the Numpy library already has useful classes called
+    arrays for which the mathematical operators are all defined.
+
+If you wanted to use the `+=` operator, e.g., to change v1 inplace
+
+```python
+v1 += v2
+```
+
+you would also have to define the
+[`__iadd__`](https://docs.python.org/3/reference/datamodel.html#object.__iadd__) function.
+
+Logical operators and comparison operation can also be overloaded.
