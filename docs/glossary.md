@@ -39,6 +39,13 @@ in an instance of the class).*"](https://docs.python.org/3/glossary.html#term-cl
 
 This is a class attribute that refers to a data variable within the class.
 
+## Decorator
+
+A decorator is ["*A function returning another
+function*"](https://docs.python.org/3/glossary.html#term-decorator). To define a function that is
+wrapped in another "decorator" function, the line before the function definition should contain
+`@decoratorname`, where `decoratorname` is the name of the decorating function. 
+
 ## float
 
 A class for defining a [floating point number](#floating-point-number). Python automatically

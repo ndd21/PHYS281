@@ -319,16 +319,94 @@ The `lorentz_force` method could be simplified using Numpy (see [#demo-numpy]).
 
 Static methods are functions within a class that can be used without creating a new instance of that
 class. As they do not use an instance of the class they do not have access to any of the other class
-attributes, i.e., they are standalone and must be supplied with all the variables they required.
+attributes, i.e., they are standalone and must be supplied with all the variables they require.
 
 Unlike normal methods they do not get passes the `self` argument. The make a method static you use
 the [`@staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)
-[decorator](https://docs.python.org/3/glossary.html#term-decorator) on the line above the method
-definition, e.g.:
+@(decorator) on the line above the method definition, e.g.:
 
-## `classmethod`
+```python
+class Line2D:
+    """
+    A class defining a line in 2d coordinates.
 
-A `classmethod`
+    Parameters
+    ----------
+    point1: tuple
+        A tuple containing the (x, y) coordinates of one end of the line.
+    point2: tuple
+        A tuple containing the (x, y) coordinates of the other end of the line.
+    """
+
+    def __init__(self, point1, point2):
+        self.point1 = point1
+        self.point2 = point2
+
+        # set the gradient and y-intercept of the line using the static method
+        m, c = Line2D.coefficients(self.point1, self.point2)
+        self.grad = m
+        self.yintercept = c
+
+    @staticmethod
+    def coefficients(point1, point2):
+        """
+        Get the coefficients of the linear equation:
+        
+        y = C_1 x + C_0
+
+        defined by the two points, where C_1 defined the gradient and C_0 defines
+        the y-intercept.
+        """
+
+        # Note that self is not passed to the method.
+
+        # check lengths
+        if len(point1) != 2 or len(point2) != 2:
+            raise ValueError("Points on the line must be 2D")
+
+        # get differences
+        dx = point2[0] - point1[0]
+        dy = point2[1] - point1[1]
+        C1 = dy / dx
+
+        C0 = point2[1] - C1 * point2[0]
+
+        return C1, C0
+```
+
+To get the linear equation coefficients we could then do:
+
+```python
+point1 = (8, 10)
+point2 = (10, 12)
+# use staticmethod without creating an instance of Line2D
+m, c = Line2D.coefficients(point1, point2)
+print("Gradient is {}, y-intercept is {}".format(m ,c))
+Gradient is 1.0, y-intercept is 2.0
+```
+
+The static method can also be used by an instance of the class, e.g.,
+
+```python
+point1 = (-9, 10)
+point2 = (-2, 5)
+
+# create a line
+line = Line2D(point1, point2)
+print(line.grad, line.yintercept)
+-0.7142857142857143 3.571428571428571
+
+# work out gradient and y-intercept of a new line
+mnew, cnew = line.coefficients((1, 2), (2, 3))
+print(mnew, cnew)
+1.0 1.0
+
+# because it's a static method it hasn't altered anything in "line"
+print(line.point1, line.point2)
+print(line.grad, line.yintercept)
+(-9, 10) (-2, 5)
+-0.7142857142857143 3.571428571428571
+```
 
 ## Class inheritance
 
@@ -377,7 +455,7 @@ class Galaxy:
         return v / 3e5  # velocity / speed of light (km/s)
 ```
 
-Now, suppose we want a class specifically for a spiral galaxy, but keeping the attributes of a
+Now, suppose we want a class specifically for a spiral galaxy, but that keeps the attributes of a
 `Galaxy`, i.e. `Galaxy` is the **parent** class and `SpiralGalaxy` will be its **child**. We can
 create a new class with:
 
@@ -400,8 +478,8 @@ class SpiralGalaxy(Galaxy):  # this is where the Galaxy gets inherited
 
     def disc_circular_velocity(self, Rd, r):
         """"
-        Calculate the contribute to the circular velocity contribution of the
-        disc (see Eqn. 1 of astro-ph/9909252).
+        Calculate the contribution to the circular velocity of the disc (see Eqn. 1
+        of astro-ph/9909252).
 
         Parameters
         ----------
@@ -466,10 +544,20 @@ plt.ylabel("Circular velocity (km/s)")
 plt.show()
 ```
 
+![Circular velocity](img/circular_velocity.png)
+
+!!! note
+    Just for correctness, I should note that M33's actual observed redshift is not 0.000196! That's
+    what its cosmological redshift would be, but it's in our local group of galaxies and so is
+    subject to local gravitational accelerations. Therefore its redshift is dominated by that
+    local motion with respect to the Milky Way.
+
+
 ## Operator overloading
 
 Mathematical operators (e.g.. `+`, `-`, `*`, `/`) can be applied to number classes like `int`s or
-`float`s. But, if it's sensible to do so, you can define how the mathematical operators act on any class you define.
+`float`s. But, if it's sensible to do so, you can define how the mathematical operators act on any
+class you define.
 
 If you want to be able to define a way to, for example, add two instances of a particular object you
 can used the special [`__add__`](https://docs.python.org/3/reference/datamodel.html#object.__add__)
@@ -537,17 +625,16 @@ class Vector:
 ```
 
 !!! note
-    In the above definition it has used the `@property` function decorator. This is a way to
-    define methods in a class that can allow data to be accessed as data attributes with a new
-    name. Here it is handy to store the vector as a list, but it is also nice to be able to access
-    the individual components in an intuitive manner. Hence defining properties for `x`, `y` and
-    `z`.
-
+    In the above definition it has used the `@property` function @(decorator). This is a way to
+    define methods in a class that can allow aspect of a current data attributes to be accessed
+    with a different name. Here it is handy to store the vector as a list-type data attribute,
+    but it is also nice to be able to access the individual components in an intuitively named
+    manner. Hence defining properties for `x`, `y` and `z` that only return those components.
     These attributes can be accesses with, e.g.:
 
     ```python
     v1 = Vector(1, 2, 3)
-    print(v1.x)  # despite being defined as a function x can be access with the () 
+    print(v1.x)  # despite being defined as a function the x property can be access without using () 
     1
     ```
 
