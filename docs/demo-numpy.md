@@ -92,7 +92,8 @@ Number of dimension: 1
 Length of array: 3
 ```
 
-Like regular lists values within an array can be accessed using indexing, where the index starts as zero:
+Like a regular a [`list`](../demo-compound-data-types/index.html#lists), values within an array can
+be accessed using indexing, where the index starts as zero:
 
 ```python
 print(x[0])  # first value in the array
@@ -101,17 +102,170 @@ print(x[1])  # second value in the array
 2
 ```
 
-Multiple values can be returned using a slice (the `:`).
+You can also change the contents of an array by setting the values using their index, e.g.,
 
-Copying arrays...
+```python
+x[2] = 100
+print(x)
+[  1   2 100]
+```
 
-Arrays of zeros...
+Like with a [`list`](../demo-compound-data-types/index.html#lists) multiple values can be returned,
+or assigned, using a [slice](../demo-compound-data-types/index.html#slices) (the `:`):
 
-Concatenating arrays...
+```python
+x = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+print(x[2:4])  # get values from indexes 2 and 3
+[20 30]
+print(x[4::2])  # get values from index 4 to end in steps of 2
+[ 40  60  80 100]
+x[0:3] = [20, 19, 18]  # re-assign the first three values
+print(x)
+[ 20,  19,  18,  30,  40,  50,  60,  70,  80,  90, 100]
+```
+
+You can assign returned parts of an array to a new variable:
+
+```python
+y = x[4::2]
+print(y)
+[ 40  60  80 100]
+```
+
+Again, similarly to a [`list`](../demo-compound-data-types/index.html#copying-lists), if you assign
+a new variable name to an existing lists it just "points" to the existing list rather than making a
+copy, e.g.,:
+
+```
+x = np.array([1, 2, 3])
+y = x  # assign a variable y to point to x
+y[0] = 100  # change something in y
+print(x)  # see the change in x
+[100   2   3]
+```
+
+The same is true of returned slices of parts of a list. If you assigned the return slice from a list
+as a new variable it just "points" back to the memory in the original array, so if you alter the new
+array the original one will be altered too:
+
+```python
+x = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
+y = x[4::2]
+print(y)
+[ 40  60  80 100]
+y[0] = 1000  # change the first index of y
+print(y)
+[1000   60   80  100]
+print(x)  # see the change effects x
+[   0   10   20   30 1000   50   60   70   80   90  100]
+```
+
+If you want a new array that contains the same contents as another one, but is not just a pointer,
+you must copy the array. The simplest way to do this is to create a new array from the old one:
+
+```python
+x = np.array([1, 2, 3])
+y = np.array(x)  # make a new array that contains a copy of x
+print(y)
+[1 2 3]
+y[0] = 100  # change y
+print(y)
+[100   2   3]
+print(x)  # show x in unaffected by the change to y
+[1 2 3]
+```
+
+You can create arrays initialised with all elements contain zero, using the
+[`zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros) function:
+
+```python
+x = np.zeros(10)  # an array of 10 zeros
+print(x)
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+```
+
+Or, containing all ones (using the
+[`ones`](https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones) function):
+
+```python
+x = np.ones(10)  # an array of 10 ones
+print(x)
+[1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
+
+x = 2.3964 * np.ones(3)  # an array of 3 values of 2.3964
+print(x)                                                                                                               
+[2.3964 2.3964 2.3964]
+
+# or equivalently
+x = np.full(3, 2.3964)
+```
 
 ### Multidimensional arrays
 
+Arrays can have any number of dimensions. You can create multi-dimensional arrays from
+multi-dimensional lists (in the examples here we will stick to 2D objects), e.g.:
 
+```python
+x = np.array([[1, 2, 3], [4, 5, 6]])  # a 2x3 2D array
+print(x.shape)
+(2, 3)
+print(x)
+(2, 3)
+[[1 2 3]
+ [4 5 6]]
+```
+
+Values can be access either in a list-like indexing manner:
+
+```python
+print(x[0][2])  # get the value from the 1st row and 3rd column
+3
+```
+
+or using a comma to separate the rows and columns:
+
+```python
+print(x[0, 2])  # get the value from the 1st row and 3rd column
+3
+```
+
+Slices can also be used:
+
+```
+print(x[1, :])  # get all values from the 2nd row
+[4 5 6]
+```
+
+### Joining arrays
+
+Unlike a `list`, a NumPy `ndarray` does not have an `append` method to add new values to it. There
+are instead a variety of ways to add new values.
+
+You can insert values into an indexed position in an array using the
+[`insert`](https://numpy.org/doc/stable/reference/generated/numpy.insert.html#numpy.insert) function.
+
+```python
+x = np.array([0, 1, 2, 3])
+y = np.insert(x, 0, -1)  # insert the value -1 into the 0th index of the array
+print(y)
+[-1  0  1  2  3]
+```
+
+This does not alter the original array, but instead returns a new copy containing the inserted
+value.
+
+You can concatenate two arrays (of the same shape) using the
+[`concatenate`](https://numpy.org/doc/stable/reference/generated/numpy.concatenate.html#numpy.concatenate)
+function:
+
+```python
+
+```
+
+There are also the
+[`hstack`](https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack) and
+[`vstack`](https://numpy.org/doc/stable/reference/generated/numpy.vstack.html#numpy.vstack)
+functions that are similar to `concatenate`.
 
 ### Mathematical operations on an array
 

@@ -11,10 +11,13 @@ theme:
 
 nav:
   - Home: 'index.md'
-  - Demonstrations:
+  - Tutorial:
+    - Basic data types: 'demo-data-types.md'
+    - Compound data types: 'demo-compound-data-types.md'
     - Python functions: 'demo-functions.md'
     - Python classes: 'demo-classes.md'
     - Error checking and debugging: 'demo-error-checking.md'
+    - NumPy basics: 'demo-numpy.md'
   - glossary.md
 
 docs_dir: 'docs'
