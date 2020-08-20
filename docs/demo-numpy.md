@@ -29,10 +29,14 @@ The basic class for NumPy arrays is the
 [`ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html) class. They can
 hold arrays of any Python object, but are most generally used to hold arrays of numbers.
 
+NumPy `ndarray`s have a variety of useful attributes and method, a few of which will be mentioned
+below.
+
 ### Creating an array
 
-Rather than using this `ndarray` class for creating new instances of NumPy arrays, the standard way
-is to use the `array` function. To create a numerical array you can pass `array` a list of values:
+Rather than using the `ndarray` class for creating new instances of NumPy arrays, the standard way
+is to use the [`array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html) function.
+To create a numerical array you can pass `array` a list of values:
 
 ```python
 x = np.array([1, 2, 3])
@@ -160,6 +164,8 @@ print(x)  # see the change effects x
 [   0   10   20   30 1000   50   60   70   80   90  100]
 ```
 
+#### Copying arrays
+
 If you want a new array that contains the same contents as another one, but is not just a pointer,
 you must copy the array. The simplest way to do this is to create a new array from the old one:
 
@@ -174,6 +180,18 @@ print(y)
 print(x)  # show x in unaffected by the change to y
 [1 2 3]
 ```
+
+There are a couple of equivalent ways to do this using the
+[`copy`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.copy.html#numpy.ndarray.copy)
+method of an array or the NumPy
+[`copy`](https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy) function:
+
+```python
+y = x.copy()  # another way to copy
+y = np.copy(x)  # yet another way to copy!
+```
+
+#### Pre-initialised arrays
 
 You can create arrays initialised with all elements contain zero, using the
 [`zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros) function:
@@ -200,10 +218,101 @@ print(x)
 x = np.full(3, 2.3964)
 ```
 
+#### Complex arrays
+
+Arrays can contain complex numbers, e.g.,:
+
+```python
+x = np.array([2 + 3j, 9 + 5j, -5 - 6j])
+```
+
+The real and imaginary components of the array can be accessed separately using the `real` and
+ `imag` array attributes (there are equivalent
+ [`real`](https://numpy.org/doc/stable/reference/generated/numpy.real.html#numpy.real) and
+ [`imag`](https://numpy.org/doc/stable/reference/generated/numpy.imag.html#numpy.imag) functions
+ that can also be used):
+
+```python
+print(x.real)
+[ 2.  9. -5.]
+print(x.imag)
+[ 3.  5. -6.]
+```
+
+#### Useful methods
+
+Some other useful methods of an `ndarray` are:
+
+ * [`sum`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.sum.html#numpy.ndarray.sum):
+   return the sum of all the values in the array
+ * [`prod`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.prod.html#numpy.ndarray.prod):
+   return the product of all the values in the array
+ * [`mean`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.mean.html#numpy.ndarray.mean):
+   return the mean of the values in the array
+ * [`std`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.std.html#numpy.ndarray.std):
+   return the standard deviation of the values in the array
+ * [`max`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.max.html#numpy.ndarray.max):
+   return the maximum value in the array
+ * [`argmax`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmax.html#numpy.ndarray.argmax):
+   return the index of the maximum value in the array
+ * [`min`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.min.html#numpy.ndarray.min):
+   return the minimum value in the array
+ * [`argmin`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.argmin.html#numpy.ndarray.argmin):
+   return the index of the minimum value in the array
+ * [`tolist`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.tolist.html#numpy.ndarray.tolist):
+   return the contents of the array as a Python `list`
+
+```python
+x = np.array([1.0, 2.0, 3.0, 4.0])
+
+# sum the array
+print(x.sum())  # these are methods so the brackets are required
+10.0
+
+# get the product
+print(x.prod())
+24.0
+
+# get the mean
+print(x.mean())
+2.5
+
+# get the standard deviation
+print(x.std())
+1.118033988749895
+
+# get the maximum value
+print(x.max())
+4.0
+
+# get the index of the maximum value
+print(x.argmax())
+3
+
+# get the minimum value
+print(x.min())
+1.0
+
+# get the index of the minimum value
+print(x.argmin())
+0
+
+# return the array as a list
+y = x.tolist()
+print(y)
+[1.0, 2.0, 3.0, 4.0]
+print(type(y))
+<class 'list'>
+```
+
+There are other methods not covered here. The majority of these methods have equivalent NumPy
+functions that can be used instead, and some take in arguments, which have not been covered (they
+can work differently for arrays with more than one dimension).
+
 ### Multidimensional arrays
 
 Arrays can have any number of dimensions. You can create multi-dimensional arrays from
-multi-dimensional lists (in the examples here we will stick to 2D objects), e.g.:
+multi-dimensional lists (in the examples here we will stick to 2D objects), e.g.,:
 
 ```python
 x = np.array([[1, 2, 3], [4, 5, 6]])  # a 2x3 2D array
@@ -215,25 +324,53 @@ print(x)
  [4 5 6]]
 ```
 
-Values can be access either in a list-like indexing manner:
+Values can be accessed either in a list-like indexing manner:
 
 ```python
 print(x[0][2])  # get the value from the 1st row and 3rd column
 3
 ```
 
-or using a comma to separate the rows and columns:
+or using a comma to separate the rows and columns, e.g.,:
 
 ```python
 print(x[0, 2])  # get the value from the 1st row and 3rd column
 3
 ```
 
-Slices can also be used:
+Slices can also be used, e.g.,:
 
-```
+```python
 print(x[1, :])  # get all values from the 2nd row
 [4 5 6]
+```
+
+You can get the [transpose](https://en.wikipedia.org/wiki/Transpose) of an array using the
+[`T`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html#numpy.ndarray.T)
+attribute, e.g.,:
+
+```python
+y = x.T
+print(y.shape)
+(3, 2)
+print(y)
+[[1 4]
+ [2 5]
+ [3 6]]
+```
+
+The [`zeros`]((https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros)) and
+[`ones`]((https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones)) functions
+can also return multi-dimensional arrays initialised to contain 0 or 1, by specifying the shape of
+the required array as a tuple, e.g.,:
+
+```python
+x = np.zeros((4, 5))  # a 4x5 2D array of zeros
+print(x)
+[[0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]
+ [0. 0. 0. 0. 0.]]
 ```
 
 ### Joining arrays
@@ -259,7 +396,11 @@ You can concatenate two arrays (of the same shape) using the
 function:
 
 ```python
-
+x = np.array([1, 2, 3])
+y = np.array([4, 5, 6])
+z = np.concatenate((x, y))  # pass the arrays for concatenation via a tuple
+print(z)
+[1 2 3 4 5 6]
 ```
 
 There are also the
@@ -269,7 +410,7 @@ functions that are similar to `concatenate`.
 
 ### Mathematical operations on an array
 
-Arrays are overloaded so that the standard mathematical operators can be applied to them.
+NumPy `ndarray`s are overloaded so that the standard mathematical operators can be applied to them.
 
 ```python
 # adding two arrays
@@ -293,7 +434,7 @@ print(x)
 z = x - y
 [ 5.5  9.6 12.2]
 
-# multiply two arrays (multiplication of each component individually)
+# multiply two arrays (multiplication of each component individually, sometimes called the Hadamard product)
 z = x * y
 print(z)
 
@@ -312,6 +453,8 @@ z = x ** 2
 print(z)
 [100. 100. 100.]
 ```
+
+#### Linear algebra
 
 1D arrays can be thought of as vectors, and NumPy can be used to compute vector
 [dot](https://en.wikipedia.org/wiki/Dot_product) and [cross
@@ -358,7 +501,7 @@ print(z)
     ```
 
 The norm or magnitude of a vector can be calculated using the
-[`norm`]()https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html function in the
+[`norm`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.norm.html) function in the
 NumPy linear algebra submodule
 [`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html):
 
@@ -367,15 +510,81 @@ print(np.linalg.norm(z))
 1.0
 ```
 
+For square 2D arrays, you can get the [diagonal](https://en.wikipedia.org/wiki/Main_diagonal)
+elements with the
+[`diag`](https://numpy.org/doc/stable/reference/generated/numpy.diag.html#numpy.diag) function:
 
+```python
+x = np.array([[1.0, 2.0], [3.0, 4.0]])
+print(np.diag(x))
+[1. 4.]
+```
 
-The transpose of an array can be returned by using the `.T` attribute.
+The [inverse of the array](https://en.wikipedia.org/wiki/Invertible_matrix) and its
+[determinant](https://en.wikipedia.org/wiki/Determinant) can be found using the
+[`inv`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.inv.html#numpy.linalg.inv) and
+[`det`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.det.html#numpy.linalg.det)
+methods in the
+[`linalg`](https://numpy.org/doc/stable/reference/routines.linalg.html#module-numpy.linalg)
+submodule, e.g.,:
+
+```python
+# get the inverse
+print(np.linalg.inv(x))
+[[-2.   1. ]
+ [ 1.5 -0.5]]
+
+# get the determinant
+print(np.linalg.det(x))
+-2.0000000000000004
+```
+
+[Matrix multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication) can be performed using
+the [`matmul`](https://numpy.org/doc/stable/reference/generated/numpy.matmul.html#numpy.matmul)
+function, e.g.,:
+
+```python
+x = np.array([[1.0, 2.0], [3.0, 4.0]])
+y = np.array([[4.5, 5.5], [-9.2, 6.4]])
+
+z = np.matmul(x, y)
+print(z)
+[[-13.9  18.3]
+ [-23.3  42.1]]
+```
+
+!!! note
+    There is actually an operator `@` that can be used for matrix multiplication:
+
+    ```python
+    z = x @ y
+    [[-13.9  18.3]
+     [-23.3  42.1]]
+    ```
+
+Matrix-vector products can be performed using the `dot` function, e.g., for performing a 90 degree
+anti-clockwise [rotation](https://en.wikipedia.org/wiki/Rotation_matrix):
+
+```python
+R = np.array([[0, -1], [1, 0]])
+x = np.array([0.5, 0.5])
+y = np.dot(R, x)
+print(y)
+[-0.5  0.5]
+```
+
+For more advanced usage there are also the
+[`tensordot`](https://numpy.org/doc/stable/reference/generated/numpy.tensordot.html#numpy.tensordot)
+function and the powerful (but tricky)
+[`einsum`](https://numpy.org/doc/stable/reference/generated/numpy.einsum.html#numpy.einsum)
+function.
 
 ### Range-like arrays
 
-The built-in Python `range` function can return a list of integers, but it is often useful to have a
-1D array of non-integer spaced values. There are a couple of different ways to do this using NumPy:
-the [`linspace`](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html) and
+The built-in Python [`range`](https://docs.python.org/3/library/functions.html#func-range) function
+can return a list of integers, but it is often useful to have a 1D array of non-integer spaced
+values. There are a couple of different ways to do this using NumPy: the
+[`linspace`](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html) and
 [`arange`](https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange)
 functions.
 
@@ -421,13 +630,148 @@ list.
 
 ## NumPy maths
 
-NumPy has its own functions for many mathematical functions. Ones that are commonly used are the
-trigonometric functions, exponentiation and logarithm. Many of these are equivalent to, and can be
-used in place of, the functions in the built-in `math` library. The main differences is that these
-functions work on arrays, so all values in the array can have the function applied to them.
+NumPy has its own [functions](https://numpy.org/doc/stable/reference/routines.math.html) for many
+mathematical functions. Ones that are commonly used are the trigonometric functions, exponentiation
+and logarithm. Many of these are equivalent to, and can be used in place of, the functions in the
+built-in `math` library. The main differences is that these functions work on arrays (or regular
+lists), so all values in the array can have the function applied to them. NumPy also contains some
+[constants](https://numpy.org/doc/stable/reference/constants.html), such as &pi;, accessed with
+[`np.pi`](https://numpy.org/doc/stable/reference/constants.html#numpy.pi).
+
+Some examples are:
+
+```python
+x = np.arange(0, 2 * np.pi, np.pi / 2)  # values at 0, pi/2, pi and 3pi/2 rads
+print(np.sin(x))  # Sine of values
+[ 0.0000000e+00  1.0000000e+00  1.2246468e-16 -1.0000000e+00]
+
+print(np.cos(x))  # Cosine of values
+[ 1.0000000e+00  6.1232340e-17 -1.0000000e+00 -1.8369702e-16]
+
+print(np.exp([1., 2., 3.]))  # e to the power of values
+[ 2.71828183  7.3890561  20.08553692]
+
+print(np.log([10, 100, 1000]))  # natural logarithm
+[2.30258509 4.60517019 6.90775528]
+
+print(np.log10([10, 100, 1000]))  # base-10 logarithm
+[1. 2. 3.]
+```
 
 ## NumPy random number generation
 
+NumPy can be used to generate random numbers using functions within the
+[`random`](https://numpy.org/doc/stable/reference/random/index.html) submodule. These can be useful
+for [Monte Carlo simulations](https://en.wikipedia.org/wiki/Monte_Carlo_method).
+
+Random numbers drawn by a computer using software are only
+[pseudo-random](https://en.wikipedia.org/wiki/Pseudorandom_number_generator), i.e., they use a seed
+as a starting point and they have a period (eventually they will return the same number, although in
+most practical applications this will never happen). By default the seed will be set using something
+like the computer's clock time, but it can be set (or reset) manually, for example if you explicitly
+wanted repeatable "random" draws, using the
+[`seed`](https://numpy.org/devdocs/reference/random/generated/numpy.random.seed.html) function,
+which takes an integer value:
+
+```python
+np.random.seed(98263954)
+print(np.random.rand())  # a random number between 0 and 1
+0.08380289901158755
+print(np.random.rand())
+0.6842137004666865
+
+# reset the seed
+np.random.seed(98263954)
+print(np.random.rand())  # get the same number as before                                               
+0.08380289901158755
+```
+
+There are many [probability
+distributions](https://numpy.org/doc/stable/reference/random/legacy.html#distributions) from which
+the random numbers can be drawn, but below are a few common examples.
+
+### Uniform distribution
+
+Numbers can be drawn randomly from a
+[uniform](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) interval, using the
+[`uniform`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html)
+function, which takes the lower and upper range of the interval and the shape of array to return (by
+default a single draw is returned):
+
+```python
+# draw a single random number between 0 and 5
+x = np.random.uniform(0, 5)
+print(x)
+4.853972144648509
+
+# draw an array of 5 random numbers between 3.5 and 6.7
+x = np.random.uniform(3.5, 6.7, 5)
+print(x)
+[4.87159694 5.39695169 5.0000419  5.25914921 4.49457314]
+
+# draw a 2x2 array of random numbers between -1 and 1
+x = np.random.uniform(-1, 1, (2, 2))
+print(x)
+[[ 0.68813313 -0.97703578]
+ [ 0.25991054 -0.09875825]]
+
+# equivalently the `rand` function can be used, although it only draws values
+# between 0 and 1
+x = np.random.rand()
+```
+
+### Normal distribution
+
+Numbers can be drawn from a [Normal](https://en.wikipedia.org/wiki/Normal_distribution) (or
+Gaussian) distribution using the
+[`normal`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html)
+function, which takes the mean (the `loc` parameter, defaulting to 0), the standard deviation (the
+`scale` parameter, defaulting to 1) and the shape of the array to return:
+
+```python
+# draw a single Normally distributed random number from a distribution with a
+# mean of 2 and standard deviation of 1
+x = np.random.normal(2, 1)
+print(x)                                                     
+1.5730723103489876
+
+# draw an array of 100 random numbers between with a mean of 0 and standard
+# deviation of 2
+x = np.random.normal(0.0, 1.0, 100)
+print(x.mean())
+print(x.std())
+0.13988286116368978
+1.0674409970150702
+
+ # equivalently the `randn` function can be used, although it only draws values
+ # with mean of 0 and standard deviation of 1
+x = np.random.randn()
+```
+
+### Random integers
+
+Random integers between an upper and lower bound can be generated using the
+[`randint`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html)
+function:
+
+```
+# generate 10 random integer values between 1 and 7 (excluding 7), i.e. dice rolls
+dicerolls = np.random.randint(1, 7, 10)
+print(dicerolls)
+[5, 1, 4, 0, 4, 0, 3, 0, 4, 2]
+
+# generate some more
+dicerolls = np.random.randint(1, 7, 10000)
+print("Fraction of 1's rolled: {}".format((dicerolls == 1).sum() / len(dicerols)))
+Fraction of 1's rolled: 0.1712
+
+# similar is the choice function
+coinflips = np.random.choice(["head", "tail"], 10)
+print(coinflips)
+['head' 'tail' 'tail' 'head' 'head' 'tail' 'head' 'head' 'head' 'tail']
+```
+
 ## Saving and loading data
 
-savetxt, loadtxt, save, load
+Saving and loading data using [NumPy](https://numpy.org/doc/stable/reference/routines.io.html) is
+discussed in the ["Reading and writing data"](../demo-io/index.html#numpy) tutorial.
