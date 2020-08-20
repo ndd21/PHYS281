@@ -359,8 +359,8 @@ print(y)
  [3 6]]
 ```
 
-The [`zeros`]((https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros)) and
-[`ones`]((https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones)) functions
+The [`zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros) and
+[`ones`](https://numpy.org/doc/stable/reference/generated/numpy.ones.html#numpy.ones) functions
 can also return multi-dimensional arrays initialised to contain 0 or 1, by specifying the shape of
 the required array as a tuple, e.g.,:
 

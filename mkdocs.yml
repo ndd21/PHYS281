@@ -12,13 +12,26 @@ theme:
 nav:
   - Home: 'index.md'
   - Tutorial:
-    - Basic data types: 'demo-data-types.md'
-    - Compound data types: 'demo-compound-data-types.md'
-    - Python functions: 'demo-functions.md'
-    - Python classes: 'demo-classes.md'
-    - Error checking and debugging: 'demo-error-checking.md'
-    - NumPy basics: 'demo-numpy.md'
-  - glossary.md
+    - Getting started:
+       - Installing Anaconda: 'demo-anaconda.md'
+       - Installing VS code: 'demo-vs-code.md'
+       - Using a terminal: 'demo-terminal.md'
+       - The Python terminal: 'demo-python-terminal.md'
+    - Python basics:
+       - Writing scripts: 'demo-scripts.md'
+       - Importing modules: 'demo-importing-modules.md'
+       - Basic data types: 'demo-data-types.md'
+       - Compound data types: 'demo-compound-data-types.md'
+       - Built-in functions: 'demo-built-in-functions.md'
+       - Flow control: 'demo-flow-control.md'
+       - Python functions: 'demo-functions.md'
+       - Python classes: 'demo-classes.md'
+    - Further information:
+       - Error checking and debugging: 'demo-error-checking.md'
+       - NumPy basics: 'demo-numpy.md'
+       - Reading and writing data: 'demo-io.md'
+       - Basic plotting with Matplotlib: 'demo-matplotlib.md'
+    - glossary.md
 
 docs_dir: 'docs'
 
