@@ -340,7 +340,7 @@ print(data)
  [10.  21.3]]
 ```
 
-Rather than taking a file object, `load` can just be passed the file name. Lines starting with a
+Rather than taking a file object, `loadtxt` can just be passed the file name. Lines starting with a
 particular character, in this case `#`, can be ignored using the `comments` keyword argument.
 
 If the data file contained columns with values separated by commas (often called [comma separated
@@ -348,8 +348,8 @@ value](https://en.wikipedia.org/wiki/Comma-separated_values), or CSV, text files
 `delimiter` keyword argument could be used, e.g., `data = np.loadtxt(filename, comments="#",
 delimiter=",")`.
 
-More control, including converting particular columns to certain data types in available, with most
-control found using the
+More control, including converting particular columns to certain data types is available, with the
+finest grain of control found using the
 [`genfromtxt`](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html#numpy.genfromtxt)
 function.
 
