@@ -264,6 +264,91 @@ argument and a location string, e.g.,:
  * `"lower right"`
  * `"lower left"`
 
+### Axis limits
+
+Matplotlib will automatically try and determine the range of values shown in the x- and y-axes.
+However, you can manually set the axis ranges to whatever you require using the
+[`xlim`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.xlim.html#matplotlib.pyplot.xlim) and
+[`ylim`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.ylim.html#matplotlib.pyplot.ylim)
+functions in `pyplot`. These functions take in a list, or tuple, containing two values: the lower
+and upper ends of the range. For example:
+
+```python
+x = np.linspace(-10, 10, 100)
+y = 3.5 - 2.3 * x + 0.5 * x ** 2  # a more complex quadratic
+
+# plot the data
+plt.plot(x, y)
+
+# zoom in on an x-range from -5 to 5
+plt.xlim([-5, 5])
+
+# zoom in on a y-range from -5 to 25
+plt.ylim([-5, 25])
+
+plt.xlabel("x")
+plt.ylabel("y")
+
+plt.show()
+```
+
+![Demonstration of axis limits](matplotlib/xlimylim.png)
+
+### Grid lines
+
+Sometimes it is useful to add a background grid to a figure to aid visualisation. This can be added
+using the
+[`grid`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.grid.html?highlight=grid#matplotlib.pyplot.grid)
+function in `pyplot`. By default the grid lines are applied to both the x- and y-axes, but this can
+be specified with the `axis` keyword argument, e.g., `axis="x"` to just add a grid on the x-axis.
+
+```python
+x = np.linspace(-10, 10, 100)
+y = 3.5 - 2.3 * x + 0.5 * x ** 2  # a more complex quadratic
+
+# plot the data
+plt.plot(x, y)
+
+plt.xlabel("x")
+plt.ylabel("y")
+
+# turn on the grid
+plt.grid()
+
+plt.show()
+```
+
+![Demonstration of grid](matplotlib/griddemo.png)
+
+### Logarithmic axes
+
+If you have (positive) data that spans over many orders of magnitude it is often useful to plot the
+logarithm of the data. There are three `pyplot` functions that enable you to do this:
+
+ * [`loglog`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.loglog.html#matplotlib.pyplot.loglog) - plot the base-10 logarithm of data on both the x- and y-axes;
+ * [`semilogx`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.semilogx.html#matplotlib.pyplot.semilogx) - plot the x-axis on a logarithmic scale, but the y-axis on a linear scale;
+ * [`semilogy`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.semilogy.html#matplotlib.pyplot.semilogy) - plot the y-axis on a logarithmic scale, but the x-axis on a linear scale.
+
+For example:
+
+```python
+x = np.logspace(-5, 5, 100)  # linearly spaced in base-10 log space
+y = 2.5 * x ** 4.5
+
+# plot the data in log-log space
+plt.loglog(x, y)
+
+plt.xlabel("x")
+plt.ylabel("y")
+
+# turn on the grid
+plt.grid()
+
+plt.show()
+```
+
+![Demonstration of loglog plot](matplotlib/loglogdemo.png)
+
 ## Basic scatter plot
 
 The `plot` function will produce a line plot, but by setting the line style to be `"None"` and
@@ -411,12 +496,17 @@ bins = np.linspace(
 )
 
 plt.hist(Hspeeds, bins=bins, cumulative=True, density=True, color="b",
-         histtype="stepfilled", alpha=0.5, label="Hydrogen")
+         histtype="step", label="Hydrogen")
 plt.hist(Hespeeds, bins=bins, cumulative=True, density=True, color="r",
          histtype="step", label="Helium")
 plt.xlabel("Speed (m/s)")
 plt.ylabel("Cumulative probability")
-plt.legend(loc="upper left")
+plt.legend(loc="lower right")
+
+# set some limits
+plt.xlim([bins[0], bins[-1]])
+plt.ylim([0, 1])
+
 plt.show()
 ```
 
@@ -424,10 +514,288 @@ plt.show()
 
 ## Saving figures
 
+If using the `show` function to display figures the easiest way to save them is using the disk icon
+:floppy_disk: in the display window as shown below.
+
+![Display window](matplotlib/showwindow.png)
+
+This will open up a file browser where you can type in the output file name. The file extension that
+you give determines what image format the plot is saved as. Some standard image formats are:
+
+ * [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) - use the `.png` extension, e.g.,
+   "`myimage.png`"
+ * [JPEG](https://en.wikipedia.org/wiki/JPEG) - use the `.jpg` extension, e.g., "`myimage.jpg`"
+ * [PDF](https://en.wikipedia.org/wiki/PDF) - use the `.pdf` extension, e.g., "`myimage.pdf`"
+ * [EPS](https://en.wikipedia.org/wiki/Encapsulated_PostScript) - use the `.eps` extension, e.g.,
+   "`myimage.eps`"
+
+For publication quality plots it is often good to save images as PDF files.
+
+Displaying plots using `show` is useful when using a Python terminal or testing your code. But,
+generally within a script you do not want the plot to be displayed, you just want it created and
+saved. As mentioned above, by default when using `show` the code after that statement will not be
+executed until the image window has been closed, which means you have to manually intervene during
+code running.
+
+Plots can be saved within the code using the
+[`savefig`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html#matplotlib.pyplot.savefig)
+function in `pyplot`. For example, to save a plot to a PDF file, you could use:
+
+```python
+position = [1.2, 5.6, 9.8, 17.9, 21.3, 24.3]
+height = [4.5, 7.8, 10.3, 14.5, 12.2, 11.1]
+ 
+plt.plot(position, height) 
+plt.xlabel("Position (m)") 
+plt.ylabel("Height (m)") 
+
+# save the figure
+plt.savefig("myplot.pdf")
+```
+
+If saving a plot to a PNG or JPEG format, you can set the resolution of the output image using the
+`dpi` keyword argument. Generally a `dpi=150` is good enough for most purposes.
+
+### Tight layout
+
+Often figures will be produced with excessive amounts of whitespace around the edges. Matplotlib can
+try and optimise the spacing to remove some of this excess by using the
+[`tight_layout`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html) function in
+`pyplot`:
+
+```python
+position = [1.2, 5.6, 9.8, 17.9, 21.3, 24.3]
+height = [4.5, 7.8, 10.3, 14.5, 12.2, 11.1]
+ 
+plt.plot(position, height) 
+plt.xlabel("Position (m)") 
+plt.ylabel("Height (m)")
+
+# use tight layout
+plt.tight_layout()
+plt.savefig("myimage.png", dpi=150)
+```
+
+The image below shows the plot produced with the above code both with and without `tight_layout` on
+the left and right, respectively.
+
+<table>
+  <tr>
+    <td>
+      <img alt="Tight layout" src="../matplotlib/tightlayout.png" height=300 />
+    </td>
+    <td>
+      <img alt="No tight layout" src="../matplotlib/notightlayout.png" height=300 />
+    </td>
+  </tr>
+</table>
+
 ## Customisation
 
-### Using axes and figures
+The above examples have only scratched the surface of what Matplotlib can do. Here we will look at a
+few options that let you have a bit more control over the look of the figures.
+
+### Using axes and figures objects
+
+In all the above examples we have just used `pyplot` functions to make a single figure. This figure
+has a standard default size and shape and we can only control one figure at a time.
+
+A more useful way to create a figure is using the
+[`subplots`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots)
+function in `pyplot`.
+
+!!! note
+    There is also the simpler
+    [`figure`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html#matplotlib.pyplot.figure)
+    function, but `subplots` can work in the same way as `figure`, but also allows multiple plots
+    as discussed [below](#mulitple-plots-in-a-figure).
+
+A single figure with `subplots` using:
+
+```python
+fig, ax = plt.subplots()
+```
+
+When created the figure will not contain anything, but the function returns a
+[`Figure`](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure)
+object (in the variable `fig` here) and an
+[`Axes`](https://matplotlib.org/api/axes_api.html#matplotlib.axes.Axes) object (in the variable `ax`
+here).
+
+Data can be added to the figure throught the `Axes` object which has methods for all of the `pyplot`
+plotting functions discussed above (e.g., `plot`, `scatter` and `hist`):
+
+```python
+# add some data to the axes
+x = np.linspace(-10, 10, 100)
+y = 3.5 - 2.3 * x + 0.5 * x ** 2  # a more complex quadratic
+
+# plot the data
+ax.plot(x, y)
+
+# add axis labels
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+
+# set limits
+ax.set_xlim([-7, 7])
+ax.set_ylim([-5, 30])
+
+# save the plot
+fig.tight_layout()
+fig.savefig("myplot.png", dpi=150)
+```
+
+Above it can be seen that some things have been done differently. To set the axis labels the
+[`set_xlabel`](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_xlabel.html#matplotlib.axes.Axes.set_xlabel)
+and
+[`set_ylabel`](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_ylabel.html#matplotlib.axes.Axes.set_ylabel)
+methods of the `Axes` class have had to be used rather than the `pyplot.xlabel` and `pyplot.ylabel`
+functions. The axes limits have also been set using
+[`set_xlim`](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_xlim.html#matplotlib.axes.Axes.set_xlim)
+and
+[`set_ylim`](https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_ylim.html#matplotlib.axes.Axes.set_ylim)
+methods of the `Axes` class. Finally, the `tight_layout` and `savefig` methods of the `Figure` class
+have been used.
+
+By having the figures as variables we can create multiple figures within the same code. We can also
+make use of the `figsize` keyword argument to set the size of the figures, which takes a tuple
+containing the width and height of the figure (in inches). For example we could create a two plots,
+with different aspect ratios, using:
+
+```
+# a narrow plot
+fig1, ax1 = plt.subplots(figsize=(4, 10))
+
+# plot something on this axes
+ax1.hist(np.random.rand(1000))
+
+# a wide plot
+fig2, ax2 = plt.subplots(figsize=(10, 4))
+
+ax2.hist(np.random.randn(1000), bins=20)
+
+# save the figures
+fig1.savefig("narrow.png")
+fig2.savefig("wide.png")
+```
+
+<table>
+  <tr>
+    <td style="vertical-align:bottom">
+      <img alt="Tall and narrow" src="../matplotlib/tallnarrow.png" />
+    </td>
+    <td style="vertical-align:bottom">
+      <img alt="Short and wide" src="../matplotlib/shortwide.png" />
+    </td>
+  </tr>
+</table>
 
 ### Multiple plots in a figure
 
+Sometimes it is useful to plot related data on the same figure, but in a separate plot. Using
+`subplots` multiple plots can be added to the same figure. For example, we can create one plot above
+another, and have them share the same x-axis (i.e., the same range and positioning of x-axis label):
+
+```python
+fig, axs = plt.subplots(nrows=2, ncols=1, sharex=True)
+
+# create some data
+x = np.linspace(0.0, 2.0 * np.pi, 100)
+
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# axs is now an array with the shape nrows x ncols
+axs[0].plot(x, y1, color="blue")
+axs[1].plot(x, y2, color="red")
+
+# set axes labels
+axs[1].set_xlabel("$\phi$")  # only set x-axis label on bottom plot
+axs[0].set_ylabel("sin($\phi$)")
+axs[1].set_ylabel("cos($\phi$)")
+
+fig.tight_layout()
+fig.savefig("trigfuncs.png")
+```
+
+![Multiple plots](matplotlib/trigfuncs.png)
+
+Similarly, side-by-side plots can share the same y-axis if required.
+
+!!! note
+    More complex plot grids can be defined using the
+    [`gridspec`](https://matplotlib.org/3.3.1/tutorials/intermediate/gridspec.html) module.
+
 ### Setting up default parameters
+
+There are a wide range of default settings used within Matplotlib when creating and saving a plot.
+These can be found through the
+[`rcParams`](https://matplotlib.org/tutorials/introductory/customizing.html#matplotlib-rcparams)
+object:
+
+```python
+from matplotlib import rcParams
+# show rcParams (truncated here)
+print(rcParams)
+_internal.classic_mode: False
+agg.path.chunksize: 0
+animation.avconv_args: []
+animation.avconv_path: avconv
+animation.bitrate: -1
+animation.codec: h264
+animation.convert_args: []
+animation.convert_path: convert
+animation.embed_limit: 20.0
+animation.ffmpeg_args: []
+animation.ffmpeg_path: ffmpeg
+animation.frame_format: png
+animation.html: none
+animation.html_args: []
+animation.writer: ffmpeg
+axes.autolimit_mode: data
+axes.axisbelow: line
+axes.edgecolor: black
+axes.facecolor: white
+axes.formatter.limits: [-5, 6]
+...
+```
+
+There are [multiple methods](https://matplotlib.org/tutorials/introductory/customizing.html) to
+manually adjust these defaults, but the one we will show is to directly edit the `rcParams` object.
+For example, we can change the default font and font size, and the default figure size, with:
+
+```python
+from matplotlib import rcParams
+
+rcParams["font.family"] = "serif"  # change to default to a serif font
+rcParams["font.serif"] = "Times New Roman"  # change the default serif font to Times New Roman
+rcParams["font.size"] = 14  # change the default font size
+rcParams["figure.figsize"] = [9.7, 6]  # change the default figure size
+rcParams["figure.autolayout"] = True  # automatically apply tight_layout
+
+from matplotlib import pyplot as plt
+
+fig, ax = plt.subplots()
+
+x = np.linspace(-10, 10, 100)
+y = 3.5 - 2.3 * x + 0.5 * x ** 2  # a more complex quadratic
+
+# plot the data
+ax.plot(x, y)
+
+# add axis labels
+ax.set_xlabel("x")
+ax.set_ylabel("y")
+
+fig.savefig("myfigure.png")
+```
+
+![Configuration parameters](matplotlib/changercparams.png)
+
+!!! note
+    Any changes you make to `rcParams` in a script or Python terminal session will only be applied
+    to that script/session. If you start a new session, or run a new script, the original defaults
+    will be reverted too. To keep the defaults across mutiple runs/scripts you can define your own
+    custom [configuration file](https://matplotlib.org/tutorials/introductory/customizing.html#the-matplotlibrc-file)
+    or [style file](https://matplotlib.org/tutorials/introductory/customizing.html#defining-your-own-style).
