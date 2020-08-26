@@ -6,8 +6,9 @@ branches:
 before_install:
   # SSH private key stored as a secret variable with returns replaced with _ (https://community.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457) 
   - mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa
+  - ssh-keyscan -H $SITENAME >> ~/.ssh/known_hosts
 install:
   - pip install -r requirements.txt
 script:
-  - mkdocs builds
-  - scp -r site/* $SITENAME:$SITEPATH
+  - mkdocs build
+  - scp -r site/* ${SITEUSER}@${SITENAME}:$SITEPATH
