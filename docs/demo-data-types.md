@@ -1,6 +1,6 @@
 # Basic data types
 
-In code you can define **variables** and these have a **type**, where the type is the kind of
+In a code you can define **variables** and these have a **type**, where the type is the kind of
 *thing* that the variable represents. For example, a variable might hold an integer number, or a set
 of alphanumeric values (known as a string).
 
@@ -135,6 +135,7 @@ x = 12
 y = 14
 z = x + y
 print("The sum of {} + {} = {}".format(x, y, z))
+The sum of 12 + 14 = 26
 ```
 
 The `format()` method replaces the curly brackets with the string representations for `x`, `y` and
@@ -153,3 +154,16 @@ The sum of 12.96 + 13.99 = 26.95
 
 In this case the `0` represents the first argument to `format`, which is followed by the formatting
 type `:.2f` that means show a floating point number (`f`) to two decimal places (`.2`).
+
+In Python versions greater than 3.5 there is another way to use string formatting. If you define a
+string with an `f` (known as an [f-string](https://www.python.org/dev/peps/pep-0498/)) before the
+opening quotes you can use variable names within curly brackets to show their values, e.g.:
+
+```python
+firstname = "Matthew"
+age = 21
+
+mystring = f"My name is {firstname} and my age is {age}."
+print(mystring)
+My name is Matthew and my age is 21.
+```

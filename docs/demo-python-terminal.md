@@ -8,7 +8,7 @@ any Python commands. The terminal is useful for quick calculations and prototypi
 There are two types of Python terminal sessions: a *regular* session and an enhanced interactive
 session called IPython. Within a terminal window (a Powershell terminal on Windows, or a terminal
 session in VS Code) you enter a regular Python terminal session by typing `python` and hitting
-return. You should see something like:
+return ++return++. You should see something like:
 
 ```python
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -24,15 +24,16 @@ type commands in, e.g.
 >>> x = 1 + 4
 >>> print(x)
 5
-````
+```
 
-To quit the Python session and return to the regular terminal type `quit()` and hit return.
+To quit the Python session and return to the regular terminal type `quit()` and hit return
+++return++.
 
 ## IPython terminal
 
 I would recommended to instead use the enhanced interactive terminal,
 [IPython](https://ipython.org/), which offers more features for ease of use. IPython is started by
-typing `ipython` and hitting return. Now you should see something like:
+typing `ipython` and hitting return ++return++. Now you should see something like:
 
 ```ipython
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -118,9 +119,10 @@ print(b)
 2
 ```
 
-> Note: If you're using Python 2 (which is not recommended, but you may come across some old code)
-> division of two integers will return an integer based on the result rounded down to the nearest
-> integer.
+!!! note
+    If you're using Python 2 (which is not recommended, but you may come across some old code)
+    division of two integers will return an integer based on the result rounded down to the nearest
+    integer.
 
 A couple of other useful operators are:
 
@@ -201,8 +203,9 @@ In [4]: pwd
 Out[4]: u'/home/matthew/myfiles'
 ```
 
-> Note: if you change directory within IPython and then `quit()` you will be back in the original
-> directory in which IPython was started.
+!!! note
+    If you change directory within IPython and then `quit()` you will be back in the original
+    directory in which IPython was started.
 
 You can access other shell commands by starting the prompt with an exclamation mark, e.g., to make a
 new directory you could use:
@@ -255,7 +258,9 @@ String form: 3
 
 ## Cell magic commands
 
-Two useful ["magic"](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#magic-functions) commands are: 
+Two useful
+["magic"](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#magic-functions)
+commands are: 
 
 i) `%run`: run a Python script within the IPython terminal, e.g., if you have a file called, say
 `script.py`, containing some Python code, you can run it with:
@@ -279,12 +284,13 @@ You can be far more efficient by using a couple of features of IPython: [command
 history](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#history) and [tab
 completion](https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#tab-completion).
 IPython saves all the commands you have previous entered in the order that you entered them. You can
-scroll back and forth between old commands with the up and down arrow keys.
+scroll back and forth between old commands with the up ++up++ and down ++down++ arrow keys.
 
-If you had previously typed a long command, you can start typing it and then press up and it will
-automatically fill in the rest.
+If you had previously typed a long command, you can start typing it and then press up ++up++ and it
+will automatically fill in the rest.
 
-Tab completion allows you to explore an objects **attributes** and **methods**, e.g., if you define an integer `x = 1` and write
+Tab completion allows you to explore an objects **attributes** and **methods**, e.g., if you define
+an integer `x = 1` and write
 
 ```ipython
 In [1]: x = 1
@@ -292,12 +298,15 @@ In [1]: x = 1
 In [2]: x.<TAB>
 ```
 
-where `<TAB>` is replaced by hitting the tab key, you get a scrollable list of of attributes of the object.
+where `<TAB>` is replaced by hitting the tab key ++tab++, you get a scrollable list of of attributes
+of the object.
 
 Or, you can use it to complete file strings. For example, if you are writing a string that is a file
 name in your current directory, then start typing the string and hit tab to complete it.
 
 ## Resources
+
+Some useful resources with information about using the IPython terminal are:
 
 * [The IPython tutorial](https://ipython.readthedocs.io/en/stable/interactive/index.html)
 * [Chapter 1 of the Python Data Science
