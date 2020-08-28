@@ -41,14 +41,14 @@ extra_css:
 extra_javascript:
   - https://unpkg.com/@popperjs/core@2
   - https://unpkg.com/tippy.js@6
-  - javascript/glossary.js
+  - javascripts/glossary.js
 
 markdown_extensions:
   - admonition
   - attr_list
   - footnotes
   - mdtooltipslink:
-      js_file: docs/javascript/glossary.js
+      js_file: docs/javascripts/glossary.js
   - pymdownx.highlight:
       use_pygments: True
   - pymdownx.superfences
