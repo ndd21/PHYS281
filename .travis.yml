@@ -11,5 +11,5 @@ install:
   - pip install -r requirements.txt
 script:
   - mkdocs build
-  - ls site
   - rsync -a -e ssh --delete site/ ${SITEUSER}@${SITENAME}:$SITEPATH
+  - rsync -a -e ssh --delete docs/javascripts/* ${SITEUSER}@${SITENAME}:$SITEPATH/javascripts
