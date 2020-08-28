@@ -38,12 +38,17 @@ docs_dir: 'docs'
 extra_css:
   - css/tooltips.css
 
+extra_javascript:
+  - https://unpkg.com/@popperjs/core@2
+  - https://unpkg.com/tippy.js@6
+  - javascript/glossary.js
+
 markdown_extensions:
   - admonition
   - attr_list
   - footnotes
   - mdtooltipslink:
-      header: True
+      js_file: docs/javascript/glossary.js
   - pymdownx.highlight:
       use_pygments: True
   - pymdownx.superfences

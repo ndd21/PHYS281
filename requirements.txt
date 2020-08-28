@@ -1,5 +1,5 @@
 mkdocs
 mkdocs-material
 mkdocs-material-extensions
-md-tooltips-link
+md-tooltips-link>=0.2
 pymdown-extensions

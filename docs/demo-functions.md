@@ -5,7 +5,7 @@ useful to define it as a function.
 
 To define a function you use the [`def`](https://www.w3schools.com/python/ref_keyword_def.asp)
 keyword followed by the name you want to give the function followed by brackets containing any
-@(argument)s that the function takes:
+@(arguments) that the function takes:
 
 ```python
 def my_function(variable1, variable2):

@@ -12,9 +12,9 @@ An object's type is also known as its [**class**](https://docs.python.org/3/tuto
 A @(class) can also be thought of as a template for creating an object of that type.
 
 Objects can combine holding data with functionality. Anything that you can access in an object is
-known as an @(attribute). Attributes can either be **data attributes** (sometime also known as class
-properties, class members or class variables) or **function attributes** (also known as **class
-methods**). In Python all of a classes attributes are public, i.e., you can access them from an
+known as an @(attribute). Attributes can either be @(data attributes) (sometime also known as class
+properties, class members or class variables) or @(function attributes) (also known as @(class
+methods)). In Python all of a classes attributes are public, i.e., you can access them from an
 instance of a class.
 
 A new object class can be defined using the
@@ -22,7 +22,7 @@ A new object class can be defined using the
 
 ## A simple class
 
-A simple class containing just @(data attribute)s can be created using:
+A simple class containing just @(data attributes) can be created using:
 
 ```python
 class Particle:
@@ -32,7 +32,7 @@ class Particle:
     mass = 9.1e-31  # mass in kg
 ```
 
-An variable can then be created from this class (also known as a @(class instance)) with:
+Variables can then be created from this class (also known as @(class instances)) with:
 
 ```python
 electron = Particle()  # note the brackets are required
@@ -93,7 +93,7 @@ electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```
 
-The `__init__` method of a class can can have @(positional argument)s and/or @(keyword argument)s,
+The `__init__` method of a class can can have @(positional arguments) and/or @(keyword arguments),
 just like any other function. Using keyword arguments allows the setting of default initialisation
 values if no user supplied values are given, e.g.,
 
