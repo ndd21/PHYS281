@@ -12,4 +12,4 @@ install:
 script:
   - mkdocs build
   - rsync -a -e ssh --delete site/ ${SITEUSER}@${SITENAME}:$SITEPATH
-  - rsync -a -e ssh --delete docs/javascripts/* ${SITEUSER}@${SITENAME}:$SITEPATH/javascripts
+  - rsync -a -e ssh --delete docs/javascripts/ ${SITEUSER}@${SITENAME}:$SITEPATH/javascripts/
