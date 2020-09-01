@@ -14,10 +14,10 @@ A @(class) can also be thought of as a template for creating an object of that t
 Objects can combine holding data with functionality. Anything that you can access in an object is
 known as an @(attribute). Attributes can either be @(data attributes) (sometime also known as class
 properties, class members or class variables) or @(function attributes) (also known as @(class
-methods)). In Python all of a classes attributes are public, i.e., you can access them from an
+methods)). In Python all of a class' attributes are public, i.e., you can access them from an
 instance of a class.
 
-A new object class can be defined using the
+A new class can be defined using the
 [`class`](https://www.w3schools.com/python/ref_keyword_class.asp) keyword.
 
 ## A simple class
@@ -120,8 +120,8 @@ instance via `self`. But, when using a method `self` is passed implicitly, i.e.,
 have to supply it as it is supplied automatically.
 
 !!! note
-    The usage of the word "self" is just convention. In reality any word can be used in place
-    of self as long as it is consistently used throughout the class, e.g.,
+    The usage of the word "`self`" is just convention. In reality any word can be used in place
+    of `self` as long as it is consistently used throughout the class, e.g.,
 
     ```python
     class whatsit:
@@ -137,21 +137,21 @@ have to supply it as it is supplied automatically.
 ### Special methods
 
 There are a set of [special method names](https://rszalski.github.io/magicmethods/) (sometimes
-called "dunder", or magic, methods as they start and end with a double underscore) like `__init__`
-that can be defined in a class. These can be used
+called "dunder" methods as they start and end with a double underscore, but also known as magic
+methods) like `__init__` that can be defined in a class. These can be used
 
- * to allow comparisons of objects of specific class
- * define how mathematical operators work on a class (see [Operator overloading](#operator-overloading))
- * access attributes within a class
- * provide representations of class
+ * to allow comparisons of objects of specific class;
+ * define how mathematical operators work on a class (see [Operator overloading](#operator-overloading));
+ * access attributes within a class;
+ * provide representations of class.
 
 The full set of special methods can be found
 [here](https://docs.python.org/3/reference/datamodel.html#special-method-names).
 
-One particular special method is
+One particular special method that we will use in this course is
 [`__str__`](https://thomas-cokelaer.info/blog/2017/12/difference-between-__repr__-and-__str__-in-python/).
-This defines how to displayed a class instance as a string, for example if trying to print the
-object, e.g.,:
+This defines how to display a class instance as a string, for example if trying to print the
+object:
 
 ```python
 class Particle:
@@ -164,7 +164,7 @@ class Particle:
     def __str__(self):
         # a string representing the object
         vowel = self.name[0].lower() in ["a", "e", "i", "o", "u"]
-        firstword = "An" if vowel else "A"  # shorthand if else statment!
+        firstword = "An" if vowel else "A"  # shorthand if else statement!
 
         return "{} {} with mass of {} kg and charge of {} C".format(
             firstword, self.name, self.mass, self.charge
@@ -180,7 +180,7 @@ A similar method that can be used instead is `__repr__`.
 ### Adding methods
 
 Methods are defined just like standard functions, but within the class definition. The first
-argument that they take must be `self`, so that all other class attributes are available using it.
+argument that they take must be `self`, so that all other class attributes are available within it.
 
 ```python
 class Particle:
@@ -208,7 +208,7 @@ class Particle:
             return None
 ```
 
-Like the data attributes this can then be accessed using a `.`, e.g.:
+Like the data attributes this method can then be accessed using a `.`, e.g.:
 
 ```python
 electron = Particle("electron", -1.6e-19, 9.1e-31, spin=1/2)
@@ -216,7 +216,7 @@ print(electron.fermion_or_boson())  # note the brackets when accessing the metho
 fermion
 ```
 
-The `fermion_or_boson` method does not take in any arguments (other than the impicit `self`). A
+The `fermion_or_boson` method does not take in any arguments (other than the implicit `self`). A
 method that could be added to the particle is one that calculates the [Lorentz
 force](https://en.wikipedia.org/wiki/Lorentz_force) on the particle in an electric and magnetic
 field:
@@ -267,7 +267,7 @@ class Particle:
             # check E is the right length
             raise ValueError("E is not the right length")
 
-        F = 3 * [0.0]  # initialise F as zeros
+        F = 3 * [0.0]  # initialise F as list of 3 zeros
         
         # calculate F = q * (E + v x B)
         F[0] = self.charge * (E[0] + v[1] * B[2] - v[2] * B[1])
@@ -313,7 +313,8 @@ print(F)
 The `lorentz_force` method above takes one positional argument and two keyword arguments (that give
 default values). Any number of positional or keyword arguments could be used.
 
-The `lorentz_force` method could be simplified using Numpy (see [#demo-numpy]).
+The `lorentz_force` method could be simplified using NumPy (see the [NumPy
+tutorial](../demo-numpy/index.html]).
 
 ## Static methods
 
@@ -321,9 +322,9 @@ Static methods are functions within a class that can be used without creating a 
 class. As they do not use an instance of the class they do not have access to any of the other class
 attributes, i.e., they are standalone and must be supplied with all the variables they require.
 
-Unlike normal methods they do not get passes the `self` argument. The make a method static you use
+Unlike normal methods they do not get passed the `self` argument. To make a method static you use
 the [`@staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)
-@(decorator) on the line above the method definition, e.g.:
+@(decorator) on the line above the method definition, e.g.,:
 
 ```python
 class Line2D:
@@ -456,7 +457,7 @@ class Galaxy:
 ```
 
 Now, suppose we want a class specifically for a spiral galaxy, but that keeps the attributes of a
-`Galaxy`, i.e. `Galaxy` is the **parent** class and `SpiralGalaxy` will be its **child**. We can
+`Galaxy`, i.e., `Galaxy` is the **parent** class and `SpiralGalaxy` will be its **child**. We can
 create a new class with:
 
 ```python
@@ -555,7 +556,7 @@ plt.show()
 
 ## Operator overloading
 
-Mathematical operators (e.g.. `+`, `-`, `*`, `/`) can be applied to number classes like `int`s or
+Mathematical operators (e.g., `+`, `-`, `*`, `/`) can be applied to number classes like `int`s or
 `float`s. But, if it's sensible to do so, you can define how the mathematical operators act on any
 class you define.
 
@@ -734,10 +735,10 @@ print(v3.vector)
 ```
 
 !!! note
-    In reality, for something like a vector, the Numpy library already has useful classes called
-    arrays for which the mathematical operators are all defined.
+    In reality, for something like a vector, the [NumPy](../demo-numpy/index.html) library already
+    has useful classes called arrays for which the mathematical operators are all defined.
 
-If you wanted to use the `+=` operator, e.g., to change v1 inplace
+If you wanted to use the `+=` operator, e.g., to change v1 in-place
 
 ```python
 v1 += v2
