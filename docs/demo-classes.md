@@ -278,7 +278,13 @@ class Particle:
 
 
 electron = Particle("electron", -1.6e-19, 9.1e-31)
+```
 
+First, we can see what happens if we used the method incorrectly (error checking is discussed in
+more detail in the ["Error checking and debugging" tutorial](../demo-error-checking/index.html)).
+The `lorentz_force` method requires one positional argument, but if we do not then:
+
+```python
 # calculate the Lorentz force (forgetting the required positional argument!)
 F = electron.lorentz_force()
 ---------------------------------------------------------------------------
@@ -287,7 +293,11 @@ TypeError                                 Traceback (most recent call last)
 ----> 1 F = electron.lorentz_force()
 
 TypeError: lorentz_force() missing 1 required positional argument: 'E'
+```
 
+The positional argument must be a list containing three values, but if we try and use two, then:
+
+```python
 # try again (with E being the wrong length!)
 F = electron.lorentz_force([0.1, 0.2])
 ---------------------------------------------------------------------------
@@ -303,7 +313,11 @@ ValueError                                Traceback (most recent call last)
      46         F = 3 * [0.0]  # initialise F as zeros
 
 ValueError: E is not the right length
+```
 
+Finally, we will use it correctly:
+
+```python
 # try again!
 F = electron.lorentz_force([0.1, 0.2, 0.3])
 print(F)
@@ -457,8 +471,8 @@ class Galaxy:
 ```
 
 Now, suppose we want a class specifically for a spiral galaxy, but that keeps the attributes of a
-`Galaxy`, i.e., `Galaxy` is the **parent** class and `SpiralGalaxy` will be its **child**. We can
-create a new class with:
+`Galaxy`, i.e., `Galaxy` is the @(parent) class (or superclass) and `SpiralGalaxy` will be its
+@(child) (or subclass). We can create a new class with:
 
 ```python
 class SpiralGalaxy(Galaxy):  # this is where the Galaxy gets inherited
@@ -513,7 +527,7 @@ class SpiralGalaxy(Galaxy):  # this is where the Galaxy gets inherited
         return velocities
 ```
 
-It we create a `SpiralGalaxy`:
+If we create a `SpiralGalaxy`:
 
 ```python
 bulge_mass = 3.0e8  # solar masses

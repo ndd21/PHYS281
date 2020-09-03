@@ -14,6 +14,10 @@ expressions. For example, if an object `o` has an attribute `a` it would be refe
 `o.a`*"](https://docs.python.org/3/glossary.html#term-attribute). Attributes can be variables within
 a class ([data attributes](#data-attribute)) or methods.
 
+## Child
+
+A class that inherits attributes from a [parent](#parent) class, sometimes known as a subclass.
+
 ## Class
 
 A class is ["*A template for creating user-defined objects. Class definitions normally contain
@@ -95,12 +99,25 @@ In Python, object's are the building blocks of a code; everything is an object! 
 data (variables) and ways of manipulating data (functions). Objects have a type which is defined
 using their class. Generally, any [instance of a class](#class-instance) is an object.
 
+## Parent
+
+A class who's attributes will be inherited by a new [child](#child) class. This is sometimes known as a
+superclass.
+
 ## Positional argument
 
 A positional argument to a function is an [argument](#argument) defined by a name without the equals
 sign, e.g., in `def func(a, b):` both `a` and `b` are positional arguments. When using the function
 the positional arguments must be passed in the order that they are given in the function definition.
 They must come before any [keyword arguments](#keyword-argument).
+
+## subclass
+
+A synonym for a [child](#child) class.
+
+## superclass
+
+A synonym for a [parent](#parent) class.
 
 ## Variable
 
