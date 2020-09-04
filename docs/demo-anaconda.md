@@ -28,8 +28,8 @@ The official instructions for installing Anaconda on a variety of operating syst
 
     ![Anaconda setup window](img/anacondainstaller.png)
 
-    * Click the "Next" button to begin installation.
-    * Click "I Agree" in the "License Agreement" window.
+    * Click the ++"Next >"++ button to begin installation.
+    * Click ++"I Agree"++ in the "License Agreement" window.
     * On the "Select Installation Type" window you can either select to install for "Just me" or
       "All users". If you are the only user of your machine then either option is fine. If there
       are multiple users (i.e., it's a shared machine) then "Just me" can be used.
@@ -38,9 +38,9 @@ The official instructions for installing Anaconda on a variety of operating syst
       your own machine, this will be "`C:\Users\<username>\anaconda3`", where "`<username>`"
       will be replaced with your own user name on the machine.
     * On the "Advanced Installation Options" window leave the tick in the box next to "Register
-      Anaconda3 as my default Python 3.8"m and click the "Install" button.
-    * Once installation is complete continue clicking though with the "Next" buttons and finally
-      click "Finish" (if you leave the check boxes on the final window ticked, then links to
+      Anaconda3 as my default Python 3.8" and click the ++"Install"++ button.
+    * Once installation is complete continue clicking though with the ++"Next >"++ buttons and finally
+      click ++"Finish"++ (if you leave the check boxes on the final window ticked, then links to
       tutorials will open in your browser).
 
 === "Installation on Mac OS"
