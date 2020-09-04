@@ -119,6 +119,12 @@ A synonym for a [child](#child) class.
 
 A synonym for a [parent](#parent) class.
 
+## Terminal
+
+A text-based window for running commands via a command-line prompt. In Windows, a common terminal
+programme is
+[PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
+
 ## Variable
 
 A variable in Python is a named object (or named class instance), e.g., in `x = 2.9` a variable
