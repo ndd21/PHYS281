@@ -1,7 +1,7 @@
 # NumPy
 
 [NumPy](https://numpy.org/) is a Python library containing many useful features for numerical and
-scientific computation. It is not a built-in module, but is available in the default Anaconda
+scientific computation. It is not a @(built-in) module, but is available in the default Anaconda
 environment.
 
 NumPy can be imported using:
@@ -18,10 +18,10 @@ import numpy as np
 
 In this tutorial we will use this `np` namespace.
 
-This tutorial will not go into detail of the vast majority of functionality in NumPy, but much more
-information can be found through the [official documentation](https://numpy.org/doc/stable/). We
-will mainly focus on NumPy's array class, which is useful for holding multi-dimensional numerical
-arrays of numbers.
+This tutorial will not go into the details of the vast majority of functionality in NumPy, but much
+more information can be found through NumPy's [official
+documentation](https://numpy.org/doc/stable/). We will mainly focus on NumPy's array class, which is
+useful for holding multi-dimensional numerical arrays.
 
 ## NumPy arrays
 
@@ -29,14 +29,15 @@ The basic class for NumPy arrays is the
 [`ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html) class. They can
 hold arrays of any Python object, but are most generally used to hold arrays of numbers.
 
-NumPy `ndarray`s have a variety of useful attributes and method, a few of which will be mentioned
-below.
+NumPy `ndarray`s have a variety of useful @(data attributes) and @(methods), a few of which will be
+mentioned below.
 
 ### Creating an array
 
-Rather than using the `ndarray` class for creating new instances of NumPy arrays, the standard way
-is to use the [`array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html) function.
-To create a numerical array you can pass `array` a list of values:
+Rather than using the `ndarray` class definition for creating new instances of NumPy arrays, the
+standard way is to use the
+[`array`](https://numpy.org/doc/stable/reference/generated/numpy.array.html) function. To create a
+numerical array you can pass the `array` function a list of values:
 
 ```python
 x = np.array([1, 2, 3])
@@ -48,10 +49,10 @@ print(x.dtype)
 int64
 ```
 
-We passed a list of values and created a NumPy `ndarray` holding those values. The `array` function
-will automatically try and identify the number's type and as we passed a list of integers it has set
-the array's `dtype` attribute to `int64` (which stands for a 64 bit integer). If any of the numbers
-were a `float` the type for all numbers would be a float:
+Above, we passed `array` a list of values and created a NumPy `ndarray` holding those values. The
+`array` function will automatically try and identify the number's type and as we passed a list of
+integers it has set the array's `dtype` attribute to `int64` (which stands for a 64 bit integer). If
+_any_ of the numbers were a `float` the type for all numbers would be a float:
 
 ```python
 x = np.array([1.0, 2, 3])
@@ -65,6 +66,7 @@ make sure they are floats if you are going to perform further mathematical opera
 ```python
 x = np.array([1, 2, 3], dtype=float)  # explicitly type the values to be floats
 print(x.dtype)
+float64
 ```
 
 !!! warning
@@ -183,7 +185,7 @@ print(x)  # show x in unaffected by the change to y
 
 There are a couple of equivalent ways to do this using the
 [`copy`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.copy.html#numpy.ndarray.copy)
-method of an array or the NumPy
+method of a `ndarray` or the NumPy
 [`copy`](https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy) function:
 
 ```python
@@ -305,9 +307,9 @@ print(type(y))
 <class 'list'>
 ```
 
-There are other methods not covered here. The majority of these methods have equivalent NumPy
-functions that can be used instead, and some take in arguments, which have not been covered (they
-can work differently for arrays with more than one dimension).
+There are many other methods not covered here. The majority of these methods have equivalent NumPy
+functions that can be used instead, and some take in arguments, which have not been covered here
+(i.e., they can work differently for arrays with more than one dimension).
 
 ### Multidimensional arrays
 

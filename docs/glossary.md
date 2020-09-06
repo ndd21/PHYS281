@@ -56,6 +56,11 @@ A data type that can take one of two possible values, "True" or "False", which c
 performing [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra), i.e., evaluating
 logical expressions. In Python, Boolean variables have the [type](#type) "`bool`".
 
+## Built-in
+
+Something, for example a function or module, that is defined within any Python installation and
+is therefore available to use in any Python code.
+
 ## Child
 
 A class that inherits attributes from a [parent](#parent) class, sometimes known as a subclass.
@@ -96,6 +101,12 @@ A decorator is ["*A function returning another
 function*"](https://docs.python.org/3/glossary.html#term-decorator). To define a function that is
 wrapped in another "decorator" function, the line before the function definition should contain
 `@decoratorname`, where `decoratorname` is the name of the decorating function. 
+
+## File extension
+
+This is the end part of a file's name, after the full stop, that defines type of file that it is.
+For example, in `myscript.py` the file extension is `py` and shows this is a Python file, or in
+`mydocument.docx` the file extension `docx` shows this is a Microsoft Word document.
 
 ## float
 
@@ -189,6 +200,12 @@ A positional argument to a function is an [argument](#argument) defined by a nam
 sign, e.g., in `def func(a, b):` both `a` and `b` are positional arguments. When using the function
 the positional arguments must be passed in the order that they are given in the function definition.
 They must come before any [keyword arguments](#keyword-argument).
+
+## Script
+
+A script is a file containing code that is generally used to perform just one job and is standalone
+(i.e., it can be run on its own without having to be run by a different code). A Python script file
+has the [file extension](#file-extension) `py`.
 
 ## String
 

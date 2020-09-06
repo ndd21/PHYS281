@@ -84,6 +84,30 @@ y.as_integer_ratio()
 (3, 2)
 ```
 
+!!! note
+    Due to being held in a finite amount of computer memory, floating point numbers are not
+    exact. They can show loss of precision when including many significant figures, e.g.,:
+
+    ```python
+    x = 4.1 - 1.2
+    print(x)
+    2.8999999999999995
+    ```
+
+    The above calculation has produced a number that is very close to, but not quite, `2.9`.
+    This can mean that you have to be careful if doing comparisons with float, as:
+
+    ```python
+    print(x == 2.9)
+    False
+    ```
+
+    You might instead do:
+
+    ```python
+    print(abs((x - 2.9)/x) < 1e-15)  # difference has very small relative error
+    ```
+
 ## Strings
 
 @(Strings) can be defined in three different, but equivalent, ways:

@@ -198,6 +198,27 @@ import copy
 y = copy.deepcopy(x)
 ```
 
+### Lists within lists
+
+Lists can contain any other object. For example, you can create an array of numbers by having a list
+that contains lists:
+
+```python
+x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+```
+
+For each level of the list you can access its values by using a new set of square brackets:
+
+```python
+# get the first sublist
+print(x[0])
+[1, 2, 3]
+
+# get the second value from the third sublist
+print(x[2][1])
+8
+```
+
 ### List methods
 
 Like everything in Python, lists are objects and have a variety of useful methods. We will examine a
@@ -427,4 +448,40 @@ y = set(x)
 newx = list(y)
 print(newx)
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+## Complex numbers
+
+Complex numbers can be defined in Python using `j`-notation. For example:
+
+```python
+x = 2.3 + 5.4j
+print(type(x))
+<class 'complex'>
+```
+
+The standard mathematical @(operators) will work on complex numbers, e.g.,
+
+```python
+x = 2.3 + 5.4j
+y = -1.2 + 8.3j
+z = x + y
+print(z)
+(1.0999999999999999+13.700000000000001j)
+```
+
+The `complex` type has attributes for accessing the real and imaginary components separately:
+
+```python
+print(x.real)
+2.3
+print(x.imag)
+5.4
+```
+
+It also has a method for returning the complex conjugate:
+
+```python
+print(x.conjugate())
+(2.3-5.4j)
 ```
