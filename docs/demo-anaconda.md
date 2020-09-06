@@ -54,7 +54,8 @@ The official instructions for installing Anaconda on a variety of operating syst
 
 
 === "Installation on Linux"
-    For Linux users we recommend just installing the lightweight Miniconda package rather than the
+    For Linux users we recommend just installing the lightweight
+    [Miniconda](https://docs.conda.io/en/latest/miniconda.html) package rather than the
     full Anaconda installation. Instructions for installing Miniconda under Linux can be found
     [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/linux.html),
     which we summarise below.
@@ -62,7 +63,8 @@ The official instructions for installing Anaconda on a variety of operating syst
     The instructions below are those for installation via command line only.
 
     * Download the [latest Miniconda installation](https://docs.conda.io/en/latest/miniconda.html#linux-installers) file from
-      https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh either via your browser
+      [https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh](https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      ) either via your browser
       or from the command line with, e.g.,
 
     ```bash
@@ -70,6 +72,8 @@ The official instructions for installing Anaconda on a variety of operating syst
     ```
 
     * In the directory that you downloaded `Miniconda3-latest-Linux-x86_64.sh` run:
+
+
 
     ```bash
     bash Miniconda3-latest-Linux-x86_64.sh
