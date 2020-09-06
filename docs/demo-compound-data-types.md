@@ -1,13 +1,13 @@
 # Compound data types
 
-In addition to the basic data types for integers (`int`), floating point numbers (`float`) and
-strings of text (`str`), there are some other standard Python data types that can hold multiple
-pieces of data.
+In addition to the [basic data types](../demo-data-types/index.html) for integers (`int`),
+@(floating point numbers) (`float`) and @(strings) of text (`str`), there are some other standard
+Python data types that can hold multiple pieces of data.
 
 ## Lists
 
-Lists can hold an array of **any** other Python object. Lists are defined using square brackets `[]`
-or the `list` class name.
+Lists can hold an array of any other Python object. Lists are defined using square brackets `[]` or
+the `list` class name.
 
 ```python
 # a list containing some integers
@@ -17,8 +17,9 @@ print(type(x))
 <class 'list'>
 ```
 
-You can access values in a list using their index placed within square brackets `[idx]`. The index
-is an integer giving an items location within the list. In Python indexes start at zero, e.g.:
+You can access values in a list @(variable) using their @(index) placed within square brackets
+`[idx]`. The index is an integer giving an item's location within the list. In Python indices start
+at zero, e.g., the first value in a list is obtained with:
 
 ```python
 print(x[0])
@@ -32,14 +33,15 @@ print(x[-1])
 3
 ```
 
-You can create an empty list using:
+You can create an empty list using two equivalent ways:
 
 ```python
 x = []
 x = list()
 ```
 
-To find out the length of a list you can use the `len` keyword:
+To find out the length of a list, i.e., how many items it contains, you can use the `len`
+@(keyword):
 
 ```python
 x = [1, 2, 3]
@@ -47,7 +49,7 @@ print(len(x))
 3
 ```
 
-You can initialise a list containing multiple instances of a particular value, e.g., initialising it
+You can initialise a list to contain multiple instances of a particular value, e.g., initialising it
 to contain 10 zeros, with:
 
 ```python
@@ -56,8 +58,8 @@ print(x)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
 
-You can combine lists together using the `+` operator. To get a new list that is the combination of
-two other lists you could use:
+You can combine lists together using the `+` @(operator). To get a new list that is the combination
+of two other lists concatenated together you can use:
 
 ```python
 x = [1, 2]
@@ -87,7 +89,8 @@ print(x)
 
 ### Slices
 
-You can return certain values from a list using a slice: `startidx:endidx` or `startidx:endidx:step`.
+You can return certain values from a list using slice notation: `startidx:endidx` or
+`startidx:endidx:step`.
 
 With `startidx:endidx` the `startidx` value is the index for the first list value you want to return
 and `endidx` is **one more** than the last list value that you want to return, e.g.:
@@ -108,7 +111,7 @@ print(x[2:7])
 print(x[5:])
 [6, 7, 8, 9, 10]
 
-# copy those values into a new list variable
+# get a new variable pointing to a set of values
 y = x[3:5]
 print(y)
 [4, 5]
@@ -137,12 +140,28 @@ print(x[::-1])
 [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 ```
 
+!!! note
+    Rather than using the colon notation `startidx:endidx:step` you can create a slice using the
+    built-in [`slice`](https://www.w3schools.com/python/ref_func_slice.asp) function. For example,
+    the following two ways of slicing are equivalent:
+
+    ```python
+    # using colon slice notation
+    x = [5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5]
+    print(x[1:-1:2])
+    [4, 2, 0, -2, -4]
+
+    # using the slice function
+    print(x[slice(1, -1, 2)])
+    [4, 2, 0, -2, -4]
+    ```
+
 ### Copying lists
 
 If you set a new variable to be equal to another list variable then the new variable is **not** a
 copy of the original list, it is just another name assigned to the same bit of memory as the
 original variable name (in `C` jargon it's a pointer). So, if you change the new variable then
-original one will also be changed. E.g.
+original one will also be changed. E.g.,
 
 ```python
 x = [1, 2, 3]
@@ -181,8 +200,8 @@ y = copy.deepcopy(x)
 
 ### List methods
 
-Like everything in Python lists are objects and have a variety of useful methods. I'll show a few
-here, but they can all be seen by typing `help(list)` in a terminal.
+Like everything in Python, lists are objects and have a variety of useful methods. We will examine a
+few here, but they can all be seen by typing `help(list)` in a terminal.
 
 #### Append
 
@@ -238,21 +257,23 @@ print(x)
 ['d', 'c', 'b', 'a']
 ```
 
-> Note: `sort` works "in place", i.e., it actually changes the list. To return a sorted version of a
-> list, but keep the original list as it is you can use the built-in `sorted()` function, e.g.
+!!! note
+    `sort` works "in place", i.e., it actually changes the list. To return a sorted version of a
+    list, but keep the original list as it is you can use the built-in
+    [`sorted()`](https://www.w3schools.com/python/ref_func_sorted.asp) function, e.g.,
 
-```python
-x = ["b", "d", "a", "c"]
-y = sorted(x)
-print(x)
-['b', 'd', 'a', 'c']
-print(y)
-['a', 'b', 'c', 'd']
-```
+    ```python
+    x = ["b", "d", "a", "c"]
+    y = sorted(x)
+    print(x)
+    ['b', 'd', 'a', 'c']
+    print(y)
+    ['a', 'b', 'c', 'd']
+    ```
 
 ## Tuples
 
-Tuples are very similar to lists, but they are immutable. This means that you cannot change any of
+Tuples are very similar to lists, but they are @(immutable). This means that you cannot change any of
 the values they contain once they have been created. Tuples are defined using regular brackets `()`
 or with the `tuple` class name.
 
@@ -261,11 +282,12 @@ x = (1, 2, 3, 4, 5)
 print(x[1])
 2
 
+# show that it is immutable
 x[3] = 12
 TypeError: 'tuple' object does not support item assignment
 ```
 
-They can be sliced in the same way a lists.
+They can be [sliced](#slices) in the same way a lists.
 
 ```python
 print(x[::2])
@@ -285,7 +307,7 @@ print(type(x))
 <class 'tuple'>
 ```
 
-You cannot extend or append to a tuples, but you can concatenate two tuples to get a new tuple:
+You cannot extend or append to a tuple, but you can concatenate two tuples to get a new tuple:
 
 ```python
 x = (1, 2)
@@ -298,17 +320,17 @@ print(z)
 ## Dictionaries
 
 Dictionaries are a very useful array-like data type. Rather than referencing a value by its index in
-the array you can reference it with a key. This key can be a word, so you don't have to know the
+the array you can reference it with a key. This key can be a word, so you do not have to know the
 position you just have to know the key. Dictionaries are defined with curly brackets `{}` or the
-`dict` class name using "key-value" pairs. The "key" can be any integer or a string (generally I
-find descriptive strings are most useful) and the value can be any object, e.g., integers, floats,
-lists, ... even other dictionaries.
+`dict` class name using "key-value" pairs. The "key" can be any integer or a string (generally
+descriptive strings are most useful) and the value can be any object, e.g., integers, floats, lists,
+or even other dictionaries.
 
 ```python
 x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
 ```
 
-You can access values from a dictionary by using its associated key in square brackets:
+You can access a value from a dictionary by using its associated key in square brackets:
 
 ```python
 print(x["firstname"])
@@ -325,7 +347,9 @@ print(x)
 {'value1': 1, 'value2': 2}
 ```
 
-> Note: From Python 3.5 onwards the order than you place values into a dictionary will be preserved.
+!!! note
+    From Python 3.5 onwards the order than you place values into a dictionary will be preserved,
+    but in earlier version the order held in the dictionary may be different.
 
 You can return just the keys in a dictionary using the `keys` method:
 
@@ -343,10 +367,12 @@ dict_keys(['firstname', 'lastname', 'age'])
 dict_values(['Matthew', 'Pitkin', 39])
 ```
 
-Theses are useful for _iterating_ over, for example in a for-loop:
+These are useful for _iterating_ over, for example in a
+[for-loop](../demo-flow-control/index.html#for-and-while-loops).
 
-You can remove values from a dictionary using `del` or the `pop` method. `del` just deletes a value,
-while `pop` deletes, but also returns that deleted value:
+You can remove values from a dictionary using the
+[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) keyword or the `pop` method. `del`
+just deletes a value, while `pop` deletes, but also returns that deleted value:
 
 ```python
 x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
@@ -367,8 +393,8 @@ Pitkin
 Set are a _bit_ like dictionaries that only contain keys. They can only contain one of any value
 (i.e., no duplicates) and they are automatically sorted. Like dictionaries they are defined using
 curly brackets `{}` or the class name `set`. You cannot access values in a set using indexing. In
-general, you won't come across sets very much. They are mainly useful for doing faster comparisons
-if you are trying to work out if a value is in a "set" of other values.
+general, you will not come across sets very much. They are mainly useful for doing faster
+comparisons if you are trying to work out if a value is in a "set" of other values.
 
 ```python
 x = {1, 1, 5, 2, 3, 4, 4}
