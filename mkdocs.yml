@@ -37,9 +37,11 @@ docs_dir: 'docs'
 
 extra_css:
   - http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
+  - https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.4.1/asciinema-player.css
   - css/tooltips.css
 
 extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/asciinema-player/2.4.1/asciinema-player.min.js
   - https://unpkg.com/@popperjs/core@2
   - https://unpkg.com/tippy.js@6
   - javascripts/glossary.js

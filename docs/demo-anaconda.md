@@ -1,8 +1,8 @@
 # Installing Anaconda
 
 [Anaconda](https://www.anaconda.com/products/individual) is a Python distribution and package
-management system. It provides an installation of Python (currently defaulting to Python 3.8)
-and a way to create "virtual environments" that can contain different Python version and
+management system. It provides an installation of Python (as of September 2020 this defaults to
+Python 3.8) and a way to create "virtual environments" that can contain different Python version and
 software packages required for a specific task.
 
 The official instructions for installing Anaconda on a variety of operating systems can be found
@@ -67,17 +67,18 @@ The official instructions for installing Anaconda on a variety of operating syst
       ) either via your browser
       or from the command line with, e.g.,
 
-    ```bash
-    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    ```
+      ```bash
+      wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      ```
 
     * In the directory that you downloaded `Miniconda3-latest-Linux-x86_64.sh` run:
 
+      ```bash
+      bash Miniconda3-latest-Linux-x86_64.sh
+      ```
 
-
-    ```bash
-    bash Miniconda3-latest-Linux-x86_64.sh
-    ```
+    <asciinema-player src="minicondainstallation.cast" cols="82" rows="23" autoplay="true"></asciinema-player>
+    
 
 When installed, the default Python version 
 

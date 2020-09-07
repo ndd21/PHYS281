@@ -222,7 +222,7 @@ x = np.full(3, 2.3964)
 
 #### Complex arrays
 
-Arrays can contain complex numbers, e.g.,:
+Arrays can contain [complex numbers](../demo-compound-data-types/index.html#complex-numbers), e.g.,:
 
 ```python
 x = np.array([2 + 3j, 9 + 5j, -5 - 6j])
@@ -307,14 +307,16 @@ print(type(y))
 <class 'list'>
 ```
 
-There are many other methods not covered here. The majority of these methods have equivalent NumPy
-functions that can be used instead, and some take in arguments, which have not been covered here
-(i.e., they can work differently for arrays with more than one dimension).
+There are many other [methods](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html)
+not covered here. The majority of these methods have equivalent NumPy functions that can be used
+instead, and some take in arguments, which have not been covered here (i.e., they can work
+differently for arrays with more than one dimension).
 
 ### Multidimensional arrays
 
 Arrays can have any number of dimensions. You can create multi-dimensional arrays from
-multi-dimensional lists (in the examples here we will stick to 2D objects), e.g.,:
+[multi-dimensional lists](../demo-compound-data-types/index.html#lists-of-lists) (in the examples
+here we will stick to 2D objects), e.g.,:
 
 ```python
 x = np.array([[1, 2, 3], [4, 5, 6]])  # a 2x3 2D array
@@ -340,12 +342,22 @@ print(x[0, 2])  # get the value from the 1st row and 3rd column
 3
 ```
 
-Slices can also be used, e.g.,:
+@(Slices) can also be used, e.g.,:
 
 ```python
 print(x[1, :])  # get all values from the 2nd row
 [4 5 6]
 ```
+
+!!! tip "Reminder"
+    Slices are a way of accessing multiple index values using the colon `:` notation, e.g., `start:stop`
+    or `start:stop:step`, where `start` is the index of the first value to return, `stop` is the index
+    _one after_ that of last value to return, and `step` is the integer step between indexes of returned
+    value. If `start` is not supplied it defaults to 0, i.e., the start of the array, if `stop` is not
+    defined it defaults to the last value in the array, and if `step` is not supplied it defaults to 1.
+    
+    The [`slice`](https://www.w3schools.com/python/ref_func_slice.asp) built-in function can also
+    be used to generate a slice.
 
 You can get the [transpose](https://en.wikipedia.org/wiki/Transpose) of an array using the
 [`T`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.T.html#numpy.ndarray.T)
@@ -412,7 +424,8 @@ functions that are similar to `concatenate`.
 
 ### Mathematical operations on an array
 
-NumPy `ndarray`s are overloaded so that the standard mathematical operators can be applied to them.
+NumPy `ndarray`s are [overloaded](../demo-classes/index.html#operator-overloading) so that the
+standard mathematical @(operators) can be applied to them.
 
 ```python
 # adding two arrays
@@ -436,7 +449,8 @@ print(x)
 z = x - y
 [ 5.5  9.6 12.2]
 
-# multiply two arrays (multiplication of each component individually, sometimes called the Hadamard product)
+# multiply two arrays (multiplication of each component individually,
+# sometimes called the Hadamard product)
 z = x * y
 print(z)
 
@@ -459,8 +473,8 @@ print(z)
 #### Linear algebra
 
 1D arrays can be thought of as vectors, and NumPy can be used to compute vector
-[dot](https://en.wikipedia.org/wiki/Dot_product) and [cross
-products](https://en.wikipedia.org/wiki/Cross_product):
+[dot](https://en.wikipedia.org/wiki/Dot_product) and
+[cross](https://en.wikipedia.org/wiki/Cross_product) products:
 
 ```python
 x = np.array([1, 0, 0])
@@ -476,8 +490,8 @@ print(z)
     The [`dot`](https://numpy.org/doc/stable/reference/generated/numpy.dot.html#numpy.dot) function
     can be used for arrays of any number of dimensions, but if you have 1D arrays (e.g., vectors)
     then the [`vdot`](https://numpy.org/doc/stable/reference/generated/numpy.vdot.html#numpy.vdot)
-    function can be used instead (if you supply higher dimensional array to `vdot` they will get
-    "flattened" into 1D arrays). `vdot` is a little bit faster than `dot` when used on vectors:
+    function can be used instead (if you supply higher dimensional arrays to `vdot` they will get
+    "flattened" into 1D arrays). `vdot` is faster than `dot` when used on vectors:
 
     ```python
     %timeit np.dot(x, y)
@@ -486,7 +500,7 @@ print(z)
     613 ns ± 6.89 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
     ```
 
-    If the first vector supplied to `vdot` is complex valued then it's complex conjugate is
+    If the first vector supplied to `vdot` is complex valued then its complex conjugate is
     automatically used when calculating the dot product. This is not the case for `dot`
     (see also, yet another similar function
     [`inner`](https://numpy.org/doc/stable/reference/generated/numpy.inner.html#numpy.inner)!):
@@ -584,8 +598,8 @@ function.
 ### Range-like arrays
 
 The built-in Python [`range`](https://docs.python.org/3/library/functions.html#func-range) function
-can return a list of integers, but it is often useful to have a 1D array of non-integer spaced
-values. There are a couple of different ways to do this using NumPy: the
+can return a list of integers, but it is often useful to have a 1D array of non-integer uniformly
+spaced values. There are a couple of different ways to do this using NumPy: the
 [`linspace`](https://numpy.org/doc/stable/reference/generated/numpy.linspace.html) and
 [`arange`](https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange)
 functions.
@@ -688,16 +702,22 @@ print(np.random.rand())  # get the same number as before
 0.08380289901158755
 ```
 
+!!! warning
+    Only set the seed if you want really want identical and repeatable random numbers. If doing
+    simulations that rely on the random aspect being independent over multiple runs then it is best
+    to not set a seed.
+
 There are many [probability
 distributions](https://numpy.org/doc/stable/reference/random/legacy.html#distributions) from which
-the random numbers can be drawn, but below are a few common examples.
+random numbers can be drawn, but below are a few common examples.
 
 ### Uniform distribution
 
 Numbers can be drawn randomly from a
-[uniform](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) interval, using the
+[uniform](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) distribution within a
+given interval, using the
 [`uniform`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html)
-function, which takes the lower and upper range of the interval and the shape of array to return (by
+function. This takes the lower and upper range of the interval and the shape of array to return (by
 default a single draw is returned):
 
 ```python
@@ -756,8 +776,8 @@ Random integers between an upper and lower bound can be generated using the
 [`randint`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html)
 function:
 
-```
-# generate 10 random integer values between 1 and 7 (excluding 7), i.e. dice rolls
+```python
+# generate 10 random integer values between 1 and 7 (excluding 7), i.e., dice rolls
 dicerolls = np.random.randint(1, 7, 10)
 print(dicerolls)
 [5, 1, 4, 0, 4, 0, 3, 0, 4, 2]

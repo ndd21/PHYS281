@@ -38,6 +38,13 @@ The "at" symbol has two uses. It can be used as an operator to perform [matrix
 multiplication](https://en.wikipedia.org/wiki/Matrix_multiplication). Alternatively, it is used when
 defining a [decorator](#decorator) function wrapping another function.
 
+## Alias
+
+An alternative, and generally shorter, way of referring to a [namespace](#namespace). When importing
+a @(module), the module's namespace can be aliased using the `as` keyword, e.g., in `import numpy as
+np` the `numpy` namespace has been aliased to `np`, which can then be used within the code in place
+of `numpy`. 
+
 ## Argument
 
 An argument is a variable or value that is passed to a function, so that it can be used within the
@@ -171,10 +178,28 @@ arguments must be given in the order in the function definition.
 
 In Python, a method is how a [function](#function) within a class is referred to.
 
+## Module
+
+["A module is a file containing Python definitions and
+statements."](https://docs.python.org/3/tutorial/modules.html#modules)
+
 ## Mutable
 
 An object that is changeable after created. The opposite is something that is
 [immutable](#immutable).
+
+## Namespace
+
+Most generally: ["A _namespace_ is a mapping from names to
+objects"](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces). However, a
+common use of namespace is at the [module](#module) level and refers to using something (e.g., a
+function) within a module by explicitly declaring the module's name to avoid ambiguity with other
+potentially identically named objects. E.g., using the `sin` function with the `math` module:
+
+```python
+import math
+x = math.sin(1.0)  # sin is used within the math namespace
+```
 
 ## Object
 
@@ -206,6 +231,14 @@ They must come before any [keyword arguments](#keyword-argument).
 A script is a file containing code that is generally used to perform just one job and is standalone
 (i.e., it can be run on its own without having to be run by a different code). A Python script file
 has the [file extension](#file-extension) `py`.
+
+## Slice
+
+Slices are a way of accessing multiple index values using the colon `:` notation, e.g., `start:stop`
+or `start:stop:step`, where `start` is the index of the first value to return, `stop` is the index
+_one after_ that of last value to return, and `step` is the integer step between indexes of returned
+value. The [`slice`](https://www.w3schools.com/python/ref_func_slice.asp) built-in function can also
+be used to generate a slice.
 
 ## String
 

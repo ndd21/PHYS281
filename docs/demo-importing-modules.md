@@ -1,8 +1,10 @@
 # Importing modules
 
-A **module** is ["*... a file containing Python definitions and statements*"](https://docs.python.org/3/tutorial/modules.html#modules).
+A @(module) is ["*... a file containing Python definitions and
+statements*"](https://docs.python.org/3/tutorial/modules.html#modules).
 
-Python contains a range of [built-in modules](https://docs.python.org/3/py-modindex.html) that contain many useful functions or classes you can use.
+Python contains a range of [built-in modules](https://docs.python.org/3/py-modindex.html) that
+contain many useful functions or classes you can use.
 
  * **built-in** modules are files that are automatically bundled with, and accessible by, every
    Python installation (the bundled modules can change for different Python versions).
@@ -11,9 +13,11 @@ There are also a huge range of third-party packages that can be installed and th
 
  * a **package**, or *library*, is a bundle of files that may contain one or more modules and submodules
 
-To use a module within a Python terminal or script you must **import** it, which means loading in the entire module or certain things within it.
+To use a module within a Python terminal or script you must **import** it, which means loading in
+the entire module or certain things within it.
 
-For example, if I wanted to determine the date I could use the built-in module [`datetime`](https://docs.python.org/3/library/datetime.html#module-datetime):
+For example, if I wanted to determine the date I could use the built-in module
+[`datetime`](https://docs.python.org/3/library/datetime.html#module-datetime):
 
 ```python
 import datetime
@@ -21,11 +25,11 @@ print(datatime.date.today())
 2020-06-10
 ```
 
-Once imported, the module functions and classes exist within the module's *namespace*. In the
-example, to use the `date` class that exists within the `datetime` module I've had to write
-`datatime.date`.
+Once imported, the module functions and classes exist within the module's @(namespace). In the
+example above, to use the `date` class that exists within the `datetime` module  we have had to
+write `datatime.date`.
 
- * a **namespace** is generally way to try and keep names used within a program unique (i.e., if
+ * a namespace is generally way to try and keep names used within a program unique (i.e., if
    another module was imported that also had a `date` class it would still be separate from that in
    `datetime`)
 
@@ -89,8 +93,9 @@ import numpy
 x = numpy.sin(3.2)
 ```
 
-> Warning: you can define a variable whose name is the namespace of an imported module. You then
-> won't be able to use the imported module as it has been redefined as a new variable!
+!!! warning
+    You can define a variable whose name is the namespace of an imported module. However, you then
+    will not be able to use the imported module as it has been redefined as a new variable!
 
 ```python
 import numpy as np

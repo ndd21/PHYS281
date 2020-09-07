@@ -1,6 +1,6 @@
 # Basic plotting with Matplotlib
 
-[Matplotlib](https://matplotlib.org/) is a powerfullibrary for making plots in Python. It can be
+[Matplotlib](https://matplotlib.org/) is a powerful library for making plots in Python. It can be
 used to create basic plots, but also has the ability to create very complex plots. A variety of
 useful tutorials can be found on the [Matplotlib
 webpage](https://matplotlib.org/3.3.1/tutorials/index.html), but here we will cover some of the
@@ -8,7 +8,7 @@ basics.
 
 The plotting functions within Matplotlib are found within the
 [`pyplot`](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot)
-submodule, which is often imported using the alias:
+submodule, which is often imported using the @(alias):
 
 ```python
 from matplotlib import pyplot as plt
