@@ -6,19 +6,25 @@ writing code. The main useful features for code editing are syntax highlighting 
 
 ## Installing VS Code
 
-To install VS Code:
- 
- * go to https://code.visualstudio.com/download in your web browser (or just Google "VS Code download");
- * click the appropriate large blue button to download the installer file for your operating system;
- * Windows: click on the Downloaded installer file (named something like
-   `VSCodeUserSetup-x64-1.46.1.exe` where `1.46.1` was the current version at the time of writing,
-   but this may have increased);
- * Windows: accept the license agreement and click "Next";
- * Windows: leave the default install location unchanged (unless you want to change things and know what you are doing) and click "Next";
- * Windows: leave the default "Start Menu Folder" name unchanged and click "Next";
- * Windows: for "Select Additional Tasks" leave the tick boxes unchanged (the "Add to PATH" box should be ticked by default) and click "Next";
- * Windows: click "Install";
- * Windows: click "Finish" and VS Code should launch.
+If you have followed the [Anaconda guide](../demo-anaconda/index.html), and installed the full
+Anaconda installation, it includes VS Code. This can be accessed and launched via the [Anaconda
+Navigator](../demo-anaconda/index.html#anaconda-navigator).
+
+Alternatively, VS Code can be installed independently of Anaconda. Firstly, go to
+[https://code.visualstudio.com/download](https://code.visualstudio.com/download) in your web browser
+(or just Google "VS Code download"). Click the appropriate large blue button to download the
+installer file for your operating system.
+
+=== "Windows 10"
+    * Windows: click on the Downloaded installer file (named something like
+      `VSCodeUserSetup-x64-1.46.1.exe` where `1.46.1` was the current version at the time of writing,
+      but this may have increased);
+    * Windows: accept the license agreement and click "Next";
+    * Windows: leave the default install location unchanged (unless you want to change things and know what you are doing) and click "Next";
+    * Windows: leave the default "Start Menu Folder" name unchanged and click "Next";
+    * Windows: for "Select Additional Tasks" leave the tick boxes unchanged (the "Add to PATH" box should be ticked by default) and click "Next";
+    * Windows: click "Install";
+    * Windows: click "Finish" and VS Code should launch.
 
 
 If writing Python code you should install the "Python" extension for VS Code:

@@ -93,10 +93,15 @@ body."*](https://docs.python.org/3/glossary.html#term-method)
 This is a ["*variable defined in a class and intended to be modified only at class level (i.e., not
 in an instance of the class).*"](https://docs.python.org/3/glossary.html#term-class-variable)
 
-## Command prompt
+## Command line
 
 The line in a [terminal](#terminal) into which you type a command. In a Python session, the command
-prompt line will start with `>>>` and contain a flashing cursor.
+line will start with the [command prompt](#command-prompt) `>>>` and contain a flashing cursor.
+
+## Command prompt
+
+The starting characters on the [command line](#command-line) in a [terminal](#terminal). In a Python
+session, the command prompt will be `>>>` and contain a flashing cursor.
 
 ## Data attribute
 
@@ -214,6 +219,11 @@ operators](https://en.wikipedia.org/wiki/Binary_operation) of addition `+`, subt
 multiplication `*`, and division `/`, used in [elementary
 arithmetic](https://en.wikipedia.org/wiki/Elementary_arithmetic).
 
+## Package
+
+A Python module, or set of modules, that have been "packaged" together into an installable piece of
+software. Once a package is installed you can import the modules from within it.
+
 ## Parent
 
 A class who's attributes will be inherited by a new [child](#child) class. This is sometimes known as a
@@ -225,6 +235,11 @@ A positional argument to a function is an [argument](#argument) defined by a nam
 sign, e.g., in `def func(a, b):` both `a` and `b` are positional arguments. When using the function
 the positional arguments must be passed in the order that they are given in the function definition.
 They must come before any [keyword arguments](#keyword-argument).
+
+## PyPI
+
+A [repository](https://pypi.org/) of shared Python packages that are installable using the Python
+package installer [`pip`](https://pip.pypa.io/en/stable/).
 
 ## Script
 
@@ -271,6 +286,13 @@ In Python, [variables](#variable) have a type, which is the *kind* of thing (e.g
 
 A variable in Python is a named object (or named class instance), e.g., in `x = 2.9` a variable
 called `x` has been created that pointed to the `float` number object `2.9`. 
+
+## Virtual environment
+
+A virtual environment is an isolated environment used for Python projects. It can have a specific
+version of Python and specific versions of various packages as required for the project. These are
+isolated and independent from any versions of the packages that may be installed globally on the
+computer.
 
 ## Whitespace
 

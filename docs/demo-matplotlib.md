@@ -123,7 +123,27 @@ plt.show()
 !!! note
     There are colourblind friendly colour palettes available, for example within the
     [`seaborn`](https://seaborn.pydata.org/tutorial/color_palettes.html#qualitative-color-palettes)
-    package.
+    package, e.g.,:
+    
+    ```python
+    from matplotlib import pyplot as plt
+    import seaborn
+
+    # create 6 colours from the colorblind palette
+    cp = seaborn.color_palette('colorblind', 6)
+
+    # these colours will be given names "C0" through to "C5"
+    for i in range(6):
+        c = "C{}".format(i)  # set colour name
+        plt.axvline(i, color=c, label=c)  # create vertical lines to show off colours
+    plt.xlim([-1, 6])
+    plt.legend(loc="upper right")
+    plt.show()
+    ```
+    
+    ![Demo of colourblind friendly palette](matplotlib/colorblind.png)
+
+    Seaborn is provided within the `base` Anaconda environment.
 
 #### Marker styles
 
