@@ -76,6 +76,9 @@ The official instructions for installing Anaconda on a variety of operating syst
       ```bash
       bash Miniconda3-latest-Linux-x86_64.sh
       ```
+    * Follow the on screen instructions. Hold down ++enter++ to scroll through the license agreement and type `yes` to accept it.
+    * Press ++enter++ to accept the default installation location, unless you have a specific location where you want it installed.
+    * Type `yes` to allow Miniconda to...
 
     <asciinema-player src="minicondainstallation.cast" cols="82" rows="23" autoplay="true"></asciinema-player>
     
