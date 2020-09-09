@@ -25,7 +25,7 @@ will also go through the steps below.
 
     ![Anaconda Download page](img/anacondawebpage.png)
 
-    * Under the "Windows <i class="fa fa-windows"></i>" option click on "64-bit Graphical
+    * Under the "Windows :fontawesome-brands-windows:" option click on "64-bit Graphical
       Installer" to download the installation executable.
     * Click on the downloaded executable to start the setup (often via an icon now located at the
       bottom of you browser window), which should provide a window with instructions to follow:
@@ -47,7 +47,7 @@ will also go through the steps below.
       click ++"Finish"++ (if you leave the check boxes on the final window ticked, then links to
       tutorials will open in your browser).
 
-    Once installed, click on the Windows start button (the <i class="fa fa-windows"></i> in the
+    Once installed, click on the Windows start button (the :fontawesome-brands-windows: in the
     bottom left of the screen), and the menu should now contain "Anaconda3 (64-bit)", which can
     be clicked on to reveal several installed programmes.
 
@@ -61,15 +61,19 @@ will also go through the steps below.
 
     ![Anaconda Download page](img/anacondawebpage.png)
 
-    * Under the "MacOS <i class="fa fa-apple"></i>" option click on "64-bit Graphical
+    * Under the "MacOS :fontawesome-brands-apple:" option click on "64-bit Graphical
       Installer" to download the installation executable.
 
-=== "Installation on Linux"
+=== "Installation on Linux / Using a terminal"
     For Linux users we recommend just installing the lightweight
     [Miniconda](https://docs.conda.io/en/latest/miniconda.html) package rather than the
     full Anaconda installation. Instructions for installing Miniconda under Linux can be found
     [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/linux.html),
     which we summarise below.
+
+    !!! note
+        The command line programme that gets installed by Miniconda is just called `conda`, which
+        will be used in some of the examples below
 
     The instructions below are those for installation via command line only.
 
@@ -97,12 +101,12 @@ will also go through the steps below.
     To test if Miniconda is installed, open a new terminal and type:
 
     ```bash
-    conda --version
+    conda info
     ```
 
-    If correctly installed the conda version should be printed to screen. If you open a new
-    terminal the @(command prompt) should now begin with `(base)`, which is the name of the default
-    conda environment.
+    If correctly installed the conda version and other information should be printed to screen. If
+    you open a new terminal the @(command prompt) should now begin with `(base)`, which is the name
+    of the default conda environment.
 
 ## Anaconda Navigator
 
@@ -111,13 +115,13 @@ available to use. It allows you to launch a range of applications, create new en
 containing different Python packages, and install new packages.
 
 === "Windows 10"
-    If you click on the Windows start button <i class="fa fa-windows"></i>, then click
+    If you click on the Windows start button :fontawesome-brands-windows:, then click
     on "Anaconda3 (64-bit)" it will reveal a drop down menu containing "Anaconda Navigator
     (anaconda3)". Click on that button to open the Navigator:
 
     ![Anaconda Navigator](img/anaconda-navigator.png)
 
-    It will open within the "<i class="fa fa-home"></i> Home" tab and show a set of applications
+    It will open within the ":fontawesome-solid-home: Home" tab and show a set of applications
     that can be launched. The most relevant of these for this course are:
     
      * Powershell Prompt: this opens a @(terminal) programme for running commands;
@@ -149,8 +153,8 @@ line) in a @(terminal) are given below:
 
 === "Anaconda Navigator"
     After opening _Anaconda Navigator_ (as described above) click on the
-    "<i class="fa fa-cube"></i> Environments" tab on the left hand side of the screen. At the
-    bottom of the middle panel click on the "Create" <i class="fa fa-plus-square"></i> button to
+    ":fontawesome-solid-dice-d6: Environments" tab on the left hand side of the screen. At the
+    bottom of the middle panel click on the "Create" :fontawesome-solid-plus-square: button to
     open up a new dialogue box:
 
     ![Anaconda Navigator create environment](img/anaconda-navigator-create.png)
@@ -192,7 +196,7 @@ Once a new environment has bee create you can then run code within it making use
 Python version and packages installed within it.
 
 === "Anaconda Navigator"
-    Within the _Anaconda Navigator_ "<i class="fa fa-home"></i> Home" tab you can switch between
+    Within the _Anaconda Navigator_ ":fontawesome-solid-home: Home" tab you can switch between
     environment using the dropdown menu next to "Applications on":
 
     ![Anaconda Navigator use environment](img/anaconda-navigator-use.png)
@@ -229,7 +233,7 @@ available either within the [Anaconda Cloud](https://anaconda.org/) or the @(PyP
 repositories.
 
 === "Anaconda Navigator"
-    In _Anaconda Navigator_, click on the "<i class="fa fa-cube"></i> Environments" tab, and in the
+    In _Anaconda Navigator_, click on the ":fontawesome-solid-dice-d6: Environments" tab, and in the
     middle panel select the environment into which you want to install a package. Select the
     dropdown menu that says "Installed" and select "Not installed". Then search for the name of the
     package you want to install, e.g., [numpy](../demo-numpy/index.html), in the search bar.
@@ -278,3 +282,7 @@ repositories.
     ```bash
     conda install numpy==1.18.1
     ```
+
+!!! note
+    If using Anaconda via a terminal, a "cheat sheet" showing most of the basics commands can be
+    found [here](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf).

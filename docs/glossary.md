@@ -179,6 +179,13 @@ the argument `x` is the keyword and `2` is the default value it takes. Keyword a
 passed to the function in any order provided the keyword identifier is used, if not used then the
 arguments must be given in the order in the function definition.
 
+## Linting
+
+Linting is the automatic checking of code, using an analysis tool called a
+[linter](https://en.wikipedia.org/wiki/Lint_(software)), for any errors or bugs. In Python, these
+might be include unclosed brackets, incompatible indents, missing colons are function definitions,
+etc.
+
 ## Method
 
 In Python, a method is how a [function](#function) within a class is referred to.
