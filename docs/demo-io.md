@@ -1,7 +1,8 @@
 # Reading and writing data
 
 A code might require input data and it might also create data for outputting. Therefore it is useful
-to be able to read and write data from and to a file.
+to be able to read and write data from and to a file. This is often referred to as I/O, standing for
+"Input/Output".
 
 Files can either contain plain [ascii text](https://en.wikipedia.org/wiki/ASCII), i.e., text that is
 readable if the file is opened with a standard text editor, or information that is in a binary
@@ -14,13 +15,35 @@ binary file.
 !!! note
     When reading and writing it is useful to know your directory structure and be explicit about
     where you want to save to/read from. This means giving the full path, including directories
-    and drive (on Windows), of the file. For example, you might refer to files with:
+    (and drive letter on Windows), of the file. For example, you might refer to files with:
 
     ```python
-    filename = "C:\My Documents\myfile.txt"
+    filename = "C:/My Documents/myfile.txt"
     ```
+
     to make sure you are using the file on the C-drive, in the `"My Documents"` folder, and with
-    the name `myfile.txt`.
+    the name `myfile.txt`. Note that the slashes are in the opposite direction (forward slashes) to
+    the way they are normally shown in Windows. Equivalently you could use backslashes as:
+
+    ```python
+    filename = "C:\\My Documents\\myfile.txt"
+    # or
+    filename = r"C:\My Documents\myfile.txt"
+    ```
+
+    which both stop Python interpreting backslashes (`\`) in a string as an @(escape character)
+    for the following letter (e.g., `\n` in a string means new line).
+
+    Another option is to use the `pathlib` built-in module to construct `Path` objects that can
+    be used instead of strings, e.g.,:
+
+    ```
+    from pathlib import Path
+    filename = Path("/My Documents/myfile.txt")
+    ```
+
+    On Windowd, using `pathlib` will often work with or without the drive supplied if the file is
+    locally stored.
 
     It is useful to save to filename that do not contain spaces.
 
@@ -185,6 +208,52 @@ representations, automatically adds a space separating them (the separator can b
 Instead of writing to an entirely new file you can append data to an existing file. To do this you
 would open the file with the append mode `"a"`. If the file does not already exist a new file will
 be created. If the file does exist anything you write to it will be added to the end.
+
+### Using `pathlib`
+
+The built-in [`pathlib`](https://docs.python.org/3/library/pathlib.html) module provides a useful
+[`Path`](https://docs.python.org/3/library/pathlib.html#pathlib.Path) object for defining file or
+directory paths, rather than using strings.
+
+The [`Path`](https://docs.python.org/3/library/pathlib.html#pathlib.Path) object has methods for
+[reading](https://docs.python.org/3/library/pathlib.html#pathlib.Path.read_text) and
+[writing](https://docs.python.org/3/library/pathlib.html#pathlib.Path.write_text) from and to text
+files. For example, to read the `mydata.txt` file defined [above](#reading) you could do:
+
+```python
+from pathlib import Path
+
+p = Path("mydata.txt")
+
+# read all the contents of the file
+contents = p.read_text()
+```
+
+This would read in all the file contents to a string variable, so it would still have to be parsed
+in some way, e.g.:
+
+```python
+x = []
+y = []
+for line in contents.split("\n"):  # loop through each line in the data
+    if line[0] == "#":
+        # skip lines that start with a "#"
+        continue
+    data = line.split()  # split the line on any whitespace
+    x.append(float(data[0]))  # convert string into float
+    y.append(float(data[1]))
+```
+
+A `Path` object can also just be passed to the `open` function, or other IO-functions such as those
+in [NumPy](#numpy), as if it were a string, e.g.,
+
+```python
+from pathlib import Path
+
+p = Path("myfile.txt")
+with open(p, "w") as fp:
+
+```
 
 ## Pickling
 

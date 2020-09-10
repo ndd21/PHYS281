@@ -114,6 +114,22 @@ function*"](https://docs.python.org/3/glossary.html#term-decorator). To define a
 wrapped in another "decorator" function, the line before the function definition should contain
 `@decoratorname`, where `decoratorname` is the name of the decorating function. 
 
+## Directory
+
+A named location on a disk drive which contains other files or directories. The word
+[folder](#folder) and directory may be used interchangeably and in a file explorer they may be
+represented with a :fontawesome-regular-folder:, :fontawesome-regular-folder-open: or similar icon.
+
+## Escape character
+
+In a Python string the forward slash `\` is an [escape
+character](https://en.wikipedia.org/wiki/Escape_character). This means that in certain cases the
+combination of the forward slash and the following character have a different meaning, e.g., `\n`
+will be interpreted as starting a new line. The also allow you to insert "illegal" characters into a
+string, e.g., to use a quotation mark in a string defined within quotation marks you can use `x =
+"They said \"Hello\""`. Some common Python escape characters are listed
+[here](https://www.w3schools.com/python/gloss_python_escape_characters.asp).
+
 ## File extension
 
 This is the end part of a file's name, after the full stop, that defines type of file that it is.
@@ -132,6 +148,11 @@ equivalent to explicity saying `y = float(-9.7)`.
 A [floating point](https://en.wikipedia.org/wiki/Floating-point_arithmetic) number is any real
 non-integer number. The "floating point" refers to the decimal point in the number, which can
 "float", i.e., be placed anywhere between the other digits in the number.
+
+## Folder
+
+A synonym for a [directory](#directory), i.e., a name location on a disk drive in which other files
+or folder are stored.
 
 ## Function
 
@@ -168,7 +189,7 @@ equivalent to explicitly saying `x = int(1)`.
 
 In Python there are a set of [reserved
 words](https://www.w3schools.com/python/python_ref_keywords.asp) that cannot be used for variable,
-function or class names as they already have a defined usage.
+function or class names as they already have a defined usage. These are keywords.
 
 ## Keyword argument
 
@@ -254,6 +275,11 @@ A script is a file containing code that is generally used to perform just one jo
 (i.e., it can be run on its own without having to be run by a different code). A Python script file
 has the [file extension](#file-extension) `py`.
 
+## Shell
+
+A [programme](https://en.wikipedia.org/wiki/Shell_(computing)) that provides a command line
+interface with an operating system, often run within a [terminal](#terminal).
+
 ## Slice
 
 Slices are a way of accessing multiple index values using the colon `:` notation, e.g., `start:stop`
@@ -277,10 +303,16 @@ A synonym for a [child](#child) class.
 
 A synonym for a [parent](#parent) class.
 
+## Syntax highlighting
+
+This is the automatic highlighting of text within a code, via font colour, weight or italicisation,
+that uses recognised syntax, formatting or keywords for a given programming language. Text editors
+with syntax highlighting can often recognise the language and highlight appropriately.
+
 ## Terminal
 
-A text-based window for running commands via a command-line prompt. In Windows, a common terminal
-programme is
+A text-based window for running commands via a command-line prompt in a [shell](#shell). In Windows,
+a common terminal programme is
 [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
 
 ## Type

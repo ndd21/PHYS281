@@ -2,13 +2,13 @@
 
 [Virtual Studio (VS) Code](https://code.visualstudio.com/) is a text editor produced by Microsoft.
 Many other very good text editors are available! It can be used for writing and edited any plain
-text files, but is mostly used for writing code. The main useful features for code editing are
-syntax highlighting and code linting.
+text files, and therefore is mostly used for writing code. The main useful features for code editing are
+@(syntax highlighting) and @(code linting).
 
 ## Installing VS Code
 
 If you have followed the [Anaconda guide](../demo-anaconda/index.html), and installed the full
-Anaconda installation, it includes VS Code. This can be accessed and launched via the [_Anaconda
+Anaconda installation, it includes _VS Code_. This can be accessed and launched via the [_Anaconda
 Navigator_](../demo-anaconda/index.html#anaconda-navigator). This is the recommended, and simplest
 way to use _VS Code_.
 
@@ -53,7 +53,7 @@ Navigator_ it can be opened via a standard way of opening an application:
       (anaconda3)".
     * In the ":fontawesome-regular-home Home" tab, choose the environment you want to use by selecting
       it in the "Application on" dropdown menu (defaulting to `base (root)`).
-    * Scroll to find the ":material-microsoft-visual-studio-code: VS Code" application panel and click the ++"Launch"++ button. If VS Code is
+    * Scroll to find the ":material-microsoft-visual-studio-code: VS Code" application panel and click the ++"Launch"++ button. If _VS Code_ is
       not installed in the environment you have selected, you will first have to click ++"Install"++
       before it is available to launch.
 
