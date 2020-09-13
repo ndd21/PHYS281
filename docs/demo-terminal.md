@@ -11,27 +11,22 @@ tutorial](../demo-python-terminal/index.html).
 A terminal is a text-based window that allows you to type and run commands. There are different
 terminal programmes for different operating systems, the most common being:
 
-=== "Windows 10"
+=== "Windows"
     [**PowerShell Prompt**](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell)
 
     !!! note
         If you have installed [Anaconda](../demo-anaconda/index.html) you should access the
         PowerShell using the "Anaconda PowerShell Prompt", which automatically starts the terminal
-        with the ability to run conda commands and within @(virtual environments), instead of the
+        with the ability to run `conda` commands and within @(virtual environments), instead of the
         standard Windows PowerShell.
 
     Open this by either:
 
-    * click in the Windows start :fontawesome-brands-windows: button and scroll to find:
-        * "Anaconda Powershell Prompt (anaconda3)" within the "Anaconda3 (64-bit)" menu;
-        * or "Windows Powershell" within the "Windows Powershell" menu;
-    * or, search for "PowerShell" in the search bar and select "Anaconda Powershell prompt" or
-      "Windows PowerShell" as required.
+    * clicking the Windows start :fontawesome-brands-windows: button and scroll to find "Anaconda
+      Powershell Prompt (anaconda3)" within the "Anaconda3 (64-bit)" menu;
+    * or, searching for "PowerShell" in the search bar and selecting "Anaconda Powershell Prompt".
 
     ![Anaconda Powershell](img/anaconda-powershell.png)
-
-    The PowerShell command prompt will generally end in a `>` character and contain the path to the
-    current directory.
 
     The "Anaconda Powershell Prompt" can also be launched from within the
     [_Anaconda Navigator_](../demo-anaconda/index.html#anaconda-navigator).
@@ -39,61 +34,71 @@ terminal programmes for different operating systems, the most common being:
 === "Mac OS"
     [**Terminal App**](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)
 
-    Open this using, either:
+    Open this by either:
 
-    * click on the Launchpad icon, type "Terminal" in the search bar and then click on Terminal;
-    * or, in Finder, open the "Applications/Utilities" folder and double click on Terminal.
+    * clicking the Launchpad icon, type "Terminal" in the search bar and then clicking on Terminal;
+    * or, in Finder, opening the "Applications/Utilities" folder and double clicking on Terminal.
 
 === "Linux"
     There are a wide variety of terminal applications that come with different Linux distributions
     and desktop environments.
 
     In most distributions a terminal can be opened using the key combination ++ctrl+alt+t++,
-    although there may also be an icon in a launcher panel, or it can be found through a search functionality.
+    although there may also be an icon in a launcher panel, or it can be found through the desktop
+    environment's search functionality.
 
     ![Linux terminal](img/linuxterminal.png)
 
-    In a Linux terminal there are a variety of different shells that you can use with slightly
-    different syntax and abilities (shell's are a coding language within themselves), but on most
-    Linux distribution the default shell is called
-    [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
+Within a terminal the line you input commands onto is called the @(command line) and it starts with
+some characters called the @(command prompt):
 
+=== "Windows"
+    The PowerShell @(command prompt) will generally end in a `>` character and contain the path of
+    the current directory.
+
+=== "Mac OS/Linux"
     The command prompt will often end with a `$` or `#` character.
 
-Within a terminal the line you input commands onto is called the @(command line) and it starts with
-some characters called the @(command prompt) as mentioned above. If you have installed Anaconda, the
-command prompt should start with the name of the Anaconda environment in brackets, e.g., `(base)`
-for the default environment.
+If you have installed Anaconda, the command prompt should start with the name of the Anaconda
+environment in brackets, e.g., `(base)` for the default environment.
 
 A terminal might sometimes be referred to as a "@(shell)"; the shell is a programme that runs within
 the terminal and is what you actually interact with when running commands. Another common term used
 to describe a terminal is a "console". Despite subtly different meanings terminal, console and shell
 are often used interchangeably.
 
+!!! note
+    In a Mac OS/Linux terminal there are a variety of different @(shells) that you can use with
+    slightly different syntaxes and abilities (shell's are a coding language within themselves),
+    but on most distributions the default shell is called
+    [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
+
 ## Terminal "cheat sheet"
 
 Below we will go through a few of the basic commands, with examples, to help navigate using a
 terminal. If there is different syntax between Windows, Mac OS, or Linux these will be given. For
-Windows these commands assume you are using the PowerShell (Anaconda or Windows) and not a different
-terminal programme.
+Windows these commands assume you are using the PowerShell and not a different terminal programme.
 
 Two useful features (among others) of a terminal are:
 
-1. command history: the ability to toggle back (and then forward) through previous commands you have
-   typed using arrow keys ++up++ and ++down++;
-2. tab completions: the ability to autocomplete known command and filename using the tab ++tab++ key.
+1. command history: the ability to toggle back (and then forward) through previous commands you
+   have typed using arrow keys ++up++ and ++down++;
+2. tab completion: the ability to autocomplete a known command or filename using the tab ++tab++
+   key.
 
-The examples shown below start with a command prompt character, in these cases either `>` or `$`,
-which does not need to be typed.
+!!! note
+    The examples shown below start with a command prompt character, in these cases either `>` or
+    `$`, which does not need to be typed.
 
 ### Show the current directory path
 
 `pwd`
 
-When you open a terminal there will be a default directory that the command prompt will be based in. To find out what this directory is, if not known, you can run, e.g.:
+When you open a terminal there will be a default directory that the command prompt will be based in.
+To find out what this directory is, if not known, you can run, e.g.:
 
-=== "Windows 10"
-    ```bash
+=== "Windows"
+    ```
     > pwd
 
     Path
@@ -109,7 +114,7 @@ When you open a terminal there will be a default directory that the command prom
 
 ### Change between directories
 
-=== "Windows 10"
+=== "Windows"
     `chdir` or `cd`
 
 === "Mac OS/Linux"
@@ -134,7 +139,7 @@ $ cd ..
 
 ### List the contents of a directory
 
-=== "Windows 10"
+=== "Windows"
     `dir` or `ls`
 
     To list the contents of the current directory (in alphabetical order) use:
@@ -171,8 +176,8 @@ $ cd ..
     notes.pdf
     ```
 
-    To also list the attributes (e.g., accessibility, creator, file size, date of last change) of
-    files and directories use the `-l` flag, e.g.,:
+    To also list the attributes (e.g., accessibility, file creator, file size, date of last change)
+    of files and directories use the `-l` flag, e.g.,:
 
     ```
     $ ls -l
@@ -225,13 +230,13 @@ Or, make new directory based on an absolute of relative path, e.g.,:
     `more`, `less`, or `cat`
 
     For short files, that can be displayed fully within the terminal window the `more` and `cat`
-    essentially commands are equivalent (note that `cat` can actually be used to concatenate the
+    commands are essentially equivalent (note that `cat` can actually be used to concatenate the
     content of many files). For longer files `cat` will output the whole content in one go while
     `more` will output just what fits on the screen and the content can be scrolled through with
     the ++enter++ key.
 
 E.g., to show the content of a text file called `numbers.txt` in the current directory, which
-contains a column of numbers:
+contains a column of numbers, use:
 
 ```bash
 $ more numbers.txt
@@ -245,13 +250,28 @@ Relative or absolute file paths can be used for files not in the current directo
 
 ### Run a Python script
 
-`python myscript.py` - where `myscript.py` is replace by the name of your Python file (which could
-be the relative or full file path including directory location)
+To run a Python script, e.g., one called `myscript.py`, that is in you current directory, use:
+
+```bash
+python myscript.py 
+```
+
+The full or relative path to the script could also be used.
 
 ### Open an Python terminal session
 
-`python` (see the [Python terminal tutorial](../demo-python-terminal/index.html))
+To open a Python terminal session (see the [Python terminal
+tutorial](../demo-python-terminal/index.html)) type:
+
+```bash
+python 
+```
 
 ### Open an interactive Python terminal session
 
-`ipython` (see the [IPython tutorial](../demo-python-terminal/index.html#ipython-terminal))
+To open an "Interactive Python" session (see the [IPython
+tutorial](../demo-python-terminal/index.html#ipython-terminal)) type:
+
+```bash
+ipython
+```

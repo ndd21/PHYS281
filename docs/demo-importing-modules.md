@@ -3,17 +3,15 @@
 A @(module) is ["*... a file containing Python definitions and
 statements*"](https://docs.python.org/3/tutorial/modules.html#modules).
 
-Python contains a range of [built-in modules](https://docs.python.org/3/py-modindex.html) that
-contain many useful functions or classes you can use.
+Python contains a large range of [modules](https://docs.python.org/3/py-modindex.html) with the
+Python Standard Library that contain many useful functions or classes you can use. These modules are
+files that are automatically bundled with, and accessible by, every Python installation (the bundled
+modules can change for different Python versions).
 
- * **built-in** modules are files that are automatically bundled with, and accessible by, every
-   Python installation (the bundled modules can change for different Python versions).
+There are also a huge range of third-party @(packages) that can be installed and then used within
+Python.
 
-There are also a huge range of third-party packages that can be installed and then used within Python. 
-
- * a **package**, or *library*, is a bundle of files that may contain one or more modules and submodules
-
-To use a module within a Python terminal or script you must **import** it, which means loading in
+To use a module within a Python terminal or script you must "import" it, which means loading in
 the entire module or certain things within it.
 
 For example, if I wanted to determine the date I could use the built-in module

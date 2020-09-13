@@ -1,14 +1,14 @@
 # The Python terminal
 
-A **terminal** is a text-based window into which you can type commands and view outputs. 
+A @(terminal) is a text-based window into which you can type commands and view outputs. 
 
 You can run Python as an interactive environment within a terminal. Within this you can type and run
 any Python commands. The terminal is useful for quick calculations and prototyping.
 
 There are two types of Python terminal sessions: a *regular* session and an enhanced interactive
-session called IPython. Within a terminal window (a Powershell terminal on Windows, or a terminal
-session in VS Code) you enter a regular Python terminal session by typing `python` and hitting
-return ++return++. You should see something like:
+session called IPython. Within a terminal window (e.g., a Powershell terminal on Windows, or a
+terminal session within _VS Code_) you enter a regular Python terminal session by typing `python`
+and hitting return ++return++. You should see something like:
 
 ```python
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -17,8 +17,8 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-where the `>>>` starts a **command prompt** line, i.e., the line that you input commands onto. You can
-type commands in, e.g.
+where the `>>>` is the @(command prompt) starting the @(command line), i.e., the line that you input
+commands onto. You can type commands in, e.g.,
 
 ```
 >>> x = 1 + 4
@@ -31,9 +31,9 @@ To quit the Python session and return to the regular terminal type `quit()` and 
 
 ## IPython terminal
 
-I would recommended to instead use the enhanced interactive terminal,
-[IPython](https://ipython.org/), which offers more features for ease of use. IPython is started by
-typing `ipython` and hitting return ++return++. Now you should see something like:
+Rather than the standard Python terminal, it is recommended to instead use the enhanced interactive
+terminal, [IPython](https://ipython.org/), which offers more features for ease of use. IPython is
+started by typing `ipython` and hitting return ++return++. Now you should see something like:
 
 ```ipython
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -43,7 +43,7 @@ IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
 In [1]: 
 ```
 
-where the command prompt (`In [1]:`) looks slightly different.
+where the @(command prompt) (`In [1]:`) looks slightly different.
 
 In IPython you can do all the things of a standard Python terminal session:
 
@@ -65,7 +65,7 @@ Out[1]: 12
 
 you get an `Out[N]` prompt containing the answer, where the number `[N]` is the same as the
 associated `In [N]` prompt that produced it. The `Out [N]` prompt actually stores the answer as a
-variable that can be used later, e.g.,
+@(variable) that can be used later, e.g.,
 
 ```ipython
 In [2]: x = Out[1] - 4
@@ -78,11 +78,10 @@ It is not recommended to store and use variables this way though!
 
 ## Python as a calculator
 
-You can use the Python terminal as a calculator using standard arithmetic
-[operators](https://www.w3schools.com/python/python_operators.asp):
+You can use the Python terminal as a calculator using standard arithmetic @(operators):
 
  * `+` - add to numbers
- * `-` - substract two numbers
+ * `-` - subtract two numbers
  * `*` - multiply two numbers
  * `/` - divide two numbers
 
@@ -105,9 +104,9 @@ print(d)
 ```
 
 If you add, subtract or multiply two integers you will get an integer value back. For division it
-will return a floating pointer number (i.e., a non-integer number with a decimal point in it) even
+will return a @(floating pointer number) (i.e., a non-integer number with a decimal point in it) even
 if the inputs are integers. To perform division that returns an integer rounded down to the nearest
-integer value use `//`, e.g.
+integer value use `//`, e.g.,
 
 ```python
 a = 3 // 4
@@ -120,7 +119,7 @@ print(b)
 ```
 
 !!! note
-    If you're using Python 2 (which is not recommended, but you may come across some old code)
+    If you are using Python 2 (which is not recommended, but you may come across some old code)
     division of two integers will return an integer based on the result rounded down to the nearest
     integer.
 
@@ -140,8 +139,8 @@ b = 13 % 4
 
 ### The `math` library
 
-For most complex mathematical operators you can use the built-in
-[`math`](https://docs.python.org/3/library/math.html) library. Some non-exhaustive examples are:
+For most complex mathematical operators you can use the @(built-in)
+[`math`](https://docs.python.org/3/library/math.html) library. Some examples are:
 
 ```python
 import math
@@ -177,7 +176,8 @@ print(y)
 
 ## Shell commands
 
-Within IPython you can use some standard shell commands for example:
+Within IPython you can use some standard [shell
+commands](../demo-terminal/index.html#terminal-cheat-sheet), for example:
 
 i) showing you current directory
 
@@ -225,7 +225,7 @@ You can access some general help in IPython with a few simple commands:
  * `%quickref` provides a reference card of some basic usage
  * `help` show documentation for an object (e.g., `help(int)` for documentation on an integer
    object)
- * `object?` or `object??`: adding a question mark or two after variable you've define will give
+ * `object?` or `object??`: adding a question mark or two after variable you have defined will give
    information about that object, e.g.,
 
 ```ipython
@@ -269,7 +269,7 @@ i) `%run`: run a Python script within the IPython terminal, e.g., if you have a 
 In [1]: %run script.py
 ```
 
-You can then access any variables defined withing `script.py` in the terminal.
+You can then access any variables defined withing`script.py` in the terminal.
 
 ii) `%timeit`: get timing information on a function, e.g.:
 
@@ -289,8 +289,8 @@ scroll back and forth between old commands with the up ++up++ and down ++down++ 
 If you had previously typed a long command, you can start typing it and then press up ++up++ and it
 will automatically fill in the rest.
 
-Tab completion allows you to explore an objects **attributes** and **methods**, e.g., if you define
-an integer `x = 1` and write
+Tab completion allows you to explore an objects @(attributes), e.g., if you define an integer `x =
+1` and write
 
 ```ipython
 In [1]: x = 1
@@ -310,5 +310,5 @@ Some useful resources with information about using the IPython terminal are:
 
 * [The IPython tutorial](https://ipython.readthedocs.io/en/stable/interactive/index.html)
 * [Chapter 1 of the Python Data Science
-  Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html)
-  contains lots of useful tips in using an IPython terminal.
+  Handbook](https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html), which
+  contains lots of useful tips on using an IPython terminal.
