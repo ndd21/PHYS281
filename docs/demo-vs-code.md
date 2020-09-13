@@ -7,14 +7,8 @@ text files, and therefore is mostly used for writing code. The main useful featu
 
 ## Installing VS Code
 
-If you have followed the [Anaconda guide](../demo-anaconda/index.html), and installed the full
-Anaconda installation, it includes _VS Code_. This can be accessed and launched via the [_Anaconda
-Navigator_](../demo-anaconda/index.html#anaconda-navigator). This is the recommended, and simplest
-way to use _VS Code_.
-
-Alternatively, _VS Code_ can be installed independently of Anaconda. The instructions below should
-cover installation on Windows, although these should only be minor differences for other operating
-systems:
+The instructions below should cover installation of _VS Code_ on Windows, although there should only
+be minor differences for other operating systems:
 
 * Visit [https://code.visualstudio.com/download](https://code.visualstudio.com/download) in your web
   browser (or just Google "VS Code download"). Click the appropriate large blue button to download
@@ -23,7 +17,7 @@ systems:
 ![VS Code download site](img/vscode-download.png)
 
 * Click on the downloaded installer file at the bottom of your browser (the Windows file will be
-  named something like `VSCodeUserSetup-x64-1.48.2.exe` where `1.46.1` was the current version at
+  named something like `VSCodeUserSetup-x64-1.48.2.exe` where `1.48.2` was the current version at
   the time of writing, but this may have increased). Follow the instruction given in the dialogue
   boxes.
 * Accept the license agreement and click ++"Next"++.
@@ -43,27 +37,30 @@ but we will cover some of the basics here.
 
 ### Launching VS Code
 
-As mentioned above, _VS Code_ is contained within [Anaconda](../demo-anaconda/index.html) and can be
-launched from the _Anaconda Navigator_. Alternatively, if installed independently of _Anaconda
-Navigator_ it can be opened via a standard way of opening an application:
+In you have previously installed the full installation of [Anaconda](../demo-anaconda/index.html)
+then once _VS Code_ is installed it will appear as an application that can be launched from the
+_Anaconda Navigator_. Alternatively, it can be opened via a standard way of opening an application:
+
+!!! tip
+    It is recommended that you launch _VS Code_ via _Anaconda Navigator_ as it is simpler to
+    then interact with the Python environments that Anaconda creates.
 
 === "Anaconda Navigator"
     * Start _Anaconda Navigator_, e.g., in Windows click on the start :fontawesome-brands-windows:
-      button and find and click on the "Anaconda3 (64-bit)" menu, then click on "Anaconda Navigator
-      (anaconda3)".
-    * In the ":fontawesome-regular-home Home" tab, choose the environment you want to use by selecting
-      it in the "Application on" dropdown menu (defaulting to `base (root)`).
-    * Scroll to find the ":material-microsoft-visual-studio-code: VS Code" application panel and click the ++"Launch"++ button. If _VS Code_ is
-      not installed in the environment you have selected, you will first have to click ++"Install"++
-      before it is available to launch.
+      button and find and click on the "Anaconda3 (64-bit)" menu, then click on "Anaconda
+      Navigator (anaconda3)".
+    * In the ":fontawesome-regular-home Home" tab, choose the environment you want to use by
+      selecting it in the "Application on" dropdown menu (defaulting to `base (root)`).
+    * Scroll to find the ":material-microsoft-visual-studio-code: VS Code" application panel and
+      click the ++"Launch"++ button.
 
-=== "Independent installation"
+=== "Without Anaconda"
     If you have added a _VS Code_ startup icon your taskbar or desktop you can just click on that,
     alternatively:
     
     === "Windows"
-        Click on the start :fontawesome-brands-windows: button and find the "Visual Studio Code" menu.
-        Click on this and then "Visual Studio Code" menu item to launch it.
+        * Click on the start :fontawesome-brands-windows: button and find the "Visual Studio Code" menu.
+        * Click on this and then "Visual Studio Code" menu item to launch it.
     === "Mac OS/Linux"
         Open a terminal and type `code`, hit ++enter++ and _VS Code_ should start.
 
@@ -213,7 +210,7 @@ Code_:
 
     * Click on that result to open the _File Explorer_ and scroll to find the "Scripts" folder.
     * Double click on the "Scripts" folder to open it and click in the address bar at the top to
-      reveal the folders full path. If you installed Anaconda on your machine, with you as the
+      reveal the folder's full path. If you installed Anaconda on your machine, with you as the
       sole user, this path may look something like
       `C:\Users\<username>\anaconda3\Scripts`, where `<username>` is your user name on the machine.
 
@@ -250,7 +247,7 @@ run the code:
    files. Click on this to run the file.
 
 Both those methods will open a terminal at the bottom of the _VS Code_ screen, showing the command
-that was used to run the file and the output if produced by the code.
+that was used to run the file and any output produced by the code.
 
 ![VS Code run](img/vscode-run.png)
 

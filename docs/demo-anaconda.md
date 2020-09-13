@@ -3,7 +3,7 @@
 [Anaconda](https://www.anaconda.com/products/individual)<sup>&#174;</sup> is a Python distribution
 and package management system. It provides an installation of Python (at the time of writing in
 September 2020 this defaults to [Python 3.8](https://docs.python.org/3/whatsnew/3.8.html)) and a way
-to create "virtual environments" that can contain different Python version and software packages
+to create "@(virtual environments)" that can contain different Python version and software packages
 required for a specific task.
 
 ## Installing Anaconda
@@ -11,6 +11,9 @@ required for a specific task.
 The official instructions for installing Anaconda on a variety of operating systems can be found at
 [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/), but we
 will also go through the steps below.
+
+On Lancaster University machines on campus, Anaconda can be accessed through AppsAnywhere at
+[https://apps.lancaster.ac.uk/](https://apps.lancaster.ac.uk/).
 
 !!! note
     The full Anaconda installation will require just under 3 Gb of space on your computer.
@@ -122,10 +125,14 @@ containing different Python packages, and install new packages.
     ![Anaconda Navigator](img/anaconda-navigator.png)
 
     It will open within the ":fontawesome-solid-home: Home" tab and show a set of applications
-    that can be launched. The most relevant of these for this course are:
+    that can be launched. The most relevant of these for this course is:
     
      * Powershell Prompt: this opens a @(terminal) programme for running commands;
-     * [VS Code](../demo-vs-code/index.html): a text editor that is useful for writing code.
+    
+    !!! note
+        After installing _VS Code_ (a text editor that is useful for writing code) as described
+        in [another tutorial](../demo-vs-code/index.html), this will also be available as an
+        application within _Anaconda Navigator_.
 
     Above the table of applications the Navigator says "Applications on `base (root)`". Here `base`
     is the name of the default @(virtual environment) that Anaconda creates. This environment has
@@ -202,11 +209,10 @@ Python version and packages installed within it.
     ![Anaconda Navigator use environment](img/anaconda-navigator-use.png)
 
     Not all of the applications shown will be installed in the new environment, so you may need to
-    click on the ++"Install"++ button below the required application. However, VS Code should be
-    installed by default.
+    click on the ++"Install"++ button below the required application.
 
     You can then launch the required application within the new environment by click on the
-    associated ++"Launch"++ button, e.g., for the one below VS Code.
+    associated ++"Launch"++ button, e.g., for the one below Powershell Prompt.
 
 === "Terminal"
     To switch between environments in a terminal you can use the `conda activate` command, e.g.,:
