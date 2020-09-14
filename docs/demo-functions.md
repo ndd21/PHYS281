@@ -1,10 +1,10 @@
 # Functions
 
 If you have a piece of code that does a particular job and you need to reuse it multiple times it is
-useful to define it as a function.
+useful to define it as a @(function).
 
 To define a function you use the [`def`](https://www.w3schools.com/python/ref_keyword_def.asp)
-keyword followed by the name you want to give the function followed by brackets containing any
+keyword followed by the name you want to give the function, followed by brackets containing any
 @(arguments) that the function takes:
 
 ```python
@@ -21,9 +21,9 @@ Hello world!
 ```
 
 The function name must start with an upper or lowercase letter, but can then contain any letters,
-numbers or the underscore `_` character. It cannot contain spaces or. It is useful if the function
-name is descriptive of what the function does. Some fairly common ways of defining function names is
-to split multiple descriptive words using an underscore, or using [camel
+numbers or the underscore `_` character. It cannot contain spaces or other characters. It is useful
+if the function name is descriptive of what the function does. Some fairly common ways of defining
+function names are to split multiple descriptive words using an underscore, or use [camel
 case](https://en.wikipedia.org/wiki/Camel_case) (having words together, but starting each with a
 capital letter), e.g.,
 
@@ -61,14 +61,14 @@ CountToTen()
 
 ## Function arguments
 
-In the above examples there are some functions that take arguments, i.e., you pass variables to them
-that they then use. In the function definition each variable within the brackets is separated by a
-comma.
+In the above examples there are some functions that take @(arguments), i.e., variables that are
+passed to them that they then use. In the function definition each variable within the brackets is
+separated by a comma.
 
 !!! note
     The name of the variable used in the function definition is what that variable will be known as
-    *within* the function even if the variable passed to the function had a different name.
-    
+    *within* the function even if the variable passed to the function has a different name.
+
 As with function names, it is useful for variable names to be descriptive. You can have as many
 arguments to a function as you want, including no arguments at all!
 
@@ -111,17 +111,17 @@ print(total)
 42
 ```
 
-These type of arguments are known as "positional" arguments. This means that when you pass values to
+This style of argument is known as a "positional" argument. This means that when you pass values to
 the function their order (or position) matters. Positional arguments are always *all* required when
 you use the function, i.e., you cannot leave any out when calling the function.
 
-It's best not to have too many arguments or you can lose track of them. If you do require lots of
+It is best not to have too many arguments or you can lose track of them. If you do require lots of
 inputs to a function it can be useful to group them and instead define the function to take single
 variable that has a type such as a list or dictionary.
 
 !!! note
     You can use the names of positional arguments (see [keyword arguments
-    below](#keyword-arguments)) when parsing values to a function if you want, are they can then
+    below](#keyword-arguments)) when parsing values to a function if you want, and they can then
     be passed in any order:
 
     ```python
@@ -173,7 +173,7 @@ False
 ```
 
 !!! note
-    Sometimes you might see code where the user has given then variable being passed to a
+    Sometimes you might see code where the user has given the variable being passed to a
     keyword argument the same name as the keyword argument itself, e.g.:
 
     ```python
@@ -182,23 +182,22 @@ False
     is_in_range = in_range(34, minimum=minimum, maximum=maximum)
     ```
 
-    While this may look a bit confusing
-
+    While this may look a bit confusing it is perfectly valid.
 
 ## Returning values
 
-Many of the above example use the `print` built-in function to print a message to the screen.
-However, you cannot then *use* the output of the function if it just prints it, e.g., if you had a
-function that calculated the sine of an angle and it just prints it to the screen it would be fine
-if that is all you ever used it for, but if you wanted to use that output as part of a larger
-equation it wouldn't be much use.
+Many of the above example use the [`print`](../demo-built-in-functions/index.html#print) @(built-in)
+function to print a message to the screen. However, you cannot then *use* the output of the function
+if it just prints it, e.g., if you had a function that calculated the sine of an angle and it just
+prints it to the screen it would be fine if that is all you ever used it for, but if you wanted to
+use that output as part of a larger equation it would not be much use.
 
 Most functions should return something to the user. This returned value can be assigned to a
 variable that can then be used later in the code. To do this the
 [`return`](https://www.w3schools.com/python/ref_keyword_return.asp) keyword is used within the
-function definition. As well as returning a variable from the function it also tells to function to
-exit, i.e., there shouldn't be code after the return (unless you're using it in a conditional
-statement) as it won't get run.
+function definition. As well as returning a variable from the function it also tells the function to
+exit, i.e., there should not be code after the return (unless you're using it in a conditional
+statement) as it will not get run.
 
 ```python
 def add_two_numbers(a, b):
@@ -249,9 +248,9 @@ a function by omitting the bracket during the function call:
 def sing_a_rainbow(forwards=True):
     colours = ["red", "yellow", "pink", "green", "purple", "orange", "blue"]
     if forwards:
-        print(" and ".join(colours))
+        print(" and ".join(colours[:4]) + ", " + " and ".join(colours[4:]))
     else:
-        print(" and ".join(colours[::-1]))
+        print(" and ".join(colours[::-1][:4]) + ", " + " and ".join(colours[::-1][4:]))
 
 # create a variable from the function (note the lack of brackets)
 song = sing_a_rainbow
@@ -260,11 +259,11 @@ print(song)
 
 # call the function using the new variable
 song()
-red and yellow and pink and green and purple and orange and blue
+red and yellow and pink and green, purple and orange and blue
 
 # or
 song(forwards=False)
-blue and orange and purple and green and pink and yellow and red
+blue and orange and purple and green, pink and yellow and red
 ```
 
 This means you can easily pass functions as arguments to other functions:
@@ -277,18 +276,66 @@ def CanISing(aSong, forwards=True):
 
 song = sing_a_rainbow
 CanISing(song)
-red and yellow and pink and green and purple and orange and blue
+red and yellow and pink and green, purple and orange and blue
 I can sing a rainbow too!
 ```
 
 ## Variable scope
 
-A variable's scope relates to where in a code a particular variable is recognised
+A variable's scope, or [nested scope](https://docs.python.org/3/glossary.html#term-nested-scope),
+relates to where in a code a particular variable is recognised. It is easiest to demonstrate this
+with an example:
+
+```python
+# a variable that can be recognised/used anywhere within the script
+variable1 = 1
+
+def testfunc1(arg1):
+    # a variable that can be used anywhere within testfunc1, but not at lower levels
+    variable2 = arg1 * variable1  # using variable1
+
+    def testfunc2(arg2):
+        # a variable that can be used anywhere within testfunc2, but not at lower levels
+        variable3 = variable2 + arg2  # using variable2
+```
+
+Here, we see that a variable (`variable1`) defined at the lowest level, i.e., not indented, can be
+recognised and used anywhere within a code.
+
+A variable defined within a function (or class), e.g., `variable2`, can be used anywhere within that
+function, but not at lower levels. I.e., its "scope" is limited to its indented level and higher.
+
+It is worth noting that you can use the same variable name, without clashing, within different
+scopes, e.g.:
+
+```python
+x = 2
+
+def myfunc(y):
+    # re-use variable name x, but within this scope
+    x = 2 * y
+    return x
+
+z = myfunc(3)
+print(z)
+6
+
+# x in the outer scope shouldn't change
+print(x)
+2
+```
+
+If you do this, then you cannot use the variable `x` from the outer most scope within the inner
+scope.
+
+!!! tip
+    If you want to use a value within a function it is best practice to pass it as an argument
+    rather than rely on it having an appropriate scope.
 
 ## Unknown numbers of keyword arguments
 
 !!! question
-    What if your function uses another function that takes in multiple keyword arguments. Does your
+    What if your function calls another function that takes in multiple keyword arguments. Does your
     function then have to be defined with all those keyword arguments too?
 
     ```python
@@ -310,13 +357,13 @@ A variable's scope relates to where in a code a particular variable is recognise
 There are a couple of ways to make this slightly simpler, both of which use the ability to "unpack"
 a dictionary.
 
-A function can be defined to take a parameter named `**kwargs`. This is special syntax that means
+A function can be defined to take an argument named `**kwargs`. This is special syntax that means
 that when you use the function you can pass it any number of keyword arguments. `**kwargs` must be
-the final argument in your function, but you can have other positional and explicit keyword
-arguments before it.
+the final argument in your function definition, but you can have other positional and explicit
+keyword arguments before it.
 
-Within the function `kwargs` (without the two asterisks) is just a Python dictionary containing the
-keywords and their values as key-value pairs.
+Within the function `kwargs` (without the preceding two asterisks) is just a Python dictionary
+containing the keywords and their values as key-value pairs.
 
 If you know that you are only ever going to pass the additional keywords `"firstname"` and `"lastname"`
 to `anotherfunc` then you could do:
@@ -341,7 +388,7 @@ function.  If you did not supply either `firstname` or `lastname` to `anotherfun
 values defined in `somefunc` would be used.
 
 If there are other keyword arguments that you could pass to `anotherfunc` then trying to pass them
-to `somefunc` won't work:
+to `somefunc` will not work:
 
 ```python
 print(anotherfunc(firstname="Matt", lastname="Pitkin", random="blah"))
@@ -369,10 +416,13 @@ def anotherfunc(message="Hello", **kwargs):
 
     # only get keyword args required for somefunc
     somefunckwargs = {}
-    somefunckwargs["firstname"] = kwargs.pop("firstname")
+    if "firstname" in kwargs:
+        somefunckwargs["firstname"] = kwargs.pop("firstname")
+    if "lastname" in kwargs:
+        somefunckwargs["lastname"] = kwargs.pop("lastname")
 
-    # use somefunc
-    output = somefunc(**kwargs)
+    # use somefunc, but unpacking somefunckwargs
+    output = somefunc(**somefunckwargs)
 
     return "{} {}".format(message, output)
 ```
@@ -382,10 +432,12 @@ definition, but it is generally safer to use keyword arguments.
 
 ## Documenting functions
 
-The above examples are lacking one key feature. Documentation! It is very good practice to document
+The above examples are lacking one key feature: Documentation! It is very good practice to document
 your code. This helps you and others know what your code is supposed to do. The documentation of a
-function should briefly describe what it does, list its arguments, and state what it returns. Using
-a couple of the above examples we could have:
+function should briefly describe what it does, list its arguments, and state what it returns. We
+will demonstrate this using a couple of the above examples.
+
+### Example 1
 
 ```python
 def sum_and_product(a, b):
@@ -443,7 +495,94 @@ Type:      function
     [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard) style. But
     others are available. The best advice is to pick one and be consistent when using it.
 
-!!! tip
     As well as the *docstring* you should liberally comment your code using comment lines starting
     with `#`. Using descriptive variable names and leaving blank space lines between less closely
     related code blocks will also help with code readability.
+
+### Example 2
+
+```python
+def in_range(value, minimum=-100, maximum=100):
+    """
+    Check whether a given value is within a given range, excluding the limits
+    of the range.
+
+    Parameters
+    ----------
+    value: (int, float, required)
+        The value for checking
+    minimum: (int, float)
+        The lower limit of the range (defaults to -100).
+    maximum: (int, float)
+        The upper limit of the range (defaults to 100).
+    """
+
+    # return True if value is within minimum and maximum
+    return minimum < value < maximum
+```
+
+### Type hinting
+
+When defining a function you do not need to specify the @(type) of each argument. When writing a
+docstring you should however let the user know what type of object each argument should be. Another
+way of doing this is to use ["type-hints"](https://docs.python.org/3/library/typing.html). This is
+way of "hinting" at what type each argument should be in the function definition. If we take the
+examples above, we could have:
+
+```python
+# use Tuple to show that the returned value is a tuple
+from typing import Tuple
+
+def sum_and_product(a: float, b: float) -> Tuple(float, float):
+    """
+    Calculate the sum and product of two numbers.
+
+    Parameters
+    ----------
+    a: float
+        A floating point number
+    b: float
+        A floating point number
+
+    Returns
+    -------
+    sum, product: tuple
+        The resulting sum and product
+    """
+
+    totalsum = a + b
+    totalproduct = a * b
+
+    # return both values
+    return totalsum, totalproduct
+```
+
+or
+
+```python
+# use Union to define multiple allowed types
+from typing import Union
+
+def in_range(value: Union[float, int], minimum: Union[float, int] = -100, maximum: Union[float, int] = 100) -> bool:
+    """
+    Check whether a given value is within a given range, excluding the limits
+    of the range.
+
+    Parameters
+    ----------
+    value: (int, float, required)
+        The value for checking
+    minimum: (int, float)
+        The lower limit of the range (defaults to -100).
+    maximum: (int, float)
+        The upper limit of the range (defaults to 100).
+    """
+
+    # return True if value is within minimum and maximum
+    return minimum < value < maximum
+```
+
+!!! note
+    Type hints are purely for documentation purposes. Python will not check that input arguments
+    are actually of the "correct" type unless you explicitly do it within the function (see
+    [here](../demo-error-checking/index.html#adding-exception-handling-to-code) for an example). 

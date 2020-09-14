@@ -15,9 +15,9 @@ An asterisk is used rather than the standard cross.
 
 ## `**`
 
-The exponentation [operator](#operator), i.e., used for raising a value to the power of an exponent.
-E.g., in `x = 2 ** 5` the value of 2 is raised to the power of 5. Integer or floating point numbers
-can be used for both the base and exponent.
+The exponentiation [operator](#operator), i.e., used for raising a value to the power of an
+exponent. E.g., in `x = 2 ** 5` the value of 2 is raised to the power of 5. Integer or floating
+point numbers can be used for both the base and exponent.
 
 ## `+`
 
@@ -184,6 +184,11 @@ location of the first value, and end at one less than the length of the object.
 A class for defining integer numbers. Python automatically recognises variables set with integer
 number values to be integers, e.g., in `x = 1` the variable `x` will be an `int` type, which is
 equivalent to explicitly saying `x = int(1)`.
+
+## Iterable
+
+An iterable is ["[a]n object capable of returning its members one at a
+time."](https://docs.python.org/3/glossary.html#term-iterable), for example a list.
 
 ## Keyword
 

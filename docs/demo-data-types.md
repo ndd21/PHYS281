@@ -4,16 +4,16 @@ In a code you can define @(variables) and these have a @(type), where the type i
 *thing* that the variable represents. For example, a variable might hold an integer number, or a set
 of alphanumeric values (known as a string).
 
-* a variable is the _name_ you give any object that you create in a code, e.g., in `x = 2` I
-  have defined a variable called `x`, which can be reused later in the code.
+* a variable is the _name_ you give any object that you create in a code, e.g., in `x = 2` a
+  variable called `x` has been defined, which can be reused later in the code.
 
 !!! note
-    Variable names must start with a letter, but can then contain numbers, hyphens or
-    underscores. Variable names are case sensitive, i.e., `a = 2` and `A = 2` are different
+    Variable names must start with a letter, but can then contain numbers or underscores.
+    Variable names are case sensitive, i.e., `a = 2` and `A = 2` are different
     variables. It is useful to have descriptive variable names.
 
 Some languages have *static typing*, where you must explicitly tell the code what the variable's type
-is. In the `C` language you would have define a variable that holds an integer with, e.g.,
+is. In the `C` language you would define a variable that holds an integer with, e.g.,
 
 ```C
 int myvariable = 2;
@@ -29,8 +29,9 @@ type(x)
 <class 'int'>
 ```
 
-It has determined that the variable `x` is of the integer (or `int`) type. In this example `type()`
-is a built-in Python function that returns the type of a variable.
+It has determined that the variable `x` is of the integer (or `int`) type. In this example
+[`type()`](../demo-built-in-functions/index.html#type) is a @(built-in) Python function that returns
+the type of a variable.
 
 !!! note
     Everything in Python is an @(object) (hence *object oriented programming*, or OOP). In OOP
