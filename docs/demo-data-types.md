@@ -35,7 +35,7 @@ the type of a variable.
 
 !!! note
     Everything in Python is an @(object) (hence *object oriented programming*, or OOP). In OOP
-    an object is a thing that contain data in the form of variables and/or functions to act on that
+    an object is a thing that contains data in the form of variables and/or functions to act on that
     data. All variables are objects and therefore the @(type) refers to the "type" of object.
     "Type" is sometimes used interchangeably with "@(class)", where a class defines a type.
 
@@ -43,7 +43,7 @@ The main basic data types (in Python and many languages) are:
 
 * `int`: represents an positive or negative integer number;
 * `float`: represents a "@(floating point number)", i.e., a non-integer number;
-* `str`: represents some alphanumeric text, know as a "@(string);
+* `str`: represents some alphanumeric text, know as a "@(string)";
 * `bool`: represents a @(boolean) value, i.e., "True" or "False".
 
 ```python
@@ -153,7 +153,7 @@ print(x)
 34
 ```
 
-You can place an object's string representation into another strings using the
+You can place an object's string representation into another string using the
 [`format()`](https://www.w3schools.com/python/ref_string_format.asp) method. For example:
 
 ```python

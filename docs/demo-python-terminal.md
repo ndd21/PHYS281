@@ -8,7 +8,7 @@ any Python commands. The terminal is useful for quick calculations and prototypi
 There are two types of Python terminal sessions: a *regular* session and an enhanced interactive
 session called IPython. Within a terminal window (e.g., a Powershell terminal on Windows, or a
 terminal session within _VS Code_) you enter a regular Python terminal session by typing `python`
-and hitting return ++return++. You should see something like:
+and hitting ++return++. You should see something like:
 
 ```python
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -26,14 +26,13 @@ commands onto. You can type commands in, e.g.,
 5
 ```
 
-To quit the Python session and return to the regular terminal type `quit()` and hit return
-++return++.
+To quit the Python session and return to the regular terminal type `quit()` and hit ++return++.
 
 ## IPython terminal
 
 Rather than the standard Python terminal, it is recommended to instead use the enhanced interactive
 terminal, [IPython](https://ipython.org/), which offers more features for ease of use. IPython is
-started by typing `ipython` and hitting return ++return++. Now you should see something like:
+started by typing `ipython` and hitting ++return++. Now you should see something like:
 
 ```ipython
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -43,7 +42,8 @@ IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
 In [1]: 
 ```
 
-where the @(command prompt) (`In [1]:`) looks slightly different.
+where the @(command prompt) (`In [1]:`) looks slightly different. In is sometimes called an input
+"cell".
 
 In IPython you can do all the things of a standard Python terminal session:
 
@@ -152,10 +152,10 @@ print(x)
 
 # trigonometry (inputs are in radians)
 x = math.sin(2.3)
-print(x)                                                                           
+print(x)
 0.7457052121767203
 
-# use the constant pi from within math 
+# use the constant pi from within math
 y = math.cos(math.pi)
 print(y)
 -1.0

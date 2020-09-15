@@ -192,7 +192,7 @@ line) in a @(terminal) are given below:
     but you can specify a different Python version using the `python` command, e.g.,:
 
     ```bash
-    conda create -n awesome_project_py37 python=3.7
+    conda create -n another_awesome_project python=3.7
     ```
 
     <asciinema-player src="condacreate.cast" cols="82" rows="23" autoplay="true"></asciinema-player>
