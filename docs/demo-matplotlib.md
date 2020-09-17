@@ -630,7 +630,7 @@ function in `pyplot`.
     function, but `subplots` can work in the same way as `figure`, but also allows multiple plots
     as discussed [below](#mulitple-plots-in-a-figure).
 
-A single figure with `subplots` using:
+You can create a single figure with `subplots` using:
 
 ```python
 fig, ax = plt.subplots()
@@ -678,10 +678,11 @@ and
 methods of the `Axes` class. Finally, the `tight_layout` and `savefig` methods of the `Figure` class
 have been used.
 
-By having the figures as variables we can create multiple figures within the same code. We can also
-make use of the `figsize` keyword argument to set the size of the figures, which takes a tuple
-containing the width and height of the figure (in inches). For example we could create a two plots,
-with different aspect ratios, using:
+By having the figures as variables we can create multiple figures within the same code.
+
+We can also make use of the `figsize` keyword argument to set the size of the figures, which takes a
+tuple containing the width and height of the figure (in inches). For example we could create two
+plots, with different aspect ratios, using:
 
 ```
 # a narrow plot

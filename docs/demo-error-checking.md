@@ -8,12 +8,12 @@ date: 2020-08-12
 # Error checking and debugging
 
 If there is a problem in some Python code being run it will often print out an error message to
-screen. This is called **raising** an error, also known as an **exception**. The final line of the
-error message will be the [type](https://docs.python.org/3/library/exceptions.html) of exception
-that has been raised. Preceding this will be a "traceback" showing where the error occurred in the
-code, often with a line number, and can be nested down through the chain of functions calling the
-buggy code. This chain of functions may be ones that you have defined or functions within a build-in
-or user installed module.
+screen. This is called "raising" an error, also known as an @(exception). The final line of the
+error message will be the [type of exception](https://docs.python.org/3/library/exceptions.html)
+that has been raised. Preceding this will be a "@(traceback)" showing where the error occurred in
+the code, often with a line number, and can be nested down through the chain of functions calling
+the buggy code. This chain of functions may be ones that you have defined or functions within a
+build-in or user installed module.
 
 These errors are often not that informative for novices (or indeed experts), especially at first
 glance. But looking at the exception type can give hints to the cause of the problem.
@@ -24,7 +24,7 @@ A non-exhaustive list of errors and some reasons for them is given below.
 
 ### Syntax errors
 
-If code contains invalid Python syntax then a
+If code contains invalid Python @(syntax) then a
 [`SyntaxError`](https://docs.python.org/3/library/exceptions.html#SyntaxError) may be raised, often
 when importing a module containing a bug. The cause of such an error is often:
 
@@ -68,7 +68,7 @@ SyntaxError: invalid syntax
 ```
 
 Often when exceptions are raised due to not closing brackets the error message will pick out the
-line after the one containing the invalid statement. Above it shows the error coming from the
+line _after_ the one containing the invalid statement. Above it shows the error coming from the
 `return` line rather than the `x` definition line.
 
 ### Import errors
@@ -105,7 +105,7 @@ IndentationError: unexpected indent
 
 ### Index errors
 
-For array-like objects, e.g., lists, trying to access an element that is outside its range it will
+For array-like objects, e.g., lists, trying to access an element that is outside its range will
 raise an [`IndexError`](https://docs.python.org/3/library/exceptions.html#IndexError):
 
 ```python hl_lines="5"
@@ -143,8 +143,8 @@ NameError: name 'z' is not defined
 
 ### Attribute errors
 
-Trying to use an attribute of an object, when is not defined by that object's class, will
-raise an [`AttributeError`](https://docs.python.org/3/library/exceptions.html#AttributeError):
+Trying to use an attribute of an object, when it is not defined by that object's class, will raise
+an [`AttributeError`](https://docs.python.org/3/library/exceptions.html#AttributeError):
 
 ```python hl_lines="5"
 x = 1
@@ -158,7 +158,7 @@ AttributeError: 'int' object has no attribute 'hello'
 
 Passing a variable to a class or function that is not of the required type, or trying to get
 an index from a variable that is not array-like, or trying to use a variable as a function when
-it's not a function, will raise a
+it's not a function, will often raise a
 [`TypeError`](https://docs.python.org/3/library/exceptions.html#TypeError):
 
 ```python hl_lines="5"
@@ -221,8 +221,8 @@ Traceback (most recent call last):
 TypeError: I really do only like integers!
 ```
 
-You can also **catch** exceptions raised by by other codes and handle them how you want. For
-example, you may not want the code to stop if a certain exception is raised, but instead do
+You can also "catch" exceptions raised by by other functions and handle them how you want. For
+example, you may not want your code to fail if a certain exception is raised, but instead do
 something different:
 
 ```python
@@ -259,15 +259,15 @@ Here are a few general tips for debugging:
    error occurred before it in the code. Doing this iteratively allows you to home in on a problem.
    Remember to remove the print statement (unless they are generally useful) after debugging is
    complete.
- * use [Google](https://www.google.com)! Your problem is probably not unique, so someone else may
-   have come across it before and asked the internet. Sometimes you can just cut and paste an error
-   or part of an error into Google, but other times you will have to think a bit about how to phrase
-   your query with some context. You will learn to hone your
+ * Use [Google](https://www.google.com)! Your problem is probably not unique, so someone else may
+   have come across it before and asked "the internet". Sometimes you can just cut and paste an
+   error or part of an error into Google, but other times you will have to think a bit about how to
+   phrase your query with some context. You will learn to hone your
    [Google-fu](https://en.wiktionary.org/wiki/Google-fu) and pose better questions.
- * use [StackOverflow](https://stackoverflow.com/). This a dedicated question and answer site for
+ * Use [StackOverflow](https://stackoverflow.com/). This a dedicated question and answer site for
    coding issues and many Google queries will point you to this site. If asking questions on this
    site they should be specific and if possible include a short reproducible snippet of code that
-   replicates you problem. **Do not** use StackOverflow to try and get the answer to your
+   replicates your problem. **Do not** use StackOverflow to try and get the answer to your
    assignments. **Do not** post questions containing very large chunks of code with ambiguous
    requests like "Why does my code not work?". Be aware, StackOverflow is a community of volunteers,
    and some members are more courteous than others!

@@ -130,6 +130,14 @@ string, e.g., to use a quotation mark in a string defined within quotation marks
 "They said \"Hello\""`. Some common Python escape characters are listed
 [here](https://www.w3schools.com/python/gloss_python_escape_characters.asp).
 
+## Exception
+
+An [exception](https://docs.python.org/3/tutorial/errors.html#exceptions) is an error detected in a
+code during its execution. When exceptions are encountered the code will, generally, fail and an
+error message will be printed to screen. Python has a set of standard
+[exceptions](https://docs.python.org/3/library/exceptions.html) dependent on the "type" of error
+encountered.
+
 ## File extension
 
 This is the end part of a file's name, after the full stop, that defines type of file that it is.
@@ -262,6 +270,13 @@ software. Once a package is installed you can import the modules from within it.
 A class who's attributes will be inherited by a new [child](#child) class. This is sometimes known as a
 superclass.
 
+## Path
+
+The location of a file within a file system is given by its path, e.g.,
+`C:\Users\username\Project\myfile.py` is the path to the file `myfile.py`. Having the path starting
+from the drive letter, or root directory, is also known as the "absolute path". Paths can also be
+relative to the current directory, which is known as a "relative path".
+
 ## Positional argument
 
 A positional argument to a function is an [argument](#argument) defined by a name without the equals
@@ -308,6 +323,11 @@ A synonym for a [child](#child) class.
 
 A synonym for a [parent](#parent) class.
 
+## Syntax
+
+In programming languages "syntax" refers to the specific required structure, or grammar, of the
+language for it to be understood by the computer.
+
 ## Syntax highlighting
 
 This is the automatic highlighting of text within a code, via font colour, weight or italicisation,
@@ -319,6 +339,12 @@ with syntax highlighting can often recognise the language and highlight appropri
 A text-based window for running commands via a command-line prompt in a [shell](#shell). In Windows,
 a common terminal programme is
 [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
+
+## Traceback
+
+This is a message returned after encountering an [exception](#exception) that reports the function
+calls made at the point where it encountered the error. This may be nested through several layers of
+functions.
 
 ## Type
 
