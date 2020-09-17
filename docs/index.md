@@ -85,6 +85,11 @@ Explorer](https://en.wikipedia.org/wiki/File_Explorer)" in Windows, or
 and understand how file path structure is formatted, including drive if necessary (e.g.,
 `C:\User\username\Project\myfile.py`).
 
+Please also see the material in the "Tutorial" -> "Getting started" menu for information on
+installing the software required for this course on your own machine.
+
+**TODO**: add info on using Virtual Machine, or uni lab computers.
+
 ## Other material
 
 There are a variety of useful Python tutorial freely avaiable online:
