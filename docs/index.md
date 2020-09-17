@@ -10,8 +10,8 @@ that are presented yourself.
 
 Feedback to improve these notes is very welcome, so if you have any questions or comments please contact:
 
-* Dr Matthew Pitkin, m.pitkin@lancaster.ac.uk
-* Dr Brooke Simmons, b.simmons@lancaster.ac.uk
+* Dr Matthew Pitkin, m.pitkin@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk))
+* Dr Brooke Simmons, b.simmons@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk))
 
 ## What is Python?
 
