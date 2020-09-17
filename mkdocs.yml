@@ -18,11 +18,11 @@ nav:
        - Using a terminal: 'demo-terminal.md'
        - The Python terminal: 'demo-python-terminal.md'
     - Python basics:
-       - Python scripts: 'demo-scripts.md'
-       - Importing modules: 'demo-importing-modules.md'
        - Basic data types: 'demo-data-types.md'
        - Compound data types: 'demo-compound-data-types.md'
        - Built-in functions: 'demo-built-in-functions.md'
+       - Python scripts: 'demo-scripts.md'
+       - Importing modules: 'demo-importing-modules.md'
        - Flow control: 'demo-flow-control.md'
        - Python functions: 'demo-functions.md'
        - Python classes: 'demo-classes.md'

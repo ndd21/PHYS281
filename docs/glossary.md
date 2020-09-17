@@ -240,12 +240,8 @@ Most generally: ["A _namespace_ is a mapping from names to
 objects"](https://docs.python.org/3/tutorial/classes.html#python-scopes-and-namespaces). However, a
 common use of namespace is at the [module](#module) level and refers to using something (e.g., a
 function) within a module by explicitly declaring the module's name to avoid ambiguity with other
-potentially identically named objects. E.g., using the `sin` function with the `math` module:
-
-```python
-import math
-x = math.sin(1.0)  # sin is used within the math namespace
-```
+potentially identically named objects. E.g., using the `sin` function with the `math` module: `x =
+math.sin(1.0)`.
 
 ## Object
 

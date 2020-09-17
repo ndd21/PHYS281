@@ -9,7 +9,7 @@ to create "@(virtual environments)" that can contain different Python version an
 required for a specific task.
 
 !!! important
-    This tutorial describes installing Anaconda on your own computer. It also describes creating new virtual environments and packages within those environments. For the PHYS281 course you only need to be able to install Anaconda, while the information on creating environments and installing packages are just provided as additional useful information, but are not required.
+    This tutorial describes installing Anaconda on your own computer. It also describes creating new virtual environments and packages within those environments. For the PHYS281 course you only need to be able to install Anaconda, while the information on creating environments and installing packages is just provided as additional useful information, but is not required.
 
 ## Installing Anaconda
 
