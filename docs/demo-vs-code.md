@@ -1,5 +1,7 @@
 # VS Code
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JNLeIQdez68" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [Virtual Studio (VS) Code](https://code.visualstudio.com/) is a text editor produced by Microsoft.
 Many other very good text editors are available! It can be used for writing and edited any plain
 text files, and therefore is mostly used for writing code. The main useful features for code editing are

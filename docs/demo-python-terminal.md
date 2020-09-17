@@ -1,5 +1,7 @@
 # The Python terminal
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/11Xayj8lZi4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 A @(terminal) is a text-based window into which you can type commands and view outputs. 
 
 You can run Python as an interactive environment within a terminal. Within this you can type and run

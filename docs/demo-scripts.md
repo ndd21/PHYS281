@@ -1,14 +1,16 @@
 # Python scripts
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FWgddKdrBI0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 A Python @(script) is a file that generally contains a short self-contained set of instructions,
 i.e., lines of code, that perform a specific task. They are called scripts because they are read and
 interpreted by Python line-by-line in order from the first line to the last.
 
 !!! tip
-   In reality scripts can be any length and do multiple things, but this is not recommended.
-   If a script file is getting too long it can often be broken into several shorter files,
-   with the required bits imported into a main script (see the tutorial on [importing
-   modules](../demo-importing-modules/index.html)).
+    In reality scripts can be any length and do multiple things, but this is not recommended.
+    If a script file is getting too long it can often be broken into several shorter files,
+    with the required bits imported into a main script (see the tutorial on [importing
+    modules](../demo-importing-modules/index.html)).
 
 A Python script file must have the `.py` suffix @(file extension). File names can be anything that
 your operating system allows, but it is recommended that they be short and descriptive of what the
@@ -109,6 +111,8 @@ terminal and run the script for you.
     This is known as a ["shebang"](https://en.wikipedia.org/wiki/Shebang_(Unix)) and if you
     make you script executable, e.g., with `chmod u+x tell_time.py` you can then just run it in the
     terminal with `./tell_time.py`, rather than having to type `python tell_time.py`.
+
+# Using functions from another script
 
 As described in the [Importing Modules](../demo-importing-modules/index.html) demonstration any file
 with the `.py` extension is also a Python module. This means that you can import @(variables),

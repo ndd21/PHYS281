@@ -1,5 +1,7 @@
 # Using a terminal
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K9HtfYx1hOQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 As described in the [_VS Code_](../demo-vs-code/index.html) introduction, any Python code that you
 write can be run within [_VS Code_](../demo-vs-code/index.html#running-code).
 
