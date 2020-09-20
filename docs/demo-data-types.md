@@ -1,5 +1,7 @@
 # Basic data types
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-OA05dhv2y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 In a code you can define @(variables) and these have a @(type), where the type is the kind of
 *thing* that the variable represents. For example, a variable might hold an integer number, or a set
 of alphanumeric values (known as a string).
