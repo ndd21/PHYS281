@@ -1,5 +1,7 @@
 # Compound data types
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jh54qY16Ddw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 In addition to the [basic data types](../demo-data-types/index.html) for integers (`int`),
 @(floating point numbers) (`float`) and @(strings) of text (`str`), there are some other standard
 Python data types that can hold multiple pieces of data.
