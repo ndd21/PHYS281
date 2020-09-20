@@ -58,6 +58,19 @@ user input from the keyboard, e.g.:
 name = input("What is your name?")
 ```
 
+## `isinstance`
+
+The [`isinstance()`](https://docs.python.org/3/library/functions.html#isinstance) function allows
+you to check whether a variable is of a particular class (or subclass of a given class), e.g.,:
+
+```python
+x = 2
+# check x is an integer
+test = isinstance(x, int)
+print(test)
+True
+```
+
 ## `len`
 
 The [`len()`](https://docs.python.org/3/library/functions.html#len) function returns the length of an
@@ -118,6 +131,27 @@ Hello
 !!! note
     `print` just prints text to the screen (or to a [file if
     specified](../demo-io/index.html#writing)). It does not return that text to a variable.
+
+## `range`
+
+The [`range()`](https://docs.python.org/3/library/functions.html#func-range) function returns a
+sequence of value that can be iterated through. It can be used to create a list of integer values
+starting at zero and going up to one less than the supplied value, e.g.,:
+
+```python
+idxs = list(range(10))
+print(idx)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+and is useful for iterating over a range of indices in a for-loop, e.g.:
+
+```python
+x = [6.6, 7.4, 3.4, 2.1]
+
+for i in range(len(x)):
+    print(x[i])
+```
 
 ## `str`
 
