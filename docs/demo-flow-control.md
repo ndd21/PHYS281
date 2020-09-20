@@ -1,24 +1,25 @@
 # Flow control
 
-When Python runs a script the code is executed from the top to the bottom. However, you might want
-to only run certain parts of the code given specific conditions, or you might want to repeat
+When Python runs a @(script) the code is executed from the top to the bottom. However, you might
+want to only run certain parts of the code given specific conditions, or you might want to repeat
 something multiple times. To do this you can use flow control:
 
- * `if... elif... else` statements (sometime called clauses)
- * `for` loops
- * `while` loops
+ * [`if... elif... else` statements](#if-statements) (sometime called clauses)
+ * [`for` loops](#for-and-while-loops)
+ * [`while` loops](#while-loops)
 
-# Indenting
+## Indenting
 
-In Python the way to specify that you are defining something "inside" a flow control
-statement/function/class is by using indenting. Most other languages use parentheses (brackets) of
-some sort, but in Python indenting is **essential**.
+In Python the way to specify that you are defining something "inside" a flow control statement, or
+function, or class, is by using indenting. Most other languages use parentheses (i.e., brackets) of
+some sort, but in Python indenting is essential.
 
 Things that are together within the same statement or definition must be indented using whitespace
 (regular spaces or tabs) to the same level.
 
-> Tip: Be consistent with your whitespace. It is highly recommended that you use spaces rather than
-> tabs. Using four spaces for each level of indentation is considered standard and is recommended.
+!!! tip
+    Be consistent with your whitespace. It is highly recommended that you use spaces rather than
+    tabs. Using four spaces for each level of indentation is considered standard and is recommended.
 
 If you are nesting statements (i.e., flow control within a function definition, or loops within
 loops), each statement definition my be further indented.
@@ -79,15 +80,15 @@ it can automatically indent for you. But, be careful!
 
 ## Conditional expressions
 
-Before discussing `if` statements we need to describe conditional expressions. These can be
+Before discussing [`if` statements](#if-statements) we need to describe conditional expressions. These can be
 mathematical equalities and inequalities (useful for comparing numbers):
 
  * `x == y`: "the value of `x` is equal to the value of `y`"
  * `x != y`: "the value of `x` is not equal to the value of `y`"
  * `x > y`: "the value of `x` is greater than the value of `y`"
  * `x >= y`:  "the value of `x` is greater than, or equal to, the value of `y`"
- * `x < y`: "the value of `x` is greater than the value of `y`"
- * `x <= y`:  "the value of `x` is greater than, or equal to, the value of `y`"
+ * `x < y`: "the value of `x` is less than the value of `y`"
+ * `x <= y`:  "the value of `x` is less than, or equal to, the value of `y`"
 
 These return a boolean value of `True` or `False`:
 
@@ -140,12 +141,13 @@ not (a == c)
 False
 ```
 
-> Note: if you have an `int` or `float` variable that is set to zero it will evaluate as `False` in
-> a logical expression while any non-zero value will evaluate as `True`. For array-like variables
-> such as lists, dictionaries or tuples, or strings, an empty array will evaluate as `False` while
-> an array containing any number of values will evaluate as `True`.
+!!! note
+    If you have an `int` or `float` variable that is set to zero it will evaluate as `False` in
+    a logical expression while any non-zero value will evaluate as `True`. For array-like variables
+    such as lists, dictionaries or tuples, or strings, an empty array will evaluate as `False` while
+    an array containing any number of values will evaluate as `True`.
 
-The `is` keyword can be used to test is two variables have the same value and are also of the same
+The `is` keyword can be used to test if two variables have the same value and are also of the same
 type:
 
 ```python
@@ -163,7 +165,7 @@ False
 
 ## `if` statements
 
-You may want to execute a part of your code only if a certain condition is fullfilled. You can place
+You may want to execute a part of your code only if a certain condition is fulfilled. You can place
 that code inside an `if` clause:
 
 ```python
@@ -181,7 +183,7 @@ print(y)
 The condition being evaluated can be any combination of conditional expressions and logical
 statements (it is neater to have them each within brackets):
 
-```
+```python
 x = 5.5
 y = "Hello"
 z = 13
@@ -194,7 +196,7 @@ I'm in the if statement
 ### `else`
 
 If statements allow you to execute code under a certain condition, but what if you also want to
-execute some different code if the condition is not fullfilled? You can combine an `if` with and
+execute some different code if the condition is not fulfilled? You can combine an `if` with an
 `else`:
 
 ```python
@@ -212,7 +214,7 @@ else:
 ### `elif`
 
 There may be multiple exclusive conditions that you want to test for. To do this you can use `elif`
-(or "else if") statements after an initial `if` statement:
+(as shortening of "else if") statements after an initial `if` statement:
 
 ```python
 x = 3
@@ -231,7 +233,8 @@ My number if greater than or equal to 2, but less than 4
 
 You can have as many `elif` statements as required.
 
-> Note: you do not have to end with an `else` if you've covered all the condition that are required.
+!!! note
+    You do not have to end with an `else` if you've covered all the condition that are required.
 
 ## `for` and `while` loops
 
@@ -271,20 +274,19 @@ print(sentence)
 Coding in Python is fun!
 ```
 
-The [keywords][keyword] used here are `for` and `in`. The value after `in` is the sequence to be
-iterated through; it can be any
-[**iterator**](https://www.w3schools.com/python/python_iterators.asp), which in Python is any object
-that contains a set of values that can be moved through. The value between `for` and `in` will
-contain the current value from the sequence and can be used within the loop. It is a variable and
-can be named whatever you want it to be.
+The @(keywords) used here are `for` and `in`. The value after `in` is the sequence to be iterated
+through; it can be any @(iterable), which in Python is any object that contains a set of values that
+can be moved through. The value between `for` and `in` will contain the current value from the
+sequence and can be used within the loop. It is a variable and can be named whatever you want it to
+be.
 
 ### Useful `for` loop tips
 
 #### `range`
 
-The [`range`](https://docs.python.org/3/library/functions.html#func-range) built-in function is very
-useful in `for` loops to allow you to loop over a set of increasing or decreasing integer numbers.
-`range` can take either one, two or three integer value arguments:
+The [`range`](https://docs.python.org/3/library/functions.html#func-range) @(built-in) function is
+very useful in `for` loops to allow you to loop over a set of increasing or decreasing integer
+numbers. `range` can take either one, two or three integer value arguments:
 
 ```python
 # loop over the numbers 0 to 4 in steps to 1 (range goes from 0 to one less than the argument)
@@ -324,27 +326,29 @@ for i in range(10, 1, -2):
 2
 ```
 
-Why do you give it an integer one bigger than the last value? Because Python indexing starts at 0
-and therefore this works:
+!!! question
+    Why do you give it an integer one bigger than the last value? Because Python indexing starts at 0
+    and therefore this works:
 
-```python
-x = [3, 1, 5, 7]
-# use the length of x as the argument to range
-for i in range(len(x)):
-    print(x[i])
-3
-1
-5
-7
-```
+    ```python
+    x = [3, 1, 5, 7]
+    # use the length of x as the argument to range
+    for i in range(len(x)):
+        print(x[i])
+    3
+    1
+    5
+    7
+    ```
 
-> Note: in Python 3 `range` does not return a list, so if you want to use it to create a list you
-> must do, e.g., `x = list(range(10))`
+!!! note
+    In Python 3 `range` does not return a list, so if you want to use it to create a list you
+    must do, e.g., `x = list(range(10))`
 
 #### `enumerate`
 
 The [`enumerate`](https://docs.python.org/3/library/functions.html#enumerate) built-in function
-allow you to loop over both the indexes and values of a sequence that you give it. For each
+allow you to loop over both the indices and values of a sequence that you give it. For each
 iteration of a loop it returns a tuple pair containing the index and value (you can name these
 whatever you want), e.g.:
 
@@ -362,7 +366,7 @@ for i, xvalue in enumerate(x):
 
 The [`zip`](https://docs.python.org/3/library/functions.html#zip) built-in function allows you to
 "zip" together two or more equal length sequences. If used in a `for` loop it will return a tuple
-with the groups items, e.g.:
+with the group's items, e.g.:
 
 ```python
 x = ["a", "b", "c"]
@@ -377,7 +381,7 @@ c 6.7
 #### `break` and `continue`
 
 The [`break`](https://www.w3schools.com/python/ref_keyword_break.asp) and
-[`continue`](https://www.w3schools.com/python/ref_keyword_continue.asp) keywords, combined with
+[`continue`](https://www.w3schools.com/python/ref_keyword_continue.asp) @(keywords), combined with
 `if...elif...else` conditional statements, are ways of using flow control within a loop. `break`
 allows you to exit a loop if a certain condition is fulfilled, e.g.,
 
@@ -425,18 +429,19 @@ while x < 10:
 print(x)
 ```
 
-> Note: Even if the condition is fulfilled at the start of the loop the rest of the code below will still be run for that iteration:
+!!! note
+    Even if the condition is fulfilled at the start of the loop the rest of the code below will still be run for that iteration:
 
-```python
-x = 4
-while x > 0:
-    x -= 1
-    print(x)
-3
-2
-1
-0
-```
+    ```python
+    x = 4
+    while x > 0:
+        x -= 1
+        print(x)
+    3
+    2
+    1
+    0
+    ```
 
 You can have "infinite" while loops by setting the condition to `True`, however these must contain a
 `break` statement otherwise they will never stop, e.g.,
@@ -450,11 +455,11 @@ while True:
     x += 1
 ```
 
-# List comprehension
+## List comprehension
 
-You can use the `for` statement to create lists using a single line of code. This is called **list
-comprehension**. For example, suppose we had a list of values and we wanted to create a new list
-with the square of each of those values:
+You can use the `for` statement to create lists using a single line of code. This is called _list
+comprehension_. For example, suppose we had a list of values and we wanted to create a new list with
+the square of each of those values:
 
 ```python
 values = [1, 2, 3, 4, 5]
@@ -473,9 +478,10 @@ x = list(map(lambda x: x ** 2, values))
 print(x)
 ```
 
-> Note: for ease of readability, among other things, it is [highly
-> recommended](https://www.geeksforgeeks.org/python-map-vs-list-comprehension/) to use list
-> comprehension rather than `map`.
+!!! note
+    For ease of readability, among other things, it is [highly
+    recommended](https://www.geeksforgeeks.org/python-map-vs-list-comprehension/) to use list
+    comprehension rather than `map`.
 
 We can also use an `if` statement within list comprehension if we require a specific condition to be
 met, e.g.:
@@ -489,9 +495,7 @@ print(x)
 [1.0, 1.4142135623730951, 1.7320508075688772]
 ```
 
-An equivlane
-
-There is a very similar construct for dictionaries, called **dictionary comprehension**:
+There is a very similar construct for dictionaries, called _dictionary comprehension_:
 
 ```python
 values = [1, 2, 3]
