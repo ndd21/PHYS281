@@ -119,7 +119,9 @@ z2 = 'Hello'
 z3 = """Hello"""  # you could also use three consecutive apostrophes
 ```
 
-Strings have a lot of [methods](https://www.w3schools.com/python/python_ref_string.asp), for example:
+### String methods
+
+Strings have a _lot_ of [methods](https://www.w3schools.com/python/python_ref_string.asp), for example:
 
 ```python
 z = "Hello"
@@ -130,6 +132,52 @@ z.upper()
 z.replace("l", "x")
 'Hexxo'
 ```
+
+Some particularly useful methods (at least ones I use regularly!) are the [`split`](https://docs.python.org/3/library/stdtypes.html#str.split) and
+[`strip`](https://docs.python.org/3/library/stdtypes.html#str.strip) methods.
+
+The `split` method allows you to split a string into a list of values based on a particular
+separator (lists are covered in [another tutorial](../demo-compound-data-types/index.html#lists)).
+By default `split` will split a string based on @(whitespace), i.e., spaces, tabs or new lines,
+e.g.:
+
+```python
+name = "Matthew Pitkin"
+# split this into a list containing he first name and surname
+names = name.split()
+print(names)
+['Matthew', 'Pitkin']
+```
+
+But, you can also split based on a particular character, e.g.:
+
+```python
+# split comma separated values
+x = "1,2,3,4"
+vals = x.split(",")
+print(vals)
+['1', '2', '3', '4']
+```
+
+The `strip` method will strip-off leading or trailing values from a string. By default it will strip
+off whitespace from a string. This is useful if, for example, you have a set of comma separated
+values (maybe read in from a file) the contain superfluous spaces:
+
+```python
+namelist = "Matthew, Helen, Tom, Tracy, Steve"
+# split these names on commas
+names = namelist.split(",")
+print(names)  # they'll still contain extra space
+['Matthew', ' Helen', ' Tom', ' Tracy', ' Steve']
+# so instead:
+names = [name.strip() for name in namelist.split(",")]
+['Matthew', 'Helen', 'Tom', 'Tracy', 'Steve']
+```
+
+In the above example it has used list comprehension, which is covered in [another
+tutorial](../demo-flow-control/index.html#list-comprehension).
+
+### String concatenation
 
 To join strings together you can just use the addition operator `+`, e.g.,
 
@@ -226,7 +274,7 @@ addition to the standard Roman alphabet keyboard characters, they can include ch
 accented letters, non-Roman alphabet characters, and various emoji symbols:
 
 ```python
-sentence = "Mr Müller likes 𝜋 🙂"
+sentence = "Dr Müller likes 𝜋 🙂"
 ```
 
 In fact, you can even have variable names that use (some) unicode characters:
