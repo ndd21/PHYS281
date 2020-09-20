@@ -192,3 +192,133 @@ mystring = f"My name is {firstname} and my age is {age}."
 print(mystring)
 My name is Matthew and my age is 21.
 ```
+
+!!! note
+    There are multiple equivalent ways of getting variables into strings. There are another couple
+    of options (at least). The first of these is to use an older Python 2 style syntax:
+
+    ```python
+    mystring = "My name is %s and my age is %d." % (firstname, age)
+    ```
+
+    where the "`%s`" is a placeholder for insert a string and the "`%d`"
+    is a placeholder for inserting an integer (`%f` would be used for a float, or `%e` is you wanted it in
+    scientific notation, with the whole range of values that can be used given [here](https://docs.python.org/2/library/stdtypes.html#string-formatting)). After the string a `%` character is used followed by a tuple containing
+    the variables to insert given in the order they are to be inserted.
+
+    Another option is to just concatenate multiple strings together, e.g.,
+
+    ```python
+    mystring = "My name is " + firstname + " and my age is " + str(age)
+    ```
+
+    where is should ne noted that we have had to use `str` to convert the integer valued `age` into
+    a string. 
+
+    We recommend using the `format` method of string formatting, although it more important to pick
+    one method and be consistent throughout your code.
+
+
+### Unicode, escape characters and "raw" strings
+
+In Python 3, strings are by default [unicode](https://home.unicode.org/) strings. This means that in
+addition to the standard Roman alphabet keyboard characters, they can include characters like:
+accented letters, non-Roman alphabet characters, and various emoji symbols:
+
+```python
+sentence = "Mr Müller likes 𝜋 🙂"
+```
+
+In fact, you can even have variable names that use (some) unicode characters:
+
+```python
+𝜋 = 3.14
+print(𝜋)
+3.14
+```
+
+Strings are defined using quotation marks or apostrophe's, so what if you want to use a quotation
+mark or apostrophe within a string?
+
+If you have a string that you define using quotation marks then you can use apostrophe's within it,
+and vice versa:
+
+```python
+a = "It was Matthew's birthday"
+b = '"Be quiet!", said the lecturer.'
+```
+
+However, another way is to use the "[escape
+character](https://www.w3schools.com/python/gloss_python_escape_characters.asp)" `\`. For example
+using a `\"` in a string that is defined with quotation marks means that you want to display a
+quotation mark:
+
+```python
+a = "\"Thank you.\", said the lecturer."
+print(a)
+"Thank you.", said the lecturer.
+```
+
+The escape character followed by certain letters can be used to add additional formatting within a
+string. You can add tabs or new lines within a string with the "`\t`" and "`\n`" characters:
+
+```python
+listings = "1.\tApples\n2.\tPears\n3.\tOranges\n"
+print(listings)
+1.	Apples
+2.	Pears
+3.	Oranges
+```
+
+If you want to show a `\` itself within a string you need to use `\\`. This is particularly
+important for file paths within Windows, which use `\` as the separator:
+
+```python
+# rather than, where the \t will get changed to a tab
+path = "C:\Users\mydirectory\textfile.txt"
+# use
+path = "C:\\Users\\mydirectory\\myfile.txt"
+```
+
+#### Raw strings
+
+If you want to ignore escaped characters you can make a string use "raw" text. To do this you add an
+`r` before the opening quotation mark/apostrophe. For example to actually include "`\n`" in a
+string, rather than have it interpreted as a new line, you would write:
+
+```python
+rawstring = r"Ignore the \n escape characters"
+print(rawstring)
+Ignore the \n escape characters
+```
+
+The above Windows file path could instead be written as a raw string to avoid needing the double
+`\`'s:
+
+```python
+path = r"C:\Users\mydirectory\textfile.txt"
+```
+
+## Booleans
+
+A boolean value just represents True or False, so can only take two values:
+
+```python
+x = True
+y = False
+```
+
+`True` and `False` must have an uppercase first letter to be recognised by Python. Booleans are
+generally used for comparison in logical expressions, which are covered in [another
+tutorial](../demo-flow-control/index.html#conditional-expressions). For example evaluating in equality will return a boolean value:
+
+```python
+x = 2
+
+testequality = (x == 2)  # == test if two values/objects are the same
+
+print(type(testequality))
+<class 'bool'>
+print(testequality)
+True
+```
