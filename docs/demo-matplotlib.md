@@ -1,5 +1,7 @@
 # Basic plotting with Matplotlib
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YHKTLzrKtKE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 [Matplotlib](https://matplotlib.org/) is a powerful library for making plots in Python. It can be
 used to create basic plots, but also has the ability to create very complex plots. A variety of
 useful tutorials can be found on the [Matplotlib

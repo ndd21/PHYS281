@@ -34,7 +34,7 @@ binary file.
     which both stop Python interpreting backslashes (`\`) in a string as an @(escape character)
     for the following letter (e.g., `\n` in a string means new line).
 
-    Another option is to use the `pathlib` built-in module to construct `Path` objects that can
+    Another option is to use the [`pathlib`](https://docs.python.org/3/library/pathlib.html) built-in module to construct `Path` objects that can
     be used instead of strings, e.g.,:
 
     ```
@@ -42,7 +42,7 @@ binary file.
     filename = Path("/My Documents/myfile.txt")
     ```
 
-    On Windowd, using `pathlib` will often work with or without the drive supplied if the file is
+    On Windows, using `pathlib` will often work with or without the drive supplied if the file is
     locally stored.
 
     It is useful to save to filename that do not contain spaces.

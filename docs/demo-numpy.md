@@ -1,7 +1,7 @@
 # NumPy
 
 [NumPy](https://numpy.org/) is a Python library containing many useful features for numerical and
-scientific computation. It is not a @(built-in) module, but is available in the default Anaconda
+scientific computation. It is not a @(built-in) module, but is available in the default Anaconda `base`
 environment.
 
 NumPy can be imported using:
@@ -213,7 +213,7 @@ print(x)
 [1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 
 x = 2.3964 * np.ones(3)  # an array of 3 values of 2.3964
-print(x)                                                                                                               
+print(x)
 [2.3964 2.3964 2.3964]
 
 # or equivalently
