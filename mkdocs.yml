@@ -31,6 +31,7 @@ nav:
        - Error checking and debugging: 'demo-error-checking.md'
        - NumPy basics: 'demo-numpy.md' 
        - Basic plotting with Matplotlib: 'demo-matplotlib.md'
+       - Code testing: 'demo-unit-tests.md'
     - glossary.md
 
 docs_dir: 'docs'
