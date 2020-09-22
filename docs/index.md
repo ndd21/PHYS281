@@ -13,13 +13,23 @@ Feedback to improve these notes is very welcome, so if you have any questions or
 * Dr Matthew Pitkin, m.pitkin@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk))
 * Dr Brooke Simmons, b.simmons@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk))
 
+In this course we will use many jargon terms and unfortunately this is inevitable. In some cases
+certain terms will be used interchangeably as synonyms. We have created a
+[glossary](glossary/index.html) of many terms to try and help with this, but it will be incomplete.
+Please do ask us if there are any concepts or terms that you do not understand and remember that
+Google is your friend! It is worth noting that the aim of this course is to allow you to write and
+use Python code. However, this is not a computer science course and we do not expect you to
+understand the detailed reasons behind why something is done in a certain way. In the majority of
+cases you can treat what we show you as a recipe without needed to know why a particular syntax or
+formatting is required.
+
 ## What is Python?
 
 [Python](https://www.python.org/) is a [programming
 language](https://en.wikipedia.org/wiki/Programming_language), i.e., it is used to write
 instructions with a specific syntax that are interpreted and run by a computer. Python is an
 interpreted language rather than a compiled language. This means that you write a code that is then
-interpreted and line-by-line and the commands run. In a compiled language, such as
+interpreted line-by-line and the commands run. In a compiled language, such as
 [C](https://en.wikipedia.org/wiki/C_(programming_language)), the code you write has to be compiled
 by a different programme to produce an executable file (basically one written in a more primitive
 machine language), that you then run.
@@ -38,26 +48,31 @@ functions that can perform specific tasks on that data.
 
 There have been several versions of Python as the language gets updated and new features added. The
 latest major version in Python 3, in particular with Python 3.8 being a recent stable release. While
-most Python code is fairly backwards compatible, i.e., can run with versions of the language, there
-are some specific features that are not. Broadly speaking, code written based on Python 3.5 of above
-should be compatible and in this course we will not use any syntax that does not work across these
-versions.
+most Python code is fairly backwards compatible, i.e., can run with previous versions of the
+language, there are some specific features that are not. Broadly speaking, code written based on
+Python 3.5 of above should be compatible and in this course we will not use any syntax that does not
+work across these versions.
+
+Python can be run in both an interactive mode, i.e., you can start an interactive Python into which
+you can type and run commands immediately, or it can be used to run pre-written scripts. In this
+course we will describe both these modes of use.
 
 ### Why Python?
 
 There are many reasons why Python is a good choice as a programming language to learn:
 
-* Python is now becoming a popular language in High School. You are more likely to have experience
-  which we can build on.
+* Python is now becoming a popular language in school, so you are more likely to have experience
+  that we can build on.
 * Python is currently one of the most used languages in industry (see, e.g., the [IEEE Spectrum
   report](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019)).
-* Python is currently used by many more academics in the department.
+* Python is currently used by many academics in the department.
 * There are a huge number of widely used and tested resources and packages out there for scientific
   computing (see, e.g.,
   [https://wiki.python.org/moin/NumericAndScientific](https://wiki.python.org/moin/NumericAndScientific)),
   such as [NumPy](http://www.numpy.org/), [SciPy](https://www.scipy.org/) and
   [Matploltib](https://matplotlib.org/).
-* Python is portable - Python programs are cross platform and run on most computer systems in use today.
+* Python is portable - Python programmes are cross platform and run on most computer systems in use
+  today.
 * Many modern data science and machine learning applications use Python as an interface, this
   driving its growth.
 
