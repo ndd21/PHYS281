@@ -7,6 +7,8 @@ date: 2020-08-12
 
 # Error checking and debugging
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/biimYBveWJE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 If there is a problem in some Python code being run it will often print out an error message to
 screen. This is called "raising" an error, also known as an @(exception). The final line of the
 error message will be the [type of exception](https://docs.python.org/3/library/exceptions.html)
@@ -214,7 +216,7 @@ def i_only_like_ints(x):
 
     return "Thank you for the integer"
 
-i_only_like_int(2.3)  # give it a float
+i_only_like_ints(2.3)  # give it a float
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
   File "<stdin>", line 4, in i_only_like_ints
