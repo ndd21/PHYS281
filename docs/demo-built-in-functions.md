@@ -33,6 +33,17 @@ print(d)
 {'value1': 1, 'value2': 2}
 ```
 
+## `enumerate`
+The [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate) function is used when iterating over an object such as a list or array. For each iteration, it returns a tuple containing a count, and the value of the element at that count.
+
+```python
+x = [7.4, 1.0, 5.6, 13.2]
+y = ["a", "b", "c", "d"]
+
+for i, x_val in enumerate(x):
+    print(x_val, y[i])
+```
+
 ## `float`
 
 The [`float()`](https://docs.python.org/3/library/functions.html#float) function creates a @(floating
