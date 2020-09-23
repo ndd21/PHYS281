@@ -1,9 +1,11 @@
 # Built-in functions
 
-The are a set of [built-in
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sXu8RxrRFRs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+There are a set of [built-in
 functions](https://docs.python.org/3/library/functions.html#built-in-functions) that are a part of
 any Python installation, i.e., they can be used and recognised in any Python code. The built-in
-function do not have to be imported.
+functions do not have to be imported.
 
 We will describe a few common functions here, but there are many more, that are described at
 [https://docs.python.org/3/library/functions.html](https://docs.python.org/3/library/functions.html).
@@ -29,6 +31,17 @@ new dictionary, e.g.:
 d = dict(value1=1, value2=2)
 print(d)
 {'value1': 1, 'value2': 2}
+```
+
+## `enumerate`
+The [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate) function is used when iterating over an object such as a list or array. For each iteration, it returns a tuple containing a count, and the value of the element at that count.
+
+```python
+x = [7.4, 1.0, 5.6, 13.2]
+y = ["a", "b", "c", "d"]
+
+for i, x_val in enumerate(x):
+    print(x_val, y[i])
 ```
 
 ## `float`
