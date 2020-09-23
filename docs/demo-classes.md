@@ -78,7 +78,7 @@ method is equivalent to what is called a
 
 ```python
 class Particle:
-    def __init__(self, name, charge, mass)
+    def __init__(self, name, charge, mass):
         # the initialisation function
         self.name = name
         self.charge = charge
@@ -374,7 +374,7 @@ class Line2D:
         
         y = C_1 x + C_0
 
-        defined by the two points, where C_1 defined the gradient and C_0 defines
+        defined by the two points, where C_1 defines the gradient and C_0 defines
         the y-intercept.
         """
 
