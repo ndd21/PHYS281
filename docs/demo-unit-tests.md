@@ -3,7 +3,7 @@
 A code will do what you tell it. So, if you make a mistake in your code it will run with that
 mistake. Therefore it will probably not do what you expected it to do, i.e., it will give an
 obviously wrong answer or fail. A more serious case is when it does not fail, but returns an answer
-that is not obviously wrong.
+that is subtly, but not obviously, wrong.
 
 To avoid this it is worth testing your code to make sure it definitely does as expected.
 
@@ -18,7 +18,7 @@ trickier to find the source of any problem if you have to run through your whole
 
 The units test should be performed in a script of their own, importing any functions or classes from
 the script/module to be tested. This means that each time you change your script/module you can run
-the test script and check that everything still works. This also means you can fix problems as they arise rather than having to wait until you entire code is finished.
+the test script and check that everything still works. This also means you can fix problems as they arise rather than having to wait until you have finished writing your entire code.
 
 Here we will show a basic example of unit testing. The examples will be rather contrived and simplistic, but give a idea of what to do.
 
@@ -82,9 +82,10 @@ class shape:
             return None
 ```
 
-We could then write a test script (preferably writing it just after we have defined each function)
-that checks these functions/classes with known inputs and pre-calculated expected results, e.g.,
-areas We could have a file called `test_shapes.py` containing the following:
+We could then write a test script (preferably writing in conjunction with our main code file, i.e.,
+just after we have defined each function) that checks these functions/classes with known inputs and
+pre-calculated expected results, e.g., areas. We could have a file called `test_shapes.py`
+containing the following:
 
 ```python
 import shapes
@@ -164,14 +165,15 @@ The circle_area function is not working!
 
 Here we can see that our `circle_area` function had a mistake, which we can then fix.
 
-# pytest
+## pytest
 
 There is a third-party Python package called [`pytest`](https://docs.pytest.org/en/stable/), which
 is useful for running unit tests. It should be available within the `base` Anaconda environment. It
 provides a format for writing the test script and a way of running that test script. At its most
 basic, you write each test as a function named `test_sometestname()` (replacing `sometestname` with
-what you want) and use the `assert` keyword when doing the comparisons for the tests. Converting the
-above script into this format, and calling it `test_shape_pytest.py`, would give, e.g.,:
+what you want) and use the `assert` keyword when doing the comparisons for the tests (in this case
+the "assertion" is that the returned values is the same as the expected value). Converting the above
+script into this format, and calling it `test_shape_pytest.py`, would give, e.g.,:
 
 ```python
 import shapes

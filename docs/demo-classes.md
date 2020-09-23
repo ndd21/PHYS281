@@ -20,6 +20,11 @@ instance of a class.
 A new class can be defined using the
 [`class`](https://www.w3schools.com/python/ref_keyword_class.asp) keyword.
 
+!!! note
+    You _can_ write perfectly good codes in Python without ever having to define your own object's
+    classes. However, using classes is part of the Object Oriented paradigm and in many cases it
+    makes intuitive and practical sense to bundle certain bits of data and certain functions together, i.e., define a class.
+
 ## A simple class
 
 A simple class containing just @(data attributes) can be created using:
