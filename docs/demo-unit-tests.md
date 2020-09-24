@@ -1,4 +1,13 @@
+---
+title: Code testing
+authors:
+    - Matthew Pitkin
+date: 2020-09-23
+---
+
 # Code testing
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YiLVUG0KCB0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 A code will do what you tell it. So, if you make a mistake in your code it will run with that
 mistake. Therefore it will probably not do what you expected it to do, i.e., it will give an
