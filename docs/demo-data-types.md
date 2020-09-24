@@ -1,3 +1,10 @@
+---
+title: Basic data types
+authors:
+    - Matthew Pitkin
+date: 2020-08-12
+---
+
 # Basic data types
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-OA05dhv2y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

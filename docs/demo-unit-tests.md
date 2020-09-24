@@ -174,7 +174,7 @@ The circle_area function is not working!
 
 Here we can see that our `circle_area` function had a mistake, which we can then fix.
 
-## pytest
+### pytest
 
 There is a third-party Python package called [`pytest`](https://docs.pytest.org/en/stable/), which
 is useful for running unit tests. It should be available within the `base` Anaconda environment. It

@@ -1,4 +1,13 @@
+---
+title: Reading and writing data
+authors:
+    - Matthew Pitkin
+date: 2020-09-24
+---
+
 # Reading and writing data
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q3gy1pNZQls" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 A code might require input data and it might also create data for outputting. Therefore it is useful
 to be able to read and write data from and to a file. This is often referred to as I/O, standing for

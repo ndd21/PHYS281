@@ -1,5 +1,7 @@
 # Flow control
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fdTCVX2CqPk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 When Python runs a @(script) the code is executed from the top to the bottom. However, you might
 want to only run certain parts of the code given specific conditions, or you might want to repeat
 something multiple times. To do this you can use flow control:

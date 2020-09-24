@@ -15,10 +15,10 @@ error message will be the [type of exception](https://docs.python.org/3/library/
 that has been raised. Preceding this will be a "@(traceback)" showing where the error occurred in
 the code, often with a line number, and can be nested down through the chain of functions calling
 the buggy code. This chain of functions may be ones that you have defined or functions within a
-build-in or user installed module.
+@(built-in) or user installed module.
 
 These errors are often not that informative for novices (or indeed experts), especially at first
-glance. But looking at the exception type can give hints to the cause of the problem.
+glance. But looking at the exception type can give hints as to the cause of the problem.
 
 ## Common exceptions
 

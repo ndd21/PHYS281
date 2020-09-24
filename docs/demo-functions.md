@@ -1,4 +1,13 @@
+---
+title: Python functions
+authors:
+    - Matthew Pitkin
+date: 2020-09-24
+---
+
 # Functions
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PG7MgQnWWIc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If you have a piece of code that does a particular job and you need to reuse it multiple times it is
 useful to define it as a @(function).
