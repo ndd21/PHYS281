@@ -7,6 +7,8 @@ date: 2020-08-12
 
 # Classes
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1SfbkcOipiA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Almost everything in Python is an @(object). All objects (e.g., variables, functions) have a type.
 An object's type is also known as its [**class**](https://docs.python.org/3/tutorial/classes.html).
 A @(class) can also be thought of as a template for creating an object of that type.
@@ -628,7 +630,7 @@ class Vector:
         Return the length of the vector.
         """
         from math import sqrt
-        return math.sqrt(sum([v ** 2 for v in self.vector]))
+        return sqrt(sum([v ** 2 for v in self.vector]))
 
     def unit(self):
         """
