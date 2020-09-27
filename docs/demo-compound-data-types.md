@@ -162,8 +162,9 @@ print(x[::-1])
 
 If you set a new variable to be equal to another list variable then the new variable is **not** a
 copy of the original list, it is just another name assigned to the same bit of memory as the
-original variable name (in `C` jargon it's a pointer). So, if you change the new variable then
-original one will also be changed. E.g.,
+original variable name (in `C` jargon it's a
+"[pointer](https://www.tutorialspoint.com/cprogramming/c_pointers.htm)"). So, if you change the new
+variable then original one will also be changed. E.g.,
 
 ```python
 x = [1, 2, 3]
@@ -174,7 +175,8 @@ print(x)
 [1, 2, 3, 4]
 ```
 
-To create a new variable that is a copy of another list you must use the copy method:
+To create a new variable that is a copy of another list you must use the
+[`copy`](https://www.w3schools.com/python/ref_list_copy.asp) method:
 
 ```python
 x = [1, 2, 3]
@@ -187,7 +189,8 @@ print(y)
 [1, 2, 3, 4]
 ```
 
-You can also make a copy by using `list`, e.g.,
+You can also make a copy by using
+[`list`](https://docs.python.org/3/library/functions.html#func-list), e.g.,
 
 ```python
 y = list(x)

@@ -258,7 +258,7 @@ My name is Matthew and my age is 21.
     mystring = "My name is %s and my age is %d." % (firstname, age)
     ```
 
-    where the "`%s`" is a placeholder for insert a string and the "`%d`"
+    where the "`%s`" is a placeholder for inserting a string and the "`%d`"
     is a placeholder for inserting an integer (`%f` would be used for a float, or `%e` is you wanted it in
     scientific notation, with the whole range of values that can be used given [here](https://docs.python.org/2/library/stdtypes.html#string-formatting)). After the string a `%` character is used followed by a tuple containing
     the variables to insert given in the order they are to be inserted.
@@ -272,13 +272,12 @@ My name is Matthew and my age is 21.
     where is should ne noted that we have had to use `str` to convert the integer valued `age` into
     a string. 
 
-    We recommend using the `format` method of string formatting, although it more important to pick
-    one method and be consistent throughout your code.
-
+    We recommend using the `format` method of string formatting, although it's more important to
+    pick one method and be consistent throughout your code.
 
 ### Unicode, escape characters and "raw" strings
 
-In Python 3, strings are by default [unicode](https://home.unicode.org/) strings. This means that in
+In Python 3 strings are by default [unicode](https://home.unicode.org/) strings. This means that in
 addition to the standard Roman alphabet keyboard characters, they can include characters like:
 accented letters, non-Roman alphabet characters, and various emoji symbols:
 
