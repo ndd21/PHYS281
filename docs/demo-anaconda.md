@@ -71,6 +71,7 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
 
     * Under the "MacOS :fontawesome-brands-apple:" option click on "64-bit Graphical
       Installer" to download the installation executable.
+    * Click on the downloaded file and follow the instructions as with the Windows installation.
 
 === "Installation on Linux / Using a terminal"
     For Linux users we recommend just installing the lightweight
@@ -115,6 +116,32 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
     If correctly installed the conda version and other information should be printed to screen. If
     you open a new terminal the @(command prompt) should now begin with `(base)`, which is the name
     of the default conda environment.
+
+=== "Opening with AppsAnywhere"
+    AppsAnywhere can be used to access Anaconda and Visual Studio Code from a machine on campus or
+    via a virtual machine. It is not recommended to use AppsAnywhere on your own machine as any
+    internet connection issues will cause this to be very unreliable.
+
+    !!! note
+        If you have problems installing Anaconda on your own machine then as a back up you can
+        instead trying using a virtual machine provided by the university through your web browser.
+        Open a web browser and visit
+        [https://mylab.lancaster.ac.uk](https://mylab.lancaster.ac.uk).
+      
+    * Open a web browser such as Google Chrome. In most cases this should automatically open on
+      the AppsAnywhere page, if not visit
+      [https://apps.lancaster.ac.uk/](https://apps.lancaster.ac.uk/).
+    * Scroll down to find the app named "Anaconda with Visual Studio Code" or type "Anaconda" in
+      the search box to find it.
+    * Click to launch the app, which should quickly open up a window containing Visual Studio Code.
+      Close that window (it will not work properly) and wait until the Anaconda app fully downloads
+      (unfortunately this may take 10 minutes or more).
+    * Follow the instructions [below](#anaconda-navigator) to accessing _Anaconda Navigator_.
+
+    !!! note
+        You cannot create new environments, as described [below](#creating-a-new-environment), when
+        using Anaconda via AppsAnywhere. However, all the packages you require will be available by
+        default.
 
 ## Anaconda Navigator
 
