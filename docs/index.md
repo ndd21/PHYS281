@@ -20,8 +20,23 @@ Please do ask us if there are any concepts or terms that you do not understand a
 Google is your friend! It is worth noting that the aim of this course is to allow you to write and
 use Python code. However, this is not a computer science course and we do not expect you to
 understand the detailed reasons behind why something is done in a certain way. In the majority of
-cases you can treat what we show you as a recipe without needed to know why a particular syntax or
-formatting is required.
+cases you can treat what we show you as a recipe to follow without needing to know why a particular
+syntax or formatting is required.
+
+## Course aims
+
+Programming is an important skill for scientists in the modern world. At the end of this module you
+should be able to:
+
+* understand the basic concepts involved in writing computer programs;
+* understand the main features of Python;
+* design and write simple programs in Python;
+* devise and use test procedures for your programs;
+* learn how to debug computer programs;
+* design and write programs to solve numerical problems.
+
+Programming is a skill. While there is a syntax that that you have to learn, the skill is mainly
+acquired through practice, i.e., actually writing code.
 
 ## What is Python?
 
@@ -47,11 +62,11 @@ things that you use within a code are objects; these are things that can contain
 functions that can perform specific tasks on that data.
 
 There have been several versions of Python as the language gets updated and new features added. The
-latest major version in Python 3, in particular with Python 3.8 being a recent stable release. While
-most Python code is fairly backwards compatible, i.e., can run with previous versions of the
-language, there are some specific features that are not. Broadly speaking, code written based on
-Python 3.5 of above should be compatible and in this course we will not use any syntax that does not
-work across these versions.
+latest major version in Python 3, with Python 3.8 being a recent stable release. While most Python
+code is fairly backwards compatible, i.e., can run with previous versions of the language, there are
+some specific features that are not. Broadly speaking, code written based on Python 3.5 or above
+should be compatible and in this course we will not use any syntax that does not work across these
+versions.
 
 Python can be run in both an interactive mode, i.e., you can start an interactive Python into which
 you can type and run commands immediately, or it can be used to run pre-written scripts. In this
@@ -65,7 +80,6 @@ There are many reasons why Python is a good choice as a programming language to 
   that we can build on.
 * Python is currently one of the most used languages in industry (see, e.g., the [IEEE Spectrum
   report](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019)).
-* Python is currently used by many academics in the department.
 * There are a huge number of widely used and tested resources and packages out there for scientific
   computing (see, e.g.,
   [https://wiki.python.org/moin/NumericAndScientific](https://wiki.python.org/moin/NumericAndScientific)),
@@ -75,6 +89,7 @@ There are many reasons why Python is a good choice as a programming language to 
   today.
 * Many modern data science and machine learning applications use Python as an interface, this
   driving its growth.
+* Python is currently used by many academics in the department.
 
 In the [TIOBE](https://www.tiobe.com/tiobe-index/) index Python popularity and usage is still
 growing:
@@ -89,6 +104,43 @@ growing:
 | 6 | 6	| | Visual Basic | 4.12% | +0.83% |
 
 ## Course overview
+
+This course is assessed through coursework only. There is no exam.
+
+The course assessment consists of two main components:
+ * 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 5th to that
+   starting Nov 2nd)
+ * A project over Weeks 6-10 (the weeks from that start Nov 9th to that starting Dec 7th)
+
+The 5 coursework assignments and quizzes count for 30% of the overall grade (6% each), with the
+project counting for 70%.
+
+Help and guidance will be provided in weekly (Weeks 1-10) online lab sessions on Tuesdays from 13:00-17:00 held
+on
+[Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a).
+There will also be an "office hours" slot for additional help held on
+[Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a)
+on Fridays between 10:00-11:00.
+
+The assignments and quizzes must be submitted on Moodle by 13:00 on the Monday the week after the
+associated lab session (i.e., the Week 1 assignment should be submitted no later than 13:00 on
+Monday of Week 2). The late submission deadline is 13:00 on Tuesday before the lab session. If you
+require an extension or have a problem please contact [Matt
+Pitkin](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk), [Brooke
+Simmons](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk) or [Louise
+Crook](https://teams.microsoft.com/l/chat/0/0?users=l.crook@lancaster.ac.uk) via email or Teams. The
+assignments marking makes use of software called [CodeRunner](https://coderunner.org.nz/), which
+will automatically test and mark your submitted code. To avoid losing marks it is highly recommended
+that you test it on your own machine before submitting it within CodeRunner. Read the questions and
+expected inputs carefully.
+
+The project grade is split between several components:
+ * 2 exercises to be submitted prior to the final project (5% each)
+ * The written project report (30%)
+ * The project code (30%)
+
+The project aim is to create and test an n-body gravitationally interacting system (i.e., the Solar
+System). The two exercises provide a basis on which to build up to the full n-body simulation.
 
 ## Prerequisites
 
