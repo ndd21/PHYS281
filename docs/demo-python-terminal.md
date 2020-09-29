@@ -106,7 +106,7 @@ print(d)
 ```
 
 If you add, subtract or multiply two integers you will get an integer value back. For division it
-will return a @(floating pointer number) (i.e., a non-integer number with a decimal point in it) even
+will return a @(floating point number) (i.e., a non-integer number with a decimal point in it) even
 if the inputs are integers. To perform division that returns an integer rounded down to the nearest
 integer value use `//`, e.g.,
 
