@@ -136,7 +136,7 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
     * Click to launch the app, which should quickly open up a window containing Visual Studio Code.
       Close that window (it will not work properly) and wait until the Anaconda app fully downloads
       (unfortunately this may take 10 minutes or more).
-    * Follow the instructions [below](#anaconda-navigator) to accessing _Anaconda Navigator_.
+    * Follow the instructions [below](#anaconda-navigator) to access _Anaconda Navigator_.
 
     !!! note
         You cannot create new environments, as described [below](#creating-a-new-environment), when
