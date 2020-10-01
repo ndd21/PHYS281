@@ -178,3 +178,32 @@ There are a variety of useful Python tutorial freely avaiable online:
 * **Python Data Science Handbook**, Jake VanderPlas, O'Reilly,
   [https://jakevdp.github.io/PythonDataScienceHandbook/](https://jakevdp.github.io/PythonDataScienceHandbook/):
   this book is freely available from the website.
+
+### Ethical programming
+
+Coding is done by people and the outputs of code can affect peoples lives. In some cases the code
+you produce may be part of publicly funded work. In others it may be done within a private
+institution and bound by national laws or industry-specific regulations and guidelines. So coding
+cannot exist independently of ethics and scrutiny by others.
+
+In general it is good to think of the following practices when coding:
+
+* Do not use code for illegal or malicious activities.
+* Make sure you properly attribute any part of your code that uses code/algorithms from other
+  sources. Many codes have open source licenses that allow you to use them or edit them provided
+  proper credit is given. Consider giving an open source license to your own code (see e.g.,
+  [here](https://choosealicense.com/)), such as an [MIT
+  license](https://choosealicense.com/licenses/mit/) or [GPL
+  license](https://choosealicense.com/licenses/gpl-3.0/).
+* Coding is often done as part of a community. In such cases be kind and be inclusive. Take a look
+  at, e.g., the [NumFOCUS Code of Conduct](https://numfocus.org/code-of-conduct).
+* If your code directly affects people or uses personal data, think about whether its design could
+  contain or promote biases and if so whether it is possible to mitigate against them.
+* Try to document, curate and distribute your code, so that it is useful and usable to others.
+  Results should be reproducible into the future.
+* Make sure any data that you code uses or produces is curated and handled in accordance with data
+  protection and governance laws. This is particularly relevant to personal data, for which security
+  of the data and compliance with laws and user agreed conditions of use are vital.
+
+While these may not seem relevant to this particular course they are good things to keep in mind for
+the future.
