@@ -200,8 +200,11 @@ In general it is good to think of the following practices when coding:
 * If your code directly affects people or uses personal data, think about whether its design could
   contain or promote biases and if so whether it is possible to mitigate against them.
 * Try to document, curate and distribute your code, so that it is useful and usable to others.
-  Results should be reproducible into the future.
-* Make sure any data that you code uses or produces is curated and handled in accordance with data
+  Results should be reproducible into the future. For example, consider hosting your code on a open
+  repository such as [Github](https://github.com) (other repositories exist!) and providing online
+  documentation, including practical examples of running the code, on sites such as [_Read the
+  Docs_](https://readthedocs.org/).
+* Make sure any data that your code uses or produces is curated and handled in accordance with data
   protection and governance laws. This is particularly relevant to personal data, for which security
   of the data and compliance with laws and user agreed conditions of use are vital.
 
