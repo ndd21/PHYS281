@@ -1,7 +1,7 @@
 def Sequence(n=2, initialSequence=[0, 1]):
     """
     Create a Fibonacci-style sequence up to the nth entry, based on an initial
-    two-value sequeunce, where
+    two-value sequence, where
 
     x_n = x_{n-1} + x_{n-2}
 

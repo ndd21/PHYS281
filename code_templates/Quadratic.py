@@ -9,23 +9,31 @@ class Quadratic:
     """ 
     A class representing a quadratic.
 
-    It has three variables representing a quadratic of the form 
-    ax^2 + bx + c where
-    a, b, and c, are real constants.
+    It has three variables representing the coefficients of a quadratic of the
+    form
+    
+    ax^2 + bx + c,
+    
+    where a, b, and c, are real constants.
 
     The discriminant = b^2 - 4ac.
 
     If b^2 -4ac < 0 the solutions are complex and will not be calculated.
     If b^2 - 4ac = 0  then there is one real root give by -b/2a
-    If b^2 - 4ac > 0  then there are two real solutions 
+    If b^2 - 4ac > 0  then there are two real solutions.
+
+    Parameters
+    ----------
+    a: (int, float)
+        The coefficient of the x^2 term.
+    b: (int, float)
+        The coefficient of the x term.
+    c: (int, float)
+        The constant term (i.e., the coefficient of  the x^0 = 1 term).
     """
 
     def __init__(self, a, b, c):
-        """
-        How to check have three numbers creating a quadratic. 
-
-        Note: Not testing if one of the coefficients is zero...
-        """
+        # The checks below make sure the coefficients are real numbers.
         if not isinstance(a, (int, float)):
             raise ValueError('Coefficient a is not a number')
         if not isinstance(b, (int, float)):
@@ -54,7 +62,7 @@ class Quadratic:
         rootValues = None
         root1, root2  = None, None
         discriminant = self.discriminant()
-        # calculate the roots and return them
+        # replace the line below with code to calculate the roots
         rootValues = (root1, root2)
         return rootValues
 
@@ -64,7 +72,7 @@ class Quadratic:
             print('Not a quadratic, you need three coefficients')
             return None
         for x in coefficients:
-            if not isinstance(x, Number):
+            if not isinstance(x, (int, float)):
                 print('Not a quadratic, the coefficients need to be numbers')
                 return None
         q = Quadratic(coefficients[0], coefficients[1], coefficients[2])

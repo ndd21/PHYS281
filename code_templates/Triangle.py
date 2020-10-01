@@ -8,7 +8,16 @@ import math
 
 class Triangle:
     """
-    A class representing a triangle
+    A class representing a triangle.
+
+    Parameters
+    ----------
+    lengthSide1: (int, float)
+        The length of the first side.
+    lengthSide2: (int, float)
+        The length of the second side.
+    lengthSide3: (int, float)
+        The length of the third side.
     """
 
     def __init__(self, lengthSide1, lengthSide2, lengthSide3):
@@ -16,33 +25,23 @@ class Triangle:
         self.side2 = lengthSide2
         self.side3 = lengthSide3
 
+        # run test to check if triangle is valid
+        if not self.testIfValidTriangle():
+            raise ValueError(
+                "A triangle with sides ({}, {}, {}) is not valid".format(
+                     self.side1, self.side2, self.side3,    
+                 )
+            )
+
     def __str__( self ):
         return "Triangle (sides {}, {}, {})".format(self.side1, self.side2, self.side3)
 
     def testIfValidTriangle(self):
-        # Use static method so can use without creating object as well and
-        # only have one defnition.
-        return Triangle.testIfTriangle(self.side1, self.side2, self.side3)
-
-    def calcTriangleArea(self):
-        area = float('nan')  # If not a valid triangle the area has no meaning...
-        # Return area if valid triangle 
-        return area
-
-    @classmethod 
-    def triangleFromList(cls, sides):
-        if len(sides) != 3:
-            raise ValueError('Not a triangle, you needs three sides ')
-
-        for length in sides:
-            if not isinstance(length, (int, float)):
-                raise ValueError('Not a triangle, you need three numbers')
-
-        return cls(sides[0], sides[1], sides[2])
-
-    @staticmethod
-    def testIfTriangle(lengthSide1, lengthSide2, lengthSide3):
         test = True
         # Carry out checks that this is a triangle
         return test
+
+    def calcTriangleArea(self):
+        # Return area of the triangle 
+        return area
 
