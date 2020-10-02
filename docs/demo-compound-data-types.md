@@ -1,3 +1,10 @@
+---
+title: Compound data types
+authors:
+    - Matthew Pitkin
+date: 2020-08-12
+---
+
 # Compound data types
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jh54qY16Ddw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
