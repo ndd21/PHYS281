@@ -210,3 +210,20 @@ In general it is good to think of the following practices when coding:
 
 While these may not seem relevant to this particular course they are good things to keep in mind for
 the future.
+
+### Online Python environments
+
+There are a variety of online Python environments that can be used as a back up. These generally
+require your to create an account, but there are generally free account options that provide a
+limited by usable range of functionality. For the first half of the course these should suffice for
+any coding needs, but may be more limited when attempting the project. The options suggested below
+seem to have NumPy, SciPy and Matplotlib available.
+
+* Python Anywhere [https://www.pythonanywhere.com](https://www.pythonanywhere.com)
+* repl.it [https://repl.it](https://repl.it)
+* Google Colaboratory notebook
+  [https://colab.research.google.com](https://colab.research.google.com) - this requires a Google
+  account and provides a Jupyter Notebook like Python environment. You can produce plots and install
+  a wide variety of packages using pip.
+
+Let us know of any others. 
