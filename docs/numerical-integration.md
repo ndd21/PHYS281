@@ -69,6 +69,37 @@ giving an expression similar that for the left rectangle rule. As always, the nu
 sub-intervals needed to obtain an accurate result will depend on how rapidly the value of the
 function itself varies.
 
+### Example
+
+In the figures below we see how the accuracy of the mid-point rule increases with the
+number of intervals when approximating the integral under a quadratic function:
+
+$$
+f(x) = x^2 - 2 x + 3,
+$$
+
+which for the integral over the range -5 to 5 has the analytical value of
+
+$$
+\int_{-5}^{5} x^2 - 2x + 3 = 113.3333333.
+$$
+
+#### 5 intervals
+
+![](img/numintegration_5.png)
+
+#### 10 intervals
+
+![](img/numintegration_10.png)
+
+#### 20 intervals
+
+![](img/numintegration_20.png)
+
+#### 50 intervals
+
+![](img/numintegration_50.png)
+
 ## Trapezium Rule
 
 The trapezium rule states that you can approximate the area under a curve by a trapezium, as shown
@@ -93,7 +124,7 @@ Note that the area of a trapezium is its average height multiplied by its width,
 $\frac{(f(x_1)+f(x_2))}{2}h$.
 
 As with the rectangle rules, to make this rule useful we need to break the curve to be integrated
-into many small intervals as shown,
+into many small intervals, e.g., four intervals as shown by
 
 $$
 \begin{aligned}
@@ -111,23 +142,21 @@ approach.
 trapezium. Summing the area of these trapezia gives an approximation of the total area under the
 curve between $a$ and $b$.*](img/trapint2.png)
 
-We can generalise this 'extended trapezium' or 'compound trapezium' rule to $N$ points giving
+We can generalise this 'extended trapezium' or 'compound trapezium' rule to $N$ trapeziums (with boundaries running from $x_1$ to $x_{N+1}$) giving
 
 $$
 \begin{aligned}
-    \int_{x_1}^{x_N} f(x) dx&\approx h \left[ 
-    \frac{1}{2}f(x_1) + f(x_2) + f(x_3) + \dots + f(x_{N-1}) + \frac{1}{2}f(x_N) \right]\\
-     &\approx  h \left[ \frac{1}{2}(f(x_1)+f(x_N)) + \sum_{i=2}^{N-1}f(x_i) \right]
+    \int_{x_1}^{x_{N+1}} f(x) dx&\approx h \left[ 
+    \frac{1}{2}f(x_1) + f(x_2) + f(x_3) + \dots + f(x_{N}) + \frac{1}{2}f(x_{N+1}) \right]\\
+     &\approx  h \left[ \frac{1}{2}(f(x_1)+f(x_{N+1})) + \sum_{i=2}^{N}f(x_i) \right]
 \end{aligned}
 $$
 
-where $x_1=a$ and $x_N=b$ are the limits of the integral.
+where $x_1=a$ and $x_{N+1}=b$ are the limits of the integral.
 
 Note that $h$ is still the width of a single interval, so
 
-$$h=\frac{b-a}{N-1}$$
-
-and there are $N-1$ trapezia not $N$.
+$$h=\frac{b-a}{N}.$$
 
 ## Accuracy of Numerical Integration
 

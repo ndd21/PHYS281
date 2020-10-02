@@ -22,7 +22,7 @@ class Integration:
         self.setEPS(eps)
         self.setMethod(method)
 
-    def __repr__(self):
+    def __str__(self):
         return "I(method {}, function {}, eps {})".format(
             self.integrationMethod.__name__,
             self.functionToBeIntegrated.__name__,
