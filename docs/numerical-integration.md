@@ -65,9 +65,9 @@ $$
 $$
 
 as before, subdividing the interval into many sub-intervals will generally improve the approximation
-giving an expression similar to equation @eq:rectangle1. As always, the number of sub-intervals
-needed to obtain an accurate result will depend on how rapidly the value of the function itself
-varies.
+giving an expression similar that for the left rectangle rule. As always, the number of
+sub-intervals needed to obtain an accurate result will depend on how rapidly the value of the
+function itself varies.
 
 ## Trapezium Rule
 
@@ -132,7 +132,7 @@ and there are $N-1$ trapezia not $N$.
 ## Accuracy of Numerical Integration
 
 Consider an arbitrary function, $f$, which we want to integrate numerically. We can expand it as a
-Taylor series around a ‘sampling’ point, $x_i$ to obtain
+Taylor series around a 'sampling' point, $x_i$ to obtain
 
 $$
 f(x)=f(x_i) + (x-x_i)f'(x_i) + \frac{1}{2}(x-x_i)^{2}f''(x_i)+\dots
@@ -184,11 +184,12 @@ $$
 \int_{x_1}^{x_N} f(x) dx= h\left[ \frac{1}{2}(f(x_1)+f(x_N)) + \sum_{i=2}^{N-1}f(x_i) \right] + O(h)
 $$
 
-In fact, equation @eq:rectangle_righterror is correct for the left-hand rectangle rule but not for
-the mid-point rule, and equation @eq:trapezium_wrongerror is incorrect for the trapezium rule. For
-the trapezium rule and for the mid-point rule the dominant error term is actually of order $h^2$,
-despite the sum over sub-intervals that we've just discussed. This arises because the coefficient of
-the term which is linear in $h$ cancels out in the case of these two methods.
+In fact, the above equation for the rectangle rule error is correct for the left-hand rectangle rule
+but not for the mid-point rule, and the above equation for the trapezium rule error is in fact
+incorrect for the trapezium rule. For the trapezium rule and for the mid-point rule the dominant
+error term is actually of order $h^2$, despite the sum over sub-intervals that we've just discussed.
+This arises because the coefficient of the term which is linear in $h$ cancels out in the case of
+these two methods.
 
 To see why this is true, we can expand our function as a Taylor series as before, but this time
 around the point $x_{i+1}$, to give
@@ -220,11 +221,9 @@ $$
 \end{align}
 $$
 
-The trapezium rule can be formed from taking the average of
-equation @eq:fTaylor1 and equation @eq:fTaylor2. When we form this
-average and introduce the sum over sub-intervals we find that due to the
-negative sign in equation @eq:fTaylor2 the term linear in $h$ will
-cancel out, and we obtain
+The trapezium rule can be formed from taking the average of the Taylor expansion equations. When we
+form this average and introduce the sum over sub-intervals we find that due to the negative sign in
+the second Taylor expansion the term linear in $h$ will cancel out, and we obtain
 
 $$
 \begin{aligned}
