@@ -161,7 +161,7 @@ has the @(file extension) "`.py`", e.g., "`myfirstcode.py`.
 
     When creating a code project it is useful to create a folder/directory specifically for it and
     make sure you save your files into that folder. Spend some time thinking about where you want
-    to store the project and using a briefly descriptive folder name.
+    to store the project and use a descriptive folder name.
 
     Python file names should ideally not contain spaces or non-alphanumerical characters other
     than hyphens "`-`" or underscores "`_`", e.g., `project_utilities.py` is good, but
@@ -170,7 +170,7 @@ has the @(file extension) "`.py`", e.g., "`myfirstcode.py`.
 When you save a file with the "`.py`" extension _VS Code_ will recognise it as a Python file. In the
 bottom right hand corner of the _VS Code_ window, it should now say the Python version and name of
 the Anaconda environment that you are in, e.g. "Python 3.8.3 64-bit ('base': conda)" if using the
-default `base` environment. In you run the file (as discussed [below](#running-code)) this will be
+default `base` environment. If you run the file (as discussed [below](#running-code)) this will be
 the version of Python and environment that is used. If you have multiple environments, you can
 switch between them by clicking on this text and choosing the required environment in the menu that
 appears.

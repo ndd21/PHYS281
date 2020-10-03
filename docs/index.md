@@ -110,13 +110,13 @@ This course is assessed through coursework only. There is no exam.
 The course assessment consists of two main components:
  * 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 5th to that
    starting Nov 2nd)
- * A project over Weeks 6-10 (the weeks from that start Nov 9th to that starting Dec 7th)
+ * A project over Weeks 6-10 (the weeks from that starting Nov 9th to that starting Dec 7th)
 
 The 5 coursework assignments and quizzes count for 30% of the overall grade (6% each), with the
 project counting for 70%.
 
-Help and guidance will be provided in weekly (Weeks 1-10) online lab sessions on Tuesdays from 13:00-17:00 held
-on
+Help and guidance will be provided in weekly (Weeks 1-10) online lab sessions on Tuesdays from
+13:00-17:00 held on
 [Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a).
 There will also be an "office hours" slot for additional help held on
 [Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a)
@@ -132,7 +132,8 @@ Crook](https://teams.microsoft.com/l/chat/0/0?users=l.crook@lancaster.ac.uk) via
 assignments marking makes use of software called [CodeRunner](https://coderunner.org.nz/), which
 will automatically test and mark your submitted code. To avoid losing marks it is highly recommended
 that you test it on your own machine before submitting it within CodeRunner. Read the questions and
-expected inputs carefully.
+expected inputs/outputs carefully including making sure functions/classes are names exactly as
+specified.
 
 The project grade is split between several components:
  * 2 exercises to be submitted prior to the final project (5% each)
@@ -153,9 +154,12 @@ and understand how file path structure is formatted, including drive if necessar
 `C:\User\username\Project\myfile.py`).
 
 Please also see the material in the "Tutorial" -> "Getting started" menu for information on
-installing the software required for this course on your own machine.
-
-**TODO**: add info on using Virtual Machine, or uni lab computers.
+installing the software required for this course
+([Anaconda](http://ma.ttpitk.in/teaching/PHYS281/demo-anaconda/) and [Visual Studio
+Code](http://ma.ttpitk.in/teaching/PHYS281/demo-vs-code/)) on your own machine or using AppsAnywhere
+on a machine on campus. The ["Online Python environments"](#online-python-environments) has some
+options for running Python to be used as a back-up alternative if you have initial installation
+problems.
 
 ## Other material
 
