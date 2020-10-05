@@ -108,9 +108,10 @@ growing:
 This course is assessed through coursework only. There is no exam.
 
 The course assessment consists of two main components:
- * 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 5th to that
-   starting Nov 2nd)
- * A project over Weeks 6-10 (the weeks from that starting Nov 9th to that starting Dec 7th)
+ 
+* 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 5th to that
+  starting Nov 2nd)
+* A project over Weeks 6-10 (the weeks from that starting Nov 9th to that starting Dec 7th)
 
 The 5 coursework assignments and quizzes count for 30% of the overall grade (6% each), with the
 project counting for 70%.
@@ -136,9 +137,10 @@ expected inputs/outputs carefully including making sure functions/classes are na
 specified.
 
 The project grade is split between several components:
- * 2 exercises to be submitted prior to the final project (5% each)
- * The written project report (30%)
- * The project code (30%)
+
+* 2 exercises to be submitted prior to the final project (5% each)
+* The written project report (30%)
+* The project code (30%)
 
 The project aim is to create and test an n-body gravitationally interacting system (i.e., the Solar
 System). The two exercises provide a basis on which to build up to the full n-body simulation.
