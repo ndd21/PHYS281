@@ -17,6 +17,7 @@ nav:
        - Installing and using VS code: 'demo-vs-code.md'
        - Using a terminal: 'demo-terminal.md'
        - The Python terminal: 'demo-python-terminal.md'
+       - Quick Start Guide: 'demo-quickstart.md'
     - Python basics:
        - Basic data types: 'demo-data-types.md'
        - Compound data types: 'demo-compound-data-types.md'
