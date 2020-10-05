@@ -132,7 +132,7 @@ Fire up Python and try out assigning and working with some variables:
 >>> y = 3.0 + 5.2
 
 >>> print(x, y, x+y)
-7  8  15.2
+7  8.2  15.2
 
 >>> a = 2 + 3j
 >>> b = 1 - 2j
