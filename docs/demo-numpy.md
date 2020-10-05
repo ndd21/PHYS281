@@ -1,4 +1,13 @@
+---
+title: NumPy basics
+authors:
+    - Matthew Pitkin
+date: 2020-08-14
+---
+
 # NumPy
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FIckY_FMpc8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [NumPy](https://numpy.org/) is a Python library containing many useful features for numerical and
 scientific computation. It is not a @(built-in) module, but is available in the default Anaconda `base`
