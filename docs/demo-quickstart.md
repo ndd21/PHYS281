@@ -1,5 +1,8 @@
 # Python: a quick-start guide
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/QXX2U11MF3I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+*The sound is a little low on this video for the first few seconds but it will come up to normal volume.*
+
 First, it's traditional for one's first program in any new language to greet the world. You can do this just by typing at the Python prompt:
 
 ```
