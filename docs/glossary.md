@@ -68,6 +68,11 @@ logical expressions. In Python, Boolean variables have the [type](#type) "`bool`
 Something, for example a function or module, that is defined within any Python installation and
 is therefore available to use in any Python code.
 
+## Call
+
+Call refers to using a function. For example, if you ran `print("Hello")` you could also say that
+you "called" the `print` function.
+
 ## Child
 
 A class that inherits attributes from a [parent](#parent) class, sometimes known as a subclass.
