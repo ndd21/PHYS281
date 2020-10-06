@@ -44,7 +44,7 @@ acquired through practice, i.e., actually writing code.
 language](https://en.wikipedia.org/wiki/Programming_language), i.e., it is used to write
 instructions with a specific syntax that are interpreted and run by a computer. Python is an
 interpreted language rather than a compiled language. This means that you write a code that is then
-interpreted line-by-line and the commands run. In a compiled language, such as
+interpreted and run line-by-line. In a compiled language, such as
 [C](https://en.wikipedia.org/wiki/C_(programming_language)), the code you write has to be compiled
 by a different programme to produce an executable file (basically one written in a more primitive
 machine language), that you then run.
@@ -62,7 +62,7 @@ things that you use within a code are objects; these are things that can contain
 functions that can perform specific tasks on that data.
 
 There have been several versions of Python as the language gets updated and new features added. The
-latest major version in Python 3, with Python 3.8 being a recent stable release. While most Python
+latest major version is Python 3, with Python 3.8 being a recent stable release. While most Python
 code is fairly backwards compatible, i.e., can run with previous versions of the language, there are
 some specific features that are not. Broadly speaking, code written based on Python 3.5 or above
 should be compatible and in this course we will not use any syntax that does not work across these

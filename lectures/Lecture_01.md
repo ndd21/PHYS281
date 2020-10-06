@@ -93,7 +93,7 @@ The book is freely available from the Institute of Physics as a pdf or ebook.
 	
 ---
 
-# Coursework Submission 
+# Coursework Submission
 
 + All work in the first five weeks will be tested using Moodle via a quizzes and exercises. 
 	- There is an unmarked [practice](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332841) exercise available to try out. Do this before attempting the actual exercise for grades. 
@@ -112,7 +112,7 @@ The book is freely available from the Institute of Physics as a pdf or ebook.
  
 + Python is now becoming a popular language in High School. You
   are more likely to have experience which we can build on.
-+ Python is currently one of the most used languages in industry (see e.g., the )
++ Python is currently one of the most used languages in industry (see e.g., the
   [IEEE Spectrum report](https://spectrum.ieee.org/static/interactive-the-top-programming-languages-2019)).  
 + Python is currently used by many more academics in the department. 
 + There are a huge number of resources out there (<https://wiki.python.org/moin/NumericAndScientific>). 
