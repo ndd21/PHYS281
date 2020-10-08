@@ -35,6 +35,7 @@ nav:
        - Code testing: 'demo-unit-tests.md'
     - Numerical methods:
        - Numerical integration: 'numerical-integration.md'
+       - Fitting a line: 'demo-line-fitting.md'
     - glossary.md
 
 docs_dir: 'docs'
