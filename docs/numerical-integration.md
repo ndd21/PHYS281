@@ -65,9 +65,10 @@ $$
 $$
 
 as before, subdividing the interval into many sub-intervals will generally improve the approximation
-giving an expression similar that for the left rectangle rule. As always, the number of
-sub-intervals needed to obtain an accurate result will depend on how rapidly the value of the
-function itself varies.
+using the same expression as that for the left rectangle rule, but with $x_i=a+h\left(i - \frac{1}{2}\right)$.
+
+As always, the number of sub-intervals needed to obtain an accurate result will depend on how
+rapidly the value of the function itself varies.
 
 ### Example
 
