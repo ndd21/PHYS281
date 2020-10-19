@@ -19,8 +19,7 @@ class Quadratic:
     The discriminant = b^2 - 4ac.
 
     If b^2 -4ac < 0 the solutions are complex and will not be calculated.
-    If b^2 - 4ac = 0  then there is one real root given by -b/2a
-    If b^2 - 4ac > 0  then there are two real solutions.
+    If b^2 - 4ac >= 0  return two real solutions, even if two are identical when b^2 = 4ac!
 
     Parameters
     ----------
