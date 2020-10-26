@@ -1,8 +1,9 @@
 ---
-title: Fitting a line
+title: Gravity simulation
 authors:
     - Iain Bertram
     - Matthew Pitkin
+    - Brooke Simmons
 date: 2020-10-07
 ---
 
