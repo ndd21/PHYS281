@@ -101,7 +101,7 @@ The report should not contain:
 * lengthy descriptions of you code (you are submitting your full code, so we do not need to see it twice);
 * descriptions of the process of debugging your code unless it provides insight into how you tested
   your code or what your learned;
-* too may figures; you only have 10 pages, so think about what you want to show and therefore produce figures that provide useful summary information.
+* too many figures; you only have 10 pages, so think about what you want to show and therefore produce figures that provide useful summary information.
 * references purely to websites.
 
 ### Report marking grid
