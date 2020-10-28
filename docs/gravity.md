@@ -51,14 +51,13 @@ gravitational fields.
 
 ## A "Particle" in The Earth’s Gravitational Field
 
-
 To start off with, we want to simulate the trajectory of a particle in a cannonball-like trajectory
-close to the surface of the Earth. We need to bear in mind from the start that we are going to want
-to create a simulation that is easily extendable to the more general case where the acceleration due
-to gravity is not constant and may depend on other bodies involved in the simulation. It would be
-easy to forget this and just write a simulation that can only simulate the parabolic trajectories of
-a particle close to the surface of the Earth, but with a bit of thought we can save a lot of time
-later on.
+close to the surface of the Earth. You may want to bear in mind from the start that ultimately we
+are going to want to create a simulation that is extendible to the more general case where the
+acceleration due to gravity is not constant and may depend on other bodies involved in the
+simulation. You should initially write a simulation that can simulate the parabolic trajectories of
+a particle close to the surface of the Earth, but a bit of thought on how this might been extendible
+to a more general case could save a lot of time later on.
 
 For simplicity, our simulation can be considered initially to be in 2 dimensions: the $x$-direction
 which is parallel to the ground, and the $y$-direction which is perpendicular to the ground. We are
@@ -70,15 +69,15 @@ $$
   \vec{a} = g = -9.81 \hat{j}  \, {\mathrm m} {\mathrm s}^{-2}.
 $$
 
-To characterise the motion of particles in this uniform gravitational field we will need to be able
+To characterise the motion of a particle in this uniform gravitational field we will need to be able
 to calculate the changes in the particle's position $\vec{x}$, and velocity $\vec{v}$ as a function
 of time, $t$.
 
-For many (although not all) physical systems we can write the velocity
+For many (although not all) physical systems we can write the velocity as
 $$
   \vec{v}(t) = \int^{t} \vec{a}(\vec{x}, t) dt,
 $$
-and position
+and position as
 $$
   \vec{x}(t) = \int^{t} \vec{v}(\vec{x}, t) dt,
 $$
@@ -119,18 +118,19 @@ given that we know them at the slightly earlier time $t$. It has the form
 
 $$
 \begin{align}
-  \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta t, \\
-  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta t,
+  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta t, \\
+  \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta t,
 \end{align}
 $$
 
 where we assume that the acceleration is approximately constant for the small duration $\Delta t$
 and the label $n$ denotes the start of this time step and $n+1$ the end of this time step. As when
-we were considering numerical integration methods, this approach is actually just the first couple
-of terms of a Taylor series expansion and we expect that there will be an error of order $(\Delta
-t)^2$ each time we apply this iterative formula, so that the cumulative error over a fixed time will
-be of order $\Delta t$. Alternative algorithms are discussed later, but for now the Euler algorithm
-will suffice.
+we were considering [numerical
+integration](http://ma.ttpitk.in/teaching/PHYS281/numerical-integration/) methods, this approach is
+actually just the first couple of terms of a Taylor series expansion and we expect that there will
+be an error of order $(\Delta t)^2$ each time we apply this iterative formula, so that the
+cumulative error over a fixed time will be of order $\Delta t$. Alternative algorithms are discussed
+later, but for now the Euler algorithm will suffice.
 
 If we want to consider a slightly more complicated case of motion in the Earth's gravitational field
 then we can take into account the variation of acceleration due to gravity with distance from the
@@ -195,7 +195,7 @@ more robust.
 
 ## Orbiting Massive Particles (E.g, Planets)
 
-Consider the case of "N" massive particles moving under the influence of each others’ gravity. The
+Consider the case of $N$ massive particles moving under the influence of each others’ gravity. The
 net acceleration of a particle with mass $m_i$ will be given by
 
 $$
@@ -208,9 +208,9 @@ need to know the locations of all the other particles in our simulation. Notice 
 forces acting on all particles should be zero at all times. This result is just due to Newton's
 third law in the absence of an external field. Note that if we move one particle before calculating
 the effect of that particle on all the other particles in our simulation then (unless great care is
-taken) out code will violate Newton's third law. This is unlikely to be a good idea.
+taken) our code will violate Newton's third law. This is unlikely to be a good idea.
 
-Note that when coding up the above equation you can calculate each dimension independently, i.e., in the $x$-dimension
+For a single dimension, e.g., in the $x$-dimension, the above equation would give:
 
 $$
 {a_x}_i = \sum^N_{j \neq i} \frac{-G m_j}{|r_{ij}|^2}\frac{({r_x}_i - {r_x}_j)}{|r_{ij}|}
@@ -234,8 +234,9 @@ by
 
 $$
 \begin{align}
-  \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta{t},  \\
-  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta{t} 
+  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta{t} \\
+  \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta{t},
+  
 \end{align}
 $$
 
@@ -254,13 +255,16 @@ If $\Delta t$ has a small enough value these higher-order contributions will be 
 safely ignored. This is the assumption made by Euler's Method. The error in any given step is given
 by the truncation of the expansion and in this case is of order $(\Delta t)^2$. This error will
 accumulate each time the iteration is applied and hence the error in a simulation of fixed duration
-will be of order $\Delta t$. In the following paragraphs other algorithms are introduced. The errors
-in each of these approximations is not discussed but an investigation of this could form a part of
-your project.
+will be of order $\Delta t$ (the cumulative error will be of order $N \Delta t^2$, for $N$ time
+steps, where a total timespan $T$ gives $N = T/\Delta t$, and hence errors $\propto \Delta t$). In
+the following paragraphs other algorithms are introduced. The errors in each of these approximations
+is not discussed but an investigation of this could form a part of your project.
 
 As well as not being very accurate, for oscillatory systems the *Euler* method can be unstable. An
-alternative method called the *Euler-Cromer*, uses the velocity at the end of the step rather than
-the beginning of the step and should give more stable results
+alternative method called the [*Euler-Cromer*
+method](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method) (or semi-implicit Euler method),
+uses the velocity at the end of the step rather than the beginning of the step and should give more
+stable results
 
 $$
 \begin{align}
@@ -272,7 +276,7 @@ $$
 It is also possible that it may be better to compute the velocity in the middle of the interval
 $\Delta t$. This calculation is called the *Euler-Richardson* algorithm. This is particularly useful
 for velocity-dependent forces. This algorithm requires use of the *Euler* method to calculate the
-intermediate position $x_{\mathrm mid}$ and velocity $v_{\mathrm mid}$ at time $t_{\mathrm mid} = t
+intermediate position $x_\text{mid}$ and velocity $v_\text{mid}$ at time $t_\text{mid} = t
 + \Delta t/2$. The force and acceleration are then computed for this mid-point.
 
 $$
@@ -293,10 +297,11 @@ $$
 \end{align}
 $$
 
-Finally we can look at a simpler alternative known as the *Verlet* algorithm that is similar to the
-familiar equations of motion for constant acceleration. This uses the acceleration calculated at the
-end position to calculate the updated velocity which helps smooth out any changes in the
-acceleration. It is given by
+Finally we can look at a simpler alternative known as the [*Verlet*
+algorithm](https://en.wikipedia.org/wiki/Verlet_integration) that is similar to the familiar
+equations of motion for constant acceleration. This uses the acceleration calculated at the end
+position to calculate the updated velocity which helps smooth out any changes in the acceleration.
+It is given by
 
 $$
 \begin{align}
@@ -319,9 +324,10 @@ the simple Euler-Cromer algorithm.
 
 ## Project description
 
-To summarise the above description, the aim of this project is to produce a simulation of the motion
-of multiple massive bodies interacting under the influence of their gravitational fields, e.g., the
-Solar System. This can be built up in stages of increasing complexity, i.e.:
+To summarise the above description, the aim of this project is to produce a simulation of a physical
+system that evolves with time. An interesting type of system to consider is the motion of multiple
+massive bodies interacting under the influence of their gravitational fields, e.g., the Solar
+System. This can be built up in stages of increasing complexity, i.e.:
 
 1. a single massive particle in a static field;
 2. a pair of massive particles interacting with each other in 1, 2 and 3 dimensions;
@@ -329,15 +335,337 @@ Solar System. This can be built up in stages of increasing complexity, i.e.:
 4. supplying initial conditions to the simulation based on masses, positions and velocities of solar system bodies.
 
 To evolve the motion of the particles in the simulation the Euler, Euler-Cromer or other numerical
-approximation methods should be used.
+approximation methods, as discussed above, should be used.
 
-You are free to produce the simulation as you wish, but the two pre-defined exercises that are part
-of the project provide a good starting point (i.e., the `Particle` class) for expansion to a
-more fully formed simulation. You can use the results from these exercises as part of your final
+You are free to produce the simulation as you wish, but the two pre-defined exercises ([Final
+Project Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) and [Part
+2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908)) that are part of the project
+provide a good starting point (i.e., the `Particle` class) for expansion to a more fully formed
+simulation. You can use results and experimentation with these exercises as part of your final
 report.
 
-The simulation you write should come with some tests that show that it works as expected, e.g., tests of parts
-of the code or simple systems against analytical calculations. Useful tests are checking that the
-simulation conserves **total** linear momentum or angular momentum to an acceptable level. The tests should ideally compare simulations produced using more than one numerical approximation method, with quantitative evaluation of the differences.
+The simulation you write should come with some tests that show that it works as expected, e.g.,
+tests of parts of the code or simple systems against analytical calculations. Useful tests are
+checking that the simulation conserves **total** linear momentum or angular momentum to an
+acceptable level. The tests should ideally compare simulations produced using more than one
+numerical approximation method, with quantitative evaluation of the differences.
 
-The simulation can include additional physics or simulate systems other than the solar system provided that you can provide justifiable tests of its validity.
+The simulation can include additional physics or simulate systems other than the Solar System
+provided that you can provide justifiable tests of its validity.
+
+For more information and advice on the code and report, including guideline marking grids make sure
+to read the [Marking criteria page](../markinggrid/index.html).
+
+## Solar System ephemerides
+
+If simulating the Solar System you may want to use accurate values to initialise the positions of
+the Solar System bodies (known as an ephemeris). You can get these from the online JPL Horizons page
+at [https://ssd.jpl.nasa.gov/horizons.cgi](https://ssd.jpl.nasa.gov/horizons.cgi). You will
+initially see the following settings:
+
+<div style="font-family:monospace;"}>
+&nbsp;&nbsp;&nbsp;Ephemeris Type [change]: <b>OBSERVER</b></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Target Body [change]: <b>Mars</b> [499]</br>
+Observer Location [change]: 	<b>Geocentric</b> [500]</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Time Span [change]: 	Start=<b>2020-10-28</b>, Stop=<b>2020-11-27</b>, Step=<b>1 d</b></br>
+&nbsp;&nbsp;&nbsp;Table Settings [change]: defaults</br>
+&nbsp;&nbsp;&nbsp;Display/Output [change]: default (formatted HTML)</br>
+</div>
+
+To get information to use for your Solar System body's initial conditions should do the following:
+
+* For "Ephemeris Type" click "change" and select the "Vector Table" and click the "Use Selection Above" button.
+* To change the "Target Body" click "change" and search for the body that you want. Note that you can treat the Earth-Moon system as one object by selecting "Earth-Moon Barycenter".
+* For "Coordinate Origin" (which will appear when you switch to the "Vector Table" above) leave it as "**Solar System Barycenter** (**SSB**) [500@0]". This is the centre of mass of the entire Solar System.
+* For "Time Span" you can leave it as it is, which will default to today, or click "change" to
+  specify a start date, end date and time step between outputs. Make sure to use the same start time
+  for all the bodies in your simulation.
+* For "Table Settings" click "change", then in the "Select vector table output" drop down menu
+  select "Type 2 (state vector {x,y,z,vx,vy,vz})". This means the ephemeris will return the 3d
+  position and velocity coordinates of the selected body. In "Optional vector-table settings:" select the "output units" you require from the options: "km & km/s" is recommended.
+* For "Display/Output" you can either leave this as the default, which will show the information on a formatted HTML webpage, or select to download it as a text file.
+
+If you had selected Venus as the object you would get the following information on the webpage:
+
+<table border="1" cellpadding="8" cellspacing="0" bgcolor="#EEEEEE">
+<tr>
+<td align="left" nowrap>
+<pre> Revised: July 31, 2013                 Venus                           299 / 2
+ 
+ PHYSICAL DATA (updated 2020-Oct-19):
+  Vol. Mean Radius (km) =  6051.84+-0.01 Density (g/cm^3)      =  5.204
+  Mass x10^23 (kg)      =    48.685      Volume (x10^10 km^3)  = 92.843
+  Sidereal rot. period  =   243.018484 d Sid. Rot. Rate (rad/s)= -0.00000029924
+  Mean solar day        =   116.7490 d   Equ. gravity  m/s^2   =  8.870
+  Mom. of Inertia       =     0.33       Core radius (km)      = ~3200
+  Geometric Albedo      =     0.65       Potential Love # k2   = ~0.25
+  GM (km^3/s^2)         = 324858.592     Equatorial Radius, Re = 6051.893 km
+  GM 1-sigma (km^3/s^2) =    +-0.006     Mass ratio (Sun/Venus)= 408523.72
+  Atmos. pressure (bar) =  90            Max. angular diam.    =   60.2"
+  Mean Temperature (K)  = 735            Visual mag. V(1,0)    =   -4.40
+  Obliquity to orbit    = 177.3 deg      Hill's sphere rad.,Rp =  167.1
+  Sidereal orb. per., y =   0.61519726   Orbit speed, km/s     =   35.021
+  Sidereal orb. per., d = 224.70079922   Escape speed, km/s    =   10.361
+                                 Perihelion  Aphelion    Mean
+  Solar Constant (W/m^2)         2759         2614       2650
+  Maximum Planetary IR (W/m^2)    153         153         153
+  Minimum Planetary IR (W/m^2)    153         153         153
+</pre>
+</td></tr>
+</table>
+
+This provides you with the mass of the planet (note that the value of `GM`, which is the gravitational constant multiplied by the mass, is known more accurately that the mass alone).
+
+This will be followed by:
+
+<table border="1" cellpadding="8" cellspacing="0" bgcolor="#EEEEEE">
+<tr>
+<td align="left" nowrap>
+<pre> 
+ 
+*******************************************************************************
+Ephemeris / WWW_USER Wed Oct 28 03:36:54 2020 Pasadena, USA      / Horizons
+*******************************************************************************
+Target body name: Venus (299)                     {source: DE431mx}
+Center body name: Solar System Barycenter (0)     {source: DE431mx}
+Center-site name: BODY CENTER
+*******************************************************************************
+Start time      : A.D. 2020-Oct-28 00:00:00.0000 TDB
+Stop  time      : A.D. 2020-Nov-27 00:00:00.0000 TDB
+Step-size       : 1440 minutes
+*******************************************************************************
+Center geodetic : 0.00000000,0.00000000,0.0000000 {E-lon(deg),Lat(deg),Alt(km)}
+Center cylindric: 0.00000000,0.00000000,0.0000000 {E-lon(deg),Dxy(km),Dz(km)}
+Center radii    : (undefined)                                                  
+Output units    : KM-S
+Output type     : GEOMETRIC cartesian states
+Output format   : 2 (position and velocity)
+Reference frame : Ecliptic of J2000.0
+*******************************************************************************
+JDTDB
+   X     Y     Z
+   VX    VY    VZ
+*******************************************************************************
+$$SOE
+2459150.500000000 = A.D. 2020-Oct-28 00:00:00.0000 TDB 
+ X =-6.534481694069970E+07 Y = 8.684311014650232E+07 Z = 4.909705470917884E+06
+ VX=-2.815084272627433E+01 VY=-2.121345485459670E+01 VZ= 1.333142304405859E+00
+2459151.500000000 = A.D. 2020-Oct-29 00:00:00.0000 TDB 
+ X =-6.775102432791176E+07 Y = 8.497624142281163E+07 Z = 5.022920220211159E+06
+ VX=-2.754469579780248E+01 VY=-2.199823147018513E+01 VZ= 1.287394944661386E+00
+...
+</pre>
+</table>
+
+After the header information, each line gives a date and time, first as a [Julian
+Date](https://en.wikipedia.org/wiki/Julian_day), then in more familiar format, followed by the X, Y,
+and Z positions, and then the VX, VY, VZ velocity components.
+
+You will need to do this for each object that you want in your simulation.
+
+If referencing the JPL Horizons webpage in your report you can use the following citation:
+
+> Giorgini, J. D., Yeomans, D. K., Chamberlin, A. B., Chodas, P. W., Jacobson, R. A., Keesey, M. S., Lieske, J. H.,
+Ostro, S. J., Standish, E. M., Wimberly, R. N., "JPL's On-Line Solar System Data Service", Bulletin of the American
+Astronomical Society, Vol 28, p. 1099, 1997.
+
+or BibTeX entry:
+
+```latex
+@INPROCEEDINGS{1997BAAS...29.1099G,
+       author = {{Giorgini}, J.~D. and {Yeomans}, D.~K. and {Chamberlin}, A.~B. and
+         {Chodas}, P.~W. and {Jacobson}, R.~A. and {Keesey}, M.~S. and
+         {Lieske}, J.~H. and {Ostro}, S.~J. and {Standish}, E.~M. and
+         {Wimberly}, R.~N.},
+        title = "{JPL's On-Line Solar System Ephemeris and Data Service}",
+    booktitle = {Bulletin of the American Astronomical Society},
+         year = 1997,
+       volume = {28},
+        month = sep,
+        pages = {1099},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/1997BAAS...29.1099G},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
+
+### Solar System ephemeris using Python
+
+There are Python packages that you can use to directly access JPL ephemerides of the Solar System
+bodies rather than going through the [JPL Horizons](https://ssd.jpl.nasa.gov/horizons.cgi) website.
+
+To do this you will first need to install several packages. If you are using Anaconda, open up the
+"Anaconda Navigator". In the left-hand border panel click on "Environments". In the panel containing
+the search box with "Search Environments" make sure you are clicked on the "base (root)" environment
+(this is the environment that VS Code uses by default). In the furthest right panel, click on the
+dropdown menu containing "Installed" and select "All" to see available packages. Then in the "Search
+Packages" search box type "astropy". [astropy](https://www.astropy.org/) should be listed as an
+installable package, so click the check box next to it and click "Apply" in the bottom right-hand
+corner. This should install astropy (it may take a minute or two). Do the same thing, i.e., using
+the "Search Packages" box, to search for and install
+"[jplephem](https://github.com/brandon-rhodes/python-jplephem)",
+"[spiceypy](https://spiceypy.readthedocs.io/en/master/)" and
+"[poliastro](https://docs.poliastro.space/en/stable/)".
+
+First you need to set the time at which you want to generate the solar system body positions. You
+need to use an
+[`astropy.time.Time`](https://docs.astropy.org/en/stable/api/astropy.time.Time.html#astropy.time.Time)
+object:
+
+```python
+from astropy.time import Time
+
+# get the time at 5pm on 27th Nov 2019
+t = Time("2019-11-27 17:00:00.0", scale="tdb")
+```
+
+To get the positions and velocities of a given solar system body you need to use the astropy [`get_body_barycentric_posvel`](https://docs.astropy.org/en/stable/api/astropy.coordinates.get_body_barycentric_posvel.html#astropy.coordinates.get_body_barycentric_posvel) function, passing it the time and the name of the body you want to use:
+
+```python
+from astropy.coordinates import get_body_barycentric_posvel
+
+# get positions of velocities for the Sun
+pos, vel = get_body_barycentric_posvel("sun", t, ephemeris="jpl")
+```
+
+Note: The first time you run this it will download an ephemeris file. Subsequently, the file will not be redownloaded as it should be locally cached. This file only contains the position of the Sun and planets (including the Moon and Pluto), but not any other solar system bodies.
+
+The valid body names that you can pass to `get_body_barycentric_posvel` are:
+
+```python
+print(solar_system_ephemeris.bodies)
+('sun',
+ 'mercury',
+ 'venus',
+ 'earth-moon-barycenter',
+ 'earth',
+ 'moon',
+ 'mars',
+ 'jupiter',
+ 'saturn',
+ 'uranus',
+ 'neptune',
+ 'pluto')
+```
+
+The positions are velocities are by default output in [equatorial coordinates](https://en.wikipedia.org/wiki/Equatorial_coordinate_system), but a more useful representation (and that given by default in JPL Horizons) is in the [ecliptic coordinate](https://en.wikipedia.org/wiki/Ecliptic_coordinate_system) frame. To convert to this frame you can use functions from spiceypy:
+
+```python
+from spiceypy import sxform, mxvg
+
+# make a "state vector" of positions and velocities (in metres and metres/second, respectively)
+statevec = [
+    pos.xyz[0].to("m").value,
+    pos.xyz[1].to("m").value,
+    pos.xyz[2].to("m").value,
+    vel.xyz[0].to("m/s").value,
+    vel.xyz[1].to("m/s").value,
+    vel.xyz[2].to("m/s").value,
+]
+
+# get transformation matrix to the ecliptic (use time in Julian Days)
+trans = sxform("J2000", "ECLIPJ2000", t.jd)
+
+# transform state vector to ecliptic
+statevececl = mxvg(trans, statevec, 6, 6)
+
+# get positions and velocties
+position = [statevececl[0], statevececl[1], statevececl[2]]
+velocity = [statevececl[3], statevececl[4], statevececl[5]]
+```
+
+You can get planetary masses by using the poliastro package:
+
+```python
+from poliastro import constants
+from astropy.constants import G  # Newton's gravitational constant
+
+# Sun mass (converting to kg)
+msun = (constants.GM_sun / G).value
+
+# Earth mass
+mearth = (constants.GM_earth / G).value 
+```
+You can use these to create a `Particle` (or equivalent) object.
+
+If using astropy the appropriate citations for your report are given
+[here](https://www.astropy.org/acknowledging.html#acknowledging-or-citing-astropy). For the
+[jplephem](https://github.com/brandon-rhodes/python-jplephem),
+[poliastro](https://docs.poliastro.space/en/stable/index.html) and
+[spiceypy](https://spiceypy.readthedocs.io/en/master/index.html) packages you can cite their
+associated webpages.
+
+#### More advanced!
+
+Say you wanted the positions of Jupiter's moons, you could download the appropriate ephemeris file and get them:
+
+```python
+# URL of a file containing Jupiter ephemeris - this is a 1.2 Gb file!
+JUPEPH = "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup310.bsp"  
+
+# get Io (see https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/aa_summaries.txt for kernel numbers)
+body = [(0, 5), (5, 501)]  # kernel chain going from SSB->Jupiter barycentre then Jupiter barycentre -> Io
+
+pos, vel = get_body_barycentric_posvel(body, t, ephemeris=JUPEPH)
+```
+
+You can search around for ephemeris files of other solar system bodies (comets, asteroids, moons of the outer planets) at the webpage [here](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/).
+
+## Frequently asked questions
+
+Here are a selection of common issues and potential things to check to resolve them:
+
+> My simulation flies apart or objects rush together. Why?
+
+There are a few things to check if your simulation is "exploding" or "imploding":
+
+* check that your acceleration vectors are pointing in the correct direction (i.e., have you
+  accidentally made gravity repulsive?)
+* check that your initial conditions (position, velocity, mass) are in consistent units and also are
+  consistent with the units of your value of the gravitational constant. I.e., if your velocities
+  are in $\text{km}\,\text{hr}^{-1}$, but G is in $\text{N}\,\text{m}^2\,\text{kg}^{-2}$ your system
+  will not work.
+* check all your initial conditions. Have you remembered to include the Sun!?
+
+> My Sun is making cycloids (semi-circles). Why?
+
+This is normal if you have initialised the Sun at the exact centre of your system. You may want to work with coordinates referenced to the solar system barycentre.
+
+> My simulation isn't very stable, and planets seem to wander. Why?
+
+There are a few things to check in this case:
+
+* check your initial conditions. Do you use consistent units for all planets? Have you made copy-paste errors for some planets?
+* check your simulation time steps. For the inner planets if your time step is too large the numerical approximation will accumulate errors and the simulation may drift. You can study this as part of your project!
+* think about whether your initial conditions are reasonable, e.g., don't start all the planets in a line!
+* check that the simulation respects Newton's third law.
+
+> My momentum doesn't appear to be conserved. Why?
+
+Firstly, check that you are calculating the correct thing. You need to calculate the total linear
+momentum of all objects, but you must sum their individual linear momentum **vectors** before taking
+the magnitude rather than summing their individual magnitudes.
+
+You will most likely find that you still have a large number for the total linear momentum rather
+than zero. Check whether the values you get really are that large in a relative sense compared to
+those for individual bodies. Your simulation will not be perfect (it uses numerical approximations
+after all), and if there are features (e.g., sinusoidal periodicities) in your data you can think
+about explanations and include that in your report.
+
+> My simulation is broken. Why?
+
+In addition to the checks above, there are a few further things that you can check:
+
+* read through your code and make sure you understand what each line is suppose to be doing. This can help you spot bugs;
+* check that accelerations of objects are being summed together correctly and that the acceleration is reinitialised to zero on each iteration (acceleration just depends on the current position and not any previous values);
+* check the indices in any for loops are being applied to the correct object, e.g., if calculating the acceleration on object A caused by object B, make sure to use the mass for object B;
+* make sure to not calculate the acceleration of an object caused by itself. The separation will be zero, so you may end up getting infinities!
+
+A good way to find causes of why your simulation is broken is to simplify it until you can get it working and then build it back up bit by bit. If it is not working for 3-bodies in 3d then check if a two body system works or not.
+
+> My simulation does not precisely match the JPL ephemerides. Why?
+
+The JPL ephemerides will use numerical methods and computational resources beyond those mentioned in
+this course. They also include all the Solar System bodies (all planets, minor planets, significant
+asteroids) and general relativistic effects. Therefore, you should not expect to precisely match the
+JPL ephemerides. However, studying the differences and discussing their potential causes may be
+interesting material for your report.
