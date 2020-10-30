@@ -1,5 +1,5 @@
 ---
-title: Basic data types
+title: Numerical Integration
 authors:
     - Iain Bertram
     - Matthew Pitkin
