@@ -45,12 +45,12 @@ not sacrifice spending time doing these things when tests or good documentation 
 report are more important.
 
 If you are struggling with where to start it is useful for you to make use of the two project
-exercises ([Week 6](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) and [Week
-7/8](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908)) as a basis for your simulation.
-If you look at the marking grid below, code similar to that from the [Week
-6](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) exercise would already enable you
-to get a D with some small additional work. The code from the [Week
-7/8](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908) exercises would give you a C with
+exercises ([Final Project Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) and
+[Final Project Part 2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908)) as a basis for
+your simulation. If you look at the marking grid below, code similar to that from the [Final Project
+Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) exercise would already enable
+you to get a D with some small additional work. The code from the [Final Project Part
+2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908) exercises would give you a C with
 some additional work. Also look at, and experiment with, the example [test
 file](https://modules.lancaster.ac.uk/mod/resource/view.php?id=1332897) accompanying the Week 6
 exercises.

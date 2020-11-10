@@ -236,7 +236,6 @@ $$
 \begin{align}
   \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta{t} \\
   \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta{t},
-  
 \end{align}
 $$
 
