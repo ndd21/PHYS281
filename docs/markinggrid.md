@@ -102,10 +102,10 @@ The report should contain:
   or tests against analytical results.
 * A description of global tests of your simulation, quantified if possible and with some explanation
   of features observed, e.g.,
-  * it reproduces stable orbits
-  * it conserves **total** linear momentum or angular momentum
-  * comparisons against the JPL ephemeris
-  * comparisons of different numerical approximation methods for the above cases and using different
+    * it reproduces stable orbits
+    * it conserves **total** linear momentum or angular momentum
+    * comparisons against the JPL ephemeris
+    * comparisons of different numerical approximation methods for the above cases and using different
     time steps (in what situations did certain setups work well or fail?).
 * A conclusion/discussion summarising your findings, describing limitations of your simulation, and
   further work you could do to enhance you simulation.
