@@ -492,18 +492,30 @@ or BibTeX entry:
 There are Python packages that you can use to directly access JPL ephemerides of the Solar System
 bodies rather than going through the [JPL Horizons](https://ssd.jpl.nasa.gov/horizons.cgi) website.
 
-To do this you will first need to install several packages. If you are using Anaconda, open up the
-"Anaconda Navigator". In the left-hand border panel click on "Environments". In the panel containing
-the search box with "Search Environments" make sure you are clicked on the "base (root)" environment
-(this is the environment that VS Code uses by default). In the furthest right panel, click on the
-dropdown menu containing "Installed" and select "All" to see available packages. Then in the "Search
-Packages" search box type "astropy". [astropy](https://www.astropy.org/) should be listed as an
-installable package, so click the check box next to it and click "Apply" in the bottom right-hand
-corner. This should install astropy (it may take a minute or two). Do the same thing, i.e., using
-the "Search Packages" box, to search for and install
-"[jplephem](https://github.com/brandon-rhodes/python-jplephem)",
-"[spiceypy](https://spiceypy.readthedocs.io/en/master/)" and
-"[poliastro](https://docs.poliastro.space/en/stable/)".
+To do this you will first need to install several packages. If you are using Anaconda, the
+[astropy](https://www.astropy.org/) package should be already install, but if not you can install it
+via the _Anaconda Navigator_. After opening _Anaconda Navigator_, in the left-hand border panel
+click on "Environments". In the panel containing the search box with "Search Environments" make sure
+you are clicked on the "base (root)" environment (this is the environment that VS Code uses by
+default). In the furthest right panel, click on the dropdown menu containing "Installed" and select
+"All" to see available packages. Then in the "Search Packages" search box type "astropy".
+[astropy](https://www.astropy.org/) should be listed as an installable package, so click the check
+box next to it and click "Apply" in the bottom right-hand corner. This should install astropy (it
+may take a minute or two).
+
+The following additional packages are required, but are not available through the _Anaconda
+Navigator_:
+
+* [jplephem](https://github.com/brandon-rhodes/python-jplephem)
+* [spiceypy](https://spiceypy.readthedocs.io/en/master/)
+* [poliastro](https://docs.poliastro.space/en/stable/)
+
+However, these can be installed within a terminal. Open the _Anaconda Powershell Prompt_ (either via
+the _Anaconda Navigator_ or within _VS Code_) and type:
+
+```bash
+pip install jplephem spiceypy poliastro
+```
 
 First you need to set the time at which you want to generate the solar system body positions. You
 need to use an
