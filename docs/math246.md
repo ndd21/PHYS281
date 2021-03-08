@@ -556,3 +556,31 @@ this course. They also include all the Solar System bodies (all planets, minor p
 asteroids) and general relativistic effects. Therefore, you should not expect to precisely match the
 JPL ephemerides. However, studying the differences and discussing their potential causes may be
 interesting material for your report.
+
+## Project submission
+
+Your project submission should consist of an Rmarkdown document converted into a pdf, which will
+contain both your code and a description of the investigations that you have performed. It should
+contain:
+
+* an introduction describing the background theory, e.g., equations of motion, Newtonian
+  gravity, numerical ODE solver methods, and the aims of the project
+* descriptions of the investigations that you have conducted and proof that the simulation works as
+  expected.
+* a summary of any results, including quatitative results if applicable, and discussions of
+  limitations of the simulation and further extensions that might me possible.
+  
+You should include relevant plots (which should be legible and correctly labelled) to demonstrate
+key findings. You should also include references as appropriate.
+
+The project will be marked on both the quality and correctness of the simulation code and on the
+level of investigations performed and how well they are described.
+
+### General advice
+
+* Back up you code and report regularly (e.g., OneDrive, Google Drive, Box, Dropbox,
+  [github](https://github.com)).
+* Keep notes of the tests you're doing. Make sure that you document the initial conditions of each
+  test, length of run, numerical approximant that your used, etc.
+* Getting a working simulation is more important that creating fancy looking outputs. Do not spend
+  too long on asthetics at the expense of having working and well tested code.
