@@ -39,6 +39,8 @@ nav:
     - Project:
        - Gravity simulation: 'gravity.md'
        - Marking criteria: 'markinggrid.md'
+    - MATH246 project:
+       - Gravity simulation: 'math246.md'
     - glossary.md
 
 docs_dir: 'docs'

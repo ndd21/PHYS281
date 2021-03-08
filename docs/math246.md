@@ -1,10 +1,11 @@
 ---
-title: Gravity simulation
+title: MATH246 - Gravity simulation
 authors:
     - Iain Bertram
     - Matthew Pitkin
     - Brooke Simmons
-date: 2020-10-07
+    - Jonathan Gratus
+date: 2021-03-08
 ---
 
 # Gravity simulation
@@ -18,13 +19,14 @@ There is plenty of scope to develop the simple gravitational field simulations d
 simulations of more complicated systems and you are welcome to extend your project to involve
 different physical systems, forces, etc. Initially though you should start by following the steps
 presented below. You may find that doing this takes all of the available time or you may find that
-you have plenty of extra time to simulate other systems. Either way you will need to write up your
-findings in a report as detailed at the end of this [section](#project-description), so make sure
-that you leave enough time for this.
+you have plenty of extra time to simulate other systems. Either way you will need to show your code
+and findings in a report as detailed at the end of this [section](#project-description), so make
+sure that you leave enough time for this.
 
 As in the case of [numerical integration](../numerical-integration/index.html), most physics
 simulations will require some amount of approximation which will introduce an error (i.e., an
-inaccuracy) in the results from the simulation. There are various ways to establish the size of this
+inaccuracy) in the results from the simulation. In this case, the approximations come primarily
+through your choice of numerical ODE solver. There are various ways to establish the size of this
 error:
 
 - Apply the simulation to a system where there is an analytical solution to the equations of motion
@@ -39,7 +41,7 @@ error:
   additional subtle effects which may not be in your simulation so it may not be easy to understand
   where any discrepancies come from.
 - For a range of systems, consider whether the simulation conserves quantities that you would expect
-  to be conserved, e.g., energy, or total linear or angular momentum. Although conservation of
+  to be conserved, e.g., total linear or angular momentum, or total energy. Although conservation of
   energy, etc does not guarantee that the details of the simulation are accurate, it provides a
   quick global check of the simulation's properties.
 
@@ -93,7 +95,7 @@ $$
 $$
 
 In this simple example the acceleration is constant and we can of course just solve the equations
-analytically to give the the basic equations of motion for constant, uniform acceleration (i.e.
+analytically to give the the basic equations of motion for constant, uniform acceleration (i.e.,
 there is no spatial or temporal dependence). The familiar equations are:
 
 $$
@@ -124,13 +126,11 @@ $$
 $$
 
 where we assume that the acceleration is approximately constant for the small duration $\Delta t$
-and the label $n$ denotes the start of this time step and $n+1$ the end of this time step. As when
-we were considering [numerical
-integration](http://ma.ttpitk.in/teaching/PHYS281/numerical-integration/) methods, this approach is
-actually just the first couple of terms of a Taylor series expansion and we expect that there will
-be an error of order $(\Delta t)^2$ each time we apply this iterative formula, so that the
-cumulative error over a fixed time will be of order $\Delta t$. Alternative algorithms are discussed
-later, but for now the Euler algorithm will suffice.
+and the label $n$ denotes the start of this time step and $n+1$ the end of this time step. This
+approach is actually just the first couple of terms of a Taylor series expansion and we expect that
+there will be an error of order $(\Delta t)^2$ each time we apply this iterative formula, so that
+the cumulative error over a fixed time will be of order $\Delta t$. Alternative algorithms are
+discussed later, but for now the Euler algorithm will suffice.
 
 If we want to consider a slightly more complicated case of motion in the Earth's gravitational field
 then we can take into account the variation of acceleration due to gravity with distance from the
@@ -216,7 +216,8 @@ $$
 {a_x}_i = \sum^N_{j \neq i} \frac{-G m_j}{|r_{ij}|^2}\frac{({r_x}_i - {r_x}_j)}{|r_{ij}|}
 $$
 
-where, even for one dimension, $|r_{ij}|$ is still the total magnitude of the difference in positions between two particles, given by:
+where, even for one dimension, $|r_{ij}|$ is still the total magnitude of the difference in
+positions between two particles, given by:
 
 $$
 |r_{ij}| = \left(({r_x}_i - {r_x}_j)^2 + ({r_y}_i - {r_y}_j)^2 + ({r_z}_i - {r_z}_j)^2\right)^{1/2}.
@@ -296,7 +297,7 @@ $$
 \end{align}
 $$
 
-Finally we can look at a simpler alternative known as the [*Verlet*
+Finally, we can look at a simpler alternative known as the [*Verlet*
 algorithm](https://en.wikipedia.org/wiki/Verlet_integration) that is similar to the familiar
 equations of motion for constant acceleration. This uses the acceleration calculated at the end
 position to calculate the updated velocity which helps smooth out any changes in the acceleration.
@@ -336,13 +337,6 @@ System. This can be built up in stages of increasing complexity, i.e.:
 To evolve the motion of the particles in the simulation the Euler, Euler-Cromer or other numerical
 approximation methods, as discussed above, should be used.
 
-You are free to produce the simulation as you wish, but the two pre-defined exercises ([Final
-Project Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) and [Part
-2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908)) that are part of the project
-provide a good starting point (i.e., the `Particle` class) for expansion to a more fully formed
-simulation. You can use results and experimentation with these exercises as part of your final
-report.
-
 The simulation you write should come with some tests that show that it works as expected, e.g.,
 tests of parts of the code or simple systems against analytical calculations. Useful tests are
 checking that the simulation conserves **total** linear momentum or angular momentum to an
@@ -351,9 +345,6 @@ numerical approximation method, with quantitative evaluation of the differences.
 
 The simulation can include additional physics or simulate systems other than the Solar System
 provided that you can provide justifiable tests of its validity.
-
-For more information and advice on the code and report, including guideline marking grids make sure
-to read the [Marking criteria page](../markinggrid/index.html).
 
 ## Solar System ephemerides
 
@@ -371,8 +362,7 @@ Observer Location [change]: 	<b>Geocentric</b> [500]</br>
 &nbsp;&nbsp;&nbsp;Display/Output [change]: default (formatted HTML)</br>
 </div>
 
-To get information to use for your Solar System body's initial conditions you should do the
-following:
+To get information to use for your Solar System body's initial conditions you should do the following:
 
 * For "Ephemeris Type" click "change" and select the "Vector Table" and click the "Use Selection
   Above" button.
@@ -381,7 +371,7 @@ following:
 * For "Coordinate Origin" (which will appear when you switch to the "Vector Table" above) leave it
   as "**Solar System Barycenter** (**SSB**) [500@0]". This is the centre of mass of the entire Solar
   System.
-* For "Time Span" you can leave it as it is, which will qdefault to today, or click "change" to
+* For "Time Span" you can leave it as it is, which will default to today, or click "change" to
   specify a start date, end date and time step between outputs. Make sure to use the same start time
   for all the bodies in your simulation.
 * For "Table Settings" click "change", then in the "Select vector table output" drop down menu
@@ -495,150 +485,6 @@ or BibTeX entry:
 }
 ```
 
-### Solar System ephemeris using Python
-
-There are Python packages that you can use to directly access JPL ephemerides of the Solar System
-bodies rather than going through the [JPL Horizons](https://ssd.jpl.nasa.gov/horizons.cgi) website.
-
-To do this you will first need to install several packages. If you are using Anaconda, the
-[astropy](https://www.astropy.org/) package should be already install, but if not you can install it
-via the _Anaconda Navigator_. After opening _Anaconda Navigator_, in the left-hand border panel
-click on "Environments". In the panel containing the search box with "Search Environments" make sure
-you are clicked on the "base (root)" environment (this is the environment that VS Code uses by
-default). In the furthest right panel, click on the dropdown menu containing "Installed" and select
-"All" to see available packages. Then in the "Search Packages" search box type "astropy".
-[astropy](https://www.astropy.org/) should be listed as an installable package, so click the check
-box next to it and click "Apply" in the bottom right-hand corner. This should install astropy (it
-may take a minute or two).
-
-The following additional packages are required, but are not available through the _Anaconda
-Navigator_:
-
-* [jplephem](https://github.com/brandon-rhodes/python-jplephem)
-* [spiceypy](https://spiceypy.readthedocs.io/en/master/)
-* [poliastro](https://docs.poliastro.space/en/stable/)
-
-However, these can be installed within a terminal. Open the _Anaconda Powershell Prompt_ (either via
-the _Anaconda Navigator_ or within _VS Code_) and type:
-
-```bash
-pip install jplephem spiceypy poliastro
-```
-
-First you need to set the time at which you want to generate the solar system body positions. You
-need to use an
-[`astropy.time.Time`](https://docs.astropy.org/en/stable/api/astropy.time.Time.html#astropy.time.Time)
-object:
-
-```python
-from astropy.time import Time
-
-# get the time at 5pm on 27th Nov 2019
-t = Time("2019-11-27 17:00:00.0", scale="tdb")
-```
-
-To get the positions and velocities of a given solar system body you need to use the astropy
-[`get_body_barycentric_posvel`](https://docs.astropy.org/en/stable/api/astropy.coordinates.get_body_barycentric_posvel.html#astropy.coordinates.get_body_barycentric_posvel)
-function, passing it the time and the name of the body you want to use:
-
-```python
-from astropy.coordinates import get_body_barycentric_posvel
-
-# get positions of velocities for the Sun
-pos, vel = get_body_barycentric_posvel("sun", t, ephemeris="jpl")
-```
-
-Note: The first time you run this it will download an ephemeris file. Subsequently, the file will
-not be redownloaded as it should be locally cached. This file only contains the position of the Sun
-and planets (including the Moon and Pluto), but not any other solar system bodies.
-
-The valid body names that you can pass to `get_body_barycentric_posvel` are:
-
-```python
-print(solar_system_ephemeris.bodies)
-('sun',
- 'mercury',
- 'venus',
- 'earth-moon-barycenter',
- 'earth',
- 'moon',
- 'mars',
- 'jupiter',
- 'saturn',
- 'uranus',
- 'neptune',
- 'pluto')
-```
-
-The positions are velocities are by default output in [equatorial
-coordinates](https://en.wikipedia.org/wiki/Equatorial_coordinate_system), but a more useful
-representation (and that given by default in JPL Horizons) is in the [ecliptic
-coordinate](https://en.wikipedia.org/wiki/Ecliptic_coordinate_system) frame. To convert to this
-frame you can use functions from spiceypy:
-
-```python
-from spiceypy import sxform, mxvg
-
-# make a "state vector" of positions and velocities (in metres and metres/second, respectively)
-statevec = [
-    pos.xyz[0].to("m").value,
-    pos.xyz[1].to("m").value,
-    pos.xyz[2].to("m").value,
-    vel.xyz[0].to("m/s").value,
-    vel.xyz[1].to("m/s").value,
-    vel.xyz[2].to("m/s").value,
-]
-
-# get transformation matrix to the ecliptic (use time in Julian Days)
-trans = sxform("J2000", "ECLIPJ2000", t.jd)
-
-# transform state vector to ecliptic
-statevececl = mxvg(trans, statevec, 6, 6)
-
-# get positions and velocties
-position = [statevececl[0], statevececl[1], statevececl[2]]
-velocity = [statevececl[3], statevececl[4], statevececl[5]]
-```
-
-You can get planetary masses by using the poliastro package:
-
-```python
-from poliastro import constants
-from astropy.constants import G  # Newton's gravitational constant
-
-# Sun mass (converting to kg)
-msun = (constants.GM_sun / G).value
-
-# Earth mass
-mearth = (constants.GM_earth / G).value 
-```
-You can use these to create a `Particle` (or equivalent) object.
-
-If using astropy the appropriate citations for your report are given
-[here](https://www.astropy.org/acknowledging.html#acknowledging-or-citing-astropy). For the
-[jplephem](https://github.com/brandon-rhodes/python-jplephem),
-[poliastro](https://docs.poliastro.space/en/stable/index.html) and
-[spiceypy](https://spiceypy.readthedocs.io/en/master/index.html) packages you can cite their
-associated webpages.
-
-#### More advanced!
-
-Say you wanted the positions of Jupiter's moons, you could download the appropriate ephemeris file
-and get them:
-
-```python
-# URL of a file containing Jupiter ephemeris - this is a 1.2 Gb file!
-JUPEPH = "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup310.bsp"  
-
-# get Io (see https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/aa_summaries.txt for kernel numbers)
-body = [(0, 5), (5, 501)]  # kernel chain going from SSB->Jupiter barycentre then Jupiter barycentre -> Io
-
-pos, vel = get_body_barycentric_posvel(body, t, ephemeris=JUPEPH)
-```
-
-You can search around for ephemeris files of other solar system bodies (comets, asteroids, moons of
-the outer planets) at the webpage [here](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/).
-
 ## Frequently asked questions
 
 Here are a selection of common issues and potential things to check to resolve them:
@@ -710,3 +556,31 @@ this course. They also include all the Solar System bodies (all planets, minor p
 asteroids) and general relativistic effects. Therefore, you should not expect to precisely match the
 JPL ephemerides. However, studying the differences and discussing their potential causes may be
 interesting material for your report.
+
+## Project submission
+
+Your project submission should consist of an Rmarkdown document converted into a pdf, which will
+contain both your code and a description of the investigations that you have performed. It should
+contain:
+
+* an introduction describing the background theory, e.g., equations of motion, Newtonian
+  gravity, numerical ODE solver methods, and the aims of the project
+* descriptions of the investigations that you have conducted and proof that the simulation works as
+  expected.
+* a summary of any results, including quatitative results if applicable, and discussions of
+  limitations of the simulation and further extensions that might me possible.
+  
+You should include relevant plots (which should be legible and correctly labelled) to demonstrate
+key findings. You should also include references as appropriate.
+
+The project will be marked on both the quality and correctness of the simulation code and on the
+level of investigations performed and how well they are described.
+
+### General advice
+
+* Back up you code and report regularly (e.g., OneDrive, Google Drive, Box, Dropbox,
+  [github](https://github.com)).
+* Keep notes of the tests you're doing. Make sure that you document the initial conditions of each
+  test, length of run, numerical approximant that your used, etc.
+* Getting a working simulation is more important that creating fancy looking outputs. Do not spend
+  too long on asthetics at the expense of having working and well tested code.
