@@ -87,7 +87,7 @@ There are many reasons why Python is a good choice as a programming language to 
   [Matploltib](https://matplotlib.org/).
 * Python is portable - Python programmes are cross platform and run on most computer systems in use
   today.
-* Many modern data science and machine learning applications use Python as an interface, this
+* Many modern data science and machine learning applications use Python as an interface, which is
   driving its growth.
 * Python is currently used by many academics in the department.
 
@@ -133,7 +133,7 @@ Crook](https://teams.microsoft.com/l/chat/0/0?users=l.crook@lancaster.ac.uk) via
 assignments marking makes use of software called [CodeRunner](https://coderunner.org.nz/), which
 will automatically test and mark your submitted code. To avoid losing marks it is highly recommended
 that you test it on your own machine before submitting it within CodeRunner. Read the questions and
-expected inputs/outputs carefully including making sure functions/classes are names exactly as
+expected inputs/outputs carefully including making sure functions/classes are named exactly as
 specified.
 
 The project grade is split between several components:
@@ -142,8 +142,9 @@ The project grade is split between several components:
 * The written project report (30%)
 * The project code (30%)
 
-The project aim is to create and test an n-body gravitationally interacting system (i.e., the Solar
-System). The two exercises provide a basis on which to build up to the full n-body simulation.
+The [project](https://ma.ttpitk.in/teaching/PHYS281/gravity/) aim is to create and test an n-body
+gravitationally interacting system (i.e., the Solar System). The two exercises provide a basis on
+which to build up to the full n-body simulation.
 
 ## Prerequisites
 
@@ -157,21 +158,21 @@ and understand how file path structure is formatted, including drive if necessar
 
 Please also see the material in the "Tutorial" -> "Getting started" menu for information on
 installing the software required for this course
-([Anaconda](http://ma.ttpitk.in/teaching/PHYS281/demo-anaconda/) and [Visual Studio
-Code](http://ma.ttpitk.in/teaching/PHYS281/demo-vs-code/)) on your own machine or using AppsAnywhere
-on a machine on campus. The ["Online Python environments"](#online-python-environments) has some
-options for running Python to be used as a back-up alternative if you have initial installation
-problems.
+([Anaconda](https://ma.ttpitk.in/teaching/PHYS281/demo-anaconda/) and [Visual Studio
+Code](https://ma.ttpitk.in/teaching/PHYS281/demo-vs-code/)) on your own machine or using AppsAnywhere
+on a machine on campus. The ["Online Python environments"](#online-python-environments) section
+below has some options for running Python to be used as a back-up alternative if you have initial
+installation problems.
 
 ## Other material
 
-There are a variety of useful Python tutorial freely avaiable online:
+There are a variety of useful Python tutorials freely avaiable online:
 
 * The official Python documentation comes with a [tutorial](https://docs.python.org/3/tutorial/index.html)
   on getting started with Python, covering the majority of concepts required to become a proficient user.
 * The `w3schools.com` site also offers a Python [tutorial](https://www.w3schools.com/python/default.asp)
   which provides interactive demonstrations embedded in the browser, and includes an introduction to
-  Numpy.
+  [NumPy](http://www.numpy.org/).
 * There is a very nice, and freely available, Software Carpentry course
   "[Plotting and Programming in Python](https://swcarpentry.github.io/python-novice-gapminder/index.html)".
 
@@ -192,7 +193,7 @@ you produce may be part of publicly funded work. In others it may be done within
 institution and bound by national laws or industry-specific regulations and guidelines. So coding
 cannot exist independently of ethics and scrutiny by others.
 
-In general it is good to think of the following practices when coding:
+In general, it is good to think of the following practices when coding:
 
 * Do not use code for illegal or malicious activities.
 * Make sure you properly attribute any part of your code that uses code/algorithms from other
@@ -221,7 +222,7 @@ the future.
 
 There are a variety of online Python environments that can be used as a back up. These generally
 require your to create an account, but there are generally free account options that provide a
-limited by usable range of functionality. For the first half of the course these should suffice for
+limited but usable range of functionality. For the first half of the course these should suffice for
 any coding needs, but may be more limited when attempting the project. The options suggested below
 seem to have NumPy, SciPy and Matplotlib available.
 
