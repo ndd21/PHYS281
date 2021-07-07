@@ -17,7 +17,7 @@ Files can either contain plain [ascii text](https://en.wikipedia.org/wiki/ASCII)
 readable if the file is opened with a standard text editor, or information that is in a binary
 format (generally this is not readable by standard editor unless the format is known).
 
-Plain text files are useful, in that they are human readable, although for the same amount of
+Plain text files are useful in that they are human readable, although for the same amount of
 information they will generally be larger in size (i.e., memory taken up on disc) than an equivalent
 binary file.
 
@@ -74,8 +74,8 @@ numerical data (this will be used in further examples):
 --8<-- "docs/mydata.txt"
 ```
 
-The first line starts with a `#` and is comment line a giving the "names" of the columns. The two
-columns can be read into two lists with using the following code:
+The first line starts with a `#` and is a comment line a giving the "names" of the columns. The two
+columns can be read into two lists using the following code:
 
 ```python
 fp = open("mydata.txt", "r")  # open mydata.txt for "r"eading
@@ -133,14 +133,14 @@ with open("mydata.txt", "r") as fp:
 ```
 
 Reading binary data can be done by opening the file with the `"rb"` mode instead of `"r"` and
-reading the entire contents using the `read` method of the file object. However, converting the read
+reading the entire contents using the [`read`](https://www.w3schools.com/python/ref_file_read.asp) method of the file object. However, converting the read
 in data to something that is usable within Python is trickier as you have to know exactly the layout
 and memory size for the data stored within the file. We will not cover this here.
 
 ### Writing
 
 To write to a plain text file you again have to open a file, but this time with the mode set to
-write, `"w"`. Once the file is open you can then use the `write` method of the file object to add
+write, `"w"`. Once the file is open you can then use the [`write`](https://www.w3schools.com/python/ref_file_write.asp) method of the file object to add
 data to the file. You can only write out string data, so any numbers must be converted to strings.
 
 ```python
