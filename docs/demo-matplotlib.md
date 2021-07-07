@@ -443,13 +443,13 @@ function has been used to add a colour bar on the right hand side representing t
 
 ## Basic histogram
 
-Sometimes you need count the number of data points within set ranges of values. This is called
+Sometimes you need count the number of data points within a set ranges of values. This is called
 "binning", i.e., a count of the data in each "bin" or interval. A plot of the binned data is called
 a histogram and this can be made using the
 [`hist`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html?highlight=hist#matplotlib.pyplot.hist)
 function in `pyplot`.
 
-For example, if we had measured the speed of a set of particles, we could look at the distribution
+For example, if we had measured the speed of a set of particles we could look at the distribution
 of speeds using a histogram:
 
 ```python
