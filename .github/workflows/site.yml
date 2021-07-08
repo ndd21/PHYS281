@@ -1,0 +1,47 @@
+# A workflow to build the PHYS281 website
+name: Build site
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v2
+      
+      # set ssh information for copying to host
+      - name: Set SSH keys
+        # SSH private key stored as a secret variable with returns replaced with _ (https://community.netlify.com/t/support-guide-using-an-ssh-key-via-environment-variable-during-build/2457)
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SITENAME: ${{ secrets.SITENAME }}
+        run: |
+          mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa
+          ssh-keyscan -H $SITENAME >> ~/.ssh/known_hosts
+
+      # Install requirements
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      
+      # Build the site
+      - name: Build the pages
+        run:
+          make
+
+      # Copy site to host
+      - name: Copy to host
+        env:
+          SITEUSER: ${{ secrets.SITEUSER }}
+          SITEPATH: ${{ secrets.SITEPATH }}
+          SITENAME: ${{ secrets.SITENAME }}
+        run: |
+          rsync -a -e ssh --delete site/ ${SITEUSER}@${SITENAME}:$SITEPATH
+          rsync -a -e ssh --delete docs/javascripts/ ${SITEUSER}@${SITENAME}:$SITEPATH/javascripts/
+
