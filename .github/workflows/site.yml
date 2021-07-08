@@ -40,6 +40,7 @@ jobs:
         env:
           SITEUSER: ${{ secrets.SITEUSER }}
           SITEPATH: ${{ secrets.SITEPATH }}
+          SITENAME: ${{ secrets.SITENAME }}
         run: |
           rsync -a -e ssh --delete site/ ${SITEUSER}@${SITENAME}:$SITEPATH
           rsync -a -e ssh --delete docs/javascripts/ ${SITEUSER}@${SITENAME}:$SITEPATH/javascripts/
