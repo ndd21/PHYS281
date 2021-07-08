@@ -23,7 +23,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SITENAME: ${{ secrets.SITENAME }}
         run: |
-          mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_ed25519 && chmod og-rwx ~/.ssh/id_ed25519
+          mkdir -p ~/.ssh && echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa && chmod og-rwx ~/.ssh/id_rsa
           ssh-keyscan -H $SITENAME >> ~/.ssh/known_hosts
 
       # Install requirements
