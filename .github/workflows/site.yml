@@ -32,8 +32,9 @@ jobs:
       
       # Build the site
       - name: Build the pages
-        run: make
-        
+        run:
+          make
+
       # Copy site to host
       - name: Copy to host
         env:
