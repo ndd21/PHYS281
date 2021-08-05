@@ -51,7 +51,7 @@ _Anaconda Navigator_. Alternatively, it can be opened via a standard way of open
     * Start _Anaconda Navigator_, e.g., in Windows click on the start :fontawesome-brands-windows:
       button and find and click on the "Anaconda3 (64-bit)" menu, then click on "Anaconda
       Navigator (anaconda3)".
-    * In the ":fontawesome-regular-home: Home" tab, choose the environment you want to use by
+    * In the ":fontawesome-home: Home" tab, choose the environment you want to use by
       selecting it in the "Application on" dropdown menu (defaulting to `base (root)`).
     * Scroll to find the ":material-microsoft-visual-studio-code: VS Code" application panel and
       click the ++"Launch"++ button.
@@ -88,7 +88,7 @@ Down the left hand side of the window are several icons that can be clicked on t
   mercurial or svn (we will not cover version control in this course).
 * :fontawesome-solid-play:: open the "Run" panel to allow you to run and debug code in
   your current file.
-* :fontawesome-solid-border-all: - open "Extensions" panel to allow you to install _VS Code_
+* :fontawesome-solid-border-all:: open "Extensions" panel to allow you to install _VS Code_
   [extensions](https://code.visualstudio.com/docs/introvideos/extend).
 * :fontawesome-solid-cog:: - open the settings manager.
 
