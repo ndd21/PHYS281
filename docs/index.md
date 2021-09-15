@@ -94,14 +94,14 @@ There are many reasons why Python is a good choice as a programming language to 
 In the [TIOBE](https://www.tiobe.com/tiobe-index/) index Python popularity and usage is still
 growing:
 
-| Sep 2020 | Sep 2019 | Change | Programming Language | Ratings | Change |
+| Sep 2021 | Sep 2020 | Change | Programming Language | Ratings | Change |
 | -------- | -------- | ------ | -------------------- | ------- | ------ |
-| 1	| 2 | :fontawesome-solid-sort-up: | C | 15.95% | +0.74% |
-| 2	| 1	| :fontawesome-solid-sort-down: | Java | 13.48% | -3.18% |
-| 3 | 3	| | Python | 10.47% | +0.59% |
-| 4 | 4 | | C++ | 7.11% | +1.48% |
-| 5 | 5	| | C# | 4.58% | +1.18% |
-| 6 | 6	| | Visual Basic | 4.12% | +0.83% |
+| 1 | 1 |  | C | 11.83% | -4.12% |
+| 2 | 3 | :fontawesome-solid-sort-up: | Python | 11.67% | +1.20% |
+| 3 | 2 | :fontawesome-solid-sort-down: | Java | 11.12% | -2.37% |
+| 4 | 4 | | C++ | 7.13% | +0.01% |
+| 5 | 5 | | C# | 5.78% | +1.20% |
+| 6 | 6 | | Visual Basic | 4.62% | +0.50% |
 
 ## Course overview
 
