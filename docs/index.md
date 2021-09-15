@@ -11,7 +11,7 @@ that are presented yourself.
 Feedback to improve these notes is very welcome, so if you have any questions or comments please contact:
 
 * Dr Matthew Pitkin, m.pitkin@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk))
-* Dr Brooke Simmons, b.simmons@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk))
+* Dr Elisabetta Boella, e.boella@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk))
 
 In this course we will use many jargon terms and unfortunately this is inevitable. In some cases
 certain terms will be used interchangeably as synonyms. We have created a
