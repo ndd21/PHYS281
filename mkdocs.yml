@@ -11,14 +11,14 @@ theme:
 
 nav:
   - Home: 'index.md'
-  - Tutorial:
+  - Course notes:
     - Getting started:
        - Installing and using Anaconda: 'demo-anaconda.md'
        - Installing and using VS code: 'demo-vs-code.md'
        - Using a terminal: 'demo-terminal.md'
        - The Python terminal: 'demo-python-terminal.md'
        - Quick Start Guide: 'demo-quickstart.md'
-    - Python basics:
+    - Introduction to Python:
        - Basic data types: 'demo-data-types.md'
        - Compound data types: 'demo-compound-data-types.md'
        - Built-in functions: 'demo-built-in-functions.md'
@@ -28,7 +28,6 @@ nav:
        - Python functions: 'demo-functions.md'
        - Python classes: 'demo-classes.md'
        - Reading and writing data: 'demo-io.md'
-    - Advanced topics:
        - Error checking and debugging: 'demo-error-checking.md'
        - NumPy basics: 'demo-numpy.md' 
        - Basic plotting with Matplotlib: 'demo-matplotlib.md'
@@ -36,9 +35,10 @@ nav:
     - Numerical methods:
        - Numerical integration: 'numerical-integration.md'
        - Fitting a line: 'demo-line-fitting.md'
-    - Project:
+    - Course project:
        - Gravity simulation: 'gravity.md'
        - Marking criteria: 'markinggrid.md'
+    - Exercises: 'exercises.md'
     - glossary.md
 
 docs_dir: 'docs'
