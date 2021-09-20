@@ -80,3 +80,8 @@ markdown_extensions:
       permalink: true
   - pymdownx.arithmatex:
       generic: true
+
+plugins:
+  - search
+  - macros
+

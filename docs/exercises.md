@@ -9,10 +9,168 @@ exercise problems. While generally you should use existing functions from well m
 (they will be very well tested and robust), here the aim is for you to think about how you would
 code up the function yourself.
 
-## Exercise 1
+## Exercise {{ counter() }}
 
 !!! question "Part 1"
-    Write a function that takes in a list of numbers as an argument and returns their mean.
+    Open a Python/IPython terminal and declare two variables as @(floating point numbers). Add the
+    two variables and store the output as a new variable. Print out the new variable value to the
+    screen.
+
+??? info "Solution"
+    ```console
+    $ ipython
+    ```
+
+    ```python
+    >>> x = 1.2774392  # variable containing a floating point number
+    >>> y = -3.4374323  # another variable containing a floating point number
+    >>> z = x + y  # add the two variables and store result in z
+    >>> print(z)  # print the result z to the screen
+    ```
+
+!!! question "Part 2"
+    Print out the resulting variable two 3 decimal places.
+
+??? info "Solution"
+    Several options exist, e.g.,
+
+    ```python
+    >>> print("{0:.3f}".format(z))
+    ```
+
+    or
+
+    ```python
+    >>> print(f"{z:.3f}")
+    ```
+
+    or
+
+    ```python
+    >>> print("%.3f" % z)
+    ```
+
+!!! question "Part 3"
+    Perform the same task, but this time write the code in a text file saved with the `.py`
+    extension. Run the code in VS Code and also from the @(command line).
+
+## Exercise {{ counter() }}
+
+!!! question
+    In a Python/IPython terminal, or in a script, import an appropriate library to calculate the
+    sine of a list of angles that are given in degrees.
+
+??? info "Solution"
+    A method using the [`math`](https://docs.python.org/3/library/math.html) library is:
+
+    ```
+    import math
+
+    # make a list of angles (assumed to be in degrees)
+    angles = [0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180]
+
+    sines = []
+    # loop over angles
+    for angle in angles:
+        rad = math.radians(angle)  # convert angle to radians
+        # rad = angle * math.pi / 180  # an alternative
+        sines.append(math.sin(rad))  # calculate sine an append to list
+    ```
+
+    A different method using the [`NumPy`](https://numpy.org/doc/stable/index.html) library is:
+
+    ```
+    import numpy as np
+
+    rads = np.deg2rad(angles)  # convert angles to radians
+    sines = np.sin(rads)
+    ```
+
+## Exercise {{ counter() }}
+
+!!! question
+    In a Python file, write a function that asks the user to input a date in the format
+    "YYYY-MM-DD" and then prints out the day of the week (see the Python
+    [`datetime`](https://www.w3schools.com/python/python_datetime.asp) library). In another Python
+    script, or Python/IPython terminal, import the function that you have written and run it.
+
+??? info "Solution"
+    Create a Python (called, say, `weekday.py`) file containing:
+
+    ```python
+    from datetime import datetime
+
+    def getweekday():
+        # ask user for input
+        datestr = input("Input a date in the format YYYY-MM-DD: ")
+
+        # split string into parts
+        year, month, day = datestr.split("-")
+
+        # convert into datetime object
+        d = datetime(int(year), int(month), int(day))
+
+        # get the day of the week
+        weekday = d.strftime("%A")
+
+        # output day of the week
+        print(f"The date {datestr} was on a {weekday}")
+    ```
+
+    You may want to add a check that the date in is the correct format. This function could then be
+    used with:
+
+    ```console
+    $ ipython
+    ```
+
+    ```python
+    >>> from weekday import getweekday
+    >>> getweekday()  # run the function
+    ```
+
+## Exercise {{ counter() }}
+
+!!! question
+    Suppose you have a set of files containing the results of multiple consecutive
+    experiments/simulations. To distinguish the files each file name is suffixed by an integer with
+    preceding zeros, such the the number is always 3 digits long (assuming no more than 1000 files
+    exist), e.g.,:
+
+    ```
+    experimental_results_000.txt
+    experimental_results_001.txt
+    ...
+    experimental_results_258.txt
+    experimental_results_259.txt
+    ```
+
+    Assuming you know how many files you have and the file name format, how might you loop over all
+    the files to read them in?
+
+??? info "Solution"
+    A possible solution is:
+
+    ```python
+    N = 260  # total number of files
+
+    basename = "experimental_results_{0:03d}.txt"
+
+    # loop over files and read in results
+    results = []
+    for i in range(N):
+        thisfile = basename.format(i)
+
+        # read in the results in some form
+        with open(thisfile, "r") as fp:
+            results.append(fp.read())
+    ```
+
+## Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Write a function that takes in a list of numbers as an argument and returns their
+    [mean](https://en.wikipedia.org/wiki/Arithmetic_mean).
 
 ??? info "Answer"
     An example of how to do this is:
@@ -32,8 +190,9 @@ code up the function yourself.
     than using the for loop.
 
 !!! question "Part 2"
-    Write a function that takes in a list of numbers as an argument and returns their standard
-    deviation. Can the function from Part 1 be re-used?
+    Write a function that takes in a list of numbers as an argument and returns their [standard
+    deviation](https://en.wikipedia.org/wiki/Standard_deviation). Can the function from Part 1 be
+    re-used?
 
 ??? info "Solution"
     An example of how to do this is:
@@ -73,14 +232,15 @@ code up the function yourself.
             return values[half]
     ```
 
-## Exercise 2
+## Exercise {{ counter() }}
 
 !!! question
     Write a function that:
-    * takes in a list of strings as an argument,
-    * finds the unique strings,
-    * counts the number of occurances of each of those unique strings in the list
-    * returns those number counts in a dictionary keyed by the unique string values.
+    
+     * takes in a list of strings as an argument,
+     * finds the unique strings,
+     * counts the number of occurrences of each of those unique strings in the list
+     * returns those number counts in a dictionary keyed by the unique string values.
 
     E.g.,
 
@@ -115,7 +275,7 @@ code up the function yourself.
         return counts
     ```
 
-## Exercise 3
+## Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function that takes in a list as an argument and returns a new list containing the square of
@@ -179,7 +339,184 @@ code up the function yourself.
     used rather than the [`range()`](https://docs.python.org/3/library/functions.html#func-range)
     function.
 
-## Exercise 4
+## Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Given a square 2D matrix, e.g.,:
+
+    ```python
+    M = [[1.5, 2.1, 3.6, 4.1], [-0.2, 6.1, 7.2, -5.0], [3.4, 10.1, 1.7, 12.9], [-13.0, 1.3, -2.4, 0.8]]
+    ```
+
+    write a function that takes in the matrix as an argument and returns it's
+    [diagonal](https://en.wikipedia.org/wiki/Main_diagonal) elements as a list.
+
+??? info "Solution"
+    ```python
+    def diag(M):
+        """
+        Return the diagonal elements of a square 2D matrix.
+
+        Parameters
+        ----------
+        M: matrix
+            A square 2D matrix
+
+        Returns
+        -------
+        list:
+            A list of the diagonal elements of the matrix.
+        """
+
+        de = []
+
+        # loop over length of matrix
+        for i in range(len(M)):
+            de.append(M[i][i])
+
+        return de
+    ```
+
+    You may want to include tests that the matrix is two-dimensional and square.
+
+!!! question "Part 2"
+    Write a function to calculate the [determinant](https://en.wikipedia.org/wiki/Determinant) of
+    the matrix.
+    
+    Hint: The built-in Python
+    [`itertools`](https://docs.python.org/3/library/itertools.html#module-itertools) module can
+    calculate permutations. You will also need to calculate the [_signature_ (or
+    parity)](https://en.wikipedia.org/wiki/Parity_of_a_permutation) of the permutation.
+
+??? info "Solution"
+    ```python
+    from itertools import permutations
+    
+    def sgn(permutation):
+        """
+        Get the signature, or parity of a permutation (based on
+        https://gist.github.com/lycantropos/217710b0afc40b3031762274275c204a)
+        if numbers between 0 and N, where N is the length of the permutation
+        list.
+
+        Parameters
+        ----------
+        permutation: list
+            A permutation of the numbers from 0 to len(list)
+
+        Returns
+        -------
+        int:
+            A 1 for an even permutation, -1 for an odd permutation.
+        """
+
+        if len(permutation) == 1:
+            return 1
+
+        transitions_count = 0
+        for idx, element in enumerate(permutation):
+            for next_element in permutation[idx + 1:]:
+                if element > next_element:
+                    transitions_count += 1
+
+        return 1 if not (transitions_count % 2) else -1
+
+    def det(M):
+        """
+        Calculate the determinant of a square 2D matrix.
+
+        Parameters
+        ----------
+        M: matrix
+            A square 2D matrix
+
+        Returns
+        -------
+        float:
+            The determinant value.
+        """
+
+        # length of matrix
+        n = len(M)
+
+        D = 0.0  # variable to sum up determinant
+
+        # get permutations (use Leibniz formula)
+        for perm in permutations(range(n)):
+            subD = 1.0
+            for i in range(n):
+                subD *= M[i][perm[i]]
+
+            # get signature of permutation
+            D += sgn(perm) * subD
+
+        return D
+    ```
+
+## Exercise {{ counter() }}
+
+!!! question "Part 1"
+    You have a file containing the student grades for 3 different exercises. The file consists of
+    a header line (denoted by starting with a `#`), followed by lines containing four values
+    separated by commas ("comma separated values", or CSV):
+
+    1. unique student ID
+    2. grade for exercise 1 (mark out of 20)
+    3. grade for exercise 2 (mark out of 30)
+    4. grade for exercise 3 (mark out of 40)
+
+    E.g.,:
+
+    ```
+    # Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40)
+    1234, 12, 23, 29
+    1235, 9, 28, 31
+    1235, 13, 8, 25
+    ```
+
+    Show how you would read in the file and then calculate each student's total mark (as a
+    percentage), where the three exercises are weighted at 25%, 25% and 50%, respectively. You can
+    used a library such as NumPy to read in the data.
+
+??? note "Solution"
+    A possible way _without_ using, e.g., NumPy
+    
+    ```python
+    resfile = "results.csv"  # the results file
+
+    maxmarks = [20, 30, 40]  # maximum marks for each exercise
+    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
+
+    # read in results
+    grades = {}
+    with open(resfile, "r") as fp:
+        for line in fp.readlines():
+            # ignore header lines starting with a #
+            if line[0] != "#":
+                # split the line on commas
+                splitline = line.split(",")
+
+                # get student ID (string trailing whitespace)
+                studentid = splitline[0].strip()
+
+                # get grades (converting to integers)
+                grades[studentid] = [int(grade.strip()) for grade in splitline[1:]]
+
+    # calculate final weighted grades
+    finalgrades = {}
+    for studentid in grades:
+        finalgrade = 0.0:
+        for i in range(len(maxmarks)):
+            finalgrade += weights[i] * (grades[studentid][i] / maxmarks[i])
+
+        finalgrades[studentid] = finalgrade * 100  # convert to percentage
+    ```
+
+
+!!! question "Part 2"
+    How would you write the results to a new CSV file with the total grade as a new fifth column.
+
+## Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function that returns a [boxcar function](https://en.wikipedia.org/wiki/Boxcar_function) of the form:
@@ -241,12 +578,12 @@ code up the function yourself.
 
     $$
     f(x) = \left\{\begin{array}{rl}
-    C - \left|\frac{{\rm d}y}{{\rm d}x}(x - x_0)\right|, & \text{if } a \leq x \leq b \\
+    C - \left|\frac{ {\rm d}y}{ {\rm d}x}(x - x_0)\right|, & \text{if } a \leq x \leq b \\
     0, & \text{otherwise},
     \end{array}\right.
     $$
 
-    where $x_0$ is the midpoint of the triangle and ${\rm d}y}/{\rm d}x$ is the gradient of the
+    where $x_0$ is the midpoint of the triangle and ${\rm d}y/{\rm d}x$ is the gradient of the
     sides of the triangle. The arguments should be a list containing $x$ values at which to
     evaluate the function, the limits $a$ and $b$ at which the triangle starts and stops, and
     the peak triangle amplitude $C$. The following defaults (to give a standard normalised
