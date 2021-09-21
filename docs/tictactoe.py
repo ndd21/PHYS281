@@ -7,19 +7,18 @@ import numpy as np
 
 class TicTacToe:
     def __init__(self, player1, player2, gridsize=3):
-        self.player1 = player1
-        self.player2 = player2
+        self.players = [player1, player2]
 
         self.gridsize = gridsize
         self.grid = np.full((gridsize, gridsize), " ")
 
         # start game
         self.currentplayer = True  # boolean to flip between players
-        while self.checkstate():
+        while not self.checkstate():
             # get player one's turn
             self.getturn()
 
-            if not self.checkstate():
+            if self.checkstate():
                 break
 
             # get player two's turn
@@ -46,11 +45,10 @@ class TicTacToe:
         """
 
         counters = ["x", "o"]
-        players = [self.player1, self.player2]
         playeridx = int(self.currentplayer)
 
         coords = input(
-            "{}: input the grid coordinates 'x y' for your move: ".format(players[playeridx])
+            "{}: input the grid coordinates 'x y' for your move: ".format(self.players[playeridx])
         )
 
         x, y = [int(coord.strip()) for coord in coords.split()]
@@ -71,9 +69,19 @@ class TicTacToe:
 
         # check if any rows are completed
         complete = False
-        for row in [np.diag(self.grid), np.diag(np.fliplr(self.grid))] + [r for r in self.grid] + [r for r in np.transpose(grid)]:
-            if np.all(row == row[0]):
-                complete = True
-                break
+        for row in [np.diag(self.grid), np.diag(np.fliplr(self.grid))] + [r for r in self.grid] + [r for r in np.transpose(self.grid)]:
+            if not np.all(row == " "):
+                if np.all(row == row[0]):
+                    complete = True
+                    break
 
         return complete
+
+    def showwinner(self):
+        """
+        Show the winner.
+        """
+
+        playeridx = int(self.currentplayer)
+
+        print("The winner is {}!".format(self.players[playeridx]))
