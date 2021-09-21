@@ -9,7 +9,9 @@ exercise problems. While generally you should use existing functions from well m
 (they will be very well tested and robust), here the aim is for you to think about how you would
 code up the function yourself.
 
-## Exercise {{ counter() }}
+## General exercises
+
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Open a Python/IPython terminal and declare two variables as @(floating point numbers). Add the
@@ -54,7 +56,7 @@ code up the function yourself.
     Perform the same task, but this time write the code in a text file saved with the `.py`
     extension. Run the code in VS Code and also from the @(command line).
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question
     In a Python/IPython terminal, or in a script, import an appropriate library to calculate the
@@ -86,7 +88,7 @@ code up the function yourself.
     sines = np.sin(rads)
     ```
 
-## Exercise {{ counter () }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Use list comprehension to generate a list containing the square root of all integers between 1 and 50.
@@ -107,7 +109,94 @@ code up the function yourself.
 
     sqroots = [math.sqrt(x) for x in range(1, 51) if x % 2 == 0]
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Create a 2D 3x3 matrix of numbers (using lists). Loop over the rows in the matrix and print out the sum of each row.
+
+??? info "Solution"
+    ```python
+    x = [[0.1, 0.5, 1.2], [-2.3, 4.5, 0.3], [5.7, -0.3, 1.4]]
+
+    # loop over each row
+    for row in x:
+        print(sum(row))
+    ```
+
+!!! question "Part 2"
+    Now loop over the columns and print out the products of each column.
+
+??? info "Solution"
+    ```python
+    # loop over each column
+    for i in range(len(x)):
+        # column has to be explicitly extracted
+        column = [row[i] for row in x]
+
+        product = 1.0
+        for cv in colmn:
+            product *= cv
+
+        print(product)
+    ```
+
+    Note that this is easier with NumPy arrays, for which the rows and column can be transposed, e.g.:
+
+    ```python
+    import numpy as np
+
+    y = np.array(x)
+
+    for row in y:
+        print(np.sum(row))
+
+    for col in y.T:  # transpose of y
+        print(np.prod(col))
+    ```
+
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Create a dictionary with three keys `"a"`, `"b"` and `"c"`, where each key value is an empty list.
+
+??? info "Solution"
+    ```python
+    data = {"a": [], "b": [], "c": []}
+    # alternative
+    # data = dict(a=[], b=[], c=[])
+    ```
+
+!!! question "Part 2"
+    Add another key, `"d"`, into the dictionary that is also an empty list.
+
+??? info "Solution"
+    ```
+    data["d"] = []
+    ```
+
+!!! question "Part 3"
+    For each string in the list:
+
+    ```python
+    alpha = ["aadb", "bbcd", "aaaa", "bccc", "dddd", "cbcb", "daca"]
+    ```
+
+    append the numbers of each letter to the appropriate list in the dictionary.
+
+??? note "Solution"
+    ```python
+    # loop over the list
+    for a in alpha:
+        # loop over each letter in the dictionary
+        for letter in data:
+            # count number of letters in each string
+            numlet = a.count(letter)
+
+            # append to list in dictionary
+            data[letter].append(numlet)
+    ```
+
+### Exercise {{ counter() }}
 
 !!! question
     In a Python file, write a function that asks the user to input a date in the format
@@ -150,7 +239,7 @@ code up the function yourself.
     >>> getweekday()  # run the function
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question
     Suppose you have a set of files containing the results of multiple consecutive
@@ -187,7 +276,7 @@ code up the function yourself.
             results.append(fp.read())
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function that takes in a list of numbers as an argument and returns their
@@ -253,7 +342,7 @@ code up the function yourself.
             return values[half]
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question
     Write a function that:
@@ -296,7 +385,7 @@ code up the function yourself.
         return counts
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function that takes in a list as an argument and returns a new list containing the square of
@@ -360,7 +449,7 @@ code up the function yourself.
     used rather than the [`range()`](https://docs.python.org/3/library/functions.html#func-range)
     function.
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Given a square 2D matrix, e.g.,:
@@ -474,7 +563,7 @@ code up the function yourself.
         return D
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     You have a file containing the student grades for 3 different exercises. The file consists of
@@ -588,7 +677,7 @@ code up the function yourself.
     np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function that returns a [boxcar function](https://en.wikipedia.org/wiki/Boxcar_function) of the form:
@@ -747,7 +836,7 @@ code up the function yourself.
 
     ![Plot of boxcar and triangle function](exercises/exercises_boxcar_tri.png)
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Write a function to "bin" a list of numbers, i.e., count how many of the numbers are in each of
@@ -819,7 +908,7 @@ code up the function yourself.
     ```
 
 !!! question "Part 2"
-    Edit the function to take another argument, `norm`, which if `True` normalised the bin counts
+    Edit the function to take another argument, `norm`, which if `True` normalises the bin counts
     so that the area under the histogram $A = \sum_i^{N_{\rm bins}} n_i \Delta x$ adds up to 1.
 
 ??? info "Solution"
@@ -890,7 +979,7 @@ code up the function yourself.
         return binedges, bincounts
     ```
 
-## Exercise {{ counter() }}
+### Exercise {{ counter() }}
 
 !!! question
     Estimate the value of $\pi$ using a Monte-Carlo method (i.e., through drawing random numbers).
@@ -924,4 +1013,18 @@ code up the function yourself.
     estpi = 4 * (numincirc / nsamples)
 
     print(estpi)
+    ```
+
+## Advanced exercises
+
+### Exercise {{ advcounter() }}
+
+!!! question
+    Write a class that implements a tic-tac-toe game.
+
+??? info "Solution"
+    A potential solution is:
+
+    ```python
+    --8<-- "docs/tictactoe.py"
     ```
