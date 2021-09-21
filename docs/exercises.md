@@ -471,16 +471,17 @@ code up the function yourself.
     # Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40)
     1234, 12, 23, 29
     1235, 9, 28, 31
-    1235, 13, 8, 25
+    1236, 13, 8, 25
     ```
 
-    Show how you would read in the file and then calculate each student's total mark (as a
-    percentage), where the three exercises are weighted at 25%, 25% and 50%, respectively. You can
-    used a library such as NumPy to read in the data.
+    Read in the file and then calculate each student's total mark (as a percentage rounded to the
+    nearest integer), where the three exercises are weighted at 25%, 25% and 50%, respectively. You
+    can used a library such as [NumPy](https://numpy.org/doc/stable/index.html) to read in the
+    data.
 
 ??? note "Solution"
     A possible way _without_ using, e.g., NumPy
-    
+
     ```python
     resfile = "results.csv"  # the results file
 
@@ -505,16 +506,66 @@ code up the function yourself.
     # calculate final weighted grades
     finalgrades = {}
     for studentid in grades:
-        finalgrade = 0.0:
+        finalgrade = 0.0
         for i in range(len(maxmarks)):
             finalgrade += weights[i] * (grades[studentid][i] / maxmarks[i])
 
-        finalgrades[studentid] = finalgrade * 100  # convert to percentage
+        finalgrades[studentid] = round(finalgrade * 100)  # convert to percentage
     ```
 
+    This can be more compact using NumPy's
+    [`loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) function or
+    the more complete
+    [`genfromtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+    function, e.g.,:
+
+    ```python
+    import numpy as np
+
+    resfile = "results.csv"  # the results file
+
+    maxmarks = [20, 30, 40]  # maximum marks for each exercise
+    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
+    
+    results = np.loadtxt(
+        resfile,
+        comments="#",  # ignore header (could also use skiprows=1)
+        delimiter=",",  # comma separated values
+    )
+
+    # calculate final weighted grades
+    gradevalues = np.round(
+        100 * sum(weights[i] * results[:,i+1] / maxmarks[i] for i in range(len(weights)))
+    )
+
+    for i in range(len(results)):
+        studentid = str(results[i, 0])  # convert ID to string
+        finalgrades[studentid] = gradevalues[i]
+    ```
+
+    Another option would be to use the
+    [pandas](https://pandas.pydata.org/pandas-docs/stable/index.html)
+    [`read_csv()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
+    function.
 
 !!! question "Part 2"
-    How would you write the results to a new CSV file with the total grade as a new fifth column.
+    Write the results to a new CSV file with the total grade as a new fifth column.
+
+??? info "Solution"
+    There are again multiple ways of doing this. E.g., using the NumPy [`savetxt()`] function
+    (assuming we have the `results` and `finalgrades` as above):
+
+    ```python
+    import numpy as np
+
+    # append final results onto the "results" array
+    results = np.hstack((results, [grade for grade in finalgrades.items()]))
+
+    outputfile = "final_results.csv"
+    header = "np.Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40), Final grade (%)"
+
+    np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
+    ```
 
 ## Exercise {{ counter() }}
 
@@ -674,3 +725,182 @@ code up the function yourself.
     ```
 
     ![Plot of boxcar and triangle function](exercises/exercises_boxcar_tri.png)
+
+## Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Write a function to "bin" a list of numbers, i.e., count how many of the numbers are in each of
+    a set of intervals over the full range (e.g., the bin sizes in a
+    [histogram](https://en.wikipedia.org/wiki/Histogram)). The function arguments should be
+    the list of numbers, the number of bins (defaulting to 10), and the lower and upper bin edges
+    (if not given by the user these should default to use the smallest and largest number in the
+    input list, respectively).
+
+    Try doing this without using NumPy!
+
+??? info "Solution"
+
+    ```python
+    def binned(samples, nbins=10, low=None, high=None):
+        """
+        Count the number of values within a set of bins.
+
+        Parameters
+        ----------
+        samples: list
+            A list of numbers which will be "binned"
+        nbins: int
+            The number of bins into which to split the range of numbers
+        low: float
+            The edge of the lowest bin (defaults to the smallest value in `samples`)
+        high: float
+            The edge of the highest bin (defaults to the largest values in `samples`)
+
+        Returns
+        -------
+        tuple
+            A tuple containing two lists: the bin edges and the number counts in each
+            bin
+        """
+
+        # get the bin ranges
+        if low is None:
+            low = min(samples)
+
+        if high is None:
+            high = max(samples)
+
+        # step size between bins
+        binstep = (high - low) / nbins
+
+        # lists to contain bin edges and number counts
+        binedges = [low]
+        bincounts = []
+
+        # loop over bins
+        for i in range(nbins):
+            # set upper edge of bin
+            binedges.append(binedges[-1] + binstep)
+
+            # count number of samples in bin
+            bincount = 0
+            for sample in samples:
+                if binedges[i] <= sample < binedges[i+1]:
+                    bincount += 1
+
+                # add in amy samples that equal max value in the final bin
+                if i == (nbins - 1) and sample == max:
+                    bincount += 1
+
+            bincounts.append(bincount)
+
+        return binedges, bincounts
+    ```
+
+!!! question "Part 2"
+    Edit the function to take another argument, `norm`, which if `True` normalised the bin counts
+    so that the area under the histogram $A = \sum_i^{N_{\rm bins}} n_i \Delta x$ adds up to 1.
+
+??? info "Solution"
+
+    ```python
+    def binned(samples, nbins=10, low=None, high=None, norm=False):
+        """
+        Count the number of values within a set of bins.
+
+        Parameters
+        ----------
+        samples: list
+            A list of numbers which will be "binned"
+        nbins: int
+            The number of bins into which to split the range of numbers
+        low: float
+            The edge of the lowest bin (defaults to the smallest value in `samples`)
+        high: float
+            The edge of the highest bin (defaults to the largest values in `samples`)
+        norm: bool
+            If True normalise the bin counts (default is False)
+
+        Returns
+        -------
+        tuple
+            A tuple containing two lists: the bin edges and the number counts in each
+            bin
+        """
+
+        # get the bin ranges
+        if low is None:
+            low = min(samples)
+
+        if high is None:
+            high = max(samples)
+
+        # step size between bins
+        binstep = (high - low) / nbins
+
+        # lists to contain bin edges and number counts
+        binedges = [low]
+        bincounts = []
+
+        # total number of samples
+        nsamples = len(samples)
+
+        # loop over bins
+        for i in range(nbins):
+            # set upper edge of bin
+            binedges.append(binedges[-1] + binstep)
+
+            # count number of samples in bin
+            bincount = 0
+            for sample in samples:
+                if binedges[i] <= sample < binedges[i+1]:
+                    bincount += 1
+
+                # add in amy samples that equal max value in the final bin
+                if i == (nbins - 1) and sample == max:
+                    bincount += 1
+
+            if norm:
+                # normalise the bin counts
+                bincount = (bincount / nsamples) / binstep
+
+            bincounts.append(bincount)
+
+        return binedges, bincounts
+    ```
+
+## Exercise {{ counter() }}
+
+!!! question
+    Estimate the value of $\pi$ using a Monte-Carlo method (i.e., through drawing random numbers).
+
+??? info "Solution"
+    A potential solution, based on the ratio of the area of a square with sides 2 units long
+    ($A_s = 2 \times 2 = 4$) to a circle with radius of 1 unit ($A_c = \pi r^2 = \pi$), being
+    $(A_s / A_c) = 4/\pi$, is:
+
+    ```python
+    # import numpy for random number generation
+    import numpy as np
+
+    # create random number generator
+    rstate = np.random.default_rng()
+
+    # set the number of samples to draw for estimation
+    nsamples = 10000
+
+    # draw nsamples samples in x and y uniformly from the square between -1 and +1
+    samples = rstate.uniform(-1, 1, (nsamples, 2))
+
+    # get "magnitude" of each point sqrt(x^2 + y^2)
+    radius = np.sqrt(samples[:, 0] ** 2 + samples[:, 1] ** 2)
+    # radius = np.linalg.norm(samples, axis=1)  # another option
+
+    # work out how many samples are within the unit circle (i.e., radius < 1)
+    numincirc = np.sum(radius < 1)
+
+    # get estimate of pi
+    estpi = 4 * (numincirc / nsamples)
+
+    print(estpi)
+    ```
