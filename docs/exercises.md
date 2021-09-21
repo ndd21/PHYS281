@@ -86,6 +86,27 @@ code up the function yourself.
     sines = np.sin(rads)
     ```
 
+## Exercise {{ counter () }}
+
+!!! question "Part 1"
+    Use list comprehension to generate a list containing the square root of all integers between 1 and 50.
+
+??? info "Solution"
+    ```python
+    import math
+
+    sqroots = [math.sqrt(x) for x in range(1, 51)]
+    ```
+
+!!! question "Part 2"
+    Now use list comprehension to generate the square roots of only even numbers.
+
+??? info "Solution"
+    ```python
+    import math
+
+    sqroots = [math.sqrt(x) for x in range(1, 51) if x % 2 == 0]
+
 ## Exercise {{ counter() }}
 
 !!! question
@@ -246,7 +267,7 @@ code up the function yourself.
 
     ```python
     >>> animals = ['cat', 'dog', 'dog', 'dog', 'cat', 'horse']
-    >>> counts = count_occurances(animals)
+    >>> counts = count_occurrences(animals)
     >>> print(counts)
     {'cat': 2, 'dog': 3, 'horse': 1}
     ```
@@ -255,14 +276,14 @@ code up the function yourself.
     A way of doing this is:
 
     ```python
-    def count_occurances(values):
+    def count_occurrences(values):
         # get unique strings by converting to a set
         unique = set(values)
 
         # create empty dictionary for counts
         counts = {}
 
-        # loop over unique strings and count occurances
+        # loop over unique strings and count occurrences
         for word in unique:
             count = 0
             for w in values:
