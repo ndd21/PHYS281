@@ -1058,6 +1058,20 @@ code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
+    Create a class to hold data from an astronomical survey. It will store the name of each object
+    and the object's magnitude. Upon initialisation the class can take in a dictionary keyed to
+    object names with their magnitudes as the values. By default it should be initialised with an
+    empty dictionary.
+
+    The class should have a method for adding in new objects.
+
+!!! question "Part 2"
+    Add a methods that return the name of the brightest and dimmest objects. Note that for
+    magnitudes in astronomy the lower the number the brighter the object!
+
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
     Create a class to define `Square` objects. The class should be intialised using a tuple or list
     that contains four pairs (also tuples or lists) of $x$ and $y$ coordinates for the corners of
     the square, which should then be stored in th class. The class should contain a method to check
