@@ -1059,211 +1059,64 @@ code up the function yourself.
 
 !!! question "Part 1"
     Create a class to define `Square` objects. The class should be intialised using a tuple or list
-    that contains four pairs (also tuples of lists) of $x$ and $y$ coordinates for the corners of
+    that contains four pairs (also tuples or lists) of $x$ and $y$ coordinates for the corners of
     the square, which should then be stored in th class. The class should contain a method to check
     that the input points define a valid square (i.e. all sides are the same length and all angles
     between sides are 90 degrees), which should be used during initialisation and an error raised
     if it fails the check.
 
+!!! question "Part 2"
+    Add methods to the class that return the area and perimeter of the square.
+
+!!! question "Part 3"
+    Add a method to the class that takes in a point, given by a tuple containing its $x$ and $y$
+    coordinates, and returns `True` if the point is within the square and `False` if not.
+
+!!! question "Part 4"
+    Create a `Square` and then get a new `Square` based on the original, but rotated by 30 degrees
+    about the first square's centre. Plot the two squares on the same figure.
+
+    Hint: you may have already written code, or a method, in the class that rotates a square.
+
 ??? info "Solution"
     A possible class is:
 
     ```python
-    import numpy as np
-
-    class Square:
-        def __init__(self, vertices):
-            # store copy of vertices as numpy array
-            self.vertices = np.array(vertices)
-
-            # check if valid square
-            if not self.valid_square():
-                raise ValueError("Input coordinates do not define a valid square")
-
-        def valid_square(self):
-            """
-            Check that vertices define a valid square: four vertices are given;
-            each vertex has two points; all sides are the same length; all
-            corners are 90 degrees.
-            
-            Returns
-            -------
-            bool
-                False is not a valid square otherwise True
-            """
-
-            # check vertices contain four pairs of points
-            if self.vertices.shape != (4, 2):
-                return False
-
-            # check side lengths
-            for i in range(4):
-                distance = self.side_length(self.vertices[i], self.vertices[(i + 1) % 4])
-
-                if i == 0:
-                    dist0 = distance
-                else:
-                    if distance != dist0:
-                        return False
-
-            # check angles between sides
-            angles = []
-            for i in range(4):
-                origin = self.vertices[i]
-                prev = self.vertices[(i + 4 - 1) % 4]
-                next = self.vertices[(i + 1) % 4]
-                vec1 = prev - origin
-                vec2 = next - origin
-
-                angles.append(self.vertex_angle(vec1, vec2))
-
-            if not np.allclose(angles, np.pi / 2.0):
-                return False
-
-            return True
-
-        @staticmethod
-        def side_length(x1, x2):
-            """
-            Get the distance between two coordinates.
-            
-            Parameters
-            ----------
-            x1: tuple
-                A pair of x-y coorinates for a point
-            x2: tuple
-                A pair of x-y coorinates for a point
-
-            Return
-            ------
-            float:
-                The distance between points
-            """
-
-            return np.linalg.norm(x1 - x2)
-
-        @staticmethod
-        def vertex_angle(vec1, vec2):
-            """
-            Get the angle between two vectors.
-            
-            Parameters
-            ----------
-            vec1: 
-                A vector (two coordinate points) defined from the origin
-            vec2: tuple
-                A vector (two coordinate points) defined from the origin
-
-            Return
-            ------
-            float:
-                The angle between the vectors
-            """
-
-            # dot product of two vectors
-            dp = np.dot(vec1, vec2)
-
-            # magnitude of vectors
-            mag1 = np.linalg.norm(vec1)
-            mag2 = np.linalg.norm(vec2)
-
-            angle = np.arccos(dp / (mag1 * mag2))
-
-            return angle
-
+    --8<-- "docs/exercises/square.py"
     ```
 
-!!! question "Part 2"
-    Add methods to the class that return the area and permiter of the square.
-
-!!! question "Part 3"
-    Add a method to the class that takes in a point giving its $x$ and $y$ coordinate and returns
-    `True` if the point is within the square and `False` if not.
-
-??? info "Solution"
-    Rather than repeating the whole class only the required method is given:
+    Given this class two squares can be plotted with:
 
     ```python
-    def in_square(self, point):
-        """
-        Check if a given point is in the square.
+    import numpy as np
+    from matplotlib import pyplot as plt
 
-        Parameters
-        ----------
-        point: (list, tuple)
-            A list consisting of the x, y coordinates of the point to test.
+    # first square
+    s1 = Square([[4, 3], [4, 5], [6, 5], [6, 3]])
+    
+    # rotated square
+    s2 = s1.rotate_square(np.deg2rad(30))
 
-        Returns
-        -------
-        bool
-            Give True if the point is in the square and False otherwise.
-        """
+    fig, ax = plt.subplots()
 
-        # rotate the square and the point, so they are aligned with the x-y axes
-        vec1 = [1, 0]  # unit vector on x-axis
-        vec2 = [self.vertices[1] - self.vertices[0]]  # a side of the square
+    # plot s1 in blue and s2 in red
+    for s, c in zip([s1, s2], ["b", "r"]):
+        x = np.hstack((s.vertices[:, 0], s.vertices[0, 0]))
+        y = np.hstack((s.vertices[:, 1], s.vertices[0, 1]))
+        ax.plot(x, y, color=c)
 
-        # angle between one of the squares sides and the x-axis
-        angle = self.vertex_angle(vec1, vec1)
+    # make axes have an equal aspect ratio
+    ax.set_aspect("equal")
+    fig.tight_layout()
 
-        # set rotation matrix
-        rot = np.array([[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]])
-
-        # rotated square
-        rotverts = [np.dot(rot, vertex) for vertex in self.vertices]
-
-        # rotated test point
-        rotpoint = np.dot(rot, point)
-
-        # check point is within the square
-        bottom = self.side("bottom")
-        top = self.side("top")        
-        if rotpoint[1] < bottom[0][1] or rotpoint[1] > top[0][1]:
-            # outside y-extent of square
-            return False
-
-        left = self.side("left")
-        right = self.side("right")
-        if rotpoint[0] < left[0][0] or rotpoint[0] > right[0][0]:
-            # outside x-extent of square
-            return False
-
-        return True
-
-    def side(self, which="bottom"):
-        """
-        Return the two vertices for the given side. If two sides are equivalent (e.g., are
-        both as "low" as each other if given "bottom") then the first two be found is returned.
-
-        Parameters
-        ----------
-        which: str
-            A string with either "bottom", "top", "left" or "right" for the side to return.
-
-        Returns
-        -------
-        tuple
-            The two vertices defining the requested side.
-        """
-        
-        if which[0].lower() == "b":
-            # bottom side
-            idxs = np.argsort(self.vertices[:, 0])[0:2]
-        elif which[0].lower() == "t":
-            # top side
-            idxs = np.argsort(self.vertices[:, 0])[-2:]
-        elif which[0].lower() == "l":
-            # left side
-            idxs = np.argsort(self.vertices[:, 1])[0:2]
-        elif which[0].lower() == "r":
-            # right side
-            idxs = np.argsort(self.vertices[:, 1])[-2:]
-        else:
-            raise ValueError(f"Side '{which}' is not valid")
-
-        return self.vertices[idxs]
-
+    fig.show()
     ```
+
+    ![Plot of two squares](exercises/exercises_squares.png)
+
+    A [`Rectangle`](https://matplotlib.org/stable/api/_as_gen/matplotlib.patches.Rectangle.html#matplotlib.patches.Rectangle)
+    patch could be used instead if you work out the bottom left corner and the required rotation
+    angle.
 
 ## Advanced exercises
 

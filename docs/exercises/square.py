@@ -1,13 +1,28 @@
 import numpy as np
 
+
 class Square:
     def __init__(self, vertices):
+        """
+        A class defining a Square object.
+
+        Parameters
+        ----------
+        vertices: array
+            A 4x2 array defining the x-y coordinates of the four corners of the
+            square. The corner coordinates must be consecutive corners in
+            either the clockwise or anticlockwise direction.
+        """
+
         # store copy of vertices as numpy array
         self.vertices = np.array(vertices)
 
         # check if valid square
         if not self.valid_square():
             raise ValueError("Input coordinates do not define a valid square")
+
+        # get the centre of the square
+        self.centre = (self.vertices[0] + self.vertices[2]) / 2.0
 
     def valid_square(self):
         """
@@ -26,14 +41,13 @@ class Square:
             return False
 
         # check side lengths
+        distances = []
         for i in range(4):
             distance = self.side_length(self.vertices[i], self.vertices[(i + 1) % 4])
+            distances.append(distance)
 
-            if i == 0:
-                dist0 = distance
-            else:
-                if distance != dist0:
-                    return False
+        if not np.allclose(distances, distances[0]):
+            return False
 
         # check angles between sides
         angles = []
@@ -139,8 +153,11 @@ class Square:
         # rotated square
         rotsquare = self.rotate_square(angle)
 
-        # rotated test point
-        rotpoint = np.dot(rotsquare.rotation_matrix, point)
+        # rotated test point about the centre
+        rot = np.array(
+            [[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]]
+        )
+        rotpoint = np.dot(rot, point - self.centre)
 
         # check point is within the square
         bottom = rotsquare.side("bottom")
@@ -159,7 +176,8 @@ class Square:
 
     def rotate_square(self, angle):
         """
-        Return a new Square object that is rotated by a given angle.
+        Return a new Square object that is rotated by a given angle about the
+        square's centre.
 
         Parameters
         ----------
@@ -173,25 +191,31 @@ class Square:
         """
 
         # set rotation matrix
-        rot = np.array([[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]])
+        rot = np.array(
+            [[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]]
+        )
 
         # store the rotation matrix
         self.rotation_matrix = rot
 
         # get the rotated vertices
-        rotverts = [np.dot(rot, vertex) for vertex in self.vertices]
+        rotverts = np.array(
+            [np.dot(rot, vertex - self.centre) for vertex in self.vertices]
+        ) + self.centre
 
         return Square(rotverts)
 
     def side(self, which="bottom"):
         """
-        Return the two vertices for the given side. If two sides are equivalent (e.g., are
-        both as "low" as each other if given "bottom") then the first two be found is returned.
+        Return the two vertices for the given side. If two sides are equivalent
+        (e.g., are both as "low" as each other if given "bottom") then the
+        first two be found is returned.
 
         Parameters
         ----------
         which: str
-            A string with either "bottom", "top", "left" or "right" for the side to return.
+            A string with either "bottom", "top", "left" or "right" for the
+            side to return.
 
         Returns
         -------
@@ -199,19 +223,21 @@ class Square:
             The two vertices defining the requested side.
         """
 
-        if which[0].lower() == "b":
-            # bottom side
-            idxs = np.argsort(self.vertices[:, 0])[0:2]
-        elif which[0].lower() == "t":
-            # top side
-            idxs = np.argsort(self.vertices[:, 0])[-2:]
-        elif which[0].lower() == "l":
+        if which[0].lower() == "l":
             # left side
-            idxs = np.argsort(self.vertices[:, 1])[0:2]
+            idx = np.argsort(self.vertices[:, 0])[0]
         elif which[0].lower() == "r":
             # right side
-            idxs = np.argsort(self.vertices[:, 1])[-2:]
+            idx = np.argsort(self.vertices[:, 0])[-1]
+        elif which[0].lower() == "b":
+            # bottom side
+            idx = np.argsort(self.vertices[:, 1])[0]
+        elif which[0].lower() == "t":
+            # top side
+            idx = np.argsort(self.vertices[:, 1])[-1]
         else:
             raise ValueError(f"Side '{which}' is not valid")
+
+        idxs = [idx, (idx + 1) % 4]
 
         return self.vertices[idxs]
