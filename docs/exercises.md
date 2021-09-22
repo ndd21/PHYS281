@@ -108,6 +108,7 @@ code up the function yourself.
     import math
 
     sqroots = [math.sqrt(x) for x in range(1, 51) if x % 2 == 0]
+    ```
 
 ### Exercise {{ counter() }}
 
@@ -1062,22 +1063,21 @@ code up the function yourself.
     the square, which should then be stored in th class. The class should contain a method to check
     that the input points define a valid square (i.e. all sides are the same length and all angles
     between sides are 90 degrees), which should be used during initialisation and an error raised
-    if failing.
+    if it fails the check.
 
 ??? info "Solution"
     A possible class is:
 
     ```python
-    import copy
-    import math
+    import numpy as np
 
     class Square:
         def __init__(self, vertices):
-            # store copy of vertices
-            self.vertices = copy.deepcopy(vertices)
+            # store copy of vertices as numpy array
+            self.vertices = np.array(vertices)
 
             # check if valid square
-            if self.valid_square():
+            if not self.valid_square():
                 raise ValueError("Input coordinates do not define a valid square")
 
         def valid_square(self):
@@ -1093,13 +1093,8 @@ code up the function yourself.
             """
 
             # check vertices contain four pairs of points
-            if len(self.vertices) != 4:
+            if self.vertices.shape != (4, 2):
                 return False
-
-            # check vertices consist of two points
-            for vertex in self.vertices:
-                if len(vertex) != 2:
-                    return False
 
             # check side lengths
             for i in range(4):
@@ -1112,11 +1107,20 @@ code up the function yourself.
                         return False
 
             # check angles between sides
+            angles = []
             for i in range(4):
                 origin = self.vertices[i]
                 prev = self.vertices[(i + 4 - 1) % 4]
-                next = self.vectices[(i + 1) % 4]
-                vec1 = 
+                next = self.vertices[(i + 1) % 4]
+                vec1 = prev - origin
+                vec2 = next - origin
+
+                angles.append(self.vertex_angle(vec1, vec2))
+
+            if not np.allclose(angles, np.pi / 2.0):
+                return False
+
+            return True
 
         @staticmethod
         def side_length(x1, x2):
@@ -1136,9 +1140,7 @@ code up the function yourself.
                 The distance between points
             """
 
-            distance = math.sqrt((x1[0] - x2[0]) ** 2 + (x1[1] - x2[1]) ** 2)
-
-            return distance
+            return np.linalg.norm(x1 - x2)
 
         @staticmethod
         def vertex_angle(vec1, vec2):
@@ -1159,18 +1161,109 @@ code up the function yourself.
             """
 
             # dot product of two vectors
-            dp = math.sqrt(vec1[0] * vec2[0] + vec1[1] * vec2[1])
+            dp = np.dot(vec1, vec2)
 
             # magnitude of vectors
-            mag1 = math.sqrt(sum([v ** 2 for v in vec1]))
-            mag2 = math.sqrt(sum([v ** 2 for v in vec2]))
+            mag1 = np.linalg.norm(vec1)
+            mag2 = np.linalg.norm(vec2)
 
-            angle = math.arccos(dp / (mag1 * mag2))
+            angle = np.arccos(dp / (mag1 * mag2))
 
             return angle
 
     ```
 
+!!! question "Part 2"
+    Add methods to the class that return the area and permiter of the square.
+
+!!! question "Part 3"
+    Add a method to the class that takes in a point giving its $x$ and $y$ coordinate and returns
+    `True` if the point is within the square and `False` if not.
+
+??? info "Solution"
+    Rather than repeating the whole class only the required method is given:
+
+    ```python
+    def in_square(self, point):
+        """
+        Check if a given point is in the square.
+
+        Parameters
+        ----------
+        point: (list, tuple)
+            A list consisting of the x, y coordinates of the point to test.
+
+        Returns
+        -------
+        bool
+            Give True if the point is in the square and False otherwise.
+        """
+
+        # rotate the square and the point, so they are aligned with the x-y axes
+        vec1 = [1, 0]  # unit vector on x-axis
+        vec2 = [self.vertices[1] - self.vertices[0]]  # a side of the square
+
+        # angle between one of the squares sides and the x-axis
+        angle = self.vertex_angle(vec1, vec1)
+
+        # set rotation matrix
+        rot = np.array([[np.cos(angle), -np.sin(angle)], [np.sin(angle), np.cos(angle)]])
+
+        # rotated square
+        rotverts = [np.dot(rot, vertex) for vertex in self.vertices]
+
+        # rotated test point
+        rotpoint = np.dot(rot, point)
+
+        # check point is within the square
+        bottom = self.side("bottom")
+        top = self.side("top")        
+        if rotpoint[1] < bottom[0][1] or rotpoint[1] > top[0][1]:
+            # outside y-extent of square
+            return False
+
+        left = self.side("left")
+        right = self.side("right")
+        if rotpoint[0] < left[0][0] or rotpoint[0] > right[0][0]:
+            # outside x-extent of square
+            return False
+
+        return True
+
+    def side(self, which="bottom"):
+        """
+        Return the two vertices for the given side. If two sides are equivalent (e.g., are
+        both as "low" as each other if given "bottom") then the first two be found is returned.
+
+        Parameters
+        ----------
+        which: str
+            A string with either "bottom", "top", "left" or "right" for the side to return.
+
+        Returns
+        -------
+        tuple
+            The two vertices defining the requested side.
+        """
+        
+        if which[0].lower() == "b":
+            # bottom side
+            idxs = np.argsort(self.vertices[:, 0])[0:2]
+        elif which[0].lower() == "t":
+            # top side
+            idxs = np.argsort(self.vertices[:, 0])[-2:]
+        elif which[0].lower() == "l":
+            # left side
+            idxs = np.argsort(self.vertices[:, 1])[0:2]
+        elif which[0].lower() == "r":
+            # right side
+            idxs = np.argsort(self.vertices[:, 1])[-2:]
+        else:
+            raise ValueError(f"Side '{which}' is not valid")
+
+        return self.vertices[idxs]
+
+    ```
 
 ## Advanced exercises
 
@@ -1185,5 +1278,5 @@ These exercises are very much just for fun if you fancy something a bit more cha
     A potential solution is:
 
     ```python
-    --8<-- "docs/tictactoe.py"
+    --8<-- "docs/exercises/tictactoe.py"
     ```
