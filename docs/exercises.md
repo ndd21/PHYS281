@@ -111,6 +111,45 @@ code up the function yourself.
 
 ### Exercise {{ counter() }}
 
+!!! question
+    Given a dictionary containing the following information
+    
+    ```python
+    personaldata = {
+        "firstname": "Sammy",
+        "lastname": "Scissors",
+        "housenumber": 2,
+        "streetname": "Long Lane",
+        "city": "Lancaster",
+        "postcode": "LA1 8TF"
+    }
+    ```
+
+    construct a single format string that will allow the address to be output in the form:
+
+    ```
+    Sammy Scissors
+    2 Long Lane
+    Lancaster
+    LA1 8TF
+    ```
+
+??? info "Solution"
+    A possible solution is
+    
+    ```python
+    addressstring = (
+        "{firstname} {lastname}\n"
+        "{housenumber} {streetname}\n"
+        "{city}\n"
+        "{postcode}\n"
+    )
+
+    print(addressstring.format(**personaldata))
+    ```
+
+### Exercise {{ counter() }}
+
 !!! question "Part 1"
     Create a 2D 3x3 matrix of numbers (using lists). Loop over the rows in the matrix and print out the sum of each row.
 
@@ -1015,7 +1054,127 @@ code up the function yourself.
     print(estpi)
     ```
 
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Create a class to define `Square` objects. The class should be intialised using a tuple or list
+    that contains four pairs (also tuples of lists) of $x$ and $y$ coordinates for the corners of
+    the square, which should then be stored in th class. The class should contain a method to check
+    that the input points define a valid square (i.e. all sides are the same length and all angles
+    between sides are 90 degrees), which should be used during initialisation and an error raised
+    if failing.
+
+??? info "Solution"
+    A possible class is:
+
+    ```python
+    import copy
+    import math
+
+    class Square:
+        def __init__(self, vertices):
+            # store copy of vertices
+            self.vertices = copy.deepcopy(vertices)
+
+            # check if valid square
+            if self.valid_square():
+                raise ValueError("Input coordinates do not define a valid square")
+
+        def valid_square(self):
+            """
+            Check that vertices define a valid square: four vertices are given;
+            each vertex has two points; all sides are the same length; all
+            corners are 90 degrees.
+            
+            Returns
+            -------
+            bool
+                False is not a valid square otherwise True
+            """
+
+            # check vertices contain four pairs of points
+            if len(self.vertices) != 4:
+                return False
+
+            # check vertices consist of two points
+            for vertex in self.vertices:
+                if len(vertex) != 2:
+                    return False
+
+            # check side lengths
+            for i in range(4):
+                distance = self.side_length(self.vertices[i], self.vertices[(i + 1) % 4])
+
+                if i == 0:
+                    dist0 = distance
+                else:
+                    if distance != dist0:
+                        return False
+
+            # check angles between sides
+            for i in range(4):
+                origin = self.vertices[i]
+                prev = self.vertices[(i + 4 - 1) % 4]
+                next = self.vectices[(i + 1) % 4]
+                vec1 = 
+
+        @staticmethod
+        def side_length(x1, x2):
+            """
+            Get the distance between two coordinates.
+            
+            Parameters
+            ----------
+            x1: tuple
+                A pair of x-y coorinates for a point
+            x2: tuple
+                A pair of x-y coorinates for a point
+
+            Return
+            ------
+            float:
+                The distance between points
+            """
+
+            distance = math.sqrt((x1[0] - x2[0]) ** 2 + (x1[1] - x2[1]) ** 2)
+
+            return distance
+
+        @staticmethod
+        def vertex_angle(vec1, vec2):
+            """
+            Get the angle between two vectors.
+            
+            Parameters
+            ----------
+            vec1: 
+                A vector (two coordinate points) defined from the origin
+            vec2: tuple
+                A vector (two coordinate points) defined from the origin
+
+            Return
+            ------
+            float:
+                The angle between the vectors
+            """
+
+            # dot product of two vectors
+            dp = math.sqrt(vec1[0] * vec2[0] + vec1[1] * vec2[1])
+
+            # magnitude of vectors
+            mag1 = math.sqrt(sum([v ** 2 for v in vec1]))
+            mag2 = math.sqrt(sum([v ** 2 for v in vec2]))
+
+            angle = math.arccos(dp / (mag1 * mag2))
+
+            return angle
+
+    ```
+
+
 ## Advanced exercises
+
+These exercises are very much just for fun if you fancy something a bit more challenging!
 
 ### Exercise {{ advcounter() }}
 

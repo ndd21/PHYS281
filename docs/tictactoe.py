@@ -20,7 +20,7 @@ class TicTacToe:
         """
         
         player1 = input("Input the name of the first player: ")
-        player2 = input("Input the name of the seconf player: ")
+        player2 = input("Input the name of the second player: ")
         self.players = [player1, player2]
 
         try:
