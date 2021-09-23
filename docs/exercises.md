@@ -6,10 +6,10 @@ encouraged to try these out as the best way to learn to code is to do!
 
 In several cases there are already exist functions, e.g., in NumPy, for performing some of these
 exercise problems. While generally you should use existing functions from well maintained libraries
-(they will be very well tested and robust), here the aim is for you to think about how you would
-code up the function yourself.
+(they will be very well tested and robust), here (unless asked to use an appropriate library) the
+aim is for you to think about how you would code up the function yourself.
 
-## General exercises
+## Python basics
 
 ### Exercise {{ counter() }}
 
@@ -91,9 +91,79 @@ code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
-    Use list comprehension to generate a list containing the square root of all integers between 1 and 50.
+    Given a list of numbers, without using the built-in
+    [`max()`](https://docs.python.org/3/library/functions.html#max) method, find the maximum value
+    in the list. Try two different ways of looping through the list values.
 
 ??? info "Solution"
+    Two different options are:
+
+    ```python
+    x = [-2, 3, 6, -5, 7, 8, 12, -9]
+
+    maximum = x[0]  # use first value as initial comparitor
+    for v in x[1:]:
+        if v > maximum:
+            maximum = v  # update comparitor
+    ```
+
+    or (using the `range()` and `len()` functions):
+
+    ```python
+    maximum = x[0]
+    for i in range(1, len(x)):
+        if x[i] > maximum:
+            maximum = x[i]
+    ```
+
+!!! question "Part 2"
+    Given two equal length lists of numbers, create a new list containing the sum of the pairs of
+    values from those lists. Try two different methods of doing this.
+
+??? info "Solution"
+    Two different options are:
+
+    ```python
+    x = [-2, 3, 6, -5, 7, 8, 12, -9]
+    y = [0, 12, -5, 2, 8, -8, 11, 2]
+
+    z = []
+    for i in range(len(x)):
+        z.append(x[i] + y[i])
+    ```
+
+    or (using the [`zip()`](https://docs.python.org/3/library/functions.html#zip) function):
+
+    ```python
+    z = []
+    for vx, vy in zip(x, y):
+        z.append(vx + vy)
+    ```
+
+!!! question "Part 3"
+    Given two equal length lists of numbers, add the numbers from the first list onto the values in
+    the second list (do not create a new list).
+
+??? info "Solution"
+    Using the [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate) function
+    you can do:
+
+    ```python
+    x = [-2, 3, 6, -5, 7, 8, 12, -9]
+    y = [0, 12, -5, 2, 8, -8, 11, 2]
+
+    for i, v in enumerate(x):
+        y[i] += v
+    ```
+
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
+    Use list comprehension to generate a list containing the square root of all integers between 1
+    and 50.
+
+??? info "Solution"
+
     ```python
     import math
 
@@ -104,6 +174,7 @@ code up the function yourself.
     Now use list comprehension to generate the square roots of only even numbers.
 
 ??? info "Solution"
+
     ```python
     import math
 
@@ -114,7 +185,7 @@ code up the function yourself.
 
 !!! question
     Given a dictionary containing the following information
-    
+
     ```python
     personaldata = {
         "firstname": "Sammy",
@@ -137,7 +208,7 @@ code up the function yourself.
 
 ??? info "Solution"
     A possible solution is
-    
+
     ```python
     addressstring = (
         "{firstname} {lastname}\n"
@@ -152,9 +223,11 @@ code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
-    Create a 2D 3x3 matrix of numbers (using lists). Loop over the rows in the matrix and print out the sum of each row.
+    Create a 2D 3x3 matrix of numbers (using lists). Loop over the rows in the matrix and print out
+    the sum of each row.
 
 ??? info "Solution"
+
     ```python
     x = [[0.1, 0.5, 1.2], [-2.3, 4.5, 0.3], [5.7, -0.3, 1.4]]
 
@@ -167,6 +240,7 @@ code up the function yourself.
     Now loop over the columns and print out the products of each column.
 
 ??? info "Solution"
+
     ```python
     # loop over each column
     for i in range(len(x)):
@@ -192,6 +266,64 @@ code up the function yourself.
 
     for col in y.T:  # transpose of y
         print(np.prod(col))
+    ```
+
+### Exercise {{ counter () }}
+
+!!! question "Part 1"
+    Given the following dictionary:
+
+    ```python
+    charge = {
+        "electron": -1,
+        "positron": 1,
+        "proton": 1,
+        "neutron": 0,
+        "up": 2/3,
+        "down": -1/3
+    }
+    ```
+
+    get a list of the dictionary keys and a list of the dictionary values.
+
+??? info "Solution"
+    The lists of keys and values can be extracted with:
+
+    ```python
+    keys = list(charge.keys())  # need to explicitly convert iterator to list
+    values = list(charge.values())
+    ```
+
+!!! question "Part 2"
+    Add a new particle and it's charge to the dictionary.
+
+??? info "Solution"
+
+    ```python
+    charge["strange"] = -1/3
+    ```
+
+!!! question "Part 2"
+    Find the number of positively charges particles in the dictionary and get a list of their
+    names.
+
+??? info "Solution"
+    One option is:
+
+    ```python
+    npos = 0  # counter for positive particles
+    positive = []  # list of positive particles
+    for particle, c in charge.items():
+        if c > 0:
+            npos += 1
+            positive.append(particle)
+    ```
+
+    Another, using list comprehension, is:
+
+    ```python
+    positive = [c for c in charge.values() if c > 0]
+    npos = len(positive)
     ```
 
 ### Exercise {{ counter() }}
@@ -239,6 +371,45 @@ code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question
+    Suppose you have a set of files containing the results of multiple consecutive
+    experiments/simulations. To distinguish the files each file name is suffixed by an integer with
+    preceding zeros, such the the number is always 3 digits long (assuming no more than 1000 files
+    exist), e.g.,:
+
+    ```
+    experimental_results_000.txt
+    experimental_results_001.txt
+    ...
+    experimental_results_258.txt
+    experimental_results_259.txt
+    ```
+
+    Assuming you know how many files you have and the file name format, how might you loop over all
+    the files to read them in?
+
+??? info "Solution"
+    A possible solution is:
+
+    ```python
+    N = 260  # total number of files
+
+    basename = "experimental_results_{0:03d}.txt"
+
+    # loop over files and read in results
+    results = []
+    for i in range(N):
+        thisfile = basename.format(i)
+
+        # read in the results in some form
+        with open(thisfile, "r") as fp:
+            results.append(fp.read())
+    ```
+
+## Python functions
+
+### Exercise {{ counter() }}
+
+!!! question
     In a Python file, write a function that asks the user to input a date in the format
     "YYYY-MM-DD" and then prints out the day of the week (see the Python
     [`datetime`](https://www.w3schools.com/python/python_datetime.asp) library). In another Python
@@ -277,43 +448,6 @@ code up the function yourself.
     ```python
     >>> from weekday import getweekday
     >>> getweekday()  # run the function
-    ```
-
-### Exercise {{ counter() }}
-
-!!! question
-    Suppose you have a set of files containing the results of multiple consecutive
-    experiments/simulations. To distinguish the files each file name is suffixed by an integer with
-    preceding zeros, such the the number is always 3 digits long (assuming no more than 1000 files
-    exist), e.g.,:
-
-    ```
-    experimental_results_000.txt
-    experimental_results_001.txt
-    ...
-    experimental_results_258.txt
-    experimental_results_259.txt
-    ```
-
-    Assuming you know how many files you have and the file name format, how might you loop over all
-    the files to read them in?
-
-??? info "Solution"
-    A possible solution is:
-
-    ```python
-    N = 260  # total number of files
-
-    basename = "experimental_results_{0:03d}.txt"
-
-    # loop over files and read in results
-    results = []
-    for i in range(N):
-        thisfile = basename.format(i)
-
-        # read in the results in some form
-        with open(thisfile, "r") as fp:
-            results.append(fp.read())
     ```
 
 ### Exercise {{ counter() }}
@@ -539,6 +673,7 @@ code up the function yourself.
     parity)](https://en.wikipedia.org/wiki/Parity_of_a_permutation) of the permutation.
 
 ??? info "Solution"
+
     ```python
     from itertools import permutations
     
@@ -606,115 +741,144 @@ code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
-    You have a file containing the student grades for 3 different exercises. The file consists of
-    a header line (denoted by starting with a `#`), followed by lines containing four values
-    separated by commas ("comma separated values", or CSV):
+    Write a function to "bin" a list of numbers, i.e., count how many of the numbers are in each of
+    a set of intervals over the full range (e.g., the bin sizes in a
+    [histogram](https://en.wikipedia.org/wiki/Histogram)). The function arguments should be
+    the list of numbers, the number of bins (defaulting to 10), and the lower and upper bin edges
+    (if not given by the user these should default to use the smallest and largest number in the
+    input list, respectively).
 
-    1. unique student ID
-    2. grade for exercise 1 (mark out of 20)
-    3. grade for exercise 2 (mark out of 30)
-    4. grade for exercise 3 (mark out of 40)
-
-    E.g.,:
-
-    ```
-    # Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40)
-    1234, 12, 23, 29
-    1235, 9, 28, 31
-    1236, 13, 8, 25
-    ```
-
-    Read in the file and then calculate each student's total mark (as a percentage rounded to the
-    nearest integer), where the three exercises are weighted at 25%, 25% and 50%, respectively. You
-    can used a library such as [NumPy](https://numpy.org/doc/stable/index.html) to read in the
-    data.
-
-??? note "Solution"
-    A possible way _without_ using, e.g., NumPy
-
-    ```python
-    resfile = "results.csv"  # the results file
-
-    maxmarks = [20, 30, 40]  # maximum marks for each exercise
-    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
-
-    # read in results
-    grades = {}
-    with open(resfile, "r") as fp:
-        for line in fp.readlines():
-            # ignore header lines starting with a #
-            if line[0] != "#":
-                # split the line on commas
-                splitline = line.split(",")
-
-                # get student ID (string trailing whitespace)
-                studentid = splitline[0].strip()
-
-                # get grades (converting to integers)
-                grades[studentid] = [int(grade.strip()) for grade in splitline[1:]]
-
-    # calculate final weighted grades
-    finalgrades = {}
-    for studentid in grades:
-        finalgrade = 0.0
-        for i in range(len(maxmarks)):
-            finalgrade += weights[i] * (grades[studentid][i] / maxmarks[i])
-
-        finalgrades[studentid] = round(finalgrade * 100)  # convert to percentage
-    ```
-
-    This can be more compact using NumPy's
-    [`loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) function or
-    the more complete
-    [`genfromtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
-    function, e.g.,:
-
-    ```python
-    import numpy as np
-
-    resfile = "results.csv"  # the results file
-
-    maxmarks = [20, 30, 40]  # maximum marks for each exercise
-    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
-    
-    results = np.loadtxt(
-        resfile,
-        comments="#",  # ignore header (could also use skiprows=1)
-        delimiter=",",  # comma separated values
-    )
-
-    # calculate final weighted grades
-    gradevalues = np.round(
-        100 * sum(weights[i] * results[:,i+1] / maxmarks[i] for i in range(len(weights)))
-    )
-
-    for i in range(len(results)):
-        studentid = str(results[i, 0])  # convert ID to string
-        finalgrades[studentid] = gradevalues[i]
-    ```
-
-    Another option would be to use the
-    [pandas](https://pandas.pydata.org/pandas-docs/stable/index.html)
-    [`read_csv()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
-    function.
-
-!!! question "Part 2"
-    Write the results to a new CSV file with the total grade as a new fifth column.
+    Try doing this without using NumPy!
 
 ??? info "Solution"
-    There are again multiple ways of doing this. E.g., using the NumPy [`savetxt()`] function
-    (assuming we have the `results` and `finalgrades` as above):
 
     ```python
-    import numpy as np
+    def binned(samples, nbins=10, low=None, high=None):
+        """
+        Count the number of values within a set of bins.
 
-    # append final results onto the "results" array
-    results = np.hstack((results, [grade for grade in finalgrades.items()]))
+        Parameters
+        ----------
+        samples: list
+            A list of numbers which will be "binned"
+        nbins: int
+            The number of bins into which to split the range of numbers
+        low: float
+            The edge of the lowest bin (defaults to the smallest value in `samples`)
+        high: float
+            The edge of the highest bin (defaults to the largest values in `samples`)
 
-    outputfile = "final_results.csv"
-    header = "np.Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40), Final grade (%)"
+        Returns
+        -------
+        tuple
+            A tuple containing two lists: the bin edges and the number counts in each
+            bin
+        """
 
-    np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
+        # get the bin ranges
+        if low is None:
+            low = min(samples)
+
+        if high is None:
+            high = max(samples)
+
+        # step size between bins
+        binstep = (high - low) / nbins
+
+        # lists to contain bin edges and number counts
+        binedges = [low]
+        bincounts = []
+
+        # loop over bins
+        for i in range(nbins):
+            # set upper edge of bin
+            binedges.append(binedges[-1] + binstep)
+
+            # count number of samples in bin
+            bincount = 0
+            for sample in samples:
+                if binedges[i] <= sample < binedges[i+1]:
+                    bincount += 1
+
+                # add in amy samples that equal max value in the final bin
+                if i == (nbins - 1) and sample == max:
+                    bincount += 1
+
+            bincounts.append(bincount)
+
+        return binedges, bincounts
+    ```
+
+!!! question "Part 2"
+    Edit the function to take another argument, `norm`, which if `True` normalises the bin counts
+    so that the area under the histogram $A = \sum_i^{N_{\rm bins}} n_i \Delta x$ adds up to 1.
+
+??? info "Solution"
+
+    ```python
+    def binned(samples, nbins=10, low=None, high=None, norm=False):
+        """
+        Count the number of values within a set of bins.
+
+        Parameters
+        ----------
+        samples: list
+            A list of numbers which will be "binned"
+        nbins: int
+            The number of bins into which to split the range of numbers
+        low: float
+            The edge of the lowest bin (defaults to the smallest value in `samples`)
+        high: float
+            The edge of the highest bin (defaults to the largest values in `samples`)
+        norm: bool
+            If True normalise the bin counts (default is False)
+
+        Returns
+        -------
+        tuple
+            A tuple containing two lists: the bin edges and the number counts in each
+            bin
+        """
+
+        # get the bin ranges
+        if low is None:
+            low = min(samples)
+
+        if high is None:
+            high = max(samples)
+
+        # step size between bins
+        binstep = (high - low) / nbins
+
+        # lists to contain bin edges and number counts
+        binedges = [low]
+        bincounts = []
+
+        # total number of samples
+        nsamples = len(samples)
+
+        # loop over bins
+        for i in range(nbins):
+            # set upper edge of bin
+            binedges.append(binedges[-1] + binstep)
+
+            # count number of samples in bin
+            bincount = 0
+            for sample in samples:
+                if binedges[i] <= sample < binedges[i+1]:
+                    bincount += 1
+
+                # add in amy samples that equal max value in the final bin
+                if i == (nbins - 1) and sample == max:
+                    bincount += 1
+
+            if norm:
+                # normalise the bin counts
+                bincount = (bincount / nsamples) / binstep
+
+            bincounts.append(bincount)
+
+        return binedges, bincounts
     ```
 
 ### Exercise {{ counter() }}
@@ -876,198 +1040,291 @@ code up the function yourself.
 
     ![Plot of boxcar and triangle function](exercises/exercises_boxcar_tri.png)
 
+## Reading/writing data
+
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
-    Write a function to "bin" a list of numbers, i.e., count how many of the numbers are in each of
-    a set of intervals over the full range (e.g., the bin sizes in a
-    [histogram](https://en.wikipedia.org/wiki/Histogram)). The function arguments should be
-    the list of numbers, the number of bins (defaulting to 10), and the lower and upper bin edges
-    (if not given by the user these should default to use the smallest and largest number in the
-    input list, respectively).
+    You have a file containing the student grades for 3 different exercises. The file consists of
+    a header line (denoted by starting with a `#`), followed by lines containing four values
+    separated by commas ("comma separated values", or CSV):
 
-    Try doing this without using NumPy!
+    1. unique student ID
+    2. grade for exercise 1 (mark out of 20)
+    3. grade for exercise 2 (mark out of 30)
+    4. grade for exercise 3 (mark out of 40)
 
-??? info "Solution"
+    E.g.,:
 
-    ```python
-    def binned(samples, nbins=10, low=None, high=None):
-        """
-        Count the number of values within a set of bins.
-
-        Parameters
-        ----------
-        samples: list
-            A list of numbers which will be "binned"
-        nbins: int
-            The number of bins into which to split the range of numbers
-        low: float
-            The edge of the lowest bin (defaults to the smallest value in `samples`)
-        high: float
-            The edge of the highest bin (defaults to the largest values in `samples`)
-
-        Returns
-        -------
-        tuple
-            A tuple containing two lists: the bin edges and the number counts in each
-            bin
-        """
-
-        # get the bin ranges
-        if low is None:
-            low = min(samples)
-
-        if high is None:
-            high = max(samples)
-
-        # step size between bins
-        binstep = (high - low) / nbins
-
-        # lists to contain bin edges and number counts
-        binedges = [low]
-        bincounts = []
-
-        # loop over bins
-        for i in range(nbins):
-            # set upper edge of bin
-            binedges.append(binedges[-1] + binstep)
-
-            # count number of samples in bin
-            bincount = 0
-            for sample in samples:
-                if binedges[i] <= sample < binedges[i+1]:
-                    bincount += 1
-
-                # add in amy samples that equal max value in the final bin
-                if i == (nbins - 1) and sample == max:
-                    bincount += 1
-
-            bincounts.append(bincount)
-
-        return binedges, bincounts
+    ```
+    # Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40)
+    1234, 12, 23, 29
+    1235, 9, 28, 31
+    1236, 13, 8, 25
     ```
 
-!!! question "Part 2"
-    Edit the function to take another argument, `norm`, which if `True` normalises the bin counts
-    so that the area under the histogram $A = \sum_i^{N_{\rm bins}} n_i \Delta x$ adds up to 1.
+    Read in the file and then calculate each student's total mark (as a percentage rounded to the
+    nearest integer), where the three exercises are weighted at 25%, 25% and 50%, respectively. You
+    can used a library such as [NumPy](https://numpy.org/doc/stable/index.html) to read in the
+    data.
 
-??? info "Solution"
+??? note "Solution"
+    A possible way _without_ using, e.g., NumPy
 
     ```python
-    def binned(samples, nbins=10, low=None, high=None, norm=False):
-        """
-        Count the number of values within a set of bins.
+    resfile = "results.csv"  # the results file
 
-        Parameters
-        ----------
-        samples: list
-            A list of numbers which will be "binned"
-        nbins: int
-            The number of bins into which to split the range of numbers
-        low: float
-            The edge of the lowest bin (defaults to the smallest value in `samples`)
-        high: float
-            The edge of the highest bin (defaults to the largest values in `samples`)
-        norm: bool
-            If True normalise the bin counts (default is False)
+    maxmarks = [20, 30, 40]  # maximum marks for each exercise
+    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
 
-        Returns
-        -------
-        tuple
-            A tuple containing two lists: the bin edges and the number counts in each
-            bin
-        """
+    # read in results
+    grades = {}
+    with open(resfile, "r") as fp:
+        for line in fp.readlines():
+            # ignore header lines starting with a #
+            if line[0] != "#":
+                # split the line on commas
+                splitline = line.split(",")
 
-        # get the bin ranges
-        if low is None:
-            low = min(samples)
+                # get student ID (string trailing whitespace)
+                studentid = splitline[0].strip()
 
-        if high is None:
-            high = max(samples)
+                # get grades (converting to integers)
+                grades[studentid] = [int(grade.strip()) for grade in splitline[1:]]
 
-        # step size between bins
-        binstep = (high - low) / nbins
+    # calculate final weighted grades
+    finalgrades = {}
+    for studentid in grades:
+        finalgrade = 0.0
+        for i in range(len(maxmarks)):
+            finalgrade += weights[i] * (grades[studentid][i] / maxmarks[i])
 
-        # lists to contain bin edges and number counts
-        binedges = [low]
-        bincounts = []
-
-        # total number of samples
-        nsamples = len(samples)
-
-        # loop over bins
-        for i in range(nbins):
-            # set upper edge of bin
-            binedges.append(binedges[-1] + binstep)
-
-            # count number of samples in bin
-            bincount = 0
-            for sample in samples:
-                if binedges[i] <= sample < binedges[i+1]:
-                    bincount += 1
-
-                # add in amy samples that equal max value in the final bin
-                if i == (nbins - 1) and sample == max:
-                    bincount += 1
-
-            if norm:
-                # normalise the bin counts
-                bincount = (bincount / nsamples) / binstep
-
-            bincounts.append(bincount)
-
-        return binedges, bincounts
+        finalgrades[studentid] = round(finalgrade * 100)  # convert to percentage
     ```
 
-### Exercise {{ counter() }}
-
-!!! question
-    Estimate the value of $\pi$ using a Monte-Carlo method (i.e., through drawing random numbers).
-
-??? info "Solution"
-    A potential solution, based on the ratio of the area of a square with sides 2 units long
-    ($A_s = 2 \times 2 = 4$) to a circle with radius of 1 unit ($A_c = \pi r^2 = \pi$), being
-    $(A_s / A_c) = 4/\pi$, is:
+    This can be more compact using NumPy's
+    [`loadtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) function or
+    the more complete
+    [`genfromtxt()`](https://numpy.org/doc/stable/reference/generated/numpy.genfromtxt.html)
+    function, e.g.,:
 
     ```python
-    # import numpy for random number generation
     import numpy as np
 
-    # create random number generator
-    rstate = np.random.default_rng()
+    resfile = "results.csv"  # the results file
 
-    # set the number of samples to draw for estimation
-    nsamples = 10000
+    maxmarks = [20, 30, 40]  # maximum marks for each exercise
+    weights = [0.25, 0.25, 0.50]  # fractional weights for each exercise
+    
+    results = np.loadtxt(
+        resfile,
+        comments="#",  # ignore header (could also use skiprows=1)
+        delimiter=",",  # comma separated values
+    )
 
-    # draw nsamples samples in x and y uniformly from the square between -1 and +1
-    samples = rstate.uniform(-1, 1, (nsamples, 2))
+    # calculate final weighted grades
+    gradevalues = np.round(
+        100 * sum(weights[i] * results[:,i+1] / maxmarks[i] for i in range(len(weights)))
+    )
 
-    # get "magnitude" of each point sqrt(x^2 + y^2)
-    radius = np.sqrt(samples[:, 0] ** 2 + samples[:, 1] ** 2)
-    # radius = np.linalg.norm(samples, axis=1)  # another option
-
-    # work out how many samples are within the unit circle (i.e., radius < 1)
-    numincirc = np.sum(radius < 1)
-
-    # get estimate of pi
-    estpi = 4 * (numincirc / nsamples)
-
-    print(estpi)
+    for i in range(len(results)):
+        studentid = str(results[i, 0])  # convert ID to string
+        finalgrades[studentid] = gradevalues[i]
     ```
+
+    Another option would be to use the
+    [pandas](https://pandas.pydata.org/pandas-docs/stable/index.html)
+    [`read_csv()`](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html)
+    function.
+
+!!! question "Part 2"
+    Write the results to a new CSV file with the total grade as a new fifth column.
+
+??? info "Solution"
+    There are again multiple ways of doing this. E.g., using the NumPy [`savetxt()`] function
+    (assuming we have the `results` and `finalgrades` as above):
+
+    ```python
+    import numpy as np
+
+    # append final results onto the "results" array
+    results = np.hstack((results, [grade for grade in finalgrades.items()]))
+
+    outputfile = "final_results.csv"
+    header = "np.Student ID, Exercise 1 (20), Exercise 2 (30), Exercise 3 (40), Final grade (%)"
+
+    np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
+    ```
+
+## Python classes
 
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Create a class to hold data from an astronomical survey. It will store the name of each object
-    and the object's magnitude. Upon initialisation the class can take in a dictionary keyed to
+    and the object's [magnitude](https://en.wikipedia.org/wiki/Magnitude_(astronomy)). Upon
+    initialisation the class should take in a single argument, which is a dictionary keyed to
     object names with their magnitudes as the values. By default it should be initialised with an
-    empty dictionary.
+    empty dictionary if nothing is passed to it. It should raise an error if the supplied with
+    something other than a dictionary.
 
-    The class should have a method for adding in new objects.
+    The class should have a method for adding in new objects, and methods for returning lists of
+    the names and magnitudes of all objects in the survey, respectively.
+
+??? info "Solution"
+    A possible class is:
+
+    ```python
+    class AstroSurvey:
+        def __init__(self, survey={}):
+            # create an attribute that will store the survey - it is useful to use a dictionary
+            self.survey = {}
+
+            if not isinstance(survey, dict):
+                raise TypeError("Input must be a dictionary")
+
+            # add copy of all objects into the survey
+            for key, value in survey.items():
+                self.add_object(key, value)
+
+        def add_object(self, name, magnitude):
+            """
+            Add a new object into the survey.
+
+            Parameters
+            ----------
+            name: str
+                The name of the object.
+            magnitude: float
+                The magnitude of the object.
+            """
+
+            if not isinstance(name, str):
+                raise TypeError("The object name must be a string")
+
+            if not isinstance(magnitude, (float, int)):
+                raise TypeError("The object's magnitude must be a number")
+
+            # add into survey attribute
+            self.survey[name] = magnitude
+
+        def object_names(self):
+            """
+            Return a list of object names.
+            """
+
+            return list(self.survey.keys())
+
+        def object_magnitudes(self):
+            """
+            Return a list of object magnitudes.
+            """
+
+            return list(self.survey.values())
+    ```
+
+    This could be used by doing, e.g.,:
+
+    ```python
+    # create an empty survey
+    survey = AstroSurvey()    
+
+    # add some objects (first few Messier objects)
+    survey.add_object("M1", 8.4)
+    survey.add_object("M2", 6.3)
+    survey.add_object("M3", 6.2)
+    survey.add_object("M4", 5.9)
+    ```
+
+    You might note that this currently doesn't do much more than copying one dictionary into
+    another, albeit with some additional type checking!
 
 !!! question "Part 2"
     Add a methods that return the name of the brightest and dimmest objects. Note that for
     magnitudes in astronomy the lower the number the brighter the object!
+
+??? info "Solution"
+
+    ```python hl_lines="48-68"
+    class AstroSurvey:
+        def __init__(self, survey={}):
+            # create an attribute that will store the survey - it is useful to use a dictionary
+            self.survey = {}
+
+            if not isinstance(survey, dict):
+                raise TypeError("Input must be a dictionary")
+
+            # add copy of all objects into the survey
+            for key, value in survey.items():
+                self.add_object(key, value)
+
+        def add_object(self, name, magnitude):
+            """
+            Add a new object into the survey.
+
+            Parameters
+            ----------
+            name: str
+                The name of the object.
+            magnitude: float
+                The magnitude of the object.
+            """
+
+            if not isinstance(name, str):
+                raise TypeError("The object name must be a string")
+
+            if not isinstance(magnitude, (float, int)):
+                raise TypeError("The object's magnitude must be a number")
+
+            # add into survey attribute
+            self.survey[name] = magnitude
+
+        def object_names(self):
+            """
+            Return a list of object names.
+            """
+
+            return list(self.survey.keys())
+
+        def object_magnitudes(self):
+            """
+            Return a list of object magnitudes.
+            """
+
+            return list(self.survey.values())
+
+        def brightest(self):
+            """
+            Return the name of the brightest object.
+            """
+
+            # get the index of the brightest object
+            mag = min(self.object_magnitudes())
+            idx = self.object_magnitudes().index(mag)
+
+            return self.object_names()[idx]
+
+        def dimmest(self):
+            """
+            Return the name of the dimmest object.
+            """
+
+            # get the index of the dimmest object
+            mag = max(self.object_magnitudes())
+            idx = self.object_magnitudes().index(mag)
+
+            return self.object_names()[idx]
+    ```
+
+    Using these with the previous example could be done with, e.g.,
+
+    ```python
+    brightest = survey.brightest()
+    print(f"The brightest object in the survey is {brightest}")
+
+    dimmest = survey.dimmest()
+    print(f"The dimmest object in the survey is {dimmest}")
+    ```
 
 ### Exercise {{ counter() }}
 
@@ -1132,11 +1389,124 @@ code up the function yourself.
     patch could be used instead if you work out the bottom left corner and the required rotation
     angle.
 
+## Debugging
+
+### Exercise {{ counter() }}
+
+!!! question
+    Fix this broken code:
+
+    ```python
+    import maths
+
+    deg hypotenuse(a=1.0, b)
+        """
+        A function to calculate and return the hypotenuse of a right angle
+        triangle with opposite and adjacent sides with lengths a and b.
+        """
+
+        hyp = maths.sqrt(a ** 2 + b ** 2
+
+        retrn hy
+
+    hp = hypotenus(a="3", b=4)
+    ```
+
+??? info "Solution"
+    The problems are highlighted below
+
+    ```python hl_lines="1 7 13 15 20"
+    import maths  # "maths" is not a standard Python library
+
+    # several issues:
+    #  - typo in "def"
+    #  - no colon at the end of the line
+    #  - can't have a keyword argument before a positional argument
+    deg hypotenuse(a=1.0, b)
+        """
+        A function to calculate and return the hypotenuse of a right angle
+        triangle with opposite and adjacent sides with lengths a and b.
+        """
+
+        hyp = maths.sqrt(a ** 2 + b ** 2  # closing bracket was missing, math library fixed
+
+        retrn hy  # typo in "return" and returned variable name
+
+    # a couple of issues:
+    #  - typo in called function "hypotenuse"
+    #  - trying to pass a string when a number is required
+    hp = hypotenus(a="3", b=4)
+    ```
+
+    A fixed version would be:
+
+    ```python
+    import math
+
+    def hypotenuse(a, b):
+        """
+        A function to calculate and return the hypotenuse of a right angle
+        triangle with opposite and adjacent sides with lengths a and b.
+        """
+
+        hyp = math.sqrt(a ** 2 + b ** 2)
+
+        return hyp
+
+    hp = hypotenuse(a=3, b=4)
+    ```
+
+!!! question
+    Fix this broken code:
+
+    ```python
+
+
+    ```
+
+## General problems
+
+### Exercise {{ counter() }}
+
+!!! question
+    Estimate the value of $\pi$ using a Monte-Carlo method (i.e., through drawing random numbers).
+
+??? info "Solution"
+    A potential solution, based on the ratio of the area of a square with sides 2 units long
+    ($A_s = 2 \times 2 = 4$) to a circle with radius of 1 unit ($A_c = \pi r^2 = \pi$), being
+    $(A_s / A_c) = 4/\pi$, is:
+
+    ```python
+    # import numpy for random number generation
+    import numpy as np
+
+    # create random number generator
+    rstate = np.random.default_rng()
+
+    # set the number of samples to draw for estimation
+    nsamples = 10000
+
+    # draw nsamples samples in x and y uniformly from the square between -1 and +1
+    samples = rstate.uniform(-1, 1, (nsamples, 2))
+
+    # get "magnitude" of each point sqrt(x^2 + y^2)
+    radius = np.sqrt(samples[:, 0] ** 2 + samples[:, 1] ** 2)
+    # radius = np.linalg.norm(samples, axis=1)  # another option
+
+    # work out how many samples are within the unit circle (i.e., radius < 1)
+    numincirc = np.sum(radius < 1)
+
+    # get estimate of pi
+    estpi = 4 * (numincirc / nsamples)
+
+    print(estpi)
+    ```
+
 ## Advanced exercises
 
 These exercises are very much just for fun if you fancy something a bit more challenging!
 
-### Exercise {{ advcounter() }}
+### Exercise {{ counter() }}
 
 !!! question
     Write a class that implements a tic-tac-toe game.
