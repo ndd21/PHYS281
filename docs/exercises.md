@@ -107,7 +107,8 @@ aim is for you to think about how you would code up the function yourself.
             maximum = v  # update comparitor
     ```
 
-    or (using the `range()` and `len()` functions):
+    or (using the [`range()`](https://docs.python.org/3/library/functions.html#func-range) and
+    [`len()`](https://docs.python.org/3/library/functions.html#len) functions):
 
     ```python
     maximum = x[0]
@@ -319,7 +320,7 @@ aim is for you to think about how you would code up the function yourself.
             positive.append(particle)
     ```
 
-    Another, using list comprehension, is:
+    Another method, using list comprehension, is:
 
     ```python
     positive = [c for c in charge.values() if c > 0]
@@ -1456,12 +1457,112 @@ aim is for you to think about how you would code up the function yourself.
     hp = hypotenuse(a=3, b=4)
     ```
 
+### Exercise {{ counter() }}
+
 !!! question
     Fix this broken code:
 
     ```python
+    x = [1, 5, 1, 5 6, 2, 5, 7]
 
+    # sum the cube of each number
+    y = ""
+    for i = range(len(x) + 1)
+        y += x[i] *** 3
+    ```
 
+??? info "Solution"
+    The problems are highlighted below:
+
+    ```python hl_lines="1 4 10 11"
+    x = [1, 5, 1, 5 6, 2, 5, 7]  # missing comma between 5 and 6
+
+    # sum the cube of each number
+    y = ""  # should initialise as 0 not an empty string
+    
+    # various issues:
+    #  - using "=" rather than in
+    #  - missing colon at end of for statement
+    #  - final index will be 1 too big for y
+    for i = range(len(x) + 1)
+        y += x[i] *** 3  # should use "**" not "***"
+    ```
+
+    A fixed version would be:
+
+    ```python
+    x = [1, 5, 1, 5, 6, 2, 5, 7]
+
+    # sum the cube of each number
+    y = 0.0
+    for i in range(len(x)):
+        y += x[i] ** 3
+    ```
+
+### Exercise {{ counter() }}
+
+!!! question
+    Fix this broken code:
+
+    ```python
+    import numpy as npy
+
+    # create dictionary of numpy arrays
+    arrs = {
+        "one": np.array([1, 2, 3])
+        "two": np.array([4, 5, 6]),
+        "three": np.array(7, 8, 9)
+    }
+
+    # concatenate the three arrays
+    full = np.concatenate(arrs["on"], arrs["two"], arr["three])
+
+    # get the shape of the array
+    shape = full.shape()
+    ```
+
+??? info "Solution"
+    The problems are highlighted below:
+
+    ```python hl_lines="1 5 7 16 19"
+    import numpy as npy  # alias is not the same as used below
+
+    # create dictionary of numpy arrays
+    arrs = {
+        "one": np.array([1, 2, 3])  # missing comma
+        "two": np.array([4, 5, 6]),
+        "three": np.array(7, 8, 9)  # missing square brackets
+    }
+
+    # concatenate the three arrays
+    # the errors are:
+    #  - "on" is not a valid key
+    #  - arr is not a known variable
+    #  - missing closing quotation mark on "three"
+    #  - concatenate requires a tuple
+    full = np.concatenate(arrs["on"], arrs["two"], arr["three])
+
+    # get the shape of the array
+    shape = full.shape()  # shape is a property not a method
+    ```
+
+    A fixed version would be:
+
+    ```python
+    import numpy as np
+
+    # create dictionary of numpy arrays
+    arrs = {
+        "one": np.array([1, 2, 3]),
+        "two": np.array([4, 5, 6]),
+        "three": np.array([7, 8, 9])
+    }
+
+    # concatenate the three arrays
+    full = np.concatenate((arrs["one"], arrs["two"], arrs["three"]))
+
+    # get the shape of the array
+    shape = full.shape
     ```
 
 ## General problems
