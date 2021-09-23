@@ -1157,6 +1157,105 @@ aim is for you to think about how you would code up the function yourself.
     np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
     ```
 
+!!! question "Part 1"
+    Suppose you have the following class to hold some experimental data consisting of the electric
+    field strength at a set of positions on a uniform grid:
+
+    ```python
+    import numpy as np
+    
+    class ElectricField:
+        def __init__(self, E, xpos, ypos, label="Efield"):
+            """
+            Store the measured electric field at a set of 2D coordinates.
+
+            Parameters
+            ----------
+            E: array
+                A 2D array of values of the electric field strength.
+            xpos: array
+                A 1D array of the x-positions of the measurements.
+            ypos: array
+                A 1D array of the y-positions of the measurements.
+            label: str
+                A label/name for the experiment. Default is "Efield"
+            """
+
+            # store copy of E-field as the E attribute
+            self.E = np.array(E) 
+
+            # store mesh of x-y positions
+            self.xy = np.meshgrid(xpos, ypos)
+
+            # check E and grid positions are consistent
+            if self.E.shape != (len(xpos), len(ypos)):
+                raise ValueError("Shape of E is not consistent with grid points")
+
+            self.label = label
+    ```
+
+    Add a method to this class that saves the class itself as a
+    [pickle](https://docs.python.org/3/library/pickle.html) file (you can used the NumPy
+    [`save()`](https://numpy.org/doc/stable/reference/generated/numpy.save.html) function with the
+    `allow_pickle=True` option set). It should use the `label` attribute to construct the name of
+    the save file (with appropriate extension added).
+
+    Also add a [`classmethod`](https://docs.python.org/3/library/functions.html#classmethod) to
+    read in a saved object.
+
+    Create an instance of the object and try saving it at reading it back in.
+
+!!! question "Part 2"
+    Add a new method to the class that will return the electric field interpolated at any point
+    within the grid. You may want to use the SciPy
+    [`interp2d`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp2d.html)
+    class. The method should raise an error if trying to interpolate outside the bounds of the x-y
+    grid.
+
+    Try reading in a previously saved object and using this new method on that object.
+
+??? info "Solution"
+    An example of the class could be:
+    
+    ```python
+    --8<-- "docs/exercises/efield.py"
+    ```
+
+    Writing out the class, reading it back in, and using the `field_strength()` method could be
+    done with (assuming the class is defined in a file called `efield.py`):
+
+    ```python
+    from efield import ElectricField
+
+    # get x-y positions
+    x = [-2, -1, 0, 1, 2]
+    y = [-2, -1, 0, 1, 2]
+
+    # "measure" E-field magnitude on the grid
+    measured = [
+        [0.1, 0.2, 0.3, 0.2, 0.1],
+        [0.15, 0.25, 0.35, 0.25, 0.15],
+        [0.17, 0.29, 0.40, 0.31, 0.22],
+        [0.18, 0.31, 0.46, 0.38, 0.30],
+        [0.18, 0.32, 0.52, 0.51, 0.48]
+    ]
+
+    # create class
+    E = ElectricField(measured, x, y, label="experiment1")
+
+    # save field
+    E.save()
+
+    # re-load experiment data
+    Edata = ElectricField.load("experiment1.npy")
+
+    # get field at given point
+    xp, yp = -1.5, 0.4
+    ef = Edata.field_strength(xp, yp)
+
+    print(f"Field strength at ({xp}, {yp}) is {ef}")
+    ```
+
 ## Python classes
 
 ### Exercise {{ counter() }}
