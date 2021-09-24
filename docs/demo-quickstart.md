@@ -3,14 +3,13 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QXX2U11MF3I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 *The sound is a little low on this video for the first few seconds but it will come up to normal volume.*
 
-First, it's traditional for one's first program in any new language to greet the world. You can do this just by typing at the Python prompt:
+First, it's traditional for one's first program in any new language to greet the world. You can do
+this just by typing in the Python prompt:
 
-```
+```python
 >>> print("Hello World!")
 Hello World!
-
 ```
-
 
 ## Program Order
 
@@ -20,11 +19,11 @@ In a more formal program that you would save to a file:
 2. Then any functions (more on this later) we want to declare.
 3. Then the code you actually want to run.
 
-```
+```python
 # This is a comment line; comments can be anywhere
 # Import packages first
 # You can just say "import numpy" but then you have to use numpy.pi below 
-#     and anywhere else, and that gets old fast, so use standard shorthand
+# and anywhere else, and that gets old fast, so use standard shorthand
 import numpy as np
 
 # Now declare functions you'll use below
@@ -37,9 +36,10 @@ print_pi()
 
 ## Python as a calculator
 
-If you just want to use python to do some quick calculations, you can. It's also useful to play with this to get a sense of how Python works with numbers. Usually, it does exactly what you expect.
+If you just want to use python to do some quick calculations, you can. It's also useful to play with
+this to get a sense of how Python works with numbers. Usually, it does exactly what you expect.
 
-```
+```python
 >>> 3 + 6
 9
 
@@ -56,9 +56,11 @@ If you just want to use python to do some quick calculations, you can. It's also
 2.5
 ```
 
-Notice that, when Python did the division, it automatically converted to a decimal (floating-point) number even though it was given 2 integers. If, for some reason, you **don't** want that to happen, use the floor operator to force integer division:
+Notice that, when Python did the division, it automatically converted to a decimal (floating-point)
+number even though it was given 2 integers. If, for some reason, you **don't** want that to happen,
+use the floor operator to force integer division:
 
-```
+```python
 >>> 10 // 4
 2
 ```
@@ -67,7 +69,7 @@ The floor operator truncates the decimal part of the result. It does *not* round
 
 Two more operators that you will find useful are the power and modulo operators:
 
-```
+```python
 # note: the power doesn't have to be an integer (try it)
 >>> 2**3
 8
@@ -80,14 +82,14 @@ Two more operators that you will find useful are the power and modulo operators:
 ## Complex Numbers
 We use *i* in physics, but Python uses *j*:
 
-```
+```python
 >>> (2 + 3j)*(1 - 2j)
 (8 - 1j)
 ```
 
 Note the following won't work:
 
-```
+```python
 >>> j**2
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
@@ -102,7 +104,7 @@ Python thinks a single *j* on its own is a variable! And we haven't defined that
 
 But this works fine:
 
-```
+```python
 >>> 1j**2
 (-1 + 0j)
 ```
@@ -130,7 +132,7 @@ But this works fine:
 ## Assigning variables
 Fire up Python and try out assigning and working with some variables:
 
-```
+```python
 >>> x = 3 + 4
 >>> y = 3.0 + 5.2
 
@@ -146,18 +148,21 @@ Fire up Python and try out assigning and working with some variables:
 
 *Pro tip:* Make your variable names descriptive (but not too long).
 
-That way, when you come back to a code you haven't looked at in weeks, you will still be able to tell what it's doing at a glance.
+That way, when you come back to a code you haven't looked at in weeks, you will still be able to
+tell what it's doing at a glance.
 
 
 ## Functions
 
 Functions are self-contained units of code that you can call from other parts of your code. 
 
-We create a function using the `def` keyword, followed by the name of the function (see tip about variable names above: same applies). 
+We create a function using the `def` keyword, followed by the name of the function (see tip about
+variable names above: same applies). 
 
-After the name, you specify what arguments the function will take, if any, in brackets. After the closing bracket, there's a colon `:`
+After the name, you specify what arguments the function will take, if any, in brackets. After the
+closing bracket, there's a colon `:`
 
-```
+```python
 # just print something, no arguments, nothing returned back
 def say_hello():
     print("Hello world!")
@@ -169,16 +174,17 @@ def square_it(x):
     return x**2
 
 
-# swap the values of two variables and return them both
+# swap the order of two variables and return them both
 def swap(x, y):
     return y, x
 ```
 
-Nothing will visibly happen when you run this code, because this just defined the functions. It doesn't call them, but it does load them into memory.
+Nothing will visibly happen when you run this code, because this just defined the functions. It
+doesn't call them, but it does load them into memory.
 
 But now that they're loaded, you can use them:
 
-```
+```python
 >>> say_hello()
 Hello world!
 
@@ -193,7 +199,7 @@ Hello world!
 ```
 
 The function returns 2 variables but we saved them in 1. What format is the result in?
-```
+```python
 >>> result
 (2, 3)
 ```
@@ -201,7 +207,7 @@ The function returns 2 variables but we saved them in 1. What format is the resu
 The function returns multiple variables as a tuple.
 
 We can access individual values with indices:
-```
+```python
 >>> result[0]
 2
 
@@ -210,7 +216,7 @@ We can access individual values with indices:
 ```
 
 Or, we can split the tuple when we call the function:
-```
+```python
 >>> a_swap, b_swap = swap(a, b)
 >>> print(a_swap)
 2
@@ -221,4 +227,8 @@ Or, we can split the tuple when we call the function:
 
 ## See this code in a notebook
 
-You can play with this code [in a Google Colab notebook](https://colab.research.google.com/drive/1uAgmWZ4OJO3SklbuJkGpi16xqah0E1fp?usp=sharing). Copy the notebook to your own version, and play around with changing values, exploring functions, and so on. A Jupyter notebook like this is like a sandbox for you to test code and try out new things.
+You can play with this code [in a Google Colab
+notebook](https://colab.research.google.com/drive/1uAgmWZ4OJO3SklbuJkGpi16xqah0E1fp?usp=sharing).
+Copy the notebook to your own version, and play around with changing values, exploring functions,
+and so on. A Jupyter notebook like this is like a sandbox for you to test code and try out new
+things.
