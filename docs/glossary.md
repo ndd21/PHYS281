@@ -298,7 +298,7 @@ has the [file extension](#file-extension) `py`.
 
 ## Shell
 
-A [programme](https://en.wikipedia.org/wiki/Shell_(computing)) that provides a command line
+A [program](https://en.wikipedia.org/wiki/Shell_(computing)) that provides a command line
 interface with an operating system, often run within a [terminal](#terminal).
 
 ## Slice
@@ -338,7 +338,7 @@ with syntax highlighting can often recognise the language and highlight appropri
 ## Terminal
 
 A text-based window for running commands via a command-line prompt in a [shell](#shell). In Windows,
-a common terminal programme is
+a common terminal program is
 [PowerShell](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell).
 
 ## Traceback

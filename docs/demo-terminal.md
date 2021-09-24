@@ -3,15 +3,14 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K9HtfYx1hOQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 As described in the [_VS Code_](../demo-vs-code/index.html) introduction, any Python code that you
-write can be run within [_VS Code_](../demo-vs-code/index.html#running-code).
-
-However, it use also useful to know how run code and navigate a file system using a @(terminal)
-(sometimes referred to as a Command Prompt window, console or @(shell)). Indeed, a Python code
-interpreter can be run interactively via a terminal as will be described in [another
+write can be run within [_VS Code_](../demo-vs-code/index.html#running-code). However, it use also
+useful to know how run code and navigate a file system using a @(terminal) (sometimes referred to as
+a Command Prompt window, console or @(shell)). Indeed, a Python code interpreter can be run
+interactively via a terminal as will be described in [another
 tutorial](../demo-python-terminal/index.html).
 
 A terminal is a text-based window that allows you to type and run commands. There are different
-terminal programmes for different operating systems, the most common being:
+terminal programs for different operating systems, the most common being:
 
 === "Windows"
     [**PowerShell Prompt**](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell)
@@ -24,8 +23,8 @@ terminal programmes for different operating systems, the most common being:
 
     Open this by either:
 
-    * clicking the Windows start :fontawesome-brands-windows: button and scroll to find "Anaconda
-      Powershell Prompt (anaconda3)" within the "Anaconda3 (64-bit)" menu;
+    * clicking the Windows start :fontawesome-brands-windows: button and scrolling to find
+      "Anaconda Powershell Prompt (anaconda3)" within the "Anaconda3 (64-bit)" menu;
     * or, searching for "PowerShell" in the search bar and selecting "Anaconda Powershell Prompt".
 
     ![Anaconda Powershell](img/anaconda-powershell.png)
@@ -51,7 +50,7 @@ terminal programmes for different operating systems, the most common being:
 
     ![Linux terminal](img/linuxterminal.png)
 
-Within a terminal the line you input commands onto is called the @(command line) and it starts with
+Within a terminal, the line you input commands onto is called the @(command line) and it starts with
 some characters called the @(command prompt):
 
 === "Windows"
@@ -64,22 +63,22 @@ some characters called the @(command prompt):
 If you have installed Anaconda, the command prompt should start with the name of the Anaconda
 environment in brackets, e.g., `(base)` for the default environment.
 
-A terminal might sometimes be referred to as a "@(shell)"; the shell is a programme that runs within
+A terminal might sometimes be referred to as a "@(shell)"; the shell is a program that runs within
 the terminal and is what you actually interact with when running commands. Another common term used
 to describe a terminal is a "console". Despite subtly different meanings terminal, console and shell
 are often used interchangeably.
 
 !!! note
     In a Mac OS/Linux terminal there are a variety of different @(shells) that you can use with
-    slightly different syntaxes and abilities (shell's are a coding language within themselves),
-    but on most distributions the default shell is called
+    slightly different syntaxes and abilities (shell's are themselves coding languages), but on
+    most distributions the default shell is called
     [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).
 
 ## Terminal "cheat sheet"
 
 Below we will go through a few of the basic commands, with examples, to help navigate using a
-terminal. If there is different syntax between Windows, Mac OS, or Linux these will be given. For
-Windows these commands assume you are using the PowerShell and not a different terminal programme.
+terminal. If there is a different syntax between Windows, Mac OS, or Linux these will be given. For
+Windows these commands assume you are using the PowerShell and not a different terminal program.
 
 Two useful features (among others) of a terminal are:
 
@@ -188,7 +187,7 @@ $ cd ..
     -rw-r--r--  1 username username
     ```
     
-    A `d` at the start of the attributes indicates a directory, while a `-` is a file`. The other
+    A `d` at the start of the attributes indicates a directory, while a `-` is a file. The other
     letters (`r`, `w`, and `x`) represent whether, and by whom, the files are readable, writeable
     and executable, respectively.
 
@@ -237,7 +236,7 @@ Or, make new directory based on an absolute of relative path, e.g.,:
     `more` will output just what fits on the screen and the content can be scrolled through with
     the ++enter++ key.
 
-E.g., to show the content of a text file called `numbers.txt` in the current directory, which
+E.g., to show the contents of a text file called `numbers.txt` in the current directory, which
 contains a column of numbers, use:
 
 ```bash
