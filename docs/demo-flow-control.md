@@ -16,15 +16,15 @@ In Python the way to specify that you are defining something "inside" a flow con
 function, or class, is by using indenting. Most other languages use parentheses (i.e., brackets) of
 some sort, but in Python indenting is essential.
 
-Things that are together within the same statement or definition must be indented using whitespace
-(regular spaces or tabs) to the same level.
+Things that are together within the same statement or definition must be indented using
+@(whitespace) (regular spaces or tabs) to the same level.
 
 !!! tip
     Be consistent with your whitespace. It is highly recommended that you use spaces rather than
     tabs. Using four spaces for each level of indentation is considered standard and is recommended.
 
 If you are nesting statements (i.e., flow control within a function definition, or loops within
-loops), each statement definition my be further indented.
+loops), each statement definition must be further indented.
 
 ```python
 if a == b:
@@ -77,13 +77,14 @@ if x is True:
 IndentationError: unexpected indent
 ```
 
-If you are writing code in an IPython terminal session, or using VS Code with the Python extension,
-it can automatically indent for you. But, be careful!
+If you are writing code in an IPython terminal session, or using _VS Code_ with the Python
+extension, it can automatically indent for you. But, be careful!
 
 ## Conditional expressions
 
-Before discussing [`if` statements](#if-statements) we need to describe conditional expressions. These can be
-mathematical equalities and inequalities (useful for comparing numbers):
+Before discussing [`if` statements](#if-statements) we need to describe conditional expressions.
+These can be mathematical equalities and inequalities (useful for comparing numbers, but also usable
+for other objects):
 
  * `x == y`: "the value of `x` is equal to the value of `y`"
  * `x != y`: "the value of `x` is not equal to the value of `y`"
@@ -125,7 +126,7 @@ These expressions can be combined with the logical statements
  * `x or y`: `True` if either `x` is `True` **or** `y` is `True`
  * `not x`: `True` if `x` is **not** `True` (i.e., `x` is `False`)
 
-where `x` and `y` can be variables, or other conditional expression like above. These expressions
+where `x` and `y` can be variables, or other conditional expressions like above. These expressions
 return boolean values:
 
 ```python
@@ -149,8 +150,8 @@ False
     such as lists, dictionaries or tuples, or strings, an empty array will evaluate as `False` while
     an array containing any number of values will evaluate as `True`.
 
-The `is` keyword can be used to test if two variables have the same value and are also of the same
-type:
+The `is` @(keyword) can be used to test if two variables have the same value and are also of the
+same type:
 
 ```python
 x = 2     # integer value
@@ -216,7 +217,7 @@ else:
 ### `elif`
 
 There may be multiple exclusive conditions that you want to test for. To do this you can use `elif`
-(as shortening of "else if") statements after an initial `if` statement:
+(a shortening of "else if") statements after an initial `if` statement:
 
 ```python
 x = 3
@@ -226,11 +227,11 @@ if x < 2:
     print("My number is less than 2")
 elif x < 4:
     # indent again for the elif statement
-    print("My number if greater than or equal to 2, but less than 4")
+    print("My number is greater than or equal to 2, but less than 4")
 else:
     # indent again
     print("My number is greater than or equal to 4")
-My number if greater than or equal to 2, but less than 4
+My number is greater than or equal to 2, but less than 4
 ```
 
 You can have as many `elif` statements as required.
@@ -350,7 +351,7 @@ for i in range(10, 1, -2):
 #### `enumerate`
 
 The [`enumerate`](https://docs.python.org/3/library/functions.html#enumerate) built-in function
-allow you to loop over both the indices and values of a sequence that you give it. For each
+allows you to loop over both the indices and values of a sequence that you give it. For each
 iteration of a loop it returns a tuple pair containing the index and value (you can name these
 whatever you want), e.g.:
 
