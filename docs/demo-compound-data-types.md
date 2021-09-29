@@ -49,8 +49,8 @@ x = []
 x = list()
 ```
 
-To find out the length of a list, i.e., how many items it contains, you can use the `len`
-@(keyword):
+To find out the length of a list, i.e., how many items it contains, you can use the `len()`
+built-in function:
 
 ```python
 x = [1, 2, 3]
@@ -433,7 +433,7 @@ These are useful for _iterating_ over the dictionary, for example, in a
 [for-loop](../demo-flow-control/index.html#for-and-while-loops).
 
 You can remove values from a dictionary using the
-[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) keyword or the `pop` method. `del`
+[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) @(keyword) or the `pop` method. `del`
 just deletes a value, while `pop` deletes but also returns that deleted value:
 
 ```python
