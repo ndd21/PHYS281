@@ -224,6 +224,31 @@ aim is for you to think about how you would code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
+    Create an 3x4 (3 rows, 4 columns) array using a list of lists, where each value in the array is
+    initialised to be 1.
+
+??? info "Solution"
+    The best way is to use list comprehension, e.g.,:
+
+    ```python
+    x = [[1 for _ in range(4)] for _ in range(3)]
+    ```
+
+!!! question "Part 2"
+    Set the corner values of the array to be zero.
+
+??? info "Solution"
+
+    ```python
+    x[0][0] = 0
+    x[-1][0] = 0
+    x[0][-1] = 0
+    x[-1][-1] = 0
+    ```
+
+### Exercise {{ counter() }}
+
+!!! question "Part 1"
     Create a 2D 3x3 matrix of numbers (using lists). Loop over the rows in the matrix and print out
     the sum of each row.
 
