@@ -1820,3 +1820,13 @@ These exercises are very much just for fun if you fancy something a bit more cha
     ```python
     --8<-- "docs/exercises/tictactoe.py"
     ```
+
+!!! question
+    Write a script that plot the two-dimensional data in the file ![density.txt](docs/exercises/density.txt). Use the information contained in the file ![data_description.txt](docs/exercise/data_description.txt) to define the axes of your plot.
+
+??? info "Solution"
+    A potential solution is:
+
+    ```python
+    --8<-- "docs/exercises/plot_density.py"
+    ```

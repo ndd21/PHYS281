@@ -1,0 +1,7 @@
+xmin = 0
+xmax = 15.0
+xlabel = x
+ymin = 0
+ymax = 30
+ylabel = y
+clabel = n
