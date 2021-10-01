@@ -5,11 +5,11 @@
 [Matplotlib](https://matplotlib.org/) is a powerful library for making plots in Python. It can be
 used to create basic plots, but also has the ability to create very complex plots. A variety of
 useful tutorials can be found on the [Matplotlib
-webpage](https://matplotlib.org/3.3.1/tutorials/index.html), but here we will cover some of the
+webpage](https://matplotlib.org/stable/tutorials/index.html), but here we will cover some of the
 basics.
 
 The plotting functions within Matplotlib are found within the
-[`pyplot`](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.html#module-matplotlib.pyplot)
+[`pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot)
 submodule, which is often imported using the @(alias):
 
 ```python
@@ -23,7 +23,7 @@ used.
 ## Basic line plot
 
 A basic line plot can be produced using the
-[`plot`](https://matplotlib.org/3.3.1/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
+[`plot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot)
 function of `pyplot`. At its most basic `plot` takes a set of y-axis values:
 
 ```python
@@ -101,7 +101,7 @@ be used, although there are a set of base colours for which only the first initi
 ```python
 import matplotlib.colors as mcolors
 
-print(list(mcolors.BASE_COLORS))                                       
+print(list(mcolors.BASE_COLORS))
 ['b', 'g', 'r', 'c', 'm', 'y', 'k', 'w']
 ```
 
@@ -195,9 +195,9 @@ plt.show()
 The above plots were missing important information. Plots should always have axis labels!
 
 Labels can be added to the x- and y-axes using the
-[`xlabel`](https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel)
+[`xlabel`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.xlabel.html#matplotlib.pyplot.xlabel)
 and
-[`ylabel`](https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel)
+[`ylabel`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.ylabel.html#matplotlib.pyplot.ylabel)
 functions, e.g.,:
 
 ```python
@@ -214,7 +214,7 @@ plt.show()
 ![Demonstration of axes labels](matplotlib/axeslabels.png)
 
 The font and font size for the axes labels, and many other [font
-effects](https://matplotlib.org/3.2.1/api/text_api.html#matplotlib.text.Text), can be controlled
+effects](https://matplotlib.org/stable/api/text_api.html#matplotlib.text.Text), can be controlled
 with the `fontfamily` and `fontsize` keyword arguments, e.g.,
 
 ```python
@@ -251,16 +251,18 @@ for multiple data sets, but as shown above you can control what line colours are
 
 You can add labels to each data set that you plot using the `label` keyword argument to `plot`.
 These "labels" can then be used in a legend using the
-[`legend`](https://matplotlib.org/3.2.1/api/_as_gen/matplotlib.pyplot.legend.html?highlight=legend#matplotlib.pyplot.legend)
+[`legend`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend)
 function.
 
 ```python
+rng = np.random.default_rng()
+
 x = np.arange(10)
 
 # create from data sets
-y1 = np.random.randn(len(x))  # noise
-y2 = np.random.randn(len(x)) + 3 * x  # noise and line
-y3 = np.random.randn(len(x)) + 1.5 * x ** 2  # noise and quadratic
+y1 = rng.normal(len(x))  # noise
+y2 = rng.normal(len(x)) + 3 * x  # noise and line
+y3 = rng.normal(len(x)) + 1.5 * x ** 2  # noise and quadratic
 
 # plot data with labels
 plt.plot(x, y1, color="b", label="Data 1")
@@ -443,7 +445,7 @@ function has been used to add a colour bar on the right hand side representing t
 
 ## Basic histogram
 
-Sometimes you need count the number of data points within a set ranges of values. This is called
+Sometimes you need to count the number of data points within a set ranges of values. This is called
 "binning", i.e., a count of the data in each "bin" or interval. A plot of the binned data is called
 a histogram and this can be made using the
 [`hist`](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.hist.html?highlight=hist#matplotlib.pyplot.hist)
@@ -576,7 +578,7 @@ plt.savefig("myplot.pdf")
 ```
 
 If saving a plot to a PNG or JPEG format, you can set the resolution of the output image using the
-`dpi` keyword argument. Generally a `dpi=150` is good enough for most purposes.
+`dpi` ("dots per inch") keyword argument. Generally a `dpi=150` is good enough for most purposes.
 
 ### Tight layout
 
@@ -748,7 +750,7 @@ Similarly, side-by-side plots can share the same y-axis if required.
 
 !!! note
     More complex plot grids can be defined using the
-    [`gridspec`](https://matplotlib.org/3.3.1/tutorials/intermediate/gridspec.html) module.
+    [`gridspec`](https://matplotlib.org/stable/tutorials/intermediate/gridspec.html#sphx-glr-tutorials-intermediate-gridspec-py) module.
 
 ### Setting up default parameters
 
