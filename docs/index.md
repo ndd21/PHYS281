@@ -120,16 +120,16 @@ The 5 coursework assignments and quizzes count for 30% of the overall grade (6% 
 project counting for 70%.
 
 Help and guidance for the exercises and project will be provided in weekly (Weeks 1-10) computer lab
-sessions split over 3 sessions: 09:00-10:30 and 10:30-12:00 on Tuesdays and 13:00-14:30 on
-Wednesdays. All students will be assigned to one of these sessions. Support can also be found via
-the course Teams channel during these same time slots. There will also be an "office hours" slot for
-additional help held on
+sessions split over 3 sessions: 09:00-10:30 and 10:30-12:00 on Tuesdays and 11:30-13:00 (or
+13:00-14:30 from Week 6 onwards) on Wednesdays. All students will be assigned to one of these
+sessions. Support can also be found via the course Teams channel during these same time slots. There
+will also be an "office hours" slot for additional help held on
 [Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a)
 on Mondays between 10:00-11:00.
 
-The assignments and quizzes must be submitted on Moodle by 13:00 on the Tuesday the week after the
-associated lab session (i.e., the Week 1 assignment should be submitted no later than 13:00 on
-Tuesday of Week 2). The late submission deadline is 13:00 on Wednesday. If you
+The assignments and quizzes must be submitted on Moodle by 14:00 on the Tuesday the week after the
+associated lab session (i.e., the Week 1 assignment should be submitted no later than 14:00 on
+Tuesday of Week 2). The late submission deadline is 14:00 on Wednesday. If you
 require an extension or have a problem please contact [Matt
 Pitkin](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk), [Elisabetta
 Boella](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk) or [Louise
@@ -168,9 +168,15 @@ AppsAnywhere on a machine on campus. The ["Online Python environments"](#online-
 section below has some options for running Python, which can be used as a back-up alternative if you
 have initial installation problems.
 
+## Exercises
+
+A selection of [exercises](https://ma.ttpitk.in/teaching/PHYS281/exercises/) have been created for
+you to try out and test you Python knowledge. These exercises are not marked and are voluntary. They
+will also be used for demonstration purposes during the course lecture slots.
+
 ## Other material
 
-There are a variety of useful Python tutorials freely avaiable online:
+There are a variety of useful Python tutorials freely available online:
 
 * The official Python documentation comes with a [tutorial](https://docs.python.org/3/tutorial/index.html)
   on getting started with Python, covering the majority of concepts required to become a proficient user.
