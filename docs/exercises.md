@@ -1209,11 +1209,12 @@ aim is for you to think about how you would code up the function yourself.
             # store copy of E-field as the E attribute
             self.E = np.array(E) 
 
-            # store mesh of x-y positions
-            self.xy = np.meshgrid(xpos, ypos)
+            # store x and y positions
+            self.x = np.array(xpos)
+            self.y = np.array(ypos)
 
             # check E and grid positions are consistent
-            if self.E.shape != (len(xpos), len(ypos)):
+            if self.E.shape != (len(self.x), len(self.y)):
                 raise ValueError("Shape of E is not consistent with grid points")
 
             self.label = label
@@ -1449,6 +1450,83 @@ aim is for you to think about how you would code up the function yourself.
 
     dimmest = survey.dimmest()
     print(f"The dimmest object in the survey is {dimmest}")
+    ```
+
+### Exercise {{ counter() }}
+
+!!! question
+    Create a class that represents a [black body](https://en.wikipedia.org/wiki/Black_body). The
+    class should contain class attributes that define the [Stefan-Boltzmann
+    constant](https://en.wikipedia.org/wiki/Stefan%E2%80%93Boltzmann_constant) and [Wien's
+    displacement constant](https://en.wikipedia.org/wiki/Wien%27s_displacement_law). It should be
+    initialised with a temperature (in Kelvin) and the body's radius including checks to make sure
+    these are positive numbers.
+    
+    It should include two methods that:
+
+    1. return the black body's [bolometic luminosity](https://en.wikipedia.org/wiki/Luminosity#Luminosity_formulae),
+    2. return the wavelength at which the emission peaks ([Wien's Law](https://en.wikipedia.org/wiki/Wien%27s_displacement_law)) in nanometres.
+
+??? info "Solution"
+
+    ```python
+    import numpy as np
+
+
+    class BlackBody:
+        # Wien's displacement constant (m K)
+        b = 2.897771955e-3
+        
+        # the Stefan-Boltzmann constant (W m^-2 K^-4) 
+        sigma = 5.670374419e-8
+
+        def __init__(self, T, radius):
+            """
+            A black-body.
+
+            Parameters
+            ----------
+            T: float
+                The temperature of the black body (K)
+            radius: float
+                The radius of the black body (m)
+            """
+
+            # check T is a number and greater than 0
+            if not isinstance(T, (float, int)):
+                raise TypeError("Temperature must be a number")
+
+            if T <= 0:
+                raise ValueError("Temperature must be a posiive number")
+
+            self.T = float(T)
+
+            # check radius is a number and greater than 0
+            if not isinstance(radius, (float, int)):
+                raise TypeError("Radius must be a number")
+
+            if radius <= 0:
+                raise ValueError("Radius must be a posiive number")
+
+            self.radius = float(radius)
+
+        def bolometric_luminosity(self):
+            """
+            Return the black body's bolometric luminosity using the Stefan-Boltzmann equation.
+            """
+
+            # objects surface area
+            surfarea = 4 * np.pi * self.radius ** 2
+
+            return self.sigma * surfarea * self.T ** 4
+
+        def peak_wavelength(self):
+            """
+            Return the peak wavelength (in nanometres) of the black body's thermal
+            radiation using Wien's Law.
+            """
+
+            return (self.b / self.T) * 1e9
     ```
 
 ### Exercise {{ counter() }}
