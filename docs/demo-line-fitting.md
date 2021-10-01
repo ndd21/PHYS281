@@ -56,8 +56,7 @@ squares fitting:
 
 * [`polyfit()`](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html) - fit a
   polynomial of given order to some data
-* [`lstsq()`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq)
-  - in the `linalg` submodule.
+* [`lstsq()`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq) - in the `linalg` submodule.
 
 We will show an example with using `polyfit()` for a polynomial of order 1, i.e., a straight line.
 To do this we will generate some fake data consisting of a line with added noise (which in reality
@@ -94,7 +93,7 @@ def model(x, beta0, beta1):
 # create our "fake" data
 n = 100  # number of data points
 x = np.linspace(-10, 10, n)  # set x values at which the measurements are made
-noise = np.random.normal(0.0, 1.0, n)  # set Gaussian noise with mean of 0 and standard deviation of 1
+noise = np.random.default_rng().normal(0.0, 1.0, n)  # set Gaussian noise with mean of 0 and standard deviation of 1
 beta = [0.0, 1.0]  # set "true" y-intercept and gradient to be 0 and 1
 
 data = model(x, beta[0], beta[1]) + noise
@@ -134,7 +133,7 @@ function to do least squares fitting:
 * [`lsq_linear()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.lsq_linear.html) - solves the linear least squares problem
 * [`least_squares()`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) - solves the non-linear least squares problem.
 
-We will show an example of using `curve_fit()`. This can fit the parameters of a arbitrary user
+We will show an example of using `curve_fit()`. This can fit the parameters of an arbitrary user
 defined function, although we will again show fitting a straight line. `curve_fit()` requires the
 function being fit to have its first argument as the independent variable, i.e., the $\mathbf{x}$
 values in our example, follow by separate arguments for the parameters being fit. In the example, we
@@ -149,7 +148,7 @@ from matplotlib import pyplot as plt
 # create our "fake" data
 n = 100  # number of data points
 x = np.linspace(-10, 10, n)  # set x values at which the measurements are made
-noise = np.random.normal(0.0, 3.0, n)  # set Gaussian noise with mean of 0 and standard deviation of 3
+noise = np.random.default_rng().normal(0.0, 3.0, n)  # set Gaussian noise with mean of 0 and standard deviation of 3
 beta = [-2.0, 0.5]  # set "true" y-intercept and gradient to be 0 and 1
 
 data = model(x, beta[0], beta[1]) + noise
