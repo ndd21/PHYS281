@@ -1282,6 +1282,40 @@ aim is for you to think about how you would code up the function yourself.
     print(f"Field strength at ({xp}, {yp}) is {ef}")
     ```
 
+### Exercise {{ counter() }}
+
+!!! question
+    Write a script that plots the two-dimensional data in the file
+    [`density.txt`](exercises/density.txt). Use the information contained in the file
+    [`data_description.txt`](exercises/data_description.txt) to define the axes of your plot (note
+    that "clabel" refers to a label for a colour bar).
+
+??? info "Solution"
+    A potential solution is:
+
+    ```python
+    --8<-- "docs/exercises/plot_density.py"
+    ```
+
+    A different way of reading the the `data_description.txt` file could be done with:
+
+    ```python
+    lims = {}
+    labels = {}
+    with open("data_description.txt", "r") as file:
+        for line in file:
+            key, value = line.split("=")
+
+            # get limit and label values
+            if value.strip().replace(".", "").isnumeric():
+                lims[key.strip()] = float(value.strip())
+            else:
+                labels[key.strip()] = value.strip()
+    ```
+
+    where the limits and labels are stored in dictionaries. Or, it could be read in using the [TOML
+    package](https://pypi.org/project/toml/).
+
 ## Python classes
 
 ### Exercise {{ counter() }}
@@ -1819,16 +1853,4 @@ These exercises are very much just for fun if you fancy something a bit more cha
 
     ```python
     --8<-- "docs/exercises/tictactoe.py"
-    ```
-
-### Exercise {{ counter() }}
-
-!!! question
-    Write a script that plot the two-dimensional data in the file ![density.txt](exercises/density.txt). Use the information contained in the file ![data_description.txt](exercise/data_description.txt) to define the axes of your plot.
-
-??? info "Solution"
-    A potential solution is:
-
-    ```python
-    --8<-- "docs/exercises/plot_density.py"
     ```

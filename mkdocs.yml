@@ -33,8 +33,8 @@ nav:
        - Basic plotting with Matplotlib: 'demo-matplotlib.md'
        - Code testing: 'demo-unit-tests.md'
     - Numerical methods:
-       - Numerical integration: 'numerical-integration.md'
        - Fitting a line: 'demo-line-fitting.md'
+       - Numerical integration: 'numerical-integration.md'
     - Course project:
        - Gravity simulation: 'gravity.md'
        - Marking criteria: 'markinggrid.md'
