@@ -19,7 +19,7 @@ NumPy can be imported using:
 import numpy
 ```
 
-You will often find that the NumPy namespace is aliased as:
+You will often find that the NumPy @(namespace) is aliased as:
 
 ```python
 import numpy as np
@@ -94,7 +94,7 @@ float64
     TypeError: Cannot cast ufunc add output from dtype('float64') to dtype('int64') with casting rule 'same_kind'
     ```
 
-`ndarray`s have a shape attribute that returns a tuple containing the dimensions of the array and
+`ndarray`s have a `shape` attribute that returns a tuple containing the dimensions of the array and
 the size of each dimension:
 
 ```
@@ -107,8 +107,8 @@ Number of dimension: 1
 Length of array: 3
 ```
 
-Like a regular a [`list`](../demo-compound-data-types/index.html#lists), values within an array can
-be accessed using indexing, where the index starts as zero:
+Like a regular [`list`](../demo-compound-data-types/index.html#lists), values within an array can be
+accessed using indexing, where the index starts at zero:
 
 ```python
 print(x[0])  # first value in the array
@@ -125,14 +125,14 @@ print(x)
 [  1   2 100]
 ```
 
-Like with a [`list`](../demo-compound-data-types/index.html#lists) multiple values can be returned,
+Like with a [`list`](../demo-compound-data-types/index.html#lists), multiple values can be returned,
 or assigned, using a [slice](../demo-compound-data-types/index.html#slices) (the `:`):
 
 ```python
 x = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
 print(x[2:4])  # get values from indexes 2 and 3
 [20 30]
-print(x[4::2])  # get values from index 4 to end in steps of 2
+print(x[4::2])  # get values from index 4 to the end in steps of 2
 [ 40  60  80 100]
 x[0:3] = [20, 19, 18]  # re-assign the first three values
 print(x)
@@ -204,7 +204,7 @@ y = np.copy(x)  # yet another way to copy!
 
 #### Pre-initialised arrays
 
-You can create arrays initialised with all elements contain zero, using the
+You can create arrays initialised with all elements containing zero, using the
 [`zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html#numpy.zeros) function:
 
 ```python
@@ -344,7 +344,7 @@ print(x[0][2])  # get the value from the 1st row and 3rd column
 3
 ```
 
-or using a comma to separate the rows and columns, e.g.,:
+or using a comma to separate the indices of the rows and columns, e.g.,:
 
 ```python
 print(x[0, 2])  # get the value from the 1st row and 3rd column
@@ -361,10 +361,11 @@ print(x[1, :])  # get all values from the 2nd row
 !!! tip "Reminder"
     Slices are a way of accessing multiple index values using the colon `:` notation, e.g., `start:stop`
     or `start:stop:step`, where `start` is the index of the first value to return, `stop` is the index
-    _one after_ that of last value to return, and `step` is the integer step between indexes of returned
-    value. If `start` is not supplied it defaults to 0, i.e., the start of the array, if `stop` is not
-    defined it defaults to the last value in the array, and if `step` is not supplied it defaults to 1.
-    
+    _one after_ that of last value to return, and `step` is the integer step between indices of the
+    returned value. If `start` is not supplied, it defaults to 0, i.e., the start of the array, if
+    `stop` is not defined it defaults to the last value in the array, and if `step` is not supplied
+    it defaults to 1.
+
     The [`slice`](https://www.w3schools.com/python/ref_func_slice.asp) built-in function can also
     be used to generate a slice.
 
@@ -699,16 +700,18 @@ wanted repeatable "random" draws, using the
 which takes an integer value:
 
 ```python
-np.random.seed(98263954)
-print(np.random.rand())  # a random number between 0 and 1
-0.08380289901158755
-print(np.random.rand())
-0.6842137004666865
+from numpy.random import default_rng
+
+rng = default_rng(98263954)
+print(rng.uniform())  # a random number between 0 and 1
+0.22816342984233473
+print(rng.uniform())
+0.33584602757208415
 
 # reset the seed
-np.random.seed(98263954)
-print(np.random.rand())  # get the same number as before                                               
-0.08380289901158755
+rng = default_rng(98263954)
+print(rng.uniform())  # a random number between 0 and 1
+0.22816342984233473
 ```
 
 !!! warning
@@ -725,79 +728,83 @@ random numbers can be drawn, but below are a few common examples.
 Numbers can be drawn randomly from a
 [uniform](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)) distribution within a
 given interval, using the
-[`uniform`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.uniform.html)
+[`uniform`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html#numpy.random.Generator.uniform)
 function. This takes the lower and upper range of the interval and the shape of array to return (by
 default a single draw is returned):
 
 ```python
+from numpy.random import default_rng
+
+rng = default_rng()  # use default seed
+
 # draw a single random number between 0 and 5
-x = np.random.uniform(0, 5)
+x = rng.uniform(0, 5)
 print(x)
 4.853972144648509
 
 # draw an array of 5 random numbers between 3.5 and 6.7
-x = np.random.uniform(3.5, 6.7, 5)
+x = rng.uniform(3.5, 6.7, 5)
 print(x)
 [4.87159694 5.39695169 5.0000419  5.25914921 4.49457314]
 
 # draw a 2x2 array of random numbers between -1 and 1
-x = np.random.uniform(-1, 1, (2, 2))
+x = rng.uniform(-1, 1, (2, 2))
 print(x)
 [[ 0.68813313 -0.97703578]
  [ 0.25991054 -0.09875825]]
-
-# equivalently the `rand` function can be used, although it only draws values
-# between 0 and 1
-x = np.random.rand()
 ```
 
 ### Normal distribution
 
 Numbers can be drawn from a [Normal](https://en.wikipedia.org/wiki/Normal_distribution) (or
 Gaussian) distribution using the
-[`normal`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html)
+[`normal`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.normal.html#numpy.random.Generator.normal)
 function, which takes the mean (the `loc` parameter, defaulting to 0), the standard deviation (the
 `scale` parameter, defaulting to 1) and the shape of the array to return:
 
 ```python
+from numpy.random import default_rng
+
+rng = default_rng()
+
 # draw a single Normally distributed random number from a distribution with a
 # mean of 2 and standard deviation of 1
-x = np.random.normal(2, 1)
+x = rng.normal(2, 1)
 print(x)                                                     
 1.5730723103489876
 
 # draw an array of 100 random numbers between with a mean of 0 and standard
 # deviation of 2
-x = np.random.normal(0.0, 1.0, 100)
+x = rng.normal(0.0, 1.0, 100)
 print(x.mean())
 print(x.std())
 0.13988286116368978
 1.0674409970150702
-
- # equivalently the `randn` function can be used, although it only draws values
- # with mean of 0 and standard deviation of 1
-x = np.random.randn()
 ```
 
 ### Random integers
 
 Random integers between an upper and lower bound can be generated using the
-[`randint`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.randint.html)
+[`integers`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.integers.html#numpy.random.Generator.integers)
 function:
 
 ```python
+from numpy.random import default_rng
+
+rng = default_rng()
+
 # generate 10 random integer values between 1 and 7 (excluding 7), i.e., dice rolls
-dicerolls = np.random.randint(1, 7, 10)
+dicerolls = rng.integers(1, 7, 10)
 print(dicerolls)
 [5, 1, 4, 0, 4, 0, 3, 0, 4, 2]
 
 # generate some more
-dicerolls = np.random.randint(1, 7, 10000)
+dicerolls = rng.integers(1, 7, 10000)
 print("Fraction of 1's rolled: {}".format((dicerolls == 1).sum() / len(dicerols)))
 Fraction of 1's rolled: 0.1712
 
 # similar is the choice function
-coinflips = np.random.choice(["head", "tail"], 10)
+coinflips = rng.choice(["head", "tail"], 10)
 print(coinflips)
 ['head' 'tail' 'tail' 'head' 'head' 'tail' 'head' 'head' 'head' 'tail']
 ```
