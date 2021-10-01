@@ -83,6 +83,11 @@ A class is ["*A template for creating user-defined objects. Class definitions no
 method definitions which operate on instances of the
 class.*"](https://docs.python.org/3/glossary.html#term-class)
 
+## Class attribute
+
+A [data attributes](#data-attribute)) of a class that is owned by the class itself, and so will
+have the same value for all [instances](#class-instance) of the class.
+
 ## Class instance
 
 A instance of a class is an object created from a class, e.g., in `x = int(1)` the variable `x` is
@@ -191,6 +196,11 @@ left hand edge of the screen.
 
 The location of a value within an array-like object, e.g., a list. Indices start at 0 for the
 location of the first value, and end at one less than the length of the object.
+
+## Instance attribute
+
+A [data attributes](#data-attribute)) of a class that has a value specific for each
+[instance](#class-instance) of that class, e.g., as defined by the user.
 
 ## int
 
