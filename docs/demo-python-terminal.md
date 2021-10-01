@@ -8,9 +8,9 @@ You can run Python as an interactive environment within a terminal. Within this 
 any Python commands. The terminal is useful for quick calculations and prototyping.
 
 There are two types of Python terminal sessions: a *regular* session and an enhanced interactive
-session called IPython. Within a terminal window (e.g., a Powershell terminal on Windows, or a
-terminal session within _VS Code_) you enter a regular Python terminal session by typing `python`
-and hitting ++return++. You should see something like:
+session called [IPython](https://ipython.org/). Within a terminal window (e.g., a Powershell
+terminal on Windows, or a terminal session within _VS Code_) you enter a regular Python terminal
+session by typing `python` and hitting ++return++. You should see something like:
 
 ```python
 Python 3.7.2 (default, Dec 29 2018, 06:19:36) 
@@ -28,7 +28,7 @@ commands onto. You can type commands in, e.g.,
 5
 ```
 
-To quit the Python session and return to the regular terminal type `quit()` and hit ++return++.
+To quit the Python session and return to the regular terminal, type `quit()` and hit ++return++.
 
 ## IPython terminal
 
@@ -44,7 +44,7 @@ IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
 In [1]: 
 ```
 
-where the @(command prompt) (`In [1]:`) looks slightly different. In is sometimes called an input
+where the @(command prompt) (`In [1]:`) looks slightly different. It is sometimes called an input
 "cell".
 
 In IPython you can do all the things of a standard Python terminal session:
@@ -76,16 +76,16 @@ In [3]: print(x)
 8
 ```
 
-It is not recommended to store and use variables this way though!
+It is _not_ recommended to store and use variables this way though!
 
 ## Python as a calculator
 
 You can use the Python terminal as a calculator using standard arithmetic @(operators):
 
- * `+` - add to numbers
- * `-` - subtract two numbers
- * `*` - multiply two numbers
- * `/` - divide two numbers
+ * `+` : add to numbers
+ * `-` : subtract two numbers
+ * `*` : multiply two numbers
+ * `/` : divide two numbers
 
 ```python
 a = 1 + 8
@@ -127,8 +127,8 @@ print(b)
 
 A couple of other useful operators are:
 
- * `**` - raise to the power
- * `%` - the remainder after division
+ * `**` : raise to the power
+ * `%` : the remainder after division
 
 ```python
 a = 2 ** 4
@@ -141,7 +141,7 @@ b = 13 % 4
 
 ### The `math` library
 
-For most complex mathematical operators you can use the @(built-in)
+For more complex mathematical operators you can use the @(built-in)
 [`math`](https://docs.python.org/3/library/math.html) library. Some examples are:
 
 ```python
@@ -225,7 +225,7 @@ You can access some general help in IPython with a few simple commands:
 
  * `?` provides an overview of IPython's features
  * `%quickref` provides a reference card of some basic usage
- * `help` show documentation for an object (e.g., `help(int)` for documentation on an integer
+ * `help` shows documentation for an object (e.g., `help(int)` for documentation on an integer
    object)
  * `object?` or `object??`: adding a question mark or two after variable you have defined will give
    information about that object, e.g.,
@@ -271,7 +271,7 @@ i) `%run`: run a Python script within the IPython terminal, e.g., if you have a 
 In [1]: %run script.py
 ```
 
-You can then access any variables defined withing`script.py` in the terminal.
+You can then access any variables defined within `script.py` in the IPython terminal.
 
 ii) `%timeit`: get timing information on a function, e.g.:
 

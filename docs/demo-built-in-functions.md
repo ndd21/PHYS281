@@ -13,7 +13,7 @@ We will describe a few common functions here, but there are many more, that are 
 ## `abs`
 
 The [`abs()`](https://docs.python.org/3/library/functions.html#abs) function will return the
-absolute value of a real or complex number, e.g.:
+[absolute value](https://en.wikipedia.org/wiki/Absolute_value) of a real or complex number, e.g.:
 
 ```python
 print(abs(-2.3))
@@ -34,7 +34,9 @@ print(d)
 ```
 
 ## `enumerate`
-The [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate) function is used when iterating over an object such as a list or array. For each iteration, it returns a tuple containing a count, and the value of the element at that count.
+The [`enumerate()`](https://docs.python.org/3/library/functions.html#enumerate) function is used
+when iterating over an object such as a list or array. For each iteration, it returns a tuple
+containing an index, and the value of the element at that index, e.g.:
 
 ```python
 x = [7.4, 1.0, 5.6, 13.2]
@@ -68,7 +70,7 @@ The [`input()`](https://docs.python.org/3.8/library/functions.html#input) functi
 user input from the keyboard, e.g.:
 
 ```python
-name = input("What is your name?")
+name = input("What is your name? ")
 ```
 
 ## `isinstance`
@@ -134,7 +136,7 @@ print(min(5, 7, 2, 1, 7))
 ## `print`
 
 The [`print()`](https://docs.python.org/3/library/functions.html#print) function allows you
-to print text to the screen, e.g.:
+to print text to the screen or a file, e.g.:
 
 ```python
 print("Hello")
@@ -148,7 +150,7 @@ Hello
 ## `range`
 
 The [`range()`](https://docs.python.org/3/library/functions.html#func-range) function returns a
-sequence of value that can be iterated through. It can be used to create a list of integer values
+sequence of values that can be iterated through. It can be used to create a list of integer values
 starting at zero and going up to one less than the supplied value, e.g.,:
 
 ```python
@@ -217,5 +219,5 @@ nonlocal	not	or	pass	raise
 return	try	while	with	yield
 ```
 
-Many of these keywords will be defined in other the tutorials other tutorials, but a good resource
-defining them all can be found [here](https://www.programiz.com/python-programming/keyword-list).
+Many of these keywords will be defined in other tutorials, but a good resource defining them all can
+be found [here](https://www.programiz.com/python-programming/keyword-list).

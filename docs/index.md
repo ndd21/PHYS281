@@ -1,17 +1,20 @@
 # PHYS281: Scientific Programming and Modelling Project
 
-This website provides a series of tutorials introducing the Python programming language as part of the
-PHYS281 course. The tutorials are available in both text and video formats. They can be accessed in
+This website provides a series of notes introducing the Python programming language as part of the
+PHYS281 course. These notes are available in both text and video formats. They can be accessed in
 any order, but it is recommended to cover them in the order presented in the table of contents
 sidebar. Concepts and terms will be covered in that order.
 
-To get the most out of the tutorials it is recommended that you try writing and running the examples
-that are presented yourself.
+To get the most out of the notes it is recommended that you try writing and running the examples
+that are presented. A series of exercises are provided to test yourself on the practicalities of
+creating some code for a specific problem. These exercises are **not** part of the course
+assessment.
 
-Feedback to improve these notes is very welcome, so if you have any questions or comments please contact:
+Feedback to improve these notes is very welcome, so if you have any questions or comments please
+contact:
 
 * Dr Matthew Pitkin, m.pitkin@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk))
-* Dr Brooke Simmons, b.simmons@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk))
+* Dr Elisabetta Boella, e.boella@lancaster.ac.uk ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk))
 
 In this course we will use many jargon terms and unfortunately this is inevitable. In some cases
 certain terms will be used interchangeably as synonyms. We have created a
@@ -36,7 +39,7 @@ should be able to:
 * design and write programs to solve numerical problems.
 
 Programming is a skill. While there is a syntax that that you have to learn, the skill is mainly
-acquired through practice, i.e., actually writing code.
+acquired through practice, i.e., actually writing and running code.
 
 ## What is Python?
 
@@ -46,7 +49,7 @@ instructions with a specific syntax that are interpreted and run by a computer. 
 interpreted language rather than a compiled language. This means that you write a code that is then
 interpreted and run line-by-line. In a compiled language, such as
 [C](https://en.wikipedia.org/wiki/C_(programming_language)), the code you write has to be compiled
-by a different programme to produce an executable file (basically one written in a more primitive
+by a different program to produce an executable file (basically one written in a more primitive
 machine language), that you then run.
 
 Interpreted languages are often slightly slower at certain tasks than compiled languages, but have
@@ -68,9 +71,9 @@ some specific features that are not. Broadly speaking, code written based on Pyt
 should be compatible and in this course we will not use any syntax that does not work across these
 versions.
 
-Python can be run in both an interactive mode, i.e., you can start an interactive Python into which
-you can type and run commands immediately, or it can be used to run pre-written scripts. In this
-course we will describe both these modes of use.
+Python can be run in both an interactive mode, i.e., you can start an interactive Python terminal
+into which you can type and run commands immediately, or it can be used to run pre-written scripts.
+In this course we will describe both these modes of use.
 
 ### Why Python?
 
@@ -85,7 +88,7 @@ There are many reasons why Python is a good choice as a programming language to 
   [https://wiki.python.org/moin/NumericAndScientific](https://wiki.python.org/moin/NumericAndScientific)),
   such as [NumPy](http://www.numpy.org/), [SciPy](https://www.scipy.org/) and
   [Matploltib](https://matplotlib.org/).
-* Python is portable - Python programmes are cross platform and run on most computer systems in use
+* Python is portable - Python programs are cross platform and run on most computer systems in use
   today.
 * Many modern data science and machine learning applications use Python as an interface, which is
   driving its growth.
@@ -94,14 +97,14 @@ There are many reasons why Python is a good choice as a programming language to 
 In the [TIOBE](https://www.tiobe.com/tiobe-index/) index Python popularity and usage is still
 growing:
 
-| Sep 2020 | Sep 2019 | Change | Programming Language | Ratings | Change |
+| Sep 2021 | Sep 2020 | Change | Programming Language | Ratings | Change |
 | -------- | -------- | ------ | -------------------- | ------- | ------ |
-| 1	| 2 | :fontawesome-solid-sort-up: | C | 15.95% | +0.74% |
-| 2	| 1	| :fontawesome-solid-sort-down: | Java | 13.48% | -3.18% |
-| 3 | 3	| | Python | 10.47% | +0.59% |
-| 4 | 4 | | C++ | 7.11% | +1.48% |
-| 5 | 5	| | C# | 4.58% | +1.18% |
-| 6 | 6	| | Visual Basic | 4.12% | +0.83% |
+| 1 | 1 |  | C | 11.83% | -4.12% |
+| 2 | 3 | :fontawesome-solid-sort-up: | Python | 11.67% | +1.20% |
+| 3 | 2 | :fontawesome-solid-sort-down: | Java | 11.12% | -2.37% |
+| 4 | 4 | | C++ | 7.13% | +0.01% |
+| 5 | 5 | | C# | 5.78% | +1.20% |
+| 6 | 6 | | Visual Basic | 4.62% | +0.50% |
 
 ## Course overview
 
@@ -109,32 +112,33 @@ This course is assessed through coursework only. There is no exam.
 
 The course assessment consists of two main components:
  
-* 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 5th to that
-  starting Nov 2nd)
-* A project over Weeks 6-10 (the weeks from that starting Nov 9th to that starting Dec 7th)
+* 5 coursework assignments and quizzes over Weeks 1-5 (the weeks from that starting Oct 11th to that
+  starting Nov 8th)
+* A project over Weeks 6-10 (the weeks from that starting Nov 15th to that starting Dec 13th)
 
 The 5 coursework assignments and quizzes count for 30% of the overall grade (6% each), with the
 project counting for 70%.
 
-Help and guidance will be provided in weekly (Weeks 1-10) online lab sessions on Tuesdays from
-13:00-17:00 held on
-[Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a).
-There will also be an "office hours" slot for additional help held on
+Help and guidance for the exercises and project will be provided in weekly (Weeks 1-10) computer lab
+sessions split over 3 sessions: 09:00-10:30 and 10:30-12:00 on Tuesdays and 11:30-13:00 (or
+13:00-14:30 from Week 6 onwards) on Wednesdays. All students will be assigned to one of these
+sessions. Support can also be found via the course Teams channel during these same time slots. There
+will also be an "office hours" slot for additional help held on
 [Teams](https://teams.microsoft.com/l/channel/19%3a2fc8b74ecec9415da068a9d1db998c2f%40thread.tacv2/General?groupId=6450347a-2db6-4607-b96d-5b56f586d9b5&tenantId=9c9bcd11-977a-4e9c-a9a0-bc734090164a)
-on Fridays between 10:00-11:00.
+on Mondays between 10:00-11:00.
 
-The assignments and quizzes must be submitted on Moodle by 13:00 on the Monday the week after the
-associated lab session (i.e., the Week 1 assignment should be submitted no later than 13:00 on
-Monday of Week 2). The late submission deadline is 13:00 on Tuesday before the lab session. If you
+The assignments and quizzes must be submitted on Moodle by 14:00 on the Tuesday the week after the
+associated lab session (i.e., the Week 1 assignment should be submitted no later than 14:00 on
+Tuesday of Week 2). The late submission deadline is 14:00 on Wednesday. If you
 require an extension or have a problem please contact [Matt
-Pitkin](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk), [Brooke
-Simmons](https://teams.microsoft.com/l/chat/0/0?users=b.simmons@lancaster.ac.uk) or [Louise
+Pitkin](https://teams.microsoft.com/l/chat/0/0?users=m.pitkin@lancaster.ac.uk), [Elisabetta
+Boella](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk) or [Louise
 Crook](https://teams.microsoft.com/l/chat/0/0?users=l.crook@lancaster.ac.uk) via email or Teams. The
 assignments marking makes use of software called [CodeRunner](https://coderunner.org.nz/), which
 will automatically test and mark your submitted code. To avoid losing marks it is highly recommended
 that you test it on your own machine before submitting it within CodeRunner. Read the questions and
 expected inputs/outputs carefully including making sure functions/classes are named exactly as
-specified.
+specified (including letter case).
 
 The project grade is split between several components:
 
@@ -156,17 +160,23 @@ Explorer](https://en.wikipedia.org/wiki/File_Explorer)" in Windows, or
 and understand how file path structure is formatted, including drive if necessary (e.g.,
 `C:\User\username\Project\myfile.py`).
 
-Please also see the material in the "Tutorial" -> "Getting started" menu for information on
+Please also see the material in the "Course notes" -> "Getting started" menu for information on
 installing the software required for this course
 ([Anaconda](https://ma.ttpitk.in/teaching/PHYS281/demo-anaconda/) and [Visual Studio
-Code](https://ma.ttpitk.in/teaching/PHYS281/demo-vs-code/)) on your own machine or using AppsAnywhere
-on a machine on campus. The ["Online Python environments"](#online-python-environments) section
-below has some options for running Python to be used as a back-up alternative if you have initial
-installation problems.
+Code](https://ma.ttpitk.in/teaching/PHYS281/demo-vs-code/)) on your own machine or using
+AppsAnywhere on a machine on campus. The ["Online Python environments"](#online-python-environments)
+section below has some options for running Python, which can be used as a back-up alternative if you
+have initial installation problems.
+
+## Exercises
+
+A selection of [exercises](https://ma.ttpitk.in/teaching/PHYS281/exercises/) have been created for
+you to try out and test you Python knowledge. These exercises are not marked and are voluntary. They
+will also be used for demonstration purposes during the course lecture slots.
 
 ## Other material
 
-There are a variety of useful Python tutorials freely avaiable online:
+There are a variety of useful Python tutorials freely available online:
 
 * The official Python documentation comes with a [tutorial](https://docs.python.org/3/tutorial/index.html)
   on getting started with Python, covering the majority of concepts required to become a proficient user.
@@ -189,7 +199,7 @@ There are a variety of useful Python tutorials freely avaiable online:
 ### Ethical programming
 
 Coding is done by people and the outputs of code can affect peoples lives. In some cases the code
-you produce may be part of publicly funded work. In others it may be done within a private
+you produce may be part of publicly funded work. In others, it may be done within a private
 institution and bound by national laws or industry-specific regulations and guidelines. So coding
 cannot exist independently of ethics and scrutiny by others.
 
@@ -198,7 +208,7 @@ In general, it is good to think of the following practices when coding:
 * Do not use code for illegal or malicious activities.
 * Make sure you properly attribute any part of your code that uses code/algorithms from other
   sources. Many codes have open source licenses that allow you to use them or edit them provided
-  proper credit is given. Consider giving an open source license to your own code (see e.g.,
+  proper credit is given. Consider giving an open source license to your own code (see, e.g.,
   [here](https://choosealicense.com/)), such as an [MIT
   license](https://choosealicense.com/licenses/mit/) or [GPL
   license](https://choosealicense.com/licenses/gpl-3.0/).

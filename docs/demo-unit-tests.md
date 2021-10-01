@@ -27,9 +27,11 @@ trickier to find the source of any problem if you have to run through your whole
 
 The units test should be performed in a script of their own, importing any functions or classes from
 the script/module to be tested. This means that each time you change your script/module you can run
-the test script and check that everything still works. This also means you can fix problems as they arise rather than having to wait until you have finished writing your entire code.
+the test script and check that everything still works. This also means you can fix problems as they
+arise rather than having to wait until you have finished writing your entire code.
 
-Here we will show a basic example of unit testing. The examples will be rather contrived and simplistic, but give a idea of what to do.
+Here we will show a basic example of unit testing. The examples will be rather contrived and
+simplistic, but give a idea of what to do.
 
 Suppose you have a Python file, called `shapes.py`, containing the following function and class
 definitions:

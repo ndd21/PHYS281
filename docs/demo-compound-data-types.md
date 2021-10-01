@@ -26,7 +26,7 @@ print(type(x))
 <class 'list'>
 ```
 
-You can access values in a list @(variable) using their @(index) placed within square brackets
+You can access items in a list @(variable) using their @(index) placed within square brackets
 `[idx]`. The index is an integer giving an item's location within the list. In Python indices start
 at zero, e.g., the first value in a list is obtained with:
 
@@ -49,8 +49,8 @@ x = []
 x = list()
 ```
 
-To find out the length of a list, i.e., how many items it contains, you can use the `len`
-@(keyword):
+To find out the length of a list, i.e., how many items it contains, you can use the `len()`
+built-in function:
 
 ```python
 x = [1, 2, 3]
@@ -66,6 +66,34 @@ x = [0] * 10
 print(x)
 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ```
+
+!!! note
+    This is ok for initialising lists of numbers of strings, but it can be dangerous to initilise
+    lists of compound data type in this way; each item in the list will "point" to the same object,
+    so they are not independent copies, e.g., if creating a list of lists initialised to zero with
+
+    ```python
+    x = [[0] * 3] * 3
+    print(x)
+    [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+    ```
+
+    then each sublist will in fact be the same object. So if you change one you change them all:
+
+    ```python
+    x[0][0] = 1
+    print(x)
+    [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
+    ```
+
+    In these cases [list comprehension](../demo-flow-control/index.html#list-comprehension) is a
+    better option:
+
+    ```python
+    x = [[0 for _ in range(3)] for _ in range(3)]
+    ```
+
+    for which the sublists *will* be independent copies.
 
 You can combine lists together using the `+` @(operator). To get a new list that is the combination
 of two other lists concatenated together you can use:
@@ -102,7 +130,7 @@ You can return certain values from a list using slice notation: `startidx:endidx
 `startidx:endidx:step`.
 
 With `startidx:endidx` the `startidx` value is the index for the first list value you want to return
-and `endidx` is **one more** than the last list value that you want to return, e.g.:
+and `endidx` is **one more** than the index of the last list value that you want to return, e.g.:
 
 ```python
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -233,8 +261,8 @@ print(x[2][1])
 
 ### List methods
 
-Like everything in Python, lists are objects and have a variety of useful methods. We will examine a
-few here, but they can all be seen by typing `help(list)` in a terminal.
+Like everything in Python, lists are @(objects) and have a variety of useful methods. We will
+examine a few here, but they can all be seen by typing `help(list)` in a terminal.
 
 #### Append
 
@@ -357,7 +385,8 @@ the array you can reference it with a key. This key can be a word, so you do not
 position you just have to know the key. Dictionaries are defined with curly brackets `{}` or the
 `dict` class name using "key-value" pairs. The "key" can be any integer or a string (generally
 descriptive strings are most useful) and the value can be any object, e.g., integers, floats, lists,
-or even other dictionaries.
+or even other dictionaries. When defining a dictionary key-value pairs are separated by colons,
+while new items are separated by commas, e.g.,:
 
 ```python
 x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
@@ -382,7 +411,7 @@ print(x)
 
 !!! note
     From Python 3.5 onwards the order than you place values into a dictionary will be preserved,
-    but in earlier version the order held in the dictionary may be different.
+    but in earlier versions the order held in the dictionary may be different.
 
 You can return just the keys in a dictionary using the `keys` method:
 
@@ -400,12 +429,12 @@ dict_keys(['firstname', 'lastname', 'age'])
 dict_values(['Matthew', 'Pitkin', 39])
 ```
 
-These are useful for _iterating_ over, for example in a
+These are useful for _iterating_ over the dictionary, for example, in a
 [for-loop](../demo-flow-control/index.html#for-and-while-loops).
 
 You can remove values from a dictionary using the
-[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) keyword or the `pop` method. `del`
-just deletes a value, while `pop` deletes, but also returns that deleted value:
+[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) @(keyword) or the `pop` method. `del`
+just deletes a value, while `pop` deletes but also returns that deleted value:
 
 ```python
 x = {"firstname": "Matthew", "lastname": "Pitkin", "age": 39}
@@ -424,7 +453,7 @@ Pitkin
 ## Sets
 
 Set are a _bit_ like dictionaries that only contain keys. They can only contain one of any value
-(i.e., no duplicates) and they are automatically sorted. Like dictionaries they are defined using
+(i.e., no duplicates) and they are automatically sorted. Like dictionaries, they are defined using
 curly brackets `{}` or the class name `set`. You cannot access values in a set using indexing. In
 general, you will not come across sets very much. They are mainly useful for doing faster
 comparisons if you are trying to work out if a value is in a "set" of other values.

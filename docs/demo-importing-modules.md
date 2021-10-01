@@ -74,11 +74,14 @@ then we could use this in another Python file, or in a Python terminal session, 
 import message
 
 message.message_in_box("Hello world!")
+################
+# Hello world! #
+################
 ```
 
-When importing you can use alias for commonly used module namespaces or functions/classes. This can
-be for convenience or to avoid clashes. There are two common aliases that you might see in codes on
-the internet:
+When importing you can use an alias for commonly used module namespaces or functions/classes. This
+can be for convenience or to avoid clashes. There are two common aliases that you might see in codes
+on the internet:
 
 ```python
 import numpy as np

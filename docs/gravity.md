@@ -480,7 +480,7 @@ or BibTeX entry:
 
 ```latex
 @INPROCEEDINGS{1997BAAS...29.1099G,
-       author = {{Giorgini}, J.~D. and {Yeomans}, D.~K. and {Chamberlin}, A.~B. and
+       author = { {Giorgini}, J.~D. and {Yeomans}, D.~K. and {Chamberlin}, A.~B. and
          {Chodas}, P.~W. and {Jacobson}, R.~A. and {Keesey}, M.~S. and
          {Lieske}, J.~H. and {Ostro}, S.~J. and {Standish}, E.~M. and
          {Wimberly}, R.~N.},

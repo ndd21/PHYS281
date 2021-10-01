@@ -9,7 +9,10 @@ to create "@(virtual environments)" that can contain different Python version an
 required for a specific task.
 
 !!! important
-    This tutorial describes installing Anaconda on your own computer. It also describes creating new virtual environments and packages within those environments. For the PHYS281 course you only need to be able to install Anaconda, while the information on creating environments and installing packages is just provided as additional useful information, but is not required.
+    This tutorial describes installing Anaconda on your own computer. It also describes creating
+    new virtual environments and packages within those environments. For the PHYS281 course you
+    only need to be able to install Anaconda. The information on creating environments and
+    installing packages is just provided as additional useful information, but is not required.
 
 ## Installing Anaconda
 
@@ -75,14 +78,15 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
 
 === "Installation on Linux / Using a terminal"
     For Linux users we recommend just installing the lightweight
-    [Miniconda](https://docs.conda.io/en/latest/miniconda.html) package rather than the
-    full Anaconda installation. Instructions for installing Miniconda under Linux can be found
+    [Miniconda](https://docs.conda.io/en/latest/miniconda.html) package rather than the full
+    Anaconda installation (you can still install the full Anaconda package if you want).
+    Instructions for installing Miniconda under Linux can be found
     [here](https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/linux.html),
     which we summarise below.
 
     !!! note
         The command line programme that gets installed by Miniconda is just called `conda`, which
-        will be used in some of the examples below
+        will be used in some of the examples below.
 
     The instructions below are those for installation via command line only.
 
@@ -159,7 +163,7 @@ containing different Python packages, and install new packages.
     It will open within the ":fontawesome-solid-home: Home" tab and show a set of applications
     that can be launched. The most relevant of these for this course is:
     
-     * Powershell Prompt: this opens a @(terminal) programme for running commands;
+     * Powershell Prompt: this opens a @(terminal) programme for running commands.
     
     !!! note
         After installing _VS Code_ (a text editor that is useful for writing code) as described
@@ -183,7 +187,7 @@ containing different Python packages, and install new packages.
 
 ### Creating a new environment
 
-In this course every Python package you should need is installed within the Anaconda `base`
+For this course, every Python package you should need is installed within the Anaconda `base`
 @(virtual environment). However, as good practice for future projects, it is useful to know how to
 create new environment.
 
@@ -204,14 +208,14 @@ line) in a @(terminal) are given below:
     listed under the `base (root)` environment and the packages it contains will be shown.
 
 === "Terminal"
-    A new environment can be create using a terminal (e.g., the Anaconda Powershell prompt in Windows
-    or the default terminal programme on Mac OS or Linux). To start open the terminal (in Windows use
-    the start menu or search bar to find "Anaconda Powershell Prompt", or launch it via the
-    _Anaconda Navigator_).
+    A new environment can be create using a @(terminal) (e.g., the Anaconda Powershell prompt in
+    Windows or the default terminal programme on Mac OS or Linux). To start open the terminal (in
+    Windows use the start menu or search bar to find "Anaconda Powershell Prompt", or launch it via
+    the _Anaconda Navigator_).
 
     !!! warning
-        On Windows the Anaconda installation is not available by default within the normal "Windows
-        PowerShell", so make sure to use the "Anaconda" version.
+        On Windows, the Anaconda installation is not available by default within the normal
+        "Windows PowerShell", so make sure to use the "Anaconda" version.
 
     Create a new environment by typing:
 
@@ -231,12 +235,12 @@ line) in a @(terminal) are given below:
 
 #### Using a new environment
 
-Once a new environment has bee create you can then run code within it making use of the specific
+Once a new environment has been created you can then run code within it making use of the specific
 Python version and packages installed within it.
 
 === "Anaconda Navigator"
     Within the _Anaconda Navigator_ ":fontawesome-solid-home: Home" tab you can switch between
-    environment using the dropdown menu next to "Applications on":
+    environments using the dropdown menu next to "Applications on":
 
     ![Anaconda Navigator use environment](img/anaconda-navigator-use.png)
 
@@ -244,7 +248,7 @@ Python version and packages installed within it.
     click on the ++"Install"++ button below the required application.
 
     You can then launch the required application within the new environment by click on the
-    associated ++"Launch"++ button, e.g., for the one below Powershell Prompt.
+    associated ++"Launch"++ button, e.g., the one below Powershell Prompt.
 
 === "Terminal"
     To switch between environments in a terminal you can use the `conda activate` command, e.g.,:
@@ -256,7 +260,7 @@ Python version and packages installed within it.
     The @(command prompt) should now start with the name of the environment in brackets, e.g.,
     `(awesome_project)`. If you start a [Python terminal session](../demo-python-terminal/index.html)
     it will use the version of Python installed in that environment and have access to that
-    environments packages.
+    environment's packages.
 
     To move back out of a particular environment you can use:
 
@@ -266,7 +270,7 @@ Python version and packages installed within it.
 
 #### Installing packages
 
-Within an environment you can install Python any @(packages) that you require so long as they are
+Within an environment you can install Python @(packages) that you require so long as they are
 available either within the [Anaconda Cloud](https://anaconda.org/) or the @(PyPI) package
 repositories.
 
@@ -279,7 +283,7 @@ repositories.
     ![Anaconda Navigator use environment](img/anaconda-navigator-install.png)
 
     There may be multiple package that are found, but scroll to find the one with the exact name you
-    were after and click in the checkbox next to it. Boxes saying ++"Apply"++ and ++"Clear"++ will
+    are after and click in the checkbox next to it. Boxes saying ++"Apply"++ and ++"Clear"++ will
     appear in the bottom right of the window. Click on ++"Apply"++. A dialogue box will then appear
     showing then packages that will be installed. This will often show more than just the package
     that you selected as many packages depend on other packages and therefore require then also to
@@ -290,6 +294,12 @@ repositories.
 
     Once installed, that package will be available to import when running Python within the
     associated environment.
+
+    !!! note
+        Many popular packages are available via the [conda-forge](https://anaconda.org/conda-forge)
+        [channel](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-channels/). To
+        allow _Anaconda Navigator_ to find these, click on the "Channels" button next to the
+        environment name menu, click "Add" and type in `conda-forge`.
 
 === "Terminal"
     To install packages using the terminal you can make use of either the `conda install`
@@ -321,6 +331,14 @@ repositories.
     conda install numpy==1.18.1
     ```
 
-!!! note
-    If using Anaconda via a terminal, a "cheat sheet" showing most of the basics commands can be
-    found [here](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf).
+    !!! note
+        Many popular packages are available via the [conda-forge](https://anaconda.org/conda-forge)
+        [channel](https://docs.anaconda.com/anaconda/navigator/tutorials/manage-channels/). To
+        install from this channel you can do:
+
+        ```bash
+        conda install -c conda-forge <packagename>
+        ```
+
+If using Anaconda via a terminal, a "cheat sheet" showing most of the basics commands can be
+found [here](https://docs.conda.io/projects/conda/en/latest/_downloads/843d9e0198f2a193a3484886fa28163c/conda-cheatsheet.pdf).

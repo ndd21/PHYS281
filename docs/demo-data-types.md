@@ -105,7 +105,7 @@ y.as_integer_ratio()
     ```
 
     The above calculation has produced a number that is very close to, but not quite, `2.9`.
-    This can mean that you have to be careful if doing comparisons with float, as:
+    This can mean that you have to be careful if doing comparisons with floats, as:
 
     ```python
     print(x == 2.9)
@@ -142,7 +142,8 @@ z.replace("l", "x")
 'Hexxo'
 ```
 
-Some particularly useful methods (at least ones I use regularly!) are the [`split`](https://docs.python.org/3/library/stdtypes.html#str.split) and
+Some particularly useful methods (at least ones I use regularly!) are the
+[`split`](https://docs.python.org/3/library/stdtypes.html#str.split) and
 [`strip`](https://docs.python.org/3/library/stdtypes.html#str.strip) methods.
 
 The `split` method allows you to split a string into a list of values based on a particular
@@ -152,7 +153,7 @@ e.g.:
 
 ```python
 name = "Matthew Pitkin"
-# split this into a list containing he first name and surname
+# split this into a list containing the first name and surname
 names = name.split()
 print(names)
 ['Matthew', 'Pitkin']
@@ -170,7 +171,7 @@ print(vals)
 
 The `strip` method will strip-off leading or trailing values from a string. By default it will strip
 off whitespace from a string. This is useful if, for example, you have a set of comma separated
-values (maybe read in from a file) the contain superfluous spaces:
+values (maybe read in from a file) and they contain superfluous spaces:
 
 ```python
 namelist = "Matthew, Helen, Tom, Tracy, Steve"
@@ -235,7 +236,7 @@ The sum of 12.96 + 13.99 = 26.95
 ```
 
 In this case the `0` represents the first argument to `format`, which is followed by the formatting
-type `:.2f` that means show a floating point number (`f`) to two decimal places (`.2`).
+type `:.2f` that means "show a floating point number (`f`) to two decimal places (`.2`)."
 
 In Python versions greater than 3.5 there is another way to use string formatting. If you define a
 string with an `f` (known as an [f-string](https://www.python.org/dev/peps/pep-0498/)) before the
@@ -258,10 +259,12 @@ My name is Matthew and my age is 21.
     mystring = "My name is %s and my age is %d." % (firstname, age)
     ```
 
-    where the "`%s`" is a placeholder for inserting a string and the "`%d`"
-    is a placeholder for inserting an integer (`%f` would be used for a float, or `%e` is you wanted it in
-    scientific notation, with the whole range of values that can be used given [here](https://docs.python.org/2/library/stdtypes.html#string-formatting)). After the string a `%` character is used followed by a tuple containing
-    the variables to insert given in the order they are to be inserted.
+    where the "`%s`" is a placeholder for inserting a string and the "`%d`" is a placeholder for
+    inserting an integer (`%f` would be used for a float, or `%e` is you wanted it in scientific
+    notation, with the whole range of values that can be used given
+    [here](https://docs.python.org/2/library/stdtypes.html#string-formatting)). After the string a
+    `%` character is used followed by a tuple containing the variables to insert given in the order
+    they are to be inserted.
 
     Another option is to just concatenate multiple strings together, e.g.,
 
@@ -269,8 +272,8 @@ My name is Matthew and my age is 21.
     mystring = "My name is " + firstname + " and my age is " + str(age)
     ```
 
-    where is should ne noted that we have had to use `str` to convert the integer valued `age` into
-    a string. 
+    where it should be noted that we have had to use `str` to convert the integer valued `age`
+    variable into a string. 
 
     We recommend using the `format` method of string formatting, although it's more important to
     pick one method and be consistent throughout your code.
@@ -366,7 +369,8 @@ y = False
 
 `True` and `False` must have an uppercase first letter to be recognised by Python. Booleans are
 generally used for comparison in logical expressions, which are covered in [another
-tutorial](../demo-flow-control/index.html#conditional-expressions). For example evaluating in equality will return a boolean value:
+tutorial](../demo-flow-control/index.html#conditional-expressions). For example, evaluating an
+equality will return a boolean value:
 
 ```python
 x = 2

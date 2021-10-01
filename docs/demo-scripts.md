@@ -7,9 +7,9 @@ i.e., lines of code, that perform a specific task. They are called scripts becau
 interpreted by Python line-by-line in order from the first line to the last.
 
 !!! tip
-    In reality scripts can be any length and do multiple things, but this is not recommended.
-    If a script file is getting too long it can often be broken into several shorter files,
-    with the required bits imported into a main script (see the tutorial on [importing
+    In reality scripts can be any length and do multiple things, but this is not recommended. If a
+    script file is getting too long it can often be broken into several shorter files, with the
+    required bits imported into a main script (see the tutorial on [importing
     modules](../demo-importing-modules/index.html)).
 
 A Python script file must have the `.py` suffix @(file extension). File names can be anything that
@@ -76,9 +76,8 @@ including notes and information to describe what your code is doing and why.
 
 !!! important
     Comments are important! They allow other people (and future you!) to understand a code more
-    easily rather than trying to have to interpret it themselves.
-
-    Use comments liberally throughout your code.
+    easily rather than trying to have to interpret it themselves. Use comments liberally throughout
+    your code.
 
 In Python there are two ways to specify if a line contains a comment rather than code that you want
 to run (both of which are shown in the above [example](#example-script)):
@@ -108,19 +107,20 @@ terminal and run the script for you.
     #!/usr/bin/env python
     ```
 
-    This is known as a ["shebang"](https://en.wikipedia.org/wiki/Shebang_(Unix)) and if you
-    make you script executable, e.g., with `chmod u+x tell_time.py` you can then just run it in the
+    This is known as a ["shebang"](https://en.wikipedia.org/wiki/Shebang_(Unix)) and if you make
+    your script executable, e.g., with `chmod u+x tell_time.py` you can then just run it in the
     terminal with `./tell_time.py`, rather than having to type `python tell_time.py`.
 
-# Using functions from another script
+## Using functions from another script
 
-As described in the [Importing Modules](../demo-importing-modules/index.html) demonstration any file
-with the `.py` extension is also a Python module. This means that you can import @(variables),
+As described in the [Importing Modules](../demo-importing-modules/index.html) demonstration, any
+file with the `.py` extension is also a Python module. This means that you can import @(variables),
 @(functions) or @(classes) defined in one script into another.
 
 For small projects with multiple scripts it is useful to keep them in the same directory so that you
-can import between them as needed. (The more advanced topic of "packaging" your project is beyond
-the scope of this course, although is a very useful thing to learn.)
+can import between them as needed. (The more advanced topic of
+"[packaging](https://github.com/mattpitkin/lancstro" your project is beyond the scope of this
+course, although is a very useful thing to learn.)
 
 For example, I could create a new script in the same directory as `tell_time.py` called
 `sydney_time.py` that contains:
@@ -146,6 +146,57 @@ sydneyhour = (hour + 9) % 24
 print("The current time in Sydney is {}:{}:{}".format(sydneyhour, minute, seconds))
 ```
 
+!!! important
+    If you import a whole script as a Python module, e.g., use
+
+    ```python
+    import tell_time
+    ```
+
+    in the above example, then that script will get run during the import. So in that `tell_time`
+    case the time will also get printed. This is sometimes what you want to achieve, but you may
+    just want to import the script so that you can use specified functions, classes or variables.
+    To make sure that parts of the script are _not_ run on import you could instead write
+    `tell_time.py` as:
+
+    ```python hl_lines="28"
+    """
+    A script to show the user the current time.
+
+    Author: Matthew Pitkin
+    Email: m.pitkin@lancaster.ac.uk
+    Date: 22/06/2020
+    """
+
+    # import the required modules
+    import datetime
+
+
+    def gettime():
+        """
+        A function to return the current time.
+
+        Returns
+        -------
+        tuple:
+            A tuple containing the hour, minutes and seconds.
+        """
+
+        now = datetime.datetime.now()
+
+        return now.hour, now.minute, now.second + 1e-6 * now.microsecond
+
+    # anything within this if statement will not get run on import
+    if __name__ == "__main__":
+        # get the time
+        hour, minute, seconds = gettime()
+
+        print("The current time is {}:{}:{}".format(hour, minute, seconds))
+    ```
+
+    Anything within the if statement `if __name__ == "__main__":` will only get run when running
+    the script directly, but will not get run if importing the script as a module.
+
 ## Inputs
 
 A script can contain all the information that is required to run it (values that are defined within
@@ -158,7 +209,7 @@ There are various ways that you can provide inputs to your script, which we will
 
 You can make a script request user input from the keyboard by using the @(built-in)
 [`input`](../demo-built-in-functions/index.html#input) function. `input` can take in a string as an
-@(argument), for example a request for certain input to be provided, and then will take in whatever
+@(argument), for example, a request for certain input to be provided, and then will take in whatever
 is written on the keyboard until the user presses ++enter++. This will then be assigned to a
 variable as a @(string), e.g., after using:
 
@@ -181,7 +232,7 @@ this see the tutorial on [reading files](../demo-io/index.html).
 
 ### Command line arguments
 
-When you run a script from the @(command line), i.e., by typing in the script name, you pass it
+When you run a script from the @(command line), i.e., by typing in the script name, you can pass it
 additional values (called command line arguments), that can then be used within the code, by writing
 them on the command line following the script's name. One way of using any additional command line
 arguments within your script is to use the [`sys`](https://docs.python.org/3/library/sys.html)
@@ -189,7 +240,7 @@ standard module, in particular [`sys.argv`](https://docs.python.org/3/library/sy
 which will list of all command line arguments as @(strings) (including the script name as the first
 value in the list). As a very simple demonstration, if we had a script containing just:
 
-```
+```python
 # import the sys module
 import sys
 
@@ -219,7 +270,7 @@ surname = sys.argv[2]
 print("Your name is {} {}".format(firstname, surname))
 ```
 
-assumes that there must be two arguments and that the user knows that the first one should be the
+it assumes that there must be two arguments and that the user knows that the first one should be the
 first name and the second one should be the surname. If the user were to run (assuming this was in a
 script called `printname.py`):
 
@@ -245,7 +296,7 @@ things would not work as expected.
 Sometimes we might not want to have to give all the command line values, or we might not want to
 worry about having them in the correct order. The standard Python module
 [`argparse`](https://docs.python.org/3.8/howto/argparse.html#id1) can instead be used to provide
-more control over the command line inputs, for example allowing named flags to specify inputs
+more control over the command line inputs, for example, allowing named flags to specify inputs
 required. We will not go into detail of `argparse` here, except to show a very basic example (which
 we will assume is saved as a script called `person.py`):
 
