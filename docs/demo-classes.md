@@ -19,20 +19,28 @@ properties, class members or class variables) or @(function attributes) (also kn
 methods)). In Python all of a class' attributes are public, i.e., you can access them from an
 instance of a class.
 
+To add to this, @(data attributes) can be of two types:
+
+1. @(class attributes) - these belong to the class itself and are the same value for every instance
+   of the class (and can even be used without creating a @(class instance)),
+2. @(instance attributes) - these belong to a specific @(class instance) and may be different (based
+   on user input) between instances.
+
 A new class can be defined using the
 [`class`](https://www.w3schools.com/python/ref_keyword_class.asp) keyword.
 
 !!! note
     You _can_ write perfectly good codes in Python without ever having to define your own object's
     classes. However, using classes is part of the Object Oriented paradigm and in many cases it
-    makes intuitive and practical sense to bundle certain bits of data and certain functions together, i.e., define a class.
+    makes intuitive and practical sense to bundle certain bits of data and certain functions
+    together, i.e., define a class.
 
 ## A simple class
 
-A simple class containing just @(data attributes) can be created using:
+A simple class containing just @(class attributes) can be created using:
 
 ```python
-class Particle:
+class Electron:
     # indents are required to define thing within a class
     name = "electron"
     charge = -1.6e-19  # electric charge in coulombs
@@ -42,34 +50,34 @@ class Particle:
 Variables can then be created from this class (also known as @(class instances)) with:
 
 ```python
-electron = Particle()  # note the brackets are required
+e = Electron()  # note the brackets are required
 ```
 
-The data attributes of the object can be accessed using a `.`, e.g.:
+The @(class attributes) of the object can be accessed using a `.` followed by their name, e.g.:
 
 ```python
-print(electron.mass)
+print(e.mass)
 9.1e-31
 ```
 
-For an instance of the class these data attributes can be altered:
-
-```python
-electron.mass = 2
-print(electron.mass)
-2
-```
-
 !!! note
-    Even though class attributes are public, it is generally considered (by some!) good
-    practice to **not** alter a class' data attributes via the class instance. If you want to set
-    data attributes it is best to do it when initialising the class, through a class method, or
+    Even though @(class attributes) are public (i.e., viewable and changeable by the user), it is
+    not good practice to change them in any @(class instance). If you want
+    to set @(data attributes) that can be altered you should use @(instance attributes) that are set
+    when initialising the class, or through a class method, or
     using [properties](https://www.python-course.eu/python3_properties.php) (setters are not covered
     in this course).
 
+@(Class attributes) can also be accessed directly from the class rather than an instance, e.g.:
+
+```python
+print(Electron.mass)
+9.1e-31
+```
+
 ## A class with initialisation
 
-The above class has been created with a fixed set values of the data attributes. Every time an
+The above class has been created with a fixed set of values using @(class attributes). Every time an
 instance of the class is created the attributes will be the same.
 
 It is often useful to be able to create an instance of a class with user defined values rather than
@@ -94,8 +102,8 @@ e.g.,:
 electron = Particle("electron", -1.6e-19, 9.1e-31)
 proton = Particle("proton", 1.6e-19, 1.7e-27)
 
-for p in [electon, proton]:
-    print("{} mass = {}".format(p.name, p.mass))
+for p in [electron, proton]:
+    print(f"{p.name} mass = {p.mass}")
 electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```
@@ -119,12 +127,12 @@ electron
 
 ### `self`
 
-The `__init__` method, and any other regular method defined in a class, takes `self` as its first
-argument. But when creating the new object above nothing was passed for `self` (i.e., the brackets
-were empty)! When **defining** a class method the method has to have the class instance explicitly
-passed to it. This allows that method to access all the class attributes of the current class
-instance via `self`. But, when using a method `self` is passed implicitly, i.e., the user does not
-have to supply it as it is supplied automatically.
+The `__init__` method, and any other regular methods defined in a class, takes `self` as its first
+argument. But when creating the new object above nothing was passed for `self`, i.e., the brackets
+were empty! When **defining** a class method the method has to have the class instance explicitly
+passed to it. This allows that method to access all the attributes of the current class instance via
+`self`. But, when using a method `self` is passed implicitly, i.e., the user does not have to supply
+it as it is supplied automatically.
 
 !!! note
     The usage of the word "`self`" is just convention. In reality any word can be used in place
@@ -140,49 +148,6 @@ have to supply it as it is supplied automatically.
     ```
 
     It is recommended to stick to using `self`!
-
-### Special methods
-
-There are a set of [special method names](https://rszalski.github.io/magicmethods/) (sometimes
-called "dunder" methods as they start and end with a double underscore, but also known as magic
-methods) like `__init__` that can be defined in a class. These can be used
-
- * to allow comparisons of objects of specific class;
- * define how mathematical operators work on a class (see [Operator overloading](#operator-overloading));
- * access attributes within a class;
- * provide representations of class.
-
-The full set of special methods can be found
-[here](https://docs.python.org/3/reference/datamodel.html#special-method-names).
-
-One particular special method that we will use in this course is
-[`__str__`](https://thomas-cokelaer.info/blog/2017/12/difference-between-__repr__-and-__str__-in-python/).
-This defines how to display a class instance as a string, for example if trying to print the
-object:
-
-```python
-class Particle:
-    def __init__(self, name="electron", charge=-1.6e-19, mass=9.1e-31):
-        # if no values are supplied the default values will be used
-        self.name = name
-        self.charge = charge
-        self.mass = mass
-
-    def __str__(self):
-        # a string representing the object
-        vowel = self.name[0].lower() in ["a", "e", "i", "o", "u"]
-        firstword = "An" if vowel else "A"  # shorthand if else statement!
-
-        return "{} {} with mass of {} kg and charge of {} C".format(
-            firstword, self.name, self.mass, self.charge
-        )
-
-myparticle = Particle(name="positron", charge=1.6e-19)
-print(myparticle)
-A positron with mass of 9.1e-31 kg and charge of 1.6e-19 C
-```
-
-A similar method that can be used instead is `__repr__`.
 
 ### Adding methods
 
@@ -203,6 +168,7 @@ class Particle:
         Determine if the particle is a fermion or a boson.
         """
 
+        # note: the method is able to use the instance's "spin" attribute via self
         if self.spin is not None:
             if self.spin % 0.5 == 0.0:
                 return "fermion"
@@ -215,7 +181,8 @@ class Particle:
             return None
 ```
 
-Like the data attributes this method can then be accessed using a `.`, e.g.:
+Like the data attributes, this method can then be accessed using a `.` followed by the method name,
+e.g.:
 
 ```python
 electron = Particle("electron", -1.6e-19, 9.1e-31, spin=1/2)
@@ -268,6 +235,11 @@ class Particle:
         v: array
             A vector giving the x, y and z components of the particle's
             velocity (defaults to zero)
+
+        Returns
+        -------
+        F: list
+            The 3d Lorentz force vector.
         """
 
         if len(E) != 3:
@@ -289,7 +261,7 @@ electron = Particle("electron", -1.6e-19, 9.1e-31)
 
 First, we can see what happens if we used the method incorrectly (error checking is discussed in
 more detail in the ["Error checking and debugging" tutorial](../demo-error-checking/index.html)).
-The `lorentz_force` method requires one positional argument, but if we do not then:
+The `lorentz_force` method requires one positional argument, but if we do not supply one then:
 
 ```python
 # calculate the Lorentz force (forgetting the required positional argument!)
@@ -336,6 +308,49 @@ default values). Any number of positional or keyword arguments could be used.
 
 The `lorentz_force` method could be simplified using NumPy (see the [NumPy
 tutorial](../demo-numpy/index.html]).
+
+### Special methods
+
+There are a set of [special method names](https://rszalski.github.io/magicmethods/) (sometimes
+called "dunder" methods as they start and end with a double underscore, but also known as magic
+methods) like `__init__` that can be defined in a class. These can be used:
+
+ * to allow comparisons of objects of specific class;
+ * define how mathematical operators work on a class (see [Operator overloading](#operator-overloading));
+ * access attributes within a class;
+ * provide representations of class.
+
+The full set of special methods can be found
+[here](https://docs.python.org/3/reference/datamodel.html#special-method-names).
+
+One particular special method that we will use in this course is
+[`__str__`](https://thomas-cokelaer.info/blog/2017/12/difference-between-__repr__-and-__str__-in-python/).
+This defines how to display a class instance as a string, for example, if trying to print the
+object:
+
+```python
+class Particle:
+    def __init__(self, name="electron", charge=-1.6e-19, mass=9.1e-31):
+        # if no values are supplied the default values will be used
+        self.name = name
+        self.charge = charge
+        self.mass = mass
+
+    def __str__(self):
+        # a string representing the object
+        vowel = self.name[0].lower() in ["a", "e", "i", "o", "u"]
+        firstword = "An" if vowel else "A"  # shorthand if else statement!
+
+        return "{} {} with mass of {} kg and charge of {} C".format(
+            firstword, self.name, self.mass, self.charge
+        )
+
+myparticle = Particle(name="positron", charge=1.6e-19)
+print(myparticle)
+A positron with mass of 9.1e-31 kg and charge of 1.6e-19 C
+```
+
+A similar method that can be used instead is `__repr__`.
 
 ## Static methods
 
@@ -648,7 +663,7 @@ class Vector:
 
 !!! note
     In the above definition it has used the `@property` function @(decorator). This is a way to
-    define methods in a class that can allow aspect of a current data attributes to be accessed
+    define methods in a class that can allow aspects of a current data attributes to be accessed
     with a different name. Here it is handy to store the vector as a list-type data attribute,
     but it is also nice to be able to access the individual components in an intuitively named
     manner. Hence defining properties for `x`, `y` and `z` that only return those components.

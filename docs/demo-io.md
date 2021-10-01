@@ -43,8 +43,8 @@ binary file.
     which both stop Python interpreting backslashes (`\`) in a string as an @(escape character)
     for the following letter (e.g., `\n` in a string means new line).
 
-    Another option is to use the [`pathlib`](https://docs.python.org/3/library/pathlib.html) built-in module to construct `Path` objects that can
-    be used instead of strings, e.g.,:
+    Another option is to use the [`pathlib`](https://docs.python.org/3/library/pathlib.html)
+    built-in module to construct `Path` objects that can be used instead of strings, e.g.,:
 
     ```
     from pathlib import Path
@@ -54,7 +54,7 @@ binary file.
     On Windows, using `pathlib` will often work with or without the drive supplied if the file is
     locally stored.
 
-    It is useful to save to filename that do not contain spaces.
+    It is useful to save to filenames that do not contain spaces.
 
 ## Basic reading and writing to file (ascii text only)
 
@@ -97,8 +97,8 @@ print(y)
 [9.8, 10.3, 12.4, 13.2, 14.7, 16.1, 17.2, 18.7, 20.1, 21.3]
 ```
 
-In the above code [`readlines`](https://www.w3schools.com/python/ref_file_readlines.asp) is a method
-of the file object. It goes through the file and returns a list, where each entry is a string
+In the above code, [`readlines`](https://www.w3schools.com/python/ref_file_readlines.asp) is a
+method of the file object. It goes through the file and returns a list, where each entry is a string
 containing a line from the file.
 
 When reading data in this way you must know what the data file looks like, i.e., you need to know
@@ -111,7 +111,7 @@ that comment lines start with a `#` and that it contains two columns of numbers.
 
 The `open` function can be used as a [context
 manager](https://www.geeksforgeeks.org/context-manager-in-python/). This is basically just a way of
-making sure the resource, in this case the open file, is closed after use. Above the file was
+making sure the resource, in this case the open file, is closed after use. Above, the file was
 explicitly closed using the `close` method, `fp.close()`, but you do not need to close the file if
 instead you use the
 [`with`](https://docs.python.org/3/reference/compound_stmts.html#the-with-statement) statement:
@@ -133,15 +133,17 @@ with open("mydata.txt", "r") as fp:
 ```
 
 Reading binary data can be done by opening the file with the `"rb"` mode instead of `"r"` and
-reading the entire contents using the [`read`](https://www.w3schools.com/python/ref_file_read.asp) method of the file object. However, converting the read
-in data to something that is usable within Python is trickier as you have to know exactly the layout
-and memory size for the data stored within the file. We will not cover this here.
+reading the entire contents using the [`read`](https://www.w3schools.com/python/ref_file_read.asp)
+method of the file object. However, converting the read-in data to something that is usable within
+Python is trickier as you have to know exactly the layout and memory size for the data stored within
+the file. We will not cover this here.
 
 ### Writing
 
 To write to a plain text file you again have to open a file, but this time with the mode set to
-write, `"w"`. Once the file is open you can then use the [`write`](https://www.w3schools.com/python/ref_file_write.asp) method of the file object to add
-data to the file. You can only write out string data, so any numbers must be converted to strings.
+write, `"w"`. Once the file is open you can then use the
+[`write`](https://www.w3schools.com/python/ref_file_write.asp) method of the file object to add data
+to the file. You can only write out string data, so any numbers must be converted to strings.
 
 ```python
 # create some data
@@ -261,7 +263,7 @@ from pathlib import Path
 
 p = Path("myfile.txt")
 with open(p, "w") as fp:
-
+    ...
 ```
 
 ## Pickling
@@ -383,9 +385,8 @@ import json
 
 # open file for reading
 filename = "mydata.txt"
-fp = open(filename, "r")
-
-data = json.load(fp)
+with open(filename, "r") as fp:
+    data = json.load(fp)
 print(data)
 {'x values': [0.7, 0.8, 0.9, 1.0, 1.1], 'y values': [-10, -9, -8, -7, -6], 'name': 'Lab1'}
 ```
@@ -422,9 +423,8 @@ Rather than taking a file object, `loadtxt` can just be passed the file name. Li
 particular character, in this case `#`, can be ignored using the `comments` keyword argument.
 
 If the data file contained columns with values separated by commas (often called [comma separated
-value](https://en.wikipedia.org/wiki/Comma-separated_values), or CSV, text files), then the
-`delimiter` keyword argument could be used, e.g., `data = np.loadtxt(filename, comments="#",
-delimiter=",")`.
+value](https://en.wikipedia.org/wiki/Comma-separated_values), or CSV, files), then the `delimiter`
+keyword argument could be used, e.g., `data = np.loadtxt(filename, comments="#", delimiter=",")`.
 
 More control, including converting particular columns to certain data types is available, with the
 finest grain of control found using the
@@ -445,13 +445,13 @@ np.savetxt(filename, data)
 ```
 
 The output format (i.e., the number of decimal places on float numbers) can be set using the `fmt`
-keyword argument, e.g., `np.savetxt(filename, data, fmt="%.5f")` would output as floats with 5
-decimal places. The delimiter between the output values can be set (by default a space), and header
-and footer text, preceded by a comment character, can also be set.
+keyword argument, e.g., `np.savetxt(filename, data, fmt="%.5f")` would output floats with 5 decimal
+places. The delimiter between the output values can be set (by default a space), and header and
+footer text, preceded by a comment character, can also be set.
 
 ### Binary files
 
-NumPy arrays can be saved as binary file containing pickled data using the
+NumPy arrays can be saved as binary files containing pickled data using the
 [`save`](https://numpy.org/doc/stable/reference/generated/numpy.save.html#numpy.save) function and
 then read back in using the
 [`load`](https://numpy.org/doc/stable/reference/generated/numpy.load.html#numpy.load) function,
