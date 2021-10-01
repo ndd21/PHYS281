@@ -13,18 +13,22 @@ If you have a piece of code that does a particular job and you need to reuse it 
 useful to define it as a @(function).
 
 To define a function you use the [`def`](https://www.w3schools.com/python/ref_keyword_def.asp)
-keyword followed by the name you want to give the function, followed by brackets containing any
-@(arguments) that the function takes:
+@(keyword) followed by the name you want to give the function, followed by brackets containing any
+@(arguments) that the function takes. The definition line should be finished with a colon `:`. The
+function contents then follow, with indents at the start of the line defining code that is within
+the function. E.g.,
 
 ```python
+# define a function
 def my_function(variable1, variable2):
     # contents of a function must be indented
     print(variable1, variable2)
 
+# define variables (back "outside" of the function)
 a = "Hello"
 b = "world!"
 
-# use (or "call") the function with the two variable a and b
+# use (or "call") the function with the two variables a and b
 my_function(a, b)
 Hello world!
 ```
@@ -48,14 +52,14 @@ print(num)
 ```
 
 ```python
-def CountToTen():
+def countToTen():
     # indent the function
     for i in range(1, 11):
         # indent the for loop within the function
         print(i)
 
 # use the function
-CountToTen()
+countToTen()
 1
 2
 3
@@ -125,7 +129,7 @@ the function their order (or position) matters. Positional arguments are always 
 you use the function, i.e., you cannot leave any out when calling the function.
 
 It is best not to have too many arguments or you can lose track of them. If you do require lots of
-inputs to a function it can be useful to group them and instead define the function to take single
+inputs to a function it can be useful to group them and instead define the function to take a single
 variable that has a type such as a list or dictionary.
 
 !!! note
@@ -148,9 +152,9 @@ these you pass a variable to a function using a specific "key" word that is then
 variable's name within the function. Keyword arguments and defined in the function definition using
 a `keyword=value` pair.
 
-Unlike positional keyword arguments, you do not have to call the function using all of (or even any
-of) the keywords. However, this means that when defining a function with keyword arguments you must
-give them default values that will be used if they are not explicitly set.
+Unlike positional arguments, you do not have to call the function using all of (or even any of) the
+keywords. However, this means that when defining a function with keyword arguments you must give
+them default values that will be used if they are not explicitly set.
 
 ```python
 # a function with one positional argument and two keyword arguments
@@ -166,7 +170,7 @@ True
 print(in_range(12, minimum=15))
 False
 
-# use both minumum and maximum keywords
+# use both minimum and maximum keywords
 lower = 34
 upper = 90
 print(in_range(56, minimum=lower, maximum=upper))
@@ -247,6 +251,8 @@ result = sum_and_product(12, 8)
 print(result)
 (20, 96)
 ```
+
+The results are returned with a Python tuple object.
 
 ## Functions as variables
 

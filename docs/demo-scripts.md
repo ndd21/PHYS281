@@ -118,8 +118,9 @@ file with the `.py` extension is also a Python module. This means that you can i
 @(functions) or @(classes) defined in one script into another.
 
 For small projects with multiple scripts it is useful to keep them in the same directory so that you
-can import between them as needed. (The more advanced topic of "packaging" your project is beyond
-the scope of this course, although is a very useful thing to learn.)
+can import between them as needed. (The more advanced topic of
+"[packaging](https://github.com/mattpitkin/lancstro" your project is beyond the scope of this
+course, although is a very useful thing to learn.)
 
 For example, I could create a new script in the same directory as `tell_time.py` called
 `sydney_time.py` that contains:
