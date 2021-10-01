@@ -9,13 +9,13 @@ date: 2020-08-12
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/biimYBveWJE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-If there is a problem in some Python code being run it will often print out an error message to
-screen. This is called "raising" an error, also known as an @(exception). The final line of the
-error message will be the [type of exception](https://docs.python.org/3/library/exceptions.html)
-that has been raised. Preceding this will be a "@(traceback)" showing where the error occurred in
-the code, often with a line number, and can be nested down through the chain of functions calling
-the buggy code. This chain of functions may be ones that you have defined or functions within a
-@(built-in) or user installed module.
+If there is a problem in some Python code being run it will often stop and print out an error
+message to the screen. This is called "raising" an error, also known as an @(exception). The final
+line of the error message will be the [type of
+exception](https://docs.python.org/3/library/exceptions.html) that has been raised. Preceding this
+will be a "@(traceback)" showing where the error occurred in the code, often with a line number, and
+can be nested down through the chain of functions calling the buggy code. This chain of functions
+may be ones that you have defined or functions within a @(built-in) or user installed module.
 
 These errors are often not that informative for novices (or indeed experts), especially at first
 glance. But looking at the exception type can give hints as to the cause of the problem.
@@ -34,7 +34,7 @@ when importing a module containing a bug. The cause of such an error is often:
  * forgetting to close a set of open brackets (it can be tricky keeping track of open and closing
    bracket in some statements).
 
-Many Python editors, including VS Code, will highlight the associated pair of opening and closing
+Many Python editors, including _VS Code_, will highlight the associated pair of opening and closing
 brackets if you click on one of them. This can help finding missing brackets.
 
 #### Forgotten colon
@@ -233,7 +233,7 @@ def i_am_ok_with_any_number(x):
         # try converting x to a complex number type
         complex(x)
     except ValueError:  # "catch" if this raises a ValueError
-        # print a message but don't exit
+        # print a message but don't fail
         print("Please give me a number not a {}".format(type(x)))
         return
     
@@ -259,7 +259,7 @@ Here are a few general tips for debugging:
  * To find out where a code is failing, or if there are any problematic variables, add `print`
    statements at various places within your code. If a print statement is not reached you know the
    error occurred before it in the code. Doing this iteratively allows you to home in on a problem.
-   Remember to remove the print statement (unless they are generally useful) after debugging is
+   Remember to remove the print statements (unless they are generally useful) after debugging is
    complete.
  * Use [Google](https://www.google.com)! Your problem is probably not unique, so someone else may
    have come across it before and asked "the internet". Sometimes you can just cut and paste an
