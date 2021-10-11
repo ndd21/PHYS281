@@ -31,7 +31,7 @@ aim is for you to think about how you would code up the function yourself.
     ```
 
 !!! question "Part 2"
-    Print out the resulting variable two 3 decimal places.
+    Print out the resulting variable to 3 decimal places.
 
 ??? info "Solution"
     Several options exist, e.g.,
