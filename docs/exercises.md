@@ -274,7 +274,7 @@ aim is for you to think about how you would code up the function yourself.
         column = [row[i] for row in x]
 
         product = 1.0
-        for cv in colmn:
+        for cv in column:
             product *= cv
 
         print(product)
