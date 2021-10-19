@@ -137,7 +137,7 @@ c = 1
 (a == c) and (a < b)
 True
 
-(a != c) and (a < b)
+(a != c) or (a < b)
 True
 
 not (a == c)
