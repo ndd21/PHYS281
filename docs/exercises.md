@@ -1167,7 +1167,7 @@ aim is for you to think about how you would code up the function yourself.
     Write the results to a new CSV file with the total grade as a new fifth column.
 
 ??? info "Solution"
-    There are again multiple ways of doing this. E.g., using the NumPy [`savetxt()`] function
+    There are again multiple ways of doing this. E.g., using the NumPy [`savetxt()`](https://numpy.org/doc/stable/reference/generated/numpy.savetxt.html) function
     (assuming we have the `results` and `finalgrades` as above):
 
     ```python
@@ -1181,6 +1181,8 @@ aim is for you to think about how you would code up the function yourself.
 
     np.savetxt(outputfile, results, fmt="%d", delimiter=",", header=header)
     ```
+
+### Exercise {{ counter() }}
 
 !!! question "Part 1"
     Suppose you have the following class to hold some experimental data consisting of the electric
