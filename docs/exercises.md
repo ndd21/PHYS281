@@ -658,7 +658,7 @@ aim is for you to think about how you would code up the function yourself.
     M = [[1.5, 2.1, 3.6, 4.1], [-0.2, 6.1, 7.2, -5.0], [3.4, 10.1, 1.7, 12.9], [-13.0, 1.3, -2.4, 0.8]]
     ```
 
-    write a function that takes in the matrix as an argument and returns it's
+    write a function that takes in the matrix as an argument and returns its
     [diagonal](https://en.wikipedia.org/wiki/Main_diagonal) elements as a list.
 
 ??? info "Solution"
@@ -707,7 +707,7 @@ aim is for you to think about how you would code up the function yourself.
         """
         Get the signature, or parity of a permutation (based on
         https://gist.github.com/lycantropos/217710b0afc40b3031762274275c204a)
-        if numbers between 0 and N, where N is the length of the permutation
+        of numbers between 0 and N, where N is the length of the permutation
         list.
 
         Parameters
