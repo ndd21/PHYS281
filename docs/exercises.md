@@ -1841,6 +1841,18 @@ aim is for you to think about how you would code up the function yourself.
     print(estpi)
     ```
 
+### Exercise {{ counter() }}
+
+!!! question
+    Write a function that implements the [bisection method](https://en.wikipedia.org/wiki/Bisection_method) to find the root of a continuous function in a provided interval. Test your funtion by solving the equation $\exp(-x)(x^2+5x+2) + 1 = 0$ between -1 and 0.
+
+??? info "Solution"
+    A potential solution is:
+
+    ```python
+    --8<-- "docs/exercises/bisection.py"
+    ```
+
 ## Advanced exercises
 
 These exercises are very much just for fun if you fancy something a bit more challenging!
