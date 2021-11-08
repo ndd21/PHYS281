@@ -2,6 +2,9 @@
 
 import math
 
+def test_function(x):
+    return math.e**(-1 * x) * (x**2 + 5*x +2) + 1
+
 def bisection(fun, xrange, toll = 1e-6, niter = 1000):
 
     """
@@ -9,8 +12,8 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
 
     Parameters:
     -----------
-    fun: code object
-        produced using the Python built-in function compile to evaluate strings
+    fun: callable
+        the function to be solved
    
     xrange: list
         list containing the interval where the 0 of the function lies
@@ -34,12 +37,10 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
 
     """
     a = xrange[0]
-    x = a
-    fa = eval(fun)
+    fa = fun(a)
 
     b = xrange[1]
-    x = b
-    fb = eval(fun)
+    fb = fun(b)
 
     if not (fa * fb < 0):
         raise ValueError("The provided function does not contain zeros in the given interval")
@@ -52,8 +53,7 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
     while (eps > toll) and n <= niter and fc != 0.0:
         
         c = (a + b) / 2
-        x = c
-        fc = eval(fun)  
+        fc = fun(c) 
         if (fa * fc) < 0:
             b = c
             fb = fc
@@ -73,10 +73,7 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
   
     return c, fc, n
 
-my_fun_expr = "math.e**(-1 * x) * (x**2 + 5*x +2) + 1"
 xrange = [-1.0, 0.0]
+sol, fsol, niter = bisection(test_function, xrange)
 
-my_fun = compile(my_fun_expr, "<string>", "eval")
-sol, fsol, niter = bisection(my_fun, xrange)
-
-print("The solution of {} = 0 is {}, where the equation is evalutaed to {}. The solution has been reached with {} iterations.".format(my_fun_expr, sol, fsol, niter))
+print("The solution of your equation is {}, where the equation is evalutaed to {}. The solution has been reached with {} iterations.".format(sol, fsol, niter))
