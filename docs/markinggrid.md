@@ -70,6 +70,13 @@ of marks between the different attributes are given in brackets.
 | D | The simulation is able to evolve a system consisting of a single particle in 2 dimensions in a gravitational field. | Code lacks comments and docstrings. Code is provided in a single script with no modular aspects. Minimal use of functions and no use of classes. No attempt is made to store results in a usable format. | Numerical approximations are not used and only analytical equations are used to calculate particle position. | Only very basic qualitative testing is performed. |
 | Fail | No attempt is made to evolve the motion of objects. | Code provided is incoherent and not understandable. | No evolution of objects over time. | No testing of the code is provided. |
 
+!!! note
+    You _can_ write your project without making use of Python classes at all. In terms of marking
+    the code "style", to get the highest grades withouth using classes the other aspects of the
+    code style must be shown to a higher level, i.e., the code documentation must be present and
+    informative, the structure of the code must be sensible and well thought out, the data must be
+    stored within the code in a clear and sensible way.
+
 ## Report
 
 The report should be **no more than 10 pages long** including pictures (but excluding title page,
