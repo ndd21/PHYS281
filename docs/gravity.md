@@ -337,8 +337,8 @@ To evolve the motion of the particles in the simulation the Euler, Euler-Cromer 
 approximation methods, as discussed above, should be used.
 
 You are free to produce the simulation as you wish, but the two pre-defined exercises ([Final
-Project Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332898) and [Part
-2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1332908)) that are part of the project
+Project Part 1](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1685921) and [Part
+2](https://modules.lancaster.ac.uk/mod/quiz/view.php?id=1685932)) that are part of the project
 provide a good starting point (i.e., the `Particle` class) for expansion to a more fully formed
 simulation. You can use results and experimentation with these exercises as part of your final
 report.
