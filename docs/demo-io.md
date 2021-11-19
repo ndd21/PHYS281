@@ -476,6 +476,48 @@ print(newdata)
  [ 0.4 13. ]]
 ```
 
+By default, the [`save`](https://numpy.org/doc/stable/reference/generated/numpy.save.html#numpy.save)
+function assumes you are saving a NumPy array object. However, you can get it to save other Python
+objects by explicitly telling it to allow pickling. For example, if you had a simple class like:
+
+```python
+class DataPoint:
+    def __init__(self, x, y, z):
+        # store copies of x, y and z in the class
+        self.x = x
+        self.y = y
+        self.z = z
+```
+
+and generated a list containing many `DataPoint` objects:
+
+```python
+import numpy as np
+
+mydata = [DataPoint(x, y, np.sqrt(x ** 2 + y ** 2)) for x, y in np.random.rand(10, 2)]
+```
+
+then to save this you would use:
+
+```python
+filename = "mydata.npy"
+np.save(filename, mydata, allow_pickle=True)
+```
+
+If you were to then read this data in:
+
+```python
+readdata = np.load(filename, allow_pickle=True)
+```
+
+then `readdata` will contain the original `DataPoint` objects.
+
+!!! note
+   The [`load`](https://numpy.org/doc/stable/reference/generated/numpy.load.html#numpy.load)
+   function will always load the data as a NumPy array object. So, in the example above, while
+   `mydata` was a list, `readdata` will instead be a NumPy array, although it will still contain
+   the `DataPoint` objects.
+
 ### Pandas
 
 While not covered in this tutorial, [Pandas](https://pandas.pydata.org/) is an advanced Python
