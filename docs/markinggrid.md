@@ -12,10 +12,10 @@ Below are further details of what you must submit for the project and guideline 
 
 ## Code
 
-You should submit a zipped files containing all you Python scripts, which should be submitted via
-Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=1404495). This zip file should
-also contain a plain text file called `README` or `README.txt` that briefly describes the contents
-of each Python file and how to run your simulation(s). If you produced large data files you do not
+You should submit a zipped files containing all your Python scripts, which should be submitted via
+Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=1700679). This zip file should
+also contain a plain text file called `README` or `README.txt` that briefly describes (in a single sentence) the contents
+of each Python file and how to run your simulation(s), i.e., which file to run to reproduce simulations. If you produced large data files you do not
 need to include these in the submission. In the vast majority of cases we will not be attempting to
 run your code - the evidence for it working should be in your report - but don't use this as an
 excuse to submit code that fails.
@@ -82,7 +82,7 @@ of marks between the different attributes are given in brackets.
 The report should be **no more than 10 pages long** including pictures (but excluding title page,
 abstract and references). You do not need to include code within the report. The report can be
 written in whatever software you prefer (e.g., LaTeX or Word), but you **must** submit a **pdf**
-file for marking on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=1404491).
+file for marking on Moodle [here](https://modules.lancaster.ac.uk/mod/assign/view.php?id=1700680).
 If using LaTeX an example template file is available on Moodle and you may want to make use of
 online services such as [Overleaf](https://overleaf.com) or [Authorea](https://www.authorea.com/)
 for writing your report. Writing a report about a coding project may seem a challenge, but the
