@@ -1,7 +1,7 @@
 ---
 title: Phys281 Lecture 1
-author: Matthew Pitkin and Elisabetta Boella
-date: 11 October, 2021
+author: Elisabetta Boella and Neil Drummond
+date: 11th October, 2022
 
 ---
 
@@ -115,7 +115,7 @@ There are many online Python tutorials that you can also use, e.g., the official
  
 * Python is now becoming a popular language in school, so you are more likely to have experience that we can build on.
 * Python is currently one of the most used languages in industry (see, e.g., the IEEE Spectrum report).
-* There are a huge number of widely used and tested resources and packages out there for scientific computing, such as NumPy, SciPy and Matploltib.
+* There are a huge number of widely used and tested resources and packages out there for scientific computing, such as NumPy, SciPy and Matplotlib.
 * Python is portable - Python programs are cross platform and run on most computer systems in use today.
 * Many modern data science and machine learning applications use Python as an interface, which is driving its growth.
 * Python is currently used by many academics in the department.
