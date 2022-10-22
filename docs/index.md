@@ -123,7 +123,7 @@ Help and guidance for the exercises and project will be provided in
 weekly (Weeks 1-10) computer labs split over three sessions. All
 students will be assigned to one of these three sessions. Support can
 also be found via the course Teams channel during these same time
-slots. There will also be an "office hour" slot for additional help.
+slots. There will also be an "office hour" drop-in slot for additional help.
 
 The assignments and quizzes must be submitted on Moodle by 14:00 on
 the Tuesday the week after the associated lab session (e.g., the Week
@@ -200,6 +200,14 @@ There are a variety of useful Python tutorials freely available online:
 * **Python Data Science Handbook**, Jake VanderPlas, O'Reilly,
   [https://jakevdp.github.io/PythonDataScienceHandbook/](https://jakevdp.github.io/PythonDataScienceHandbook/):
   this book is freely available from the website.
+
+### Asking for help
+
+If you send code by email or Teams, or if you post code to a forum, it
+is always better to copy and paste your code as **text** than to
+attach a screenshot or a picture of your code; sending your code as
+text ensures that the recipient can easily run it rather than just
+look at it.
 
 ### Ethical programming
 
