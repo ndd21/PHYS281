@@ -592,7 +592,7 @@ statevec = [
 trans = sxform("J2000", "ECLIPJ2000", t.jd)
 
 # transform state vector to ecliptic
-statevececl = mxvg(trans, statevec, 6, 6)
+statevececl = mxvg(trans, statevec)
 
 # get positions and velocities
 position = [statevececl[0], statevececl[1], statevececl[2]]
