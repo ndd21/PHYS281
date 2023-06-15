@@ -3,8 +3,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AxRTFKKMtjA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [Anaconda](https://www.anaconda.com/products/individual)<sup>&#174;</sup> is a Python distribution
-and package management system. It provides an installation of Python (at the time of writing in
-September 2020 this defaults to [Python 3.8](https://docs.python.org/3/whatsnew/3.8.html)) and a way
+and package management system. It provides an installation of Python and a way
 to create "@(virtual environments)" that can contain different Python version and software packages
 required for a specific task.
 
@@ -12,7 +11,7 @@ required for a specific task.
     This tutorial describes installing Anaconda on your own computer. It also describes creating
     new virtual environments and packages within those environments. For the PHYS281 course you
     only need to be able to install Anaconda. The information on creating environments and
-    installing packages is just provided as additional useful information, but is not required.
+    installing packages is just provided as additional useful information, but is not required.  If you know what you are doing, you are of course welcome to use whatever package management tools you like (e.g., pip) instead of Anaconda, in which case you can skip this section.
 
 ## Installing Anaconda
 
