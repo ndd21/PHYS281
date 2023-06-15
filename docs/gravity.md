@@ -49,7 +49,7 @@ your own simulations.
 Let's consider the various steps in developing a general simulation of particle motion in
 gravitational fields.
 
-## A "Particle" in The Earth’s Gravitational Field
+## A "Particle" (or "Body") in the Earth’s Gravitational Field
 
 To start off with, we want to simulate the trajectory of a particle in a cannonball-like trajectory
 close to the surface of the Earth. You may want to bear in mind from the start that ultimately we
@@ -59,33 +59,34 @@ simulation. You should initially write a simulation that can simulate the parabo
 a particle close to the surface of the Earth, but a bit of thought on how this might been extendible
 to a more general case could save a lot of time later on.
 
-For simplicity, our simulation can be considered initially to be in 2 dimensions: the $x$-direction
+For simplicity, our simulation can be considered initially to be in two dimensions: the $x$-direction
 which is parallel to the ground, and the $y$-direction which is perpendicular to the ground. We are
 of course inherently here assuming the surface of the Earth can be treated as being approximately
 flat as long as we consider fairly short trajectories. Later on we can remove this assumption.
 
 In this case we can represent the approximate acceleration by:
 $$
-  \vec{a} = g = -9.81 \hat{j} ~ \mathrm{m} \, \mathrm{s}^{-2}.
+  \vec{a} = -g\hat{j} = -9.81 \hat{j} ~ \mathrm{m} \, \mathrm{s}^{-2}.
 $$
 
-To characterise the motion of a particle in this uniform gravitational field we will need to be able
-to calculate the changes in the particle's position $\vec{x}$, and velocity $\vec{v}$ as a function
-of time, $t$.
+To characterise the motion of a particle in this uniform gravitational
+field we will need to be able to calculate the changes in the
+particle's position $\vec{r}=(x,y,z)$, and velocity
+$\vec{v}=(v_x,v_y,v_z)$ as a function of time, $t$.
 
 For many (although not all) physical systems we can write the velocity as
 $$
-  \vec{v}(t) = \int^{t} \vec{a}(\vec{x}, t) \, dt,
+  \vec{v}(t) = \int^{t} \vec{a}(\vec{r}, t) \, dt,
 $$
 and position as
 $$
-  \vec{x}(t) = \int^{t} \vec{v}(\vec{x}, t) \, dt,
+  \vec{r}(t) = \int^{t} \vec{v}(\vec{r}, t) \, dt,
 $$
-where $\vec{a}(t)$ is the acceleration of the particle and we have restricted ourselves here to
+where $\vec{a}(\vec{r},t)$ is the acceleration of the particle and we have restricted ourselves here to
 considering a single particle. Equivalently, these can be written as a pair of differential
 equations
 $$
-\vec{v}(t) = \frac{\mathrm{d}\vec{x}(t)}{\mathrm{d}t},
+\vec{v}(t) = \frac{\mathrm{d}\vec{r}(t)}{\mathrm{d}t},
 $$
 and
 $$
@@ -99,11 +100,11 @@ there is no spatial or temporal dependence). The familiar equations are:
 $$
 \begin{align}
   \vec{v} & =  \vec{v}_{0} + \vec{a} t \\
-  \vec{x} & =  \vec{x}_{0} + \vec{v}_{0} t + \frac{1}{2} \vec{a} t^{2}
+  \vec{r} & =  \vec{r}_{0} + \vec{v}_{0} t + \frac{1}{2} \vec{a} t^{2}
 \end{align}
 $$
 
-where the initial position and velocity at time $t=0$ are given by $\vec{x}_{0}$ and $\vec{v}_{0}$,
+where the initial position and velocity at time $t=0$ are given by $\vec{r}_{0}$ and $\vec{v}_{0}$,
 respectively. As long as the acceleration is constant and uniform, these equations will be accurate
 and hence our simulation will not be very interesting.
 
@@ -118,7 +119,7 @@ given that we know them at the slightly earlier time $t$. It has the form
 
 $$
 \begin{align}
-  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta t, \\
+  \vec{r}_{n+1} & \approx \vec{r}_n + \vec{v}_n \Delta t, \\
   \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta t,
 \end{align}
 $$
@@ -194,8 +195,13 @@ more robust.
 
 ## Orbiting Massive Particles (E.g, Planets)
 
-Consider the case of $N$ massive particles moving under the influence of each others’ gravity. The
-net acceleration of a particle with mass $m_i$ will be given by
+Consider the case of $N$ massive particles moving under the influence
+of each others’ gravity. In this section, the subscript $i$ on
+position $\vec{r}_i=(x_i,y_i,z_i)$, velocity
+$\vec{v}_i=({v_x}_i,{v_y}_i,{v_z}_i)$ and acceleration
+$\vec{a}_i=({a_x}_i,{a_y}_i,{a_z}_i)$ denotes that we are referring to
+the $i$th particle.  The net acceleration of a particle with mass
+$m_i$ is given by
 
 $$
 \vec{a}_i = \sum^{N}_{j\neq i}{\frac{-Gm_j}{|\vec{r}_{ij}|^2} \hat{r}_{ij}},
@@ -209,42 +215,53 @@ third law in the absence of an external field. Note that if we move one particle
 the effect of that particle on all the other particles in our simulation then (unless great care is
 taken) our code will violate Newton's third law. This is unlikely to be a good idea.
 
-For a single dimension, e.g., in the $x$-dimension, the above equation would give:
+For a single Cartesian direction, e.g., the $x$-dimension, the above equation gives:
 
 $$
-{a_x}_i = \sum^N_{j \neq i} \frac{-G m_j}{|\vec{r}_{ij}|^2}\frac{({r_x}_i - {r_x}_j)}{|\vec{r}_{ij}|}
+{a_x}_i = \sum^N_{j \neq i} \frac{-G m_j}{|\vec{r}_{ij}|^2}\frac{(x_i - x_j)}{|\vec{r}_{ij}|}
 $$
 
-where, even for one dimension, $|\vec{r}_{ij}|$ is still the total magnitude of the difference in positions between two particles, given by:
+where $|\vec{r}_{ij}|$ is the magnitude of the difference in positions of particles $i$ and $j$, given by:
 
 $$
-|\vec{r}_{ij}| = \left(({r_x}_i - {r_x}_j)^2 + ({r_y}_i - {r_y}_j)^2 + ({r_z}_i - {r_z}_j)^2\right)^{1/2}.
+|\vec{r}_{ij}| = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2 + (z_i - z_j)^2}.
 $$
 
-Be careful to make sure the indices of the values in $({r_x}_i - {r_x}_j)$ are in the correct order,
+Be careful to make sure the indices of the values in $(x_i - x_j)$ are in the correct order,
 so that the acceleration on object $i$ caused by object $j$ points towards object $j$.
 
 ## Different methods of simulating kinematics
 
-Regardless of the details of your final project you are going to need to have a way of approximating
-the motion of your system. We have assumed earlier that for a small interval of time $\Delta t$ that
-the change in acceleration is small and that the resulting change in position and velocity is given
-by 
+Regardless of the details of your final project you are going to need
+to have a way of approximating the motion of your system.  Earlier, we
+stated Euler's method for updating the motion of a single particle;
+here we generalise the method to the case of motion of all the
+particles by introducing a $3N$-dimensional vector of all the particle
+positions, $\vec{R}=(x_1,y_1,z_1,x_2,y_2,z_2,\ldots,x_N,y_N,z_N)$,
+along with the corresponding $3N$-dimensional vectors of all particle
+velocities
+$\vec{V}=({v_x}_1,{v_y}_1,{v_z}_1,\ldots,{v_x}_N,{v_y}_N,{v_z}_N)$ and
+accelerations
+$\vec{A}=({a_x}_1,{a_y}_1,{a_z}_1,\ldots,{a_x}_N,{a_y}_N,{a_z}_N)$.
+For a small interval of time $\Delta t$, the change in acceleration is
+small and the resulting change in position and velocity between the
+$n$th time step and the $(n+1)$th time step is approximately given by
+Euler's method:
 
 $$
 \begin{align}
-  \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n \Delta{t} \\
-  \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta{t},
+  \vec{R}_{n+1} & \approx \vec{R}_n + \vec{V}_n \Delta{t} \\
+  \vec{V}_{n+1} & \approx \vec{V}_n + \vec{A}_n \Delta{t}.
 \end{align}
 $$
 
-which we've already referred to as Euler's Method. As stated, this is based on a Taylor expansion of
-the standard equations of motion to give
+As stated above, this is based on a Taylor expansion of the standard
+equations of motion, which gives
 
 $$
 \begin{align}
-\vec{v}_{n+1} & = \vec{v}_n + a_n \Delta{t} + \mathcal{O}\left( \Delta t^2\right),\\
-\vec{x}_{n+1} & = \vec{x}_n + \vec{v}_n \Delta{t} + \mathcal{O}\left( \Delta t^2\right),
+\vec{V}_{n+1} & = \vec{V}_n + \vec{A}_n \Delta{t} + \mathcal{O}\left( \Delta t^2\right)\\
+\vec{R}_{n+1} & = \vec{R}_n + \vec{V}_n \Delta{t} + \mathcal{O}\left( \Delta t^2\right),
 \end{align}
 $$
 
@@ -266,66 +283,67 @@ stable results
 
 $$
 \begin{align}
-\vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_n \Delta{t},\\
-\vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_{n+1} \Delta{t}.
+\vec{V}_{n+1} & \approx \vec{V}_n + \vec{A}_n \Delta{t} \\
+\vec{R}_{n+1} & \approx \vec{R}_n + \vec{V}_{n+1} \Delta{t}.
 \end{align}
 $$
 
 It is also possible that it may be better to compute the velocity in the middle of the interval
 $\Delta t$. This calculation is called the *Euler-Richardson* algorithm. This is particularly useful
 for velocity-dependent forces. This algorithm requires use of the *Euler* method to calculate the
-intermediate position $x_\text{mid}$ and velocity $v_\text{mid}$ at time $t_\text{mid} = t
-+ \Delta t/2$. The force and acceleration are then computed for this mid-point.
+intermediate position $\vec{X}_\text{mid}$ and velocity $\vec{V}_\text{mid}$ at time $t_\text{mid} = t
++ \Delta t/2$. The force and acceleration are then computed for this midpoint.
 
 $$
 \begin{align}
-  \vec{a}_n & = \vec{F}\left( \vec{x}_n, \vec{v}_n, t_n \right)/m \\
-  \vec{v}_{\mathrm{mid}} & \approx \vec{v}_n + \frac{1}{2}\vec{a}_n \Delta{t}\\
-  \vec{x}_{\mathrm{mid}} & \approx \vec{x}_n + \frac{1}{2}\vec{v}_n \Delta{t}\\
-  \vec{a}_{\mathrm{mid}} & \approx \vec{F}\left(\vec{x}_{\mathrm mid}, \vec{v}_{\mathrm{mid}}, t+\frac{1}{2}\Delta{t} \right)/m,
+  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{in} & = \vec{F}_i\left( \vec{R}_n, \vec{V}_n, t_n \right)/m_i \\
+  \vec{V}_{\mathrm{mid}} & \approx \vec{V}_n + \frac{1}{2}\vec{A}_n \Delta{t}\\
+  \vec{R}_{\mathrm{mid}} & \approx \vec{R}_n + \frac{1}{2}\vec{V}_n \Delta{t}\\
+  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{i,\mathrm{mid}} & \approx \vec{F}_i\left(\vec{R}_{\mathrm{mid}}, \vec{V}_{\mathrm{mid}}, t_n+\frac{1}{2}\Delta{t} \right)/m_i,
 \end{align}
 $$
 
-so that
+where $\vec{F}_i\left( \vec{R}, \vec{V}, t \right)$ is the force on
+particle $i$ at time $t$ when the particle positions and velocities
+are $\vec{R}$ and $\vec{V}$, respectively.  We can then evaluate
 
 $$
 \begin{align}
-    \vec{v}_{n+1} & \approx \vec{v}_n + \vec{a}_{\mathrm{mid}} \Delta{t},\\
-    \vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_{\mathrm{mid}} \Delta{t}.
+    \vec{V}_{n+1} & \approx \vec{V}_n + \vec{A}_{\mathrm{mid}} \Delta{t} \\
+    \vec{R}_{n+1} & \approx \vec{R}_n + \vec{V}_{\mathrm{mid}} \Delta{t}.
 \end{align}
 $$
 
-Finally we can look at a simpler alternative known as the [*Verlet*
-algorithm](https://en.wikipedia.org/wiki/Verlet_integration) that is similar to the familiar
-equations of motion for constant acceleration. This uses the acceleration calculated at the end
-position to calculate the updated velocity which helps smooth out any changes in the acceleration.
-It is given by
+Finally we look at a simpler alternative known as the [*Verlet*
+algorithm](https://en.wikipedia.org/wiki/Verlet_integration), which is
+similar to the familiar equations of motion for constant
+acceleration. This uses the acceleration calculated at the end
+position to calculate the updated velocity which helps smooth out any
+changes in the acceleration.  It is given by
 
 $$
 \begin{align}
-\vec{x}_{n+1} & \approx \vec{x}_n + \vec{v}_n
-\Delta{t} + \frac{1}{2}\vec{a}_n \Delta t^2,\\
-  \vec{v}_{n+1} & \approx \vec{v}_n + \frac{1}{2} \left( \vec{a}_{n+1} + \vec{a}_n \right)  \Delta{t}.
+\vec{R}_{n+1} & \approx \vec{R}_n + \vec{V}_n
+\Delta{t} + \frac{1}{2}\vec{A}_n \Delta t^2,\\
+  \vec{V}_{n+1} & \approx \vec{V}_n + \frac{1}{2} \left( \vec{A}_{n+1} + \vec{A}_n \right)  \Delta{t}.
 \end{align}
 $$
 
-Clearly in this case we need some way of estimating $\vec{a}_{n+1}$. This can be achieved by using
+Clearly in this case we need some way of estimating $\vec{A}_{n+1}$. This can be achieved by using
 any of the algorithms/methods mentioned above first and then applying Verlet.
 
 Beyond these algorithms you can also consider higher-order algorithms such as the well-known
 [Runge-Kutta](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods) algorithms, which are very
-widely used in physics simulations. The Runge-Kutta algorithms aren't discussed in detail here as it
-can be troublesome to correctly turn them into code, but you are welcome to implement them if you
-wish. The algorithms listed above are likely to be sufficiently accurate for most projects you are
-likely to attempt in this module. In fact, you will probably get acceptable results by just using
-the simple Euler-Cromer algorithm.
+widely used in physics simulations.
 
 ## Project description
 
-To summarise the above description, the aim of this project is to produce a simulation of a physical
-system that evolves with time. An interesting type of system to consider is the motion of multiple
-massive bodies interacting under the influence of their gravitational fields, e.g., the Solar
-System. This can be built up in stages of increasing complexity:
+To summarise the above description, the aim of this project is to
+produce and analyse a simulation of a physical system that evolves
+with time. An interesting type of system to consider is the motion of
+multiple massive bodies interacting under the influence of their
+gravitational fields, e.g., the Solar System. This can be built up in
+stages of increasing complexity:
 
 1. a single massive particle in a static field;
 2. a pair of massive particles interacting with each other in one, two and three dimensions;
@@ -342,14 +360,34 @@ are part of the project provide a good starting point (e.g., the
 can use results and experimentation with these exercises as part of
 your final report.
 
-The simulation you write should come with some tests that show that it works as expected, e.g.,
-tests of parts of the code or simple systems against analytical calculations. Useful tests are
-checking that the simulation conserves **total** linear momentum or angular momentum to an
-acceptable level. The tests should ideally compare simulations produced using more than one
-numerical approximation method, with quantitative evaluation of the differences.
+The simulation you write should come with tests that show that it
+works as expected, e.g., tests of parts of the code or simple systems
+against analytical calculations. Useful tests are checking that the
+simulation conserves **total** linear momentum or angular momentum to
+an acceptable level. The tests should ideally compare simulations
+produced using more than one numerical approximation method, with
+quantitative evaluation of the differences and consideration of the
+effects of changing the time step.
 
-The simulation can include additional physics or simulate systems other than the Solar System
-provided that you can provide justifiable tests of its validity.
+The simulation can include additional physics or simulate systems
+other than the Solar System provided that you can provide justifiable
+tests of its validity.  However, if you want to simulate something
+very different from the Solar System with Newtonian gravity, it would
+be advisable to discuss this with the lecturers.
+
+Please note that this is an open-ended project: you have been equipped
+with basic tools (Euler and Euler-Cromer methods) for simulating the
+motion of bodies subject to gravitational attraction; it is up to you
+to take these tools and decide what aspects you want to focus on or
+what questions you want to ask.  In a good project, you would use your
+simulation to examine interesting topics, e.g.: What sort of accuracy
+can be achieved over what sort of time scale in simulations of the
+Solar System using different methods?  How sensitive is the motion to
+the choice of initial conditions?  Can you calculate the trajectory of
+a space probe?  What happens to the Solar System if another star
+passes close by?  Better still, invent your own question(s) that can
+be answered using your simulation!  In all cases, you must provide
+evidence of testing to show that your conclusions are reliable.
 
 For more information and advice on the code and report, including guideline marking grids make sure
 to read the [Marking criteria page](../markinggrid/index.html).
