@@ -10,19 +10,18 @@ that are presented. A series of exercises are provided to test yourself on the p
 creating some code for a specific problem. These exercises are **not** part of the course
 assessment.
 
-This website was created by Matthew Pitkin, based on earlier lecture
-notes by Iain Bertram, Robin Long and Brooke Simmons.  Feedback to
-improve this website is very welcome, so if you have any questions or
-comments please contact the current module lecturers:
+This website was originally created by Matthew Pitkin, based on
+earlier lecture notes by Iain Bertram, Robin Long and Brooke Simmons.
+Feedback to improve this website is very welcome, so if you have any
+questions or comments please contact the current module lecturer:
 
-* Dr Elisabetta Boella, [e.boella@lancaster.ac.uk](mailto:e.boella@lancaster.ac.uk) ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk))
-* Neil Drummond, [n.drummond@lancaster.ac.uk](mailto:n.drummond@lancaster.ac.uk) ([Chat on MS Teams](https://teams.microsoft.com/l/chat/0/0?users=n.drummond@lancaster.ac.uk))
+* Neil Drummond, [n.drummond@lancaster.ac.uk](mailto:n.drummond@lancaster.ac.uk)
 
 In this course we will use many jargon terms and unfortunately this is inevitable. In some cases
 certain terms will be used interchangeably as synonyms. We have created a
 [glossary](glossary/index.html) of many terms to try and help with this, but it will be incomplete.
 Please do ask us if there are any concepts or terms that you do not understand and remember that
-Google is your friend! It is worth noting that the aim of this course is to allow you to write and
+Google is your friend (or, to be more precise, they provide a useful search engine)! It is worth noting that the aim of this course is to allow you to write and
 use Python code. However, this is not a computer science course and we do not expect you to
 understand the detailed reasons behind why something is done in a certain way. In the majority of
 cases you can treat what we show you as a recipe to follow without needing to know why a particular
@@ -96,16 +95,17 @@ There are many reasons why Python is a good choice as a programming language to 
   driving its growth.
 * Python is currently used by many academics in the department.
 
-In the [TIOBE](https://www.tiobe.com/tiobe-index/) index Python popularity and usage is growing:
+In the [TIOBE](https://www.tiobe.com/tiobe-index/) index, Python popularity and usage are high and still growing:
 
-| Sep 2021 | Sep 2020 | Change | Programming Language | Ratings | Change |
+| Jun 2023 | Jun 2022 | Change | Programming Language | Ratings | Change |
 | -------- | -------- | ------ | -------------------- | ------- | ------ |
-| 1 | 1 |  | C | 11.83% | -4.12% |
-| 2 | 3 | :fontawesome-solid-sort-up: | Python | 11.67% | +1.20% |
-| 3 | 2 | :fontawesome-solid-sort-down: | Java | 11.12% | -2.37% |
-| 4 | 4 | | C++ | 7.13% | +0.01% |
-| 5 | 5 | | C# | 5.78% | +1.20% |
-| 6 | 6 | | Visual Basic | 4.62% | +0.50% |
+| 1 | 1 |  | Python | 12.46% | +0.26% |
+| 2 | 2 |  | C | 12.37% | +0.46% |
+| 3 | 4 | :fontawesome-solid-sort-up: | C++ | 11.36% | +1.73% |
+| 4 | 3 | :fontawesome-solid-sort-down: | Java | 11.28% | +0.81% |
+| 5 | 5 | | C# | 6.71% | +0.59% |
+| 6 | 6 | | Visual Basic | 3.34% | -2.08% |
+
 
 ## Course overview
 
@@ -121,31 +121,26 @@ overall grade (6% each), with the project counting for 70%.
 
 Help and guidance for the exercises and project will be provided in
 weekly (Weeks 1-10) computer labs split over three sessions. All
-students will be assigned to one of these three sessions. Support can
-also be found via the course Teams channel during these same time
-slots. There will also be an "office hour" drop-in slot for additional help.
+students will be assigned to one of these three sessions. There will
+also be an "office hour" drop-in slot for additional help.
 
 The assignments and quizzes must be submitted on Moodle by 14:00 on
 the Tuesday the week after the associated lab session (e.g., the Week
 1 assignment should be submitted no later than 14:00 on the Tuesday of
 Week 2). The late submission deadline is 14:00 on the following
 Wednesday. If you require an extension or have a problem please
-contact [Elisabetta
-Boella](https://teams.microsoft.com/l/chat/0/0?users=e.boella@lancaster.ac.uk)
-or [Neil
-Drummond](https://teams.microsoft.com/l/chat/0/0?users=n.drummond@lancaster.ac.uk)
-or [Louise
-Crook](https://teams.microsoft.com/l/chat/0/0?users=l.crook@lancaster.ac.uk)
-via email or Teams. Submitted code will be tested and marked
-automatically using a Moodle plugin. To avoid losing marks it is
-highly recommended that you test your code on your own machine before
-submitting it on Moodle. Read the questions and expected
-inputs/outputs carefully, including making sure functions/classes are
-named *exactly* as specified (including letter case).
+contact [Louise Crook](mailto:l.crook@lancaster.ac.uk) or [Neil
+Drummond](mailto:n.drummond@lancaster.ac.uk) via email. Submitted code
+will be tested and marked automatically using a Moodle plugin. To
+avoid losing marks it is highly recommended that you test your code on
+your own machine before submitting it on Moodle. Read the questions
+and expected inputs/outputs carefully, including making sure
+functions/classes are named *exactly* as specified (including letter
+case).
 
 The project grade is split between several components:
 
-* 2 exercises to be submitted prior to the final project (5% each)
+* Two exercises to be submitted prior to the final project (5% each)
 * The written project report (30%)
 * The project code (30%)
 
@@ -203,11 +198,11 @@ There are a variety of useful Python tutorials freely available online:
 
 ### Asking for help
 
-If you send code by email or Teams, or if you post code to a forum, it
-is always better to copy and paste your code as **text** than to
-attach a screenshot or a picture of your code; sending your code as
-text ensures that the recipient can easily run it rather than just
-look at it.
+If you send code by email or Teams (or if you ever post code to an
+external forum such as StackOverflow), it is always better to copy and
+paste your code as **text** than to attach a screenshot or a picture
+of your code; sending your code as text ensures that the recipient can
+easily copy and run it rather than just look at it.
 
 ### Ethical programming
 
@@ -256,4 +251,4 @@ seem to have NumPy, SciPy and Matplotlib available.
   account and provides a Jupyter Notebook like Python environment. You can produce plots and install
   a wide variety of packages using pip.
 
-Let us know of any others. 
+Please let us know of any others.
