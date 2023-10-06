@@ -129,14 +129,14 @@ the Tuesday the week after the associated lab session (e.g., the Week
 1 assignment should be submitted no later than 14:00 on the Tuesday of
 Week 2). The late submission deadline is 14:00 on the following
 Wednesday. If you require an extension or have a problem please
-contact [Louise Crook](mailto:l.crook@lancaster.ac.uk) or [Neil
-Drummond](mailto:n.drummond@lancaster.ac.uk) via email. Submitted code
-will be tested and marked automatically using a Moodle plugin. To
-avoid losing marks it is highly recommended that you test your code on
-your own machine before submitting it on Moodle. Read the questions
-and expected inputs/outputs carefully, including making sure
-functions/classes are named *exactly* as specified (including letter
-case).
+contact [Al
+Wood](https://teams.microsoft.com/l/chat/0/0?users=a.wood14@lancaster.ac.uk)
+in the teaching office. Submitted code will be tested and marked
+automatically using a Moodle plugin. To avoid losing marks it is
+highly recommended that you test your code on your own machine before
+submitting it on Moodle. Read the questions and expected
+inputs/outputs carefully, including making sure functions/classes are
+named *exactly* as specified (including letter case).
 
 The project grade is split between several components:
 
