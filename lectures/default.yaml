@@ -1,9 +1,0 @@
----
-geometry: margin=1.25in
-indent: false
-header-includes: |
-  \usepackage{tcolorbox}
-  \newcommand\qed{\hfill\rule{1em}{1em}}
-  \newcommand{\robot}{\centerline{\fbox{\textbf{This exercise will be marked by the robot.}}}}
-
----
