@@ -1,14 +1,17 @@
 # PHYS281: Scientific Programming and Modelling Project
 
-This website provides a series of notes introducing the Python programming language as part of the
-PHYS281 course. These notes are available in both text and video formats. They can be accessed in
-any order, but it is recommended to cover them in the order presented in the table of contents
-sidebar. Concepts and terms will be covered in that order.
+This website provides a series of notes introducing the Python
+programming language as part of the PHYS281 course. These notes are
+available in both text and video formats. They can be accessed in any
+order, but it is recommended to cover them in the order presented in
+the table of contents sidebar. Concepts and terms will be covered in
+that order.
 
-To get the most out of the notes it is recommended that you try writing and running the examples
-that are presented. A series of exercises are provided to test yourself on the practicalities of
-creating some code for a specific problem. These exercises are **not** part of the course
-assessment.
+To get the most out of the notes it is recommended that you try
+writing and running the examples that are presented. A series of
+exercises are provided to test yourself on the practicalities of
+creating some code for a specific problem. These exercises are **not**
+part of the course assessment.
 
 This website was originally created by Matthew Pitkin, based on
 earlier lecture notes by Iain Bertram, Robin Long and Brooke Simmons.
@@ -17,20 +20,24 @@ questions or comments please contact the current module lecturer:
 
 * Neil Drummond, [n.drummond@lancaster.ac.uk](mailto:n.drummond@lancaster.ac.uk)
 
-In this course we will use many jargon terms and unfortunately this is inevitable. In some cases
-certain terms will be used interchangeably as synonyms. We have created a
-[glossary](glossary/index.html) of many terms to try and help with this, but it will be incomplete.
-Please do ask us if there are any concepts or terms that you do not understand and remember that
-Google is your friend (or, to be more precise, they provide a useful search engine)! It is worth noting that the aim of this course is to allow you to write and
-use Python code. However, this is not a computer science course and we do not expect you to
-understand the detailed reasons behind why something is done in a certain way. In the majority of
-cases you can treat what we show you as a recipe to follow without needing to know why a particular
-syntax or formatting is required.
+In this course we will use many jargon terms and unfortunately this is
+inevitable. In some cases certain terms will be used interchangeably
+as synonyms. We have created a [glossary](glossary/index.html) of many
+terms to try and help with this, but it will be incomplete.  Please do
+ask us if there are any concepts or terms that you do not understand
+and remember that Google is your friend (or, to be more precise, they
+provide a useful search engine)! It is worth noting that the aim of
+this course is to allow you to write and use Python code. However,
+this is not a computer science course and we do not expect you to
+understand the detailed reasons behind why something is done in a
+certain way. In the majority of cases you can treat what we show you
+as a recipe to follow without needing to know why a particular syntax
+or formatting is required.
 
 ## Course aims
 
-Programming is an important skill for scientists in the modern world. At the end of this module you
-should be able to:
+Programming is an important skill for scientists in the modern
+world. At the end of this module you should be able to:
 
 * understand the basic concepts involved in writing computer programs;
 * understand the main features of Python;
@@ -45,40 +52,48 @@ acquired through practice, i.e., actually writing and running code.
 ## What is Python?
 
 [Python](https://www.python.org/) is a [programming
-language](https://en.wikipedia.org/wiki/Programming_language), i.e., it is used to write
-instructions with a specific syntax that are interpreted and run by a computer. Python is an
-interpreted language rather than a compiled language. This means that you write a code that is then
-interpreted and run line-by-line. In a compiled language, such as
-[C](https://en.wikipedia.org/wiki/C_(programming_language)), the code you write has to be compiled
-by a different program to produce an executable file (basically one written in a more primitive
-machine language), that you then run.
+language](https://en.wikipedia.org/wiki/Programming_language), i.e.,
+it is used to write instructions with a specific syntax that are
+interpreted and run by a computer. Python is an interpreted language
+rather than a compiled language. This means that you write a code that
+is then interpreted and run line-by-line. In a compiled language, such
+as [C](https://en.wikipedia.org/wiki/C_(programming_language)), the
+code you write has to be compiled by a different program to produce an
+executable file (basically one written in a more primitive machine
+language), that you then run.
 
-Interpreted languages are often slightly slower at certain tasks than compiled languages, but have
-the advantage that they are easier for doing code development, and can even be run interactively,
-due to not having the extra compilation step.
+Interpreted languages are often slightly slower at certain tasks than
+compiled languages, but have the advantage that they are easier for
+doing code development, and can even be run interactively, due to not
+having the extra compilation step.
 
 Python is what is known as an [Object Oriented
-Programming](https://en.wikipedia.org/wiki/Object-oriented_programming) (OOP) language (other major
-languages that support the object oriented paradigm include
-[C++](https://en.wikipedia.org/wiki/C%2B%2B) and
-[Java](https://en.wikipedia.org/wiki/Java_(programming_language))). This means that the fundamental
-things that you use within a code are objects; these are things that can contain both data and
-functions that can perform specific tasks on that data.
+Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
+(OOP) language (other major languages that support the object oriented
+paradigm include [C++](https://en.wikipedia.org/wiki/C%2B%2B) and
+[Java](https://en.wikipedia.org/wiki/Java_(programming_language))). This
+means that the fundamental things that you use within a code are
+objects; these are things that can contain both data and functions
+that can perform specific tasks on that data.
 
-There have been several versions of Python as the language gets updated and new features added. The
-latest major version is Python 3, with Python 3.10 being a recent stable release. While most Python
-code is fairly backwards compatible, i.e., can run with previous versions of the language, there are
-some specific features that are not. Broadly speaking, code written based on Python 3.5 or above
-should be compatible and in this course we will not use any syntax that does not work across these
-versions.
+There have been several versions of Python as the language gets
+updated and new features added. The latest major version is Python 3,
+with Python 3.10 being a recent stable release. While most Python code
+is fairly backwards compatible, i.e., can run with previous versions
+of the language, there are some specific features that are
+not. Broadly speaking, code written based on Python 3.5 or above
+should be compatible and in this course we will not use any syntax
+that does not work across these versions.
 
-Python can be run in both an interactive mode, i.e., you can start an interactive Python terminal
-into which you can type and run commands immediately, or it can be used to run pre-written scripts.
-In this course we will describe both these modes of use.
+Python can be run in both an interactive mode, i.e., you can start an
+interactive Python terminal into which you can type and run commands
+immediately, or it can be used to run pre-written scripts.  In this
+course we will describe both these modes of use.
 
 ### Why Python?
 
-There are many reasons why Python is a good choice as a programming language to learn:
+There are many reasons why Python is a good choice as a programming
+language to learn:
 
 * Python is now becoming a popular language in school, so you are more likely to have experience
   that we can build on.
@@ -113,23 +128,23 @@ This course is assessed through coursework only. There is no exam.
 
 The course assessment consists of two main components:
  
-* Five coursework assignments and quizzes over Weeks 1-5 of Michaelmas Term
+* Coding exercises and quizzes over Weeks 1-5 of Michaelmas Term
 * A project over Weeks 6-10 of Michaelmas Term
 
-The five coursework assignments and quizzes count for 30% of the
-overall grade (6% each), with the project counting for 70%.
+The coding exercises and quizzes in Weeks 1-5 count for 30% of the
+overall grade (6% each week), with the project counting for 70%.
 
 Help and guidance for the exercises and project will be provided in
 weekly (Weeks 1-10) computer labs split over three sessions. All
 students will be assigned to one of these three sessions. There will
 also be an "office hour" drop-in slot for additional help.
 
-The assignments and quizzes must be submitted on Moodle by 14:00 on
-the Tuesday the week after the associated lab session (e.g., the Week
-1 assignment should be submitted no later than 14:00 on the Tuesday of
-Week 2). The late submission deadline is 14:00 on the following
-Wednesday. If you require an extension or have a problem please
-contact [Al
+The coding exercises and quizzes must be submitted on Moodle by 14:00
+on the Tuesday the week after the associated lab session (e.g., the
+Week 1 assignment should be submitted no later than 14:00 on the
+Tuesday of Week 2). The late submission deadline is 14:00 on the
+following Wednesday. If you require an extension or have a problem
+please contact [Al
 Wood](https://teams.microsoft.com/l/chat/0/0?users=a.wood14@lancaster.ac.uk)
 in the teaching office. Submitted code will be tested and marked
 automatically using a Moodle plugin. To avoid losing marks it is
@@ -152,27 +167,35 @@ which to build up to the full $n$-body simulation.
 
 ## Prerequisites
 
-Before getting started with the course please make sure you are familiar with some of the basics of
-the exploring the directory/folder structure of the computer operating system that you are using.
-You should know how to browse the directory structure (e.g., with "[File
+Before getting started with the course please make sure you are
+familiar with some of the basics of the exploring the directory/folder
+structure of the computer operating system that you are using.  You
+should know how to browse the directory structure (e.g., with "[File
 Explorer](https://en.wikipedia.org/wiki/File_Explorer)" in Windows, or
-"[Finder](https://support.apple.com/en-gb/HT201732)" on a Mac OS), be able to create new folders,
-and understand how file path structure is formatted, including drive if necessary (e.g.,
+"[Finder](https://support.apple.com/en-gb/HT201732)" on a Mac OS), be
+able to create new folders, and understand how file path structure is
+formatted, including drive if necessary (e.g.,
 `C:\User\username\Project\myfile.py`).
 
-Please also see the material in the "Course notes" -> "Getting started" menu for information on
-installing the software required for this course
-([Anaconda](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-anaconda/) and [Visual Studio
-Code](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-vs-code/)) on your own machine or using
-AppsAnywhere on a machine on campus. The ["Online Python environments"](#online-python-environments)
-section below has some options for running Python, which can be used as a back-up alternative if you
-have initial installation problems.
+Please also see the material in the "Course notes" -> "Getting
+started" menu for information on installing the software required for
+this course
+([Anaconda](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-anaconda/)
+and [Visual Studio
+Code](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-vs-code/))
+on your own machine or using AppsAnywhere on a machine on campus. The
+["Online Python environments"](#online-python-environments) section
+below has some options for running Python, which can be used as a
+back-up alternative if you have initial installation problems.
 
-## Exercises
+## Unassessed exercises
 
-A selection of [exercises](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/exercises/) have been created for
-you to try out and test your Python knowledge. These exercises are not marked and are voluntary. They
-will also be used for demonstration purposes during the course lecture slots.
+A selection of
+[exercises](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/exercises/)
+have been created for you to try out and test your Python
+knowledge. These exercises are not marked and are voluntary. They may
+also be used for demonstration purposes during the course lecture
+slots.
 
 ## Other material
 
@@ -206,10 +229,12 @@ easily copy and run it rather than just look at it.
 
 ### Ethical programming
 
-Coding is done by people and the outputs of code can affect peoples lives. In some cases the code
-you produce may be part of publicly funded work. In others, it may be done within a private
-institution and bound by national laws or industry-specific regulations and guidelines. So coding
-cannot exist independently of ethics and scrutiny by others.
+Coding is done by people and the outputs of code can affect peoples
+lives. In some cases the code you produce may be part of publicly
+funded work. In others, it may be done within a private institution
+and bound by national laws or industry-specific regulations and
+guidelines. So coding cannot exist independently of ethics and
+scrutiny by others.
 
 In general, it is good to think of the following practices when coding:
 
@@ -233,16 +258,18 @@ In general, it is good to think of the following practices when coding:
   protection and governance laws. This is particularly relevant to personal data, for which security
   of the data and compliance with laws and user agreed conditions of use are vital.
 
-While these may not seem relevant to this particular course they are good things to keep in mind for
-the future.
+While these may not seem relevant to this particular course they are
+good things to keep in mind for the future.
 
 ### Online Python environments
 
-There are a variety of online Python environments that can be used as a back up. These generally
-require your to create an account, but there are generally free account options that provide a
-limited but usable range of functionality. For the first half of the course these should suffice for
-any coding needs, but may be more limited when attempting the project. The options suggested below
-seem to have NumPy, SciPy and Matplotlib available.
+There are a variety of online Python environments that can be used as
+a back up. These generally require your to create an account, but
+there are generally free account options that provide a limited but
+usable range of functionality. For the first half of the course these
+should suffice for any coding needs, but may be more limited when
+attempting the project. The options suggested below seem to have
+NumPy, SciPy and Matplotlib available.
 
 * Python Anywhere [https://www.pythonanywhere.com](https://www.pythonanywhere.com)
 * repl.it [https://repl.it](https://repl.it)
@@ -252,3 +279,17 @@ seem to have NumPy, SciPy and Matplotlib available.
   a wide variety of packages using pip.
 
 Please let us know of any others.
+
+### Generative artificial intelligence (ChatGPT, Google Bard, etc.)
+
+Using generative artificial intelligence large language models to
+generate code or text for you should be viewed in a similar way to
+asking another human for help, or googling for example programs and
+downloading them from the Internet.  These are all fine, and indeed to
+be encouraged, if they help you learn how to do something, but you
+should never try to pass somebody else's work off as your own.  Above
+all, the whole point of the module is to enable you to learn how to
+program; if you undermine this by getting somebody or something else
+to carry out the exercises for you then it will not help you when you
+come to tackle the PHYS281 project (or indeed other projects in later
+years).
