@@ -38,6 +38,9 @@ be minor differences for other operating systems:
 * Click ++"Install"++.
 * Click ++"Finish"++ and _VS Code_ should launch.
 
+On an Apple Mac, you may need to move the executable file for _VS
+code_ from your "Downloads" folder to your "Applications" folder.
+
 ## Using VS Code
 
 Introductory videos on using and customising various aspects of _VS Code_ can be found at
