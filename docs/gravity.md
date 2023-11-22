@@ -537,16 +537,20 @@ or BibTeX entry:
 There are Python packages that you can use to directly access JPL ephemerides of the Solar System
 bodies rather than going through the [JPL Horizons](https://ssd.jpl.nasa.gov/horizons.cgi) website.
 
-To do this you will first need to install several packages. If you are using Anaconda, the
-[astropy](https://www.astropy.org/) package should be already install, but if not you can install it
-via the _Anaconda Navigator_. After opening _Anaconda Navigator_, in the left-hand border panel
-click on "Environments". In the panel containing the search box with "Search Environments" make sure
-you are clicked on the "base (root)" environment (this is the environment that VS Code uses by
-default). In the furthest right panel, click on the dropdown menu containing "Installed" and select
-"All" to see available packages. Then in the "Search Packages" search box type "astropy".
-[astropy](https://www.astropy.org/) should be listed as an installable package, so click the check
-box next to it and click "Apply" in the bottom right-hand corner. This should install astropy (it
-may take a minute or two).
+To do this you will first need to install several packages. If you are
+using Anaconda, the [astropy](https://www.astropy.org/) package should
+be already install, but if not you can install it via the _Anaconda
+Navigator_. After opening _Anaconda Navigator_, in the left-hand
+border panel click on "Environments". In the panel containing the
+search box with "Search Environments" make sure you are clicked on the
+"base (root)" environment (this is the environment that VS Code uses
+by default). In the furthest right panel, click on the dropdown menu
+containing "Installed" and select "All" to see available
+packages. Then in the "Search Packages" search box type "astropy".
+[astropy](https://www.astropy.org/) should be listed as an installable
+package, so click the check box next to it and click "Apply" in the
+bottom right-hand corner. This should install astropy (it may take a
+minute or two).
 
 The following additional packages are required, but are not available through the _Anaconda
 Navigator_:
@@ -559,7 +563,8 @@ However, these can be installed within a terminal. Open the _Anaconda Powershell
 the _Anaconda Navigator_ or within _VS Code_) and type:
 
 ```bash
-pip install jplephem spiceypy poliastro
+pip install jplephem spiceypy
+pip install https://github.com/poliastro/poliastro/archive/main.zip
 ```
 
 First you need to set the time at which you want to generate the solar system body positions. You
@@ -585,27 +590,17 @@ from astropy.coordinates import get_body_barycentric_posvel
 pos, vel = get_body_barycentric_posvel("sun", t, ephemeris="jpl")
 ```
 
-Note: The first time you run this it will download an ephemeris file. Subsequently, the file will
-not be re-downloaded as it should be locally cached. This file only contains the position of the Sun
-and planets (including the Moon and Pluto), but not any other solar system bodies.
+Note: The first time you run this it will download a large ephemeris
+file (best done when you have a good Internet
+connection). Subsequently, the file will not be re-downloaded as it
+should be locally cached. This file only contains the position of the
+Sun and planets (including the Moon and Pluto), but not any other
+solar system bodies.
 
-The valid body names that you can pass to `get_body_barycentric_posvel` are:
-
-```python
-print(solar_system_ephemeris.bodies)
-('sun',
- 'mercury',
- 'venus',
- 'earth-moon-barycenter',
- 'earth',
- 'moon',
- 'mars',
- 'jupiter',
- 'saturn',
- 'uranus',
- 'neptune',
- 'pluto')
-```
+The valid body names that you can pass to
+ `get_body_barycentric_posvel` are: 'sun', 'mercury', 'venus',
+ 'earth-moon-barycenter', 'earth', 'moon', 'mars', 'jupiter',
+ 'saturn', 'uranus', 'neptune', 'pluto', ...
 
 The positions are velocities are by default output in [equatorial
 coordinates](https://en.wikipedia.org/wiki/Equatorial_coordinate_system), but a more useful
@@ -660,12 +655,13 @@ associated webpages.
 
 #### More advanced!
 
-Say you wanted the positions of Jupiter's moons, you could download the appropriate ephemeris file
-and get them:
+Suppose you wanted the positions of Jupiter's moons. You could
+download the appropriate ephemeris file and get them as follows:
 
 ```python
 # URL of a file containing Jupiter ephemeris - this is a 1.2 Gb file!
-JUPEPH = "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup310.bsp"  
+# The version number (365) is OK in November 2023.  Might need updating in future years.
+JUPEPH = "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup365.bsp"  
 
 # get Io (see https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/aa_summaries.txt for kernel numbers)
 body = [(0, 5), (5, 501)]  # kernel chain going from SSB->Jupiter barycentre then Jupiter barycentre -> Io
