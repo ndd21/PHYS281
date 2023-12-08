@@ -270,9 +270,9 @@ rng = np.random.default_rng()
 x = np.arange(10)
 
 # create from data sets
-y1 = rng.normal(len(x))  # noise
-y2 = rng.normal(len(x)) + 3 * x  # noise and line
-y3 = rng.normal(len(x)) + 1.5 * x ** 2  # noise and quadratic
+y1 = rng.normal(size=len(x))  # noise
+y2 = rng.normal(size=len(x)) + 3 * x  # noise and line
+y3 = rng.normal(size=len(x)) + 1.5 * x ** 2  # noise and quadratic
 
 # plot data with labels
 plt.plot(x, y1, color="b", label="Data 1")
