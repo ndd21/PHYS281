@@ -16,7 +16,7 @@ Below are further details of what you must submit for the project and guideline 
 You should submit a zip file or tarball containing all your Python scripts, which should be submitted via
 Moodle. This zip file or tarball should
 also contain a plain text file called `README` or `README.txt` that briefly describes (in a single sentence) the contents
-of each Python file and how to run your simulation(s), i.e., which file to run to reproduce simulations. If you produced large data files you do not
+of each Python file and how to run your simulation(s), e.g., which file to run to reproduce simulations. If you produced large data files you do not
 need to include these in the submission. In the vast majority of cases we will not be attempting to
 run your code - the evidence for it working should be in your report - but don't use this as an
 excuse to submit code that fails.
@@ -77,7 +77,7 @@ well as from the code written to enable those tests).
 !!! note
     You _can_ write your project without making use of Python classes at all. In terms of marking
     the code "style", to get the highest grades without using classes the other aspects of the
-    code style must be shown to a higher level, i.e., the code documentation must be present and
+    code style must be shown to be at a higher level, i.e., the code documentation must be present and
     informative, the structure of the code must be sensible and well thought out, the data must be
     stored within the code in a clear and sensible way.
 
@@ -109,7 +109,7 @@ The report should contain:
 * An introduction describing the physics behind the simulation and motivations for the numerical
   approximation methods used, including equations as appropriate. You do not need to include a long
   historic background discussion of, e.g., planetary motion.
-* A description of how you tested your code and any outcomes of tests, i.e., simplified situations
+* A description of how you tested your code and any outcomes of tests, e.g., simplified situations
   or tests against analytical results.
 * A description of global tests of your simulation, quantified if possible and with some explanation
   of features observed, e.g.,
