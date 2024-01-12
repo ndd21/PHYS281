@@ -267,7 +267,7 @@ Here are a few general tips for debugging:
    phrase your query with some context. You will learn to hone your
    [Google-fu](https://en.wiktionary.org/wiki/Google-fu) and pose better questions.
  * Use [StackOverflow](https://stackoverflow.com/). This a dedicated question and answer site for
-   coding issues and many Google queries will point you to this site. If asking questions on this
+   programming issues and many Google queries will point you to this site. If asking questions on this
    site they should be specific and if possible include a short reproducible snippet of code that
    replicates your problem. **Do not** use StackOverflow to try and get the answer to your
    assignments. **Do not** post questions containing very large chunks of code with ambiguous

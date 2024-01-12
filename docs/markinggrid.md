@@ -89,7 +89,7 @@ written in whatever software you prefer (e.g., LaTeX or Word), but you **must** 
 file for marking on Moodle.
 If using LaTeX an example template file is available on Moodle and you may want to make use of
 online services such as [Overleaf](https://overleaf.com) or [Authorea](https://www.authorea.com/)
-for writing your report. Writing a report about a coding project may seem a challenge, but the
+for writing your report. Writing a report about a programming project may seem a challenge, but the
 report is not meant to be a description of your code. It is meant to describe the physical processes
 that you are simulating, how you determined if the simulation worked, how different methods (i.e.,
 numerical approximations) compared, and any insights that you gained.

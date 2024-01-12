@@ -128,10 +128,10 @@ This course is assessed through coursework only. There is no exam.
 
 The course assessment consists of two main components:
  
-* Coding exercises and quizzes over Weeks 1-5 of Michaelmas Term
+* Programming exercises and quizzes over Weeks 1-5 of Michaelmas Term
 * A project over Weeks 6-10 of Michaelmas Term
 
-The coding exercises and quizzes in Weeks 1-5 count for 30% of the
+The programming exercises and quizzes in Weeks 1-5 count for 30% of the
 overall grade (6% each week), with the project counting for 70%.
 
 Help and guidance for the exercises and project will be provided in
@@ -139,7 +139,7 @@ weekly (Weeks 1-10) computer labs split over three sessions. All
 students will be assigned to one of these three sessions. There will
 also be an "office hour" drop-in slot for additional help.
 
-The coding exercises and quizzes must be submitted on Moodle by 14:00
+The programming exercises and quizzes must be submitted on Moodle by 14:00
 on the Tuesday the week after the associated lab session (e.g., the
 Week 1 assignment should be submitted no later than 14:00 on the
 Tuesday of Week 2). The late submission deadline is 14:00 on the
@@ -229,14 +229,14 @@ easily copy and run it rather than just look at it.
 
 ### Ethical programming
 
-Coding is done by people and the outputs of code can affect peoples
+Programming is done by people and the outputs of code can affect peoples'
 lives. In some cases the code you produce may be part of publicly
 funded work. In others, it may be done within a private institution
 and bound by national laws or industry-specific regulations and
-guidelines. So coding cannot exist independently of ethics and
+guidelines. So programming cannot exist independently of ethics and
 scrutiny by others.
 
-In general, it is good to think of the following practices when coding:
+In general, it is good to think of the following practices when programming:
 
 * Do not use code for illegal or malicious activities.
 * Make sure you properly attribute any part of your code that uses code/algorithms from other
@@ -245,7 +245,7 @@ In general, it is good to think of the following practices when coding:
   [here](https://choosealicense.com/)), such as an [MIT
   license](https://choosealicense.com/licenses/mit/) or [GPL
   license](https://choosealicense.com/licenses/gpl-3.0/).
-* Coding is often done as part of a community. In such cases be kind and be inclusive. Take a look
+* Programming is often done as part of a community. In such cases be kind and be inclusive. Take a look
   at, e.g., the [NumFOCUS Code of Conduct](https://numfocus.org/code-of-conduct).
 * If your code directly affects people or uses personal data, think about whether its design could
   contain or promote biases and if so whether it is possible to mitigate against them.
@@ -267,7 +267,7 @@ There are a variety of online Python environments that can be used as
 a back up. These generally require your to create an account, but
 there are generally free account options that provide a limited but
 usable range of functionality. For the first half of the course these
-should suffice for any coding needs, but may be more limited when
+should suffice for any programming needs, but may be more limited when
 attempting the project. The options suggested below seem to have
 NumPy, SciPy and Matplotlib available.
 
