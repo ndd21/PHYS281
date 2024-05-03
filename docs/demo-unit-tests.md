@@ -109,8 +109,8 @@ area = shapes.triangle_area(base, height)
 if area != trianswer:  # check the answer
     print(
         "The triangle_area function is not working!\n"
-        "\tReturned result {}\n"
-        "\tExpected result{}".format(area, trianswer)
+        f"\tReturned result {area}\n"
+        f"\tExpected result{trianswer}"
     )
 
 # test the circle area function
@@ -120,8 +120,8 @@ area = shapes.circle_area(radius)
 if abs(area - circanswer) > 1e-14:  # check the absolute difference is small
     print(
         "The circle_area function is not working!\n"
-        "\tReturned result {}\n"
-        "\tExpected result{}".format(area, circanswer)
+        f"\tReturned result {area}\n"
+        f"\tExpected result{circanswer}"
     )
 
 # test the shape class
@@ -129,7 +129,7 @@ square = shapes.shape("square")
 
 # check the name attribute is correctly set
 if square.name != "square":
-    print("shape class name attribute is incorrect: {}".format(square.name))
+    print(f"shape class name attribute is incorrect: {square.name}")
 
 # check square (which currently has no area function defined) returns None for area
 if square.area() is not None:
@@ -139,15 +139,15 @@ if square.area() is not None:
 for bh in [{"base": 2.0}, {"height": 2.0}]:
     triangle = shapes.shape("triangle", **bh)
     if triangle.area() is not None:
-        print("Non-None area returned for triangle without {}".format(list(bh.keys())[0]))
+        print(f"Non-None area returned for triangle without {list(bh.keys())[0]}")
 
 # re-check for correct triangle area when used within class
 triangle = shapes.shape("triangle", base=2.0, height=2.0)
 if triangle.area() != trianswer:  # check the answer
     print(
         "The triangle_area function within shape is not working!\n"
-        "\tReturned result {}\n"
-        "\tExpected result {}".format(triangle.area(), trianswer)
+        f"\tReturned result {triangle.area()}\n"
+        f"\tExpected result {trianswer}"
     )
 
 # check circle area (within shape class) return None is radius is not set
@@ -160,8 +160,8 @@ circle = shapes.shape("circle", radius=3.0)
 if (circle.area() - circanswer) > 1e-14:  # check the answer
     print(
         "The circle_area function within shape is not working!\n"
-        "\tReturned result {}\n"
-        "\tExpected result {}".format(circle.area(), circanswer)
+        f"\tReturned result {circle.area()}\n"
+        f"\tExpected result {circanswer}"
     )
 ```
 

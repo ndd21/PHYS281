@@ -2,18 +2,18 @@ import numpy as np
 
 
 class Square:
+    """
+    A class defining a Square object.
+
+    Parameters
+    ----------
+    vertices: array
+        A 4x2 array defining the x-y coordinates of the four corners of the
+        square. The corner coordinates must be consecutive corners in
+        either the clockwise or anticlockwise direction.
+    """
+
     def __init__(self, vertices):
-        """
-        A class defining a Square object.
-
-        Parameters
-        ----------
-        vertices: array
-            A 4x2 array defining the x-y coordinates of the four corners of the
-            square. The corner coordinates must be consecutive corners in
-            either the clockwise or anticlockwise direction.
-        """
-
         # store copy of vertices as numpy array
         self.vertices = np.array(vertices)
 
@@ -43,7 +43,8 @@ class Square:
         # check side lengths
         distances = []
         for i in range(4):
-            distance = self.side_length(self.vertices[i], self.vertices[(i + 1) % 4])
+            distance = self.side_length(self.vertices[i],
+                                        self.vertices[(i + 1) % 4])
             distances.append(distance)
 
         if not np.allclose(distances, distances[0]):
@@ -53,10 +54,10 @@ class Square:
         angles = []
         for i in range(4):
             origin = self.vertices[i]
-            prev = self.vertices[(i + 4 - 1) % 4]
-            next = self.vertices[(i + 1) % 4]
-            vec1 = prev - origin
-            vec2 = next - origin
+            prevv = self.vertices[(i + 4 - 1) % 4]
+            nextv = self.vertices[(i + 1) % 4]
+            vec1 = prevv - origin
+            vec2 = nextv - origin
 
             angles.append(self.vertex_angle(vec1, vec2))
 

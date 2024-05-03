@@ -1,14 +1,18 @@
 #!/usr/bin/env python
 
 import math
+import textwrap as tw
+
 
 def test_function(x):
-    return math.e**(-1 * x) * (x**2 + 5*x +2) + 1
+    """Function whose roots we seek."""
+    return math.e**(-x) * (x*(x + 5) + 2.0) + 1.0
 
-def bisection(fun, xrange, toll = 1e-6, niter = 1000):
 
+def bisection(fun, xrange, toll = 1e-12, niter = 1000):
     """
-    A function that implements the bisection method to find the root of a function in a given interval
+    A function that implements the bisection method to find the root of a
+    function in a given interval.
 
     Parameters:
     -----------
@@ -19,7 +23,7 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
         list containing the interval where the 0 of the function lies
 
     toll: float
-        tolerance between two iterations, defaults to 1e-6
+        tolerance between two iterations, defaults to 1e-12
 
     niter: integer
         maximum number of iterations, defaults to 1000
@@ -42,38 +46,42 @@ def bisection(fun, xrange, toll = 1e-6, niter = 1000):
     b = xrange[1]
     fb = fun(b)
 
-    if not (fa * fb < 0):
-        raise ValueError("The provided function does not contain zeros in the given interval")
+    if fa * fb >= 0.0:
+        raise ValueError("The provided function does not contain zeros in the "
+                         "given interval")
 
-    eps = 10000
-    n = 0    
-    cold = a
+    eps = 10000.0
+    n = 0
+    c_old = a
     fc = fa
 
-    while (eps > toll) and n <= niter and fc != 0.0:
-        
+    while eps > toll and n <= niter and fc != 0.0:
+
         c = (a + b) / 2
-        fc = fun(c) 
-        if (fa * fc) < 0:
+        fc = fun(c)
+        if fa * fc < 0.0:
             b = c
             fb = fc
-        elif (fb * fc) < 0:
+        elif fb * fc < 0.0:
             a = c
             fa = fc
         else:
             raise ValueError("Oh oh, you missed the zero")
 
-        eps = abs(c - cold)
-        cold = c
+        eps = abs(c - c_old)
+        c_old = c
         n += 1
 
-    if (n == niter):
-       print("niter, n = ", niter, n)
-       raise ValueError("Maximum number of iterations reached")
-  
+    if n == niter:
+        print(f"niter, n = {n}")
+        raise ValueError("Maximum number of iterations reached")
+
     return c, fc, n
+
 
 xrange = [-1.0, 0.0]
 sol, fsol, niter = bisection(test_function, xrange)
 
-print("The solution of your equation is {}, where the equation is evalutaed to {}. The solution has been reached with {} iterations.".format(sol, fsol, niter))
+print(tw.fill(f"The root of your function is approximately x = {sol}, where "
+              f"the function value is {fsol}.  This solution has been reached "
+              f"after {niter} bisection iterations."))

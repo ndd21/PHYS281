@@ -275,7 +275,7 @@ My name is Matthew and my age is 21.
     where it should be noted that we have had to use `str` to convert the integer valued `age`
     variable into a string. 
 
-    We recommend using the `format` method of string formatting, although it's more important to
+    We recommend using the `f-string` method of string formatting, although it's more important to
     pick one method and be consistent throughout your code.
 
 ### Unicode, escape characters and "raw" strings
@@ -313,9 +313,9 @@ using a `\"` in a string that is defined with quotation marks means that you wan
 quotation mark:
 
 ```python
-a = "\"Thank you.\", said the lecturer."
+a = "\"Thank you\", said the lecturer."
 print(a)
-"Thank you.", said the lecturer.
+"Thank you", said the lecturer.
 ```
 
 The escape character followed by certain letters can be used to add additional formatting within a

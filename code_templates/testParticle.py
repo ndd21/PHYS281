@@ -1,6 +1,5 @@
-from Particle import Particle 
-import matplotlib.pyplot as plt 
-import math
+from Particle import Particle
+import matplotlib.pyplot as plt
 import numpy as np
 
 
@@ -18,7 +17,7 @@ time = 0  # initial time stamp
 deltaT = 1e-3  # time steps of 1ms
 
 times = []
-y = [] 
+y = []
 
 # run simulation until ball hits the ground
 while Ball.position[1] > 0.0:
@@ -46,4 +45,3 @@ plt.xlabel('time (s)')
 plt.ylabel('y-position (m)')
 plt.legend()
 plt.show()
-

@@ -10,15 +10,15 @@ import numpy as np
 
 
 class TicTacToe:
-    def __init__(self):
-        """
-        A tic-tac-toe game. After creating the object, the game can be played
-        by calling it, e.g.
+    """
+    A tic-tac-toe game. After creating the object, the game can be played
+    by calling it, e.g.
 
-        >>> game = TicTacToe()
-        >>> game()
-        """
-        
+    >>> game = TicTacToe()
+    >>> game()
+    """
+
+    def __init__(self):
         player1 = input("Input the name of the first player: ")
         player2 = input("Input the name of the second player: ")
         self.players = [player1, player2]
@@ -57,17 +57,18 @@ class TicTacToe:
         Draw the current state of the grid.
         """
 
-        # rewind to overwrite previous grid (see, e.g., https://stackoverflow.com/a/59147732/1862861)
+        # rewind to overwrite previous grid (see, e.g.,
+        # https://stackoverflow.com/a/59147732/1862861)
         for _ in range(self.linecount):
             sys.stdout.write("\x1b[1A\x1b[2K")
 
-        print("")
+        print()
         for i, row in enumerate(self.grid):
             rowstr = "|".join([f" {x} " for x in row])
             print(rowstr)
             if i < self.gridsize - 1:
                 print("-" * (self.gridsize * 3 + (self.gridsize - 1)))
-        print("")
+        print()
 
         self.linecount = 2 * self.gridsize + 1
 
@@ -82,7 +83,8 @@ class TicTacToe:
         # make sure coordinates are valid
         while 1:
             coords = input(
-                f"{self.players[playeridx]}: Input the grid coordinates 'x y' (between 1 and {self.gridsize}) for your move: "
+                f"{self.players[playeridx]}: Input the grid coordinates 'x y'"
+                f" (between 1 and {self.gridsize}) for your move: "
             )
             self.linecount += 1
 
@@ -90,7 +92,8 @@ class TicTacToe:
 
             # check grid coordinates are valid
             if not (1 <= x <= self.gridsize) or not (1 <= y <= self.gridsize):
-                print(f"x and y coordinates must be between 1 and {self.gridsize}")
+                print("x and y coordinates must be between 1 and "
+                      f"{self.gridsize}")
                 self.linecount += 1
                 continue
 
@@ -120,8 +123,8 @@ class TicTacToe:
         complete = False
         for row in (
             [np.diag(self.grid), np.diag(np.fliplr(self.grid))]
-            + [r for r in self.grid]
-            + [r for r in np.transpose(self.grid)]
+            + list(self.grid)
+            + list(np.transpose(self.grid))
         ):
             # ignore "empty" rows
             if not np.all(row == " "):
@@ -138,7 +141,7 @@ class TicTacToe:
         """
 
         playeridx = int(not self.currentplayer)
-        print("The winner is {}!".format(self.players[playeridx]))
+        print(f"The winner is {self.players[playeridx]}!")
 
 
 # run the game if calling the code directly

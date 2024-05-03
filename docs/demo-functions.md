@@ -139,7 +139,7 @@ variable that has a type such as a list or dictionary.
 
     ```python
     def hey_there(firstname, lastname):
-        print("Hello {} {}".format(firstname, lastname))
+        print(f"Hello {firstname} {lastname}")
     
     hey_there(lastname="Pitkin", firstname="Matt")
     Hello Matt Pitkin
@@ -356,7 +356,7 @@ scope.
     ```python
     def somefunc(firstname="Default", lastname="Name"):
         # do something with args...
-        return "{} {}".format(firstname, lastname)
+        return f"{firstname} {lastname}"
 
     # another function that uses somefunc
     def anotherfunc(message="Hello", firstname="Default", lastname="Name"):
@@ -366,7 +366,7 @@ scope.
         # use somefunc
         output = somefunc(firstname=firstname, lastname=lastname)
 
-        return "{} {}".format(message, output)
+        return f"{message} {output}"
     ```
 
 There are a couple of ways to make this slightly simpler, both of which use the ability to "unpack"
@@ -390,7 +390,7 @@ def anotherfunc(message="Hello", **kwargs):
     # use somefunc
     output = somefunc(**kwargs)
 
-    return "{} {}".format(message, output)
+    return f"{message} {output}"
 
 print(anotherfunc(firstname="Matt", lastname="Pitkin"))
 {'lastname': 'Pitkin', 'firstname': 'Matt'}
@@ -418,7 +418,7 @@ TypeError                                 Traceback (most recent call last)
       4     # use somefunc
 ----> 5     output = somefunc(**kwargs)
       6 
-      7     return "{} {}".format(message, output)
+      7     return f"{message} {output}"
 
 TypeError: somefunc() got an unexpected keyword argument 'random'
 ```
@@ -439,7 +439,7 @@ def anotherfunc(message="Hello", **kwargs):
     # use somefunc, but unpacking somefunckwargs
     output = somefunc(**somefunckwargs)
 
-    return "{} {}".format(message, output)
+    return f"{message} {output}"
 ```
 
 There is similar unpacking for positional arguments using the `*args` syntax in the function

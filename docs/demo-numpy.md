@@ -100,10 +100,10 @@ the size of each dimension:
 ```
 x = np.array([1, 2, 3])
 print(x.shape)
-print("Number of dimension: {}".format(len(x.shape)))
-print("Length of array: {}".format(x.shape[0]))
+print(f"Number of dimensions: {len(x.shape)}")
+print(f"Length of array: {x.shape[0]}")
 (3,)
-Number of dimension: 1
+Number of dimensions: 1
 Length of array: 3
 ```
 
@@ -800,7 +800,7 @@ print(dicerolls)
 
 # generate some more
 dicerolls = rng.integers(1, 7, 10000)
-print("Fraction of 1's rolled: {}".format((dicerolls == 1).sum() / len(dicerols)))
+print(f"Fraction of 1's rolled: {(dicerolls == 1).sum() / len(dicerols)}")
 Fraction of 1's rolled: 0.1712
 
 # similar is the choice function

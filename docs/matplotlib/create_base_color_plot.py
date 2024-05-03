@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 """
-Create a plot of the base colors using the example here: https://matplotlib.org/3.1.0/gallery/color/named_colors.html
+Create a plot of the base colours using the example here:
+  https://matplotlib.org/3.1.0/gallery/color/named_colors.html
 """
 
 import matplotlib.pyplot as plt
@@ -9,7 +10,7 @@ import matplotlib.colors as mcolors
 
 
 def plot_colortable(colors, title, sort_colors=True, emptycols=0):
-
+    """Create a colour table."""
     cell_width = 212
     cell_height = 22
     swatch_width = 48

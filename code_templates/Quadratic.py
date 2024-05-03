@@ -19,7 +19,8 @@ class Quadratic:
     The discriminant = b^2 - 4ac.
 
     If b^2 -4ac < 0 the solutions are complex and will not be calculated.
-    If b^2 - 4ac >= 0  return two real solutions, even if two are identical when b^2 = 4ac!
+    If b^2 - 4ac >= 0  return two real solutions, even if two are identical
+    when b^2 = 4ac!
 
     Parameters
     ----------
@@ -45,7 +46,7 @@ class Quadratic:
         self.c = c
 
     def __str__( self ):
-        return "Q(x) = {} x^2 + {} x + {}".format(self.a, self.b, self.c)
+        return f"Q(x) = {self.a} x^2 + {self.b} x + {self.c}"
 
     def discriminant(self):
         # Replace the line below with the correct calculation of the discriminant
@@ -76,4 +77,3 @@ class Quadratic:
                 return None
         q = Quadratic(coefficients[0], coefficients[1], coefficients[2])
         return q.roots()
-

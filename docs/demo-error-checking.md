@@ -234,10 +234,10 @@ def i_am_ok_with_any_number(x):
         complex(x)
     except ValueError:  # "catch" if this raises a ValueError
         # print a message but don't fail
-        print("Please give me a number not a {}".format(type(x)))
+        print(f"Please give me a number not a {type(x)}")
         return
     
-    return "Thank you for the number: {}".format(x)
+    return f"Thank you for the number: {x}"
 ```
 
 ## Debugging tips

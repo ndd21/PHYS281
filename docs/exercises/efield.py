@@ -3,24 +3,24 @@ from scipy.interpolate import interp2d
 
 
 class ElectricField:
+    """Store the measured electric field at a set of 2D coordinates.
+
+    Parameters
+    ----------
+    E: array
+        A 2D array of values of the electric field strength.
+    xpos: array
+        A 1D array of the x-positions of the measurements.
+    ypos: array
+        A 1D array of the y-positions of the measurements.
+    label: str
+        A label/name for the experiment. Default is "Efield"
+    """
+
+
     def __init__(self, E, xpos, ypos, label="Efield"):
-        """
-        Store the measured electric field at a set of 2D coordinates.
-
-        Parameters
-        ----------
-        E: array
-            A 2D array of values of the electric field strength.
-        xpos: array
-            A 1D array of the x-positions of the measurements.
-        ypos: array
-            A 1D array of the y-positions of the measurements.
-        label: str
-            A label/name for the experiment. Default is "Efield"
-        """
-
         # store copy of E-field as the E attribute
-        self.E = np.array(E) 
+        self.E = np.array(E)
 
         # store x and y positions
         self.x = np.array(xpos)
@@ -102,6 +102,7 @@ class ElectricField:
         try:
             E = fieldinterp(x, y)[0]
         except ValueError:
-            raise ValueError(f"x-y coordinates ({x}, {y}) are outside grid bounds")
+            raise ValueError(f"x-y coordinates ({x}, {y}) are outside grid "
+                             "bounds.")
 
         return E

@@ -8,23 +8,23 @@ data_file = 'density.txt'
 density = np.loadtxt(data_file)
 
 # read data_description.txt and store information in the proper variables
-with open('data_description.txt') as file:
-   for line in file:
-       idx = line.index("=")
-       if "xmin" in line:
-           xmin = float(line[idx+1:-1])
-       elif "xmax" in line:
-           xmax = float(line[idx+1:-1])
-       elif "ymin" in line:
-           ymin = float(line[idx+1:-1])  
-       elif "ymax" in line:
-           ymax = float(line[idx+1:-1])  
-       elif "xlabel" in line:
-           xlabel = line[idx+1:-1]
-       elif "ylabel" in line:
-           ylabel = line[idx+1:-1]  
-       elif "clabel" in line:
-           clabel = line[idx+1:-1]
+with open('data_description.txt',encoding='utf-8') as file:
+    for line in file:
+        idx = line.index("=")
+        if "xmin" in line:
+            xmin = float(line[idx+1:-1])
+        elif "xmax" in line:
+            xmax = float(line[idx+1:-1])
+        elif "ymin" in line:
+            ymin = float(line[idx+1:-1])
+        elif "ymax" in line:
+            ymax = float(line[idx+1:-1])
+        elif "xlabel" in line:
+            xlabel = line[idx+1:-1]
+        elif "ylabel" in line:
+            ylabel = line[idx+1:-1]
+        elif "clabel" in line:
+            clabel = line[idx+1:-1]
 
 # create a pseudocolor plot
 fig = plt.figure()

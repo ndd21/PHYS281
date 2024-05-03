@@ -52,7 +52,7 @@ def gettime():
 # get the time
 hour, minute, seconds = gettime()
 
-print("The current time is {}:{}:{}".format(hour, minute, seconds))
+print(f"The current time is {hour}:{minute}:{seconds}")
 ```
 
 ### Script structure
@@ -145,7 +145,7 @@ hour, minute, seconds = gettime()
 # get the time in Sydney
 sydneyhour = (hour + 9) % 24
 
-print("The current time in Sydney is {}:{}:{}".format(sydneyhour, minute, seconds))
+print(f"The current time in Sydney is {sydneyhour}:{minute}:{seconds}")
 ```
 
 !!! important
@@ -193,7 +193,7 @@ print("The current time in Sydney is {}:{}:{}".format(sydneyhour, minute, second
         # get the time
         hour, minute, seconds = gettime()
 
-        print("The current time is {}:{}:{}".format(hour, minute, seconds))
+        print(f"The current time is {hour}:{minute}:{seconds}")
     ```
 
     Anything within the if statement `if __name__ == "__main__":` will only get run when running
@@ -269,7 +269,7 @@ firstname = sys.argv[1]
 # assume surname is the second command line argument
 surname = sys.argv[2]
 
-print("Your name is {} {}".format(firstname, surname))
+print(f"Your name is {firstname} {surname}")
 ```
 
 it assumes that there must be two arguments and that the user knows that the first one should be the
@@ -317,9 +317,9 @@ parser.add_argument("--occupation", help="Enter your occupation", default=None) 
 args = parser.parse_args()
 
 # use the arguments
-print("{} is {} years old".format(args.name, args.age))
+print(f"{args.name} is {args.age} years old")
 if args.occupation is not None:
-    print("{} is a {}".format(args.name, args.occupation))
+    print(f"{args.name} is a {args.occupation}")
 ```
 
 By default, when using `argparse`, if you give the script the `--help` argument it will print out

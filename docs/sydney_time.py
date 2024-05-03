@@ -15,4 +15,4 @@ hour, minute, seconds = gettime()
 # get the time in Sydney
 sydneyhour = (hour + 9) % 24
 
-print("The current time in Sydney is {}:{}:{}".format(sydneyhour, minute, seconds))
+print(f"The current time in Sydney is {sydneyhour}:{minute}:{seconds}")

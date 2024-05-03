@@ -27,4 +27,4 @@ def gettime():
 # get the time
 hour, minute, seconds = gettime()
 
-print("The current time is {}:{}:{}".format(hour, minute, seconds))
+print(f"The current time is {hour}:{minute}:{seconds}")

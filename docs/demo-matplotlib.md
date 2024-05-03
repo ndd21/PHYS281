@@ -136,7 +136,7 @@ plt.show()
 
     # these colours will be given names "C0" through to "C5"
     for i in range(6):
-        c = "C{}".format(i)  # set colour name
+        c = f"C{i}"  # set colour name
         plt.axvline(i, color=c, label=c)  # create vertical lines to show off colours
     plt.xlim([-1, 6])
     plt.legend(loc="upper right")

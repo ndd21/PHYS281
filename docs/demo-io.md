@@ -157,7 +157,7 @@ filename = "newfile.txt"
 
 fp = open(filename, "w")
 for i in range(len(datax)):  # loop over the data
-    fp.write("{} {}\n".format(datax[i], datay[i]))
+    fp.write(f"{datax[i]} {datay[i]}\n")
 
 fp.close()  # close the file
 ```
@@ -178,7 +178,7 @@ After this program is run, the contents of file `newfile.txt` will look like:
 20 2072.3
 ```
 
-In the output format string `"{} {}\n".format(datax[i], datay[i])` it separates the two numbers by a
+In the output format string `f"{datax[i]} {datay[i]}\n"` it separates the two numbers by a
 single space and ends with the newline character `\n`. If the `\n` is not added the numbers would
 all be written out on the same line. Values can be separated by multiple spaces, or tabs by using
 the tab character `\t`.

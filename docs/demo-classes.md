@@ -144,7 +144,7 @@ it as it is supplied automatically.
             cheesy.name = name
 
         def show_name(cheesy):
-            print("My name is {}".format(cheesy.name))
+            print(f"My name is {cheesy.name}")
     ```
 
     It is recommended to stick to using `self`!
@@ -341,9 +341,7 @@ class Particle:
         vowel = self.name[0].lower() in ["a", "e", "i", "o", "u"]
         firstword = "An" if vowel else "A"  # shorthand if else statement!
 
-        return "{} {} with mass of {} kg and charge of {} C".format(
-            firstword, self.name, self.mass, self.charge
-        )
+        return f"{firstword} {self.name} with mass of {self.mass} kg and charge of {self.charge} C"
 
 myparticle = Particle(name="positron", charge=1.6e-19)
 print(myparticle)
@@ -418,7 +416,7 @@ point1 = (8, 10)
 point2 = (10, 12)
 # use staticmethod without creating an instance of Line2D
 m, c = Line2D.coefficients(point1, point2)
-print("Gradient is {}, y-intercept is {}".format(m ,c))
+print(f"Gradient is {m}, y-intercept is {c}")
 Gradient is 1.0, y-intercept is 2.0
 ```
 
@@ -563,7 +561,7 @@ we can then use attributes from the `Galaxy` class like:
 
 ```python
 z = m33.redshift()
-print("{}'s redshift is {}".format(m33.name, z))
+print(f"{m33.name}'s redshift is {z}")
 M33's redshift is 0.000196
 ```
 

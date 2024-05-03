@@ -27,14 +27,11 @@ class Triangle:
 
         # run test to check if triangle is valid
         if not self.testIfValidTriangle():
-            raise ValueError(
-                "A triangle with sides ({}, {}, {}) is not valid".format(
-                     self.side1, self.side2, self.side3,    
-                 )
-            )
+            raise ValueError(f"A triangle with sides ({self.side1}, "
+                             f"{self.side2}, {self.side3}) is not valid")
 
     def __str__( self ):
-        return "Triangle (sides {}, {}, {})".format(self.side1, self.side2, self.side3)
+        return f"Triangle (sides {self.side1}, {self.side2}, {self.side3})"
 
     def testIfValidTriangle(self):
         test = True
@@ -42,6 +39,5 @@ class Triangle:
         return test
 
     def calcTriangleArea(self):
-        # Return area of the triangle 
+        """Return area of the triangle."""
         return area
-

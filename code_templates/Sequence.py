@@ -1,4 +1,4 @@
-def Sequence(n=2, initialSequence=[0, 1]):
+def Sequence(n=2, initialSequence=None):
     """
     Create a Fibonacci-style sequence up to the nth entry, based on an initial
     two-value sequence, where
@@ -20,11 +20,16 @@ def Sequence(n=2, initialSequence=[0, 1]):
         A list containing the full sequence.
     """
 
+    if initialSequence is None:
+        initialSequence=[0, 1]
+
     if not len(initialSequence) > 1:
-        raise ValueError("list needs to be at least two elements long to form a sequence")
+        raise ValueError("list needs to be at least two elements long to "
+                         "form a sequence")
 
     if n < 2:
-        raise ValueError("n must be the same or larger than the length of the initial sequence")
+        raise ValueError("n must be the same or larger than the length of "
+                         "the initial sequence")
 
     # copy and store the initialSequence
     sequence = list(initialSequence)
@@ -32,4 +37,3 @@ def Sequence(n=2, initialSequence=[0, 1]):
     # extend and fill in the sequence...
 
     return sequence
-

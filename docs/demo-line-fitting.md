@@ -108,8 +108,8 @@ ax.scatter(x, data, label="data")  # plot the data
 ax.plot(x, model(x, c[1], c[0]), 'k', lw=2, label="Best fit")  # plot the "best fit" line
 ax.set_xlabel("$x$")
 ax.set_ylabel("$y$")
-ax.text(0, -8, 'Best fit gradient: {0:.2f}'.format(c[0]), fontsize=14)
-ax.text(0, -9.5, 'Best fit y-intercept is {0:.2f}'.format(c[1]), fontsize=14)
+ax.text(0, -8, f'Best fit gradient: {c[0]:.2f}', fontsize=14)
+ax.text(0, -9.5, f'Best fit y-intercept is {c[1]:.2f}', fontsize=14)
 ax.legend()
 
 fig.tight_layout()
@@ -162,8 +162,8 @@ ax.scatter(x, data, label="data")  # plot the data
 ax.plot(x, model(x, copt[0], copt[1]), 'k', lw=2, label="Best fit")  # plot the "best fit" line
 ax.set_xlabel("$x$")
 ax.set_ylabel("$y$")
-ax.text(-0.5, -9.5, 'Best fit gradient: {0:.2f}'.format(copt[1]), fontsize=14)
-ax.text(-0.5, -11, 'Best fit y-intercept is {0:.2f}'.format(copt[0]), fontsize=14)
+ax.text(-0.5, -9.5, f'Best fit gradient: {copt[1]:.2f}', fontsize=14)
+ax.text(-0.5, -11, f'Best fit y-intercept is {copt[0]:.2f}', fontsize=14)
 ax.legend()
 
 fig.tight_layout()
