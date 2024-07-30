@@ -145,7 +145,7 @@ Hello
 
 !!! note
     `print` just prints text to the screen (or to a [file if
-    specified](../demo-io/index.html#writing)). It does not return that text to a variable.
+    specified](demo-io.md#writing)). It does not return that text to a variable.
 
 ## `range`
 

@@ -2,12 +2,12 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/K9HtfYx1hOQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-As described in the [_VS Code_](../demo-vs-code/index.html) introduction, any Python code that you
-write can be run within [_VS Code_](../demo-vs-code/index.html#running-code). However, it use also
+As described in the [_VS Code_](demo-vs-code.md) introduction, any Python code that you
+write can be run within [_VS Code_](demo-vs-code.md#running-code). However, it use also
 useful to know how run code and navigate a file system using a @(terminal) (sometimes referred to as
 a Command Prompt window, console or @(shell)). Indeed, a Python code interpreter can be run
 interactively via a terminal as will be described in [another
-tutorial](../demo-python-terminal/index.html).
+tutorial](demo-python-terminal.md).
 
 A terminal is a text-based window that allows you to type and run commands. There are different
 terminal programs for different operating systems, the most common being:
@@ -16,7 +16,7 @@ terminal programs for different operating systems, the most common being:
     [**PowerShell Prompt**](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/powershell)
 
     !!! note
-        If you have installed [Anaconda](../demo-anaconda/index.html) you should access the
+        If you have installed [Anaconda](demo-anaconda.md) you should access the
         PowerShell using the "Anaconda PowerShell Prompt", which automatically starts the terminal
         with the ability to run `conda` commands and within @(virtual environments), instead of the
         standard Windows PowerShell.
@@ -30,7 +30,7 @@ terminal programs for different operating systems, the most common being:
     ![Anaconda Powershell](img/anaconda-powershell.png)
 
     The "Anaconda Powershell Prompt" can also be launched from within the
-    [_Anaconda Navigator_](../demo-anaconda/index.html#anaconda-navigator).
+    [_Anaconda Navigator_](demo-anaconda.md#anaconda-navigator).
 
 === "Mac OS"
     [**Terminal App**](https://support.apple.com/en-gb/guide/terminal/apd5265185d-f365-44cb-8b09-71a064a42125/mac)
@@ -262,7 +262,7 @@ The full or relative path to the script could also be used.
 ### Open an Python terminal session
 
 To open a Python terminal session (see the [Python terminal
-tutorial](../demo-python-terminal/index.html)) type:
+tutorial](demo-python-terminal.md)) type:
 
 ```bash
 python 
@@ -271,7 +271,7 @@ python
 ### Open an interactive Python terminal session
 
 To open an "Interactive Python" session (see the [IPython
-tutorial](../demo-python-terminal/index.html#ipython-terminal)) type:
+tutorial](demo-python-terminal.md#ipython-terminal)) type:
 
 ```bash
 ipython

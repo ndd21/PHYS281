@@ -166,7 +166,7 @@ containing different Python packages, and install new packages.
     
     !!! note
         After installing _VS Code_ (a text editor that is useful for writing code) as described
-        in [another tutorial](../demo-vs-code/index.html), this will also be available as an
+        in [another tutorial](demo-vs-code.md), this will also be available as an
         application within _Anaconda Navigator_.
 
     Above the table of applications the Navigator says "Applications on `base (root)`". Here `base`
@@ -202,7 +202,7 @@ line) in a @(terminal) are given below:
     ![Anaconda Navigator create environment](img/anaconda-navigator-create.png)
 
     Type the name for your project, e.g., `awesome_project`, select the "Python" tickbox and the
-    Python version (defaulting to 3.8), and click ++"Create"++. Creating the environment will take
+    Python version, and click ++"Create"++. Creating the environment will take
     a bit of time while Anaconda downloads and installs the required packages. It will then appear
     listed under the `base (root)` environment and the packages it contains will be shown.
 
@@ -223,8 +223,7 @@ line) in a @(terminal) are given below:
     ```
 
     where you give the name of your environment by supplying it after the `-n` flag, which in this
-    case is `awesome_project`. By default the environment will contain a Python 3.8 installation,
-    but you can specify a different Python version using the `python` command, e.g.,:
+    case is `awesome_project`. If you wish you can specify a particular Python version using the `python` command, e.g.,:
 
     ```bash
     conda create -n another_awesome_project python=3.7
@@ -257,7 +256,7 @@ Python version and packages installed within it.
     ```
 
     The @(command prompt) should now start with the name of the environment in brackets, e.g.,
-    `(awesome_project)`. If you start a [Python terminal session](../demo-python-terminal/index.html)
+    `(awesome_project)`. If you start a [Python terminal session](demo-python-terminal.md)
     it will use the version of Python installed in that environment and have access to that
     environment's packages.
 
@@ -277,7 +276,7 @@ repositories.
     In _Anaconda Navigator_, click on the ":fontawesome-solid-dice-d6: Environments" tab, and in the
     middle panel select the environment into which you want to install a package. Select the
     dropdown menu that says "Installed" and select "Not installed". Then search for the name of the
-    package you want to install, e.g., [numpy](../demo-numpy/index.html), in the search bar.
+    package you want to install, e.g., [numpy](demo-numpy.md), in the search bar.
 
     ![Anaconda Navigator use environment](img/anaconda-navigator-install.png)
 
@@ -310,7 +309,7 @@ repositories.
     conda activate awesome_project
     ```
 
-    then, to install [numpy](../demo-numpy/index.html), for example, you could use:
+    then, to install [numpy](demo-numpy.md), for example, you could use:
 
     ```bash
     conda install numpy

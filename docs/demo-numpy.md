@@ -107,7 +107,7 @@ Number of dimensions: 1
 Length of array: 3
 ```
 
-Like a regular [`list`](../demo-compound-data-types/index.html#lists), values within an array can be
+Like a regular [`list`](demo-compound-data-types.md#lists), values within an array can be
 accessed using indexing, where the index starts at zero:
 
 ```python
@@ -125,8 +125,8 @@ print(x)
 [  1   2 100]
 ```
 
-As with a [`list`](../demo-compound-data-types/index.html#lists), multiple values can be returned,
-or assigned, using a [slice](../demo-compound-data-types/index.html#slices) (the `:`):
+As with a [`list`](demo-compound-data-types.md#lists), multiple values can be returned,
+or assigned, using a [slice](demo-compound-data-types.md#slices) (the `:`):
 
 ```python
 x = np.array([0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100])
@@ -147,7 +147,7 @@ print(y)
 [ 40  60  80 100]
 ```
 
-Again, similarly to a [`list`](../demo-compound-data-types/index.html#copying-lists), if you assign
+Again, similarly to a [`list`](demo-compound-data-types.md#copying-lists), if you assign
 a new variable name to an existing lists it just "points" to the existing list rather than making a
 copy, e.g.,:
 
@@ -231,7 +231,7 @@ x = np.full(3, 2.3964)
 
 #### Complex arrays
 
-Arrays can contain [complex numbers](../demo-compound-data-types/index.html#complex-numbers), e.g.,:
+Arrays can contain [complex numbers](demo-compound-data-types.md#complex-numbers), e.g.,:
 
 ```python
 x = np.array([2 + 3j, 9 + 5j, -5 - 6j])
@@ -324,7 +324,7 @@ differently for arrays with more than one dimension).
 ### Multidimensional arrays
 
 Arrays can have any number of dimensions. You can create multi-dimensional arrays from
-[multi-dimensional lists](../demo-compound-data-types/index.html#lists-of-lists) (in the examples
+[multi-dimensional lists](demo-compound-data-types.md#lists-of-lists) (in the examples
 here we will stick to 2D objects), e.g.,:
 
 ```python
@@ -434,7 +434,7 @@ functions that are similar to `concatenate`.
 
 ### Mathematical operations on an array
 
-NumPy `ndarray`s are [overloaded](../demo-classes/index.html#operator-overloading) so that the
+NumPy `ndarray`s are [overloaded](demo-classes.md#operator-overloading) so that the
 standard mathematical @(operators) can be applied to them.
 
 ```python
@@ -687,7 +687,7 @@ print(np.log10([10, 100, 1000]))  # base-10 logarithm
 ## NumPy random number generation
 
 NumPy can be used to generate random numbers using functions within the
-[`random`](https://numpy.org/doc/stable/reference/random/index.html) submodule. These can be useful
+[`random`](https://numpy.org/doc/stable/reference/random.md) submodule. These can be useful
 for [Monte Carlo simulations](https://en.wikipedia.org/wiki/Monte_Carlo_method).
 
 Random numbers drawn by a computer using software are only
@@ -812,4 +812,4 @@ print(coinflips)
 ## Saving and loading data
 
 Saving and loading data using [NumPy](https://numpy.org/doc/stable/reference/routines.io.html) is
-discussed in the ["Reading and writing data"](../demo-io/index.html#numpy) tutorial.
+discussed in the ["Reading and writing data"](demo-io.md#numpy) tutorial.

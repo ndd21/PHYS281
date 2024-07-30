@@ -10,7 +10,7 @@ interpreted by Python line-by-line in order from the first line to the last.
     In reality scripts can be any length and do multiple things, but this is not recommended. If a
     script file is getting too long it can often be broken into several shorter files, with the
     required bits imported into a main script (see the tutorial on [importing
-    modules](../demo-importing-modules/index.html)).
+    modules](demo-importing-modules.md)).
 
 A Python script file usually has the `.py` suffix @(file
 extension). File names can be anything that your operating system
@@ -62,8 +62,8 @@ The above script's structure is as follows:
 1. comment block (see [below](#commenting-code)), held within opening and closing `"""`, describing
    the script;
 2. importing of required modules (see the tutorial on [importing
-   modules](../demo-importing-modules/index.html));
-3. defining any functions (see the tutorial on [functions](../demo-functions/index.html));
+   modules](demo-importing-modules.md));
+3. defining any functions (see the tutorial on [functions](demo-functions.md));
 4. performing any required tasks (in this case getting the time);
 5. outputting any required information (in this case printing the time to the screen).
 
@@ -115,7 +115,7 @@ terminal and run the script for you.
 
 ## Using functions from another script
 
-As described in the [Importing Modules](../demo-importing-modules/index.html) demonstration, any
+As described in the [Importing Modules](demo-importing-modules.md) demonstration, any
 file with the `.py` extension is also a Python module. This means that you can import @(variables),
 @(functions) or @(classes) defined in one script into another.
 
@@ -210,7 +210,7 @@ There are various ways that you can provide inputs to your script, which we will
 ### Requesting input
 
 You can make a script request user input from the keyboard by using the @(built-in)
-[`input`](../demo-built-in-functions/index.html#input) function. `input` can take in a string as an
+[`input`](demo-built-in-functions.md#input) function. `input` can take in a string as an
 @(argument), for example, a request for certain input to be provided, and then will take in whatever
 is written on the keyboard until the user presses ++enter++. This will then be assigned to a
 variable as a @(string), e.g., after using:
@@ -230,7 +230,7 @@ age = int(input("Enter your age: "))
 ### Inputs from a file
 
 A common and sensible way to take inputs is to read in data from a file. For more information on
-this see the tutorial on [reading files](../demo-io/index.html). 
+this see the tutorial on [reading files](demo-io.md). 
 
 ### Command line arguments
 
@@ -353,7 +353,7 @@ arguments.
 The simplest way for a Python script to output some information is to print that information to the
 screen for the user to see.
 
-For this the @(built-in) [`print`](../demo-built-in-functions/index.html#print) function can be
+For this the @(built-in) [`print`](demo-built-in-functions.md#print) function can be
 used. This function takes a @(string) and outputs it to the screen:
 
 ```python
@@ -363,5 +363,5 @@ Hello
 
 This is useful for simple bits of information, but if your script is dealing with larger amounts of
 information then it is more useful to output it to a file (see the tutorial on [outputting to
-file](../demo-io/index.html)), or to generate a plot (see the tutorial on
-[plotting](../demo-matplotlib/index.html)).
+file](demo-io.md)), or to generate a plot (see the tutorial on
+[plotting](demo-matplotlib.md)).

@@ -22,7 +22,7 @@ you have plenty of extra time to simulate other systems. Either way you will nee
 findings in a report as detailed at the end of this [section](#project-description), so make sure
 that you leave enough time for this.
 
-As in the case of [numerical integration](../numerical-integration/index.html), most physics
+As in the case of [numerical integration](numerical-integration.md), most physics
 simulations will require some amount of approximation which will introduce an error (i.e., an
 inaccuracy) in the results from the simulation. There are various ways to establish the size of this
 error:
@@ -390,7 +390,7 @@ be answered using your simulation!  In all cases, you must provide
 evidence of testing to show that your conclusions are reliable.
 
 For more information and advice on the code and report, including guideline marking grids make sure
-to read the [Marking criteria page](../markinggrid/index.html).
+to read the [Marking criteria page](markinggrid.md).
 
 ## Solar System ephemerides
 

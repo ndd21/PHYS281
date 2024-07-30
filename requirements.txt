@@ -2,5 +2,6 @@ mkdocs
 mkdocs-macros-plugin
 mkdocs-material
 mkdocs-material-extensions
-md-tooltips-link>=0.2.1
 pymdown-extensions
+
+# No longer required: md-tooltips-link>=0.2.1

@@ -396,7 +396,7 @@ print(data)
 
 ## NumPy
 
-[NumPy](../demo-numpy/index.html) can be used to both save and read plain text data, or pickle
+[NumPy](demo-numpy.md) can be used to both save and read plain text data, or pickle
 objects in binary files.
 
 ### Reading and writing text files

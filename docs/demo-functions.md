@@ -199,7 +199,7 @@ False
 
 ## Returning values
 
-Many of the above example use the [`print`](../demo-built-in-functions/index.html#print) @(built-in)
+Many of the above example use the [`print`](demo-built-in-functions.md#print) @(built-in)
 function to print a message to the screen. However, you cannot then *use* the output of the function
 if it just prints it, e.g., if you had a function that calculated the sine of an angle and it just
 prints it to the screen it would be fine if that is all you ever used it for, but if you wanted to
@@ -600,4 +600,4 @@ def in_range(value: Union[float, int], minimum: Union[float, int] = -100, maximu
 !!! note
     Type hints are purely for documentation purposes. Python will not check that input arguments
     are actually of the "correct" type unless you explicitly do it within the function (see
-    [here](../demo-error-checking/index.html#adding-exception-handling-to-code) for an example). 
+    [here](demo-error-checking.md#adding-exception-handling-to-code) for an example).

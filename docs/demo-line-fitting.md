@@ -51,7 +51,7 @@ point, i.e., in cases where the noise on measurements is not the same for each m
 
 ## Fitting a line with NumPy
 
-In the [NumPy](../demo-numpy/index.html) library there is more than one function for doing least
+In the [NumPy](demo-numpy.md) library there is more than one function for doing least
 squares fitting:
 
 * [`polyfit()`](https://numpy.org/doc/stable/reference/generated/numpy.polyfit.html) - fit a

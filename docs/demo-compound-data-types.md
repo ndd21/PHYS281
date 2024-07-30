@@ -9,7 +9,7 @@ date: 2020-08-12
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jh54qY16Ddw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In addition to the [basic data types](../demo-data-types/index.html) for integers (`int`),
+In addition to the [basic data types](demo-data-types.md) for integers (`int`),
 @(floating point numbers) (`float`) and @(strings) of text (`str`), there are some other standard
 Python data types that can hold multiple pieces of data.
 
@@ -86,7 +86,7 @@ print(x)
     [[1, 0, 0], [1, 0, 0], [1, 0, 0]]
     ```
 
-    In these cases [list comprehension](../demo-flow-control/index.html#list-comprehension) is a
+    In these cases [list comprehension](demo-flow-control.md#list-comprehension) is a
     better option:
 
     ```python
@@ -429,7 +429,7 @@ dict_values(['Matthew', 'Pitkin', 39])
 ```
 
 These are useful for _iterating_ over the dictionary, for example, in a
-[for-loop](../demo-flow-control/index.html#for-and-while-loops).
+[for-loop](demo-flow-control.md#for-and-while-loops).
 
 You can remove values from a dictionary using the
 [`del`](https://www.w3schools.com/python/ref_keyword_del.asp) @(keyword) or the `pop` method. `del`

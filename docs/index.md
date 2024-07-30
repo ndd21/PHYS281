@@ -22,7 +22,7 @@ questions or comments please contact the current module lecturer:
 
 In this course we will use many jargon terms and unfortunately this is
 inevitable. In some cases certain terms will be used interchangeably
-as synonyms. We have created a [glossary](glossary/index.html) of many
+as synonyms. We have created a [glossary](glossary.md) of many
 terms to try and help with this, but it will be incomplete.  Please do
 ask us if there are any concepts or terms that you do not understand
 and remember that Google is your friend (or, to be more precise, they
@@ -78,7 +78,7 @@ that can perform specific tasks on that data.
 
 There have been several versions of Python as the language gets
 updated and new features added. The latest major version is Python 3,
-with Python 3.10 being a recent stable release. While most Python code
+with Python 3.12 being a recent stable release. While most Python code
 is fairly backwards compatible, i.e., can run with previous versions
 of the language, there are some specific features that are
 not. Broadly speaking, code written based on Python 3.5 or above

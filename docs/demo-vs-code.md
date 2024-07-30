@@ -49,7 +49,7 @@ but we will cover some of the basics here.
 
 ### Launching VS Code
 
-In you have previously installed the full installation of [Anaconda](../demo-anaconda/index.html)
+In you have previously installed the full installation of [Anaconda](demo-anaconda.md)
 then once _VS Code_ is installed it will appear as an application that can be launched from the
 _Anaconda Navigator_. Alternatively, it can be opened via a standard way of opening an application:
 
@@ -164,7 +164,7 @@ print("My first Python file")
 
 and save it by clicking on the "File" dropdown menu and selecting "Save as..." or using the
 ++ctrl+s++ shortcut. Type in the name that you want to give the file; for files containing Python
-code (see the [scripts tutorial](../demo-scripts/index.html)) you should give the file a name that
+code (see the [scripts tutorial](demo-scripts.md)) you should give the file a name that
 has the @(file extension) "`.py`", e.g., "`myfirstcode.py`.
 
 !!! tip
@@ -205,7 +205,7 @@ theme if you want!
 ### Running code
 
 We will cover running code in a terminal in more detail in [another
-tutorial](../demo-python-terminal/index.html), but here will describe how to run code within _VS
+tutorial](demo-python-terminal.md), but here will describe how to run code within _VS
 Code_:
 
 ??? note "Note for Windows users"

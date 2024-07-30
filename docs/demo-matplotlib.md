@@ -17,7 +17,7 @@ from matplotlib import pyplot as plt
 ```
 
 Here we will assume `pyplot` has been imported in this way. We will also be using
-[NumPy](../demo-numpy/index.html) arrays to hold the data being plotted, although lists can also be
+[NumPy](demo-numpy.md) arrays to hold the data being plotted, although lists can also be
 used.
 
 ## Basic line plot

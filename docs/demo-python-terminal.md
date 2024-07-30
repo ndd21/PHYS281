@@ -179,7 +179,7 @@ print(y)
 ## Shell commands
 
 Within IPython you can use some standard [shell
-commands](../demo-terminal/index.html#terminal-cheat-sheet), for example:
+commands](demo-terminal.md#terminal-cheat-sheet), for example:
 
 i) showing you current directory
 

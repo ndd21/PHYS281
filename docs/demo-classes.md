@@ -260,7 +260,7 @@ electron = Particle("electron", -1.6e-19, 9.1e-31)
 ```
 
 First, we can see what happens if we used the method incorrectly (error checking is discussed in
-more detail in the ["Error checking and debugging" tutorial](../demo-error-checking/index.html)).
+more detail in the ["Error checking and debugging" tutorial](demo-error-checking.md)).
 The `lorentz_force` method requires one positional argument, but if we do not supply one then:
 
 ```python
@@ -307,7 +307,7 @@ The `lorentz_force` method above takes one positional argument and two keyword a
 default values). Any number of positional or keyword arguments could be used.
 
 The `lorentz_force` method could be simplified using NumPy (see the [NumPy
-tutorial](../demo-numpy/index.html]).
+tutorial](demo-numpy.md).
 
 ### Special methods
 
@@ -769,7 +769,7 @@ print(v3.vector)
 ```
 
 !!! note
-    In reality, for something like a vector, the [NumPy](../demo-numpy/index.html) library already
+    In reality, for something like a vector, the [NumPy](demo-numpy.md) library already
     has useful classes called arrays for which the mathematical operators are all defined.
 
 If you wanted to use the `+=` operator, e.g., to change v1 in-place

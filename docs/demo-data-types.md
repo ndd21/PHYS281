@@ -39,7 +39,7 @@ type(x)
 ```
 
 It has determined that the variable `x` is of the integer (or `int`) type. In this example
-[`type()`](../demo-built-in-functions/index.html#type) is a @(built-in) Python function that returns
+[`type()`](demo-built-in-functions.md#type) is a @(built-in) Python function that returns
 the type of a variable.
 
 !!! note
@@ -147,7 +147,7 @@ Some particularly useful methods (at least ones I use regularly!) are the
 [`strip`](https://docs.python.org/3/library/stdtypes.html#str.strip) methods.
 
 The `split` method allows you to split a string into a list of values based on a particular
-separator (lists are covered in [another tutorial](../demo-compound-data-types/index.html#lists)).
+separator (lists are covered in [another tutorial](demo-compound-data-types.md#lists)).
 By default `split` will split a string based on @(whitespace), i.e., spaces, tabs or new lines,
 e.g.:
 
@@ -185,7 +185,7 @@ names = [name.strip() for name in namelist.split(",")]
 ```
 
 In the above example it has used list comprehension, which is covered in [another
-tutorial](../demo-flow-control/index.html#list-comprehension).
+tutorial](demo-flow-control.md#list-comprehension).
 
 ### String concatenation
 
@@ -369,7 +369,7 @@ y = False
 
 `True` and `False` must have an uppercase first letter to be recognised by Python. Booleans are
 generally used for comparison in logical expressions, which are covered in [another
-tutorial](../demo-flow-control/index.html#conditional-expressions). For example, evaluating an
+tutorial](demo-flow-control.md#conditional-expressions). For example, evaluating an
 equality will return a boolean value:
 
 ```python
