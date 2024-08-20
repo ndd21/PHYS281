@@ -375,22 +375,24 @@ tests of its validity.  However, if you want to simulate something
 very different from the Solar System with Newtonian gravity, it would
 be advisable to discuss this with the lecturers.
 
-Please note that this is an open-ended project: you have been equipped
-with basic tools (Euler and Euler-Cromer methods) for simulating the
-motion of bodies subject to gravitational attraction; it is up to you
-to take these tools and decide what aspects you want to focus on or
-what questions you want to ask.  In a good project, you would use your
-simulation to examine interesting topics, e.g.: What sort of accuracy
-can be achieved over what sort of time scale in simulations of the
-Solar System using different methods?  How sensitive is the motion to
-the choice of initial conditions?  Can you calculate the trajectory of
-a space probe?  What happens to the Solar System if another star
-passes close by?  Better still, invent your own question(s) that can
-be answered using your simulation!  In all cases, you must provide
-evidence of testing to show that your conclusions are reliable.
+Please note that this is an open-ended project: by completing the
+exercises you have been equipped with basic tools (Euler and
+Euler-Cromer methods) for simulating the motion of bodies subject to
+gravitational attraction; it is up to you to take these tools and
+decide what aspects you want to focus on or what questions you want to
+ask.  In a good project, you would use your simulation to examine
+interesting topics, e.g.: What sort of accuracy can be achieved over
+what sort of time scale in simulations of the Solar System using
+different methods?  How sensitive is the motion to the choice of
+initial conditions?  Can you calculate the trajectory of a space
+probe?  What happens to the Solar System if another star passes close
+by?  Better still, invent your own question(s) that can be answered
+using your simulation!  In all cases, you must provide evidence of
+testing to show that your conclusions are reliable.
 
-For more information and advice on the code and report, including guideline marking grids make sure
-to read the [Marking criteria page](markinggrid.md).
+For more information and advice on the code and report, including
+guideline marking grids, make sure to read the [Marking criteria
+page](markinggrid.md).
 
 ## Solar System ephemerides
 
