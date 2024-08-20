@@ -1607,7 +1607,7 @@ aim is for you to think about how you would code up the function yourself.
     # rotated square
     s2 = s1.rotate_square(np.deg2rad(30))
 
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(3.5,3.5),dpi=200)
 
     # plot s1 in blue and s2 in red
     for s, c in zip([s1, s2], ["b", "r"]):
@@ -1619,7 +1619,7 @@ aim is for you to think about how you would code up the function yourself.
     ax.set_aspect("equal")
     fig.tight_layout()
 
-    fig.show()
+    plt.show()
     ```
 
     ![Plot of two squares](exercises/exercises_squares.png)

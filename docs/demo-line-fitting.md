@@ -103,7 +103,7 @@ order = 1  # polynomial of order 1, i.e., a straight line
 c = np.polyfit(x, data, order)
 
 # plot the data and the best fit line
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(3.5,2.5),dpi=200)
 ax.scatter(x, data, label="data")  # plot the data
 ax.plot(x, model(x, c[1], c[0]), 'k', lw=2, label="Best fit")  # plot the "best fit" line
 ax.set_xlabel("$x$")
