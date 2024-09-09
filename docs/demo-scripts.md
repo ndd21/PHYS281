@@ -92,7 +92,7 @@ Any comment lines will be ignored by the Python interpreter when the file is run
 
 ## Running a script
 
-The above [example](#example) script can be run in a @(terminal) using:
+The above [example](#example-script) script can be run in a @(terminal) using:
 
 ```bash
 python tell_time.py

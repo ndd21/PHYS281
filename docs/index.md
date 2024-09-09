@@ -172,9 +172,9 @@ familiar with some of the basics of the exploring the directory/folder
 structure of the computer operating system that you are using.  You
 should know how to browse the directory structure (e.g., with "[File
 Explorer](https://en.wikipedia.org/wiki/File_Explorer)" in Windows, or
-"[Finder](https://support.apple.com/en-gb/HT201732)" on a Mac OS), be
-able to create new folders, and understand how file path structure is
-formatted, including drive if necessary (e.g.,
+"[Finder](https://support.apple.com/en-gb/guide/mac-help/mchlp2605/mac)"
+on a Mac OS), be able to create new folders, and understand how file
+path structure is formatted, including drive if necessary (e.g.,
 `C:\User\username\Project\myfile.py`).
 
 Please also see the material in the "Course notes" -> "Getting
@@ -280,7 +280,7 @@ NumPy, SciPy and Matplotlib available.
 
 Please let us know of any others.
 
-### Generative artificial intelligence (ChatGPT, Google Bard, etc.)
+### Generative artificial intelligence (ChatGPT, Gemini, etc.)
 
 Using generative artificial intelligence large language models to
 generate code or text for you should be viewed in a similar way to
