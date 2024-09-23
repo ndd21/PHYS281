@@ -10,11 +10,11 @@ date: 2020-09-24
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PG7MgQnWWIc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If you have a piece of code that does a particular job and you need to reuse it multiple times it is
-useful to define it as a @(function).
+useful to define it as a [function](glossary.md#function).
 
 To define a function you use the [`def`](https://www.w3schools.com/python/ref_keyword_def.asp)
-@(keyword) followed by the name you want to give the function, followed by brackets containing any
-@(arguments) that the function takes. The definition line should be finished with a colon `:`. The
+[keyword](glossary.md#keyword) followed by the name you want to give the function, followed by brackets containing any
+[arguments](glossary.md#argument) that the function takes. The definition line should be finished with a colon `:`. The
 function contents then follow, with indents at the start of the line defining code that is within
 the function. E.g.,
 
@@ -74,7 +74,7 @@ countToTen()
 
 ## Function arguments
 
-In the above examples there are some functions that take @(arguments), i.e., variables that are
+In the above examples there are some functions that take [arguments](glossary.md#argument), i.e., variables that are
 passed to them that they then use. In the function definition each variable within the brackets is
 separated by a comma.
 
@@ -199,7 +199,7 @@ False
 
 ## Returning values
 
-Many of the above example use the [`print`](demo-built-in-functions.md#print) @(built-in)
+Many of the above example use the [`print`](demo-built-in-functions.md#print) [built-in](glossary.md#built-in)
 function to print a message to the screen. However, you cannot then *use* the output of the function
 if it just prints it, e.g., if you had a function that calculated the sine of an angle and it just
 prints it to the screen it would be fine if that is all you ever used it for, but if you wanted to
@@ -538,7 +538,7 @@ def in_range(value, minimum=-100, maximum=100):
 
 ### Type hinting
 
-When defining a function you do not need to specify the @(type) of each argument. When writing a
+When defining a function you do not need to specify the [type](glossary.md#type) of each argument. When writing a
 docstring you should however let the user know what type of object each argument should be. Another
 way of doing this is to use ["type-hints"](https://docs.python.org/3/library/typing.html). This is
 way of "hinting" at what type each argument should be in the function definition. If we take the

@@ -112,7 +112,7 @@ print(l)
 ## `max`
 
 The [`max()`](https://docs.python.org/3/library/functions.html#max) function returns the largest
-value in a list of values, or the largest value from a set of @(arguments), e.g.:
+value in a list of values, or the largest value from a set of [arguments](glossary.md#argument), e.g.:
 
 ```python
 print(max([5, 7, 2, 1, 7]))
@@ -124,7 +124,7 @@ print(max(5, 7, 2, 1, 7))
 ## `min`
 
 The [`min()`](https://docs.python.org/3/library/functions.html#min) function returns the smallest
-value in a list of values, or the smallest value from a set of @(arguments), e.g.:
+value in a list of values, or the smallest value from a set of [arguments](glossary.md#argument), e.g.:
 
 ```python
 print(min([5, 7, 2, 1, 7]))
@@ -180,7 +180,7 @@ numstr = str(3)  # get a string version of the integer number object 3
 ## `sum`
 
 The [`sum()`](https://docs.python.org/3/library/functions.html#sum) function will sum the items
-within a list (or other @(iterable)), e.g.:
+within a list (or other [iterable](glossary.md#iterable)), e.g.:
 
 ```python
 sum([2, 3, 4, 5, 6])
@@ -189,7 +189,7 @@ sum([2, 3, 4, 5, 6])
 
 ## `type`
 
-The [`type()`](https://docs.python.org/3/library/functions.html#type) function return the @(type) of a
+The [`type()`](https://docs.python.org/3/library/functions.html#type) function return the [type](glossary.md#type) of a
 variable.
 
 ```python

@@ -6,7 +6,7 @@
 editor produced by Microsoft.  It can be used for writing and editing
 any plain text file, and therefore is mostly used for writing
 code. The main useful features for code editing are @(syntax
-highlighting) and code @(linting).  Many other excellent text editors
+highlighting) and code [linting](glossary.md#linting).  Many other excellent text editors
 are available (e.g., _Emacs_ or _vim_ or ...); if you already have a
 preferred text editor that you are happy with, please skip this section.
 
@@ -120,7 +120,7 @@ access some of these options are:
 
 _VS Code_ allows you to install a large range of
 [extensions](https://marketplace.visualstudio.com/VSCode) that expand its abilities. These include
-extensions that can, amongst other things, add @(syntax highlighting), perform code @(linting),
+extensions that can, amongst other things, add [syntax highlighting](glossary.md#syntax-highlighting), perform code [linting](glossary.md#linting),
 perform spell checking, and rendering/compile LaTeX documents.
 
 The main extension that is useful for this course is the "Python" extension. This enhances _VS
@@ -165,7 +165,7 @@ print("My first Python file")
 and save it by clicking on the "File" dropdown menu and selecting "Save as..." or using the
 ++ctrl+s++ shortcut. Type in the name that you want to give the file; for files containing Python
 code (see the [scripts tutorial](demo-scripts.md)) you should give the file a name that
-has the @(file extension) "`.py`", e.g., "`myfirstcode.py`.
+has the [file extension](glossary.md#file-extension) "`.py`", e.g., "`myfirstcode.py`.
 
 !!! tip
     Save files with sensible names and in sensible locations!
@@ -251,7 +251,7 @@ Code_:
     This should allow _VS Code_ to activate any Anaconda environments that you have defined when
     running code within it.
 
-If you have created and saved a file with a `.py` @(file extension) _VS Code_ will know it is a
+If you have created and saved a file with a `.py` [file extension](glossary.md#file-extension) _VS Code_ will know it is a
 Python file and can attempt to run the code contained within it. There are several equivalent way to
 run the code:
 
@@ -259,12 +259,12 @@ run the code:
 2. in the top right corner a green play symbol :fontawesome-solid-play: should appear for Python
    files. Click on this to run the file.
 
-Both those methods will open a @(terminal) at the bottom of the _VS Code_ screen, showing the
+Both those methods will open a [terminal](glossary.md#terminal) at the bottom of the _VS Code_ screen, showing the
 command that was used to run the file and any output produced by the code.
 
 ![VS Code run](img/vscode-run.png)
 
-Alternatively, you can open a @(terminal) manually by clicking on the "Terminal" dropdown menu,
+Alternatively, you can open a [terminal](glossary.md#terminal) manually by clicking on the "Terminal" dropdown menu,
 selecting "New Terminal". Within the terminal, which should initialise with the correct environment,
 you can type:
 

@@ -2,7 +2,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FWgddKdrBI0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-A Python @(script) is a file that generally contains a short self-contained set of instructions,
+A Python [script](glossary.md#script) is a file that generally contains a short self-contained set of instructions,
 i.e., lines of code, that perform a specific task. They are called scripts because they are read and
 interpreted by Python line-by-line in order from the first line to the last.
 
@@ -86,13 +86,13 @@ to run (both of which are shown in the above [example](#example-script)):
 
 1. Start a line with a hash `#`.
 2. Place text between opening and closing lines containing three quotation marks `"""` or three
-   apostrophes `'''` (you can also define a @(string) @(variable) using this syntax).
+   apostrophes `'''` (you can also define a [string](glossary.md#string) [variable](glossary.md#variable) using this syntax).
 
 Any comment lines will be ignored by the Python interpreter when the file is run.
 
 ## Running a script
 
-The above [example](#example-script) script can be run in a @(terminal) using:
+The above [example](#example-script) script can be run in a [terminal](glossary.md#terminal) using:
 
 ```bash
 python tell_time.py
@@ -116,8 +116,8 @@ terminal and run the script for you.
 ## Using functions from another script
 
 As described in the [Importing Modules](demo-importing-modules.md) demonstration, any
-file with the `.py` extension is also a Python module. This means that you can import @(variables),
-@(functions) or @(classes) defined in one script into another.
+file with the `.py` extension is also a Python module. This means that you can import [variables](glossary.md#variable),
+[functions](glossary.md#function) or [classes](glossary.md#class) defined in one script into another.
 
 For small projects with multiple scripts it is useful to keep them in the same directory so that you
 can import between them as needed. (The more advanced topic of
@@ -209,11 +209,11 @@ There are various ways that you can provide inputs to your script, which we will
 
 ### Requesting input
 
-You can make a script request user input from the keyboard by using the @(built-in)
+You can make a script request user input from the keyboard by using the [built-in](glossary.md#built-in)
 [`input`](demo-built-in-functions.md#input) function. `input` can take in a string as an
-@(argument), for example, a request for certain input to be provided, and then will take in whatever
+[argument](glossary.md#argument), for example, a request for certain input to be provided, and then will take in whatever
 is written on the keyboard until the user presses ++enter++. This will then be assigned to a
-variable as a @(string), e.g., after using:
+variable as a [string](glossary.md#string), e.g., after using:
 
 ```python
 name = input("Enter your name: ")
@@ -234,12 +234,12 @@ this see the tutorial on [reading files](demo-io.md).
 
 ### Command line arguments
 
-When you run a script from the @(command line), i.e., by typing in the script name, you can pass it
+When you run a script from the [command line](glossary.md#command-line), i.e., by typing in the script name, you can pass it
 additional values (called command line arguments), that can then be used within the code, by writing
 them on the command line following the script's name. One way of using any additional command line
 arguments within your script is to use the [`sys`](https://docs.python.org/3/library/sys.html)
 standard module, in particular [`sys.argv`](https://docs.python.org/3/library/sys.html#sys.argv),
-which will list of all command line arguments as @(strings) (including the script name as the first
+which will list of all command line arguments as [strings](glossary.md#string) (including the script name as the first
 value in the list). As a very simple demonstration, if we had a script containing just:
 
 ```python
@@ -353,8 +353,8 @@ arguments.
 The simplest way for a Python script to output some information is to print that information to the
 screen for the user to see.
 
-For this the @(built-in) [`print`](demo-built-in-functions.md#print) function can be
-used. This function takes a @(string) and outputs it to the screen:
+For this the [built-in](glossary.md#built-in) [`print`](demo-built-in-functions.md#print) function can be
+used. This function takes a [string](glossary.md#string) and outputs it to the screen:
 
 ```python
 print("Hello")

@@ -10,7 +10,7 @@ date: 2020-08-12
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jh54qY16Ddw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 In addition to the [basic data types](demo-data-types.md) for integers (`int`),
-@(floating point numbers) (`float`) and @(strings) of text (`str`), there are some other standard
+[floating point numbers](glossary.md#floating-point-number) (`float`) and [strings](glossary.md#string) of text (`str`), there are some other standard
 Python data types that can hold multiple pieces of data.
 
 ## Lists
@@ -26,7 +26,7 @@ print(type(x))
 <class 'list'>
 ```
 
-You can access items in a list @(variable) using their @(index) placed within square brackets
+You can access items in a list [variable](glossary.md#variable) using their [index](glossary.md#index) placed within square brackets
 `[idx]`. The index is an integer giving an item's location within the list. In Python indices start
 at zero, e.g., the first value in a list is obtained with:
 
@@ -95,7 +95,7 @@ print(x)
 
     for which the sublists *will* be independent copies.
 
-You can combine lists together using the `+` @(operator). To get a new list that is the combination
+You can combine lists together using the `+` [operator](glossary.md#operator). To get a new list that is the combination
 of two other lists concatenated together you can use:
 
 ```python
@@ -261,7 +261,7 @@ print(x[2][1])
 
 ### List methods
 
-Like everything in Python, lists are @(objects) and have a variety of useful methods. We will
+Like everything in Python, lists are [objects](glossary.md#object) and have a variety of useful methods. We will
 examine a few here, but they can all be seen by typing `help(list)` in a terminal.
 
 #### Append
@@ -334,7 +334,7 @@ print(x)
 
 ## Tuples
 
-Tuples are very similar to lists, but they are @(immutable). This means that you cannot change any of
+Tuples are very similar to lists, but they are [immutable](glossary.md#immutable). This means that you cannot change any of
 the values they contain once they have been created. Tuples are defined using regular brackets `()`
 or with the `tuple` class name.
 
@@ -432,7 +432,7 @@ These are useful for _iterating_ over the dictionary, for example, in a
 [for-loop](demo-flow-control.md#for-and-while-loops).
 
 You can remove values from a dictionary using the
-[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) @(keyword) or the `pop` method. `del`
+[`del`](https://www.w3schools.com/python/ref_keyword_del.asp) [keyword](glossary.md#keyword) or the `pop` method. `del`
 just deletes a value, while `pop` deletes but also returns that deleted value:
 
 ```python
@@ -500,7 +500,7 @@ print(type(x))
 <class 'complex'>
 ```
 
-The standard mathematical @(operators) will work on complex numbers, e.g.,
+The standard mathematical [operators](glossary.md#operator) will work on complex numbers, e.g.,
 
 ```python
 x = 2.3 + 5.4j

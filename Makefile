@@ -9,4 +9,4 @@ site/index.html: mkdocs.yml $(shell find docs -type f)
 
 .PHONY: clean
 clean:
-	rm -rf site __pycache__ docs/javascripts/glossary.js
+	rm -rf site __pycache__

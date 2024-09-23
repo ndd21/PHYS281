@@ -9,7 +9,7 @@ date: 2020-08-12
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-OA05dhv2y8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-In a code you can define @(variables) and these have a @(type), where the type is the kind of
+In a code you can define [variables](glossary.md#variable) and these have a [type](glossary.md#type), where the type is the kind of
 *thing* that the variable represents. For example, a variable might hold an integer number, or a set
 of alphanumeric values (known as a string).
 
@@ -39,21 +39,21 @@ type(x)
 ```
 
 It has determined that the variable `x` is of the integer (or `int`) type. In this example
-[`type()`](demo-built-in-functions.md#type) is a @(built-in) Python function that returns
+[`type()`](demo-built-in-functions.md#type) is a [built-in](glossary.md#built-in) Python function that returns
 the type of a variable.
 
 !!! note
-    Everything in Python is an @(object) (hence *object oriented programming*, or OOP). In OOP
+    Everything in Python is an [object](glossary.md#object) (hence *object oriented programming*, or OOP). In OOP
     an object is a thing that contains data in the form of variables and/or functions to act on that
-    data. All variables are objects and therefore the @(type) refers to the "type" of object.
-    "Type" is sometimes used interchangeably with "@(class)", where a class defines a type.
+    data. All variables are objects and therefore the [type](glossary.md#type) refers to the "type" of object.
+    "Type" is sometimes used interchangeably with "[class](glossary.md#class)", where a class defines a type.
 
 The main basic data types (in Python and many languages) are:
 
 * `int`: represents an positive or negative integer number;
-* `float`: represents a "@(floating point number)", i.e., a non-integer number;
-* `str`: represents some alphanumeric text, know as a "@(string)";
-* `bool`: represents a @(boolean) value, i.e., "True" or "False".
+* `float`: represents a "[floating point number](glossary.md#floating-point-number)", i.e., a non-integer number;
+* `str`: represents some alphanumeric text, know as a "[string](glossary.md#string)";
+* `bool`: represents a [boolean](glossary.md#boolean) value, i.e., "True" or "False".
 
 ```python
 # defining an integer
@@ -69,10 +69,10 @@ myString = "Hello"
 myBool = True
 ```
 
-The basic data types are @(objects), and as such have @(data attributes) and @(methods):
+The basic data types are [objects](glossary.md#object), and as such have [data attributes](glossary.md#data-attribute) and [methods](glossary.md#method):
 
-* @(data attributes) are variables that are contained within an object;
-* @(methods) are functions within an object.
+* [data attributes](glossary.md#data-attribute) are variables that are contained within an object;
+* [methods](glossary.md#method) are functions within an object.
 
 Examples:
 
@@ -120,7 +120,7 @@ y.as_integer_ratio()
 
 ## Strings
 
-@(Strings) can be defined in three different, but equivalent, ways:
+[Strings](glossary.md#String) can be defined in three different, but equivalent, ways:
 
 ```python
 z1 = "Hello"
@@ -148,7 +148,7 @@ Some particularly useful methods (at least ones I use regularly!) are the
 
 The `split` method allows you to split a string into a list of values based on a particular
 separator (lists are covered in [another tutorial](demo-compound-data-types.md#lists)).
-By default `split` will split a string based on @(whitespace), i.e., spaces, tabs or new lines,
+By default `split` will split a string based on [whitespace](glossary.md#whitespace), i.e., spaces, tabs or new lines,
 e.g.:
 
 ```python

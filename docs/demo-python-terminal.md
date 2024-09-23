@@ -2,7 +2,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/11Xayj8lZi4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-A @(terminal) is a text-based window into which you can type commands and view outputs. 
+A [terminal](glossary.md#terminal) is a text-based window into which you can type commands and view outputs. 
 
 You can run Python as an interactive environment within a terminal. Within this you can type and run
 any Python commands. The terminal is useful for quick calculations and prototyping.
@@ -19,7 +19,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> 
 ```
 
-where the `>>>` is the @(command prompt) starting the @(command line), i.e., the line that you input
+where the `>>>` is the [command prompt](glossary.md#command-prompt) starting the [command line](glossary.md#command-line), i.e., the line that you input
 commands onto. You can type commands in, e.g.,
 
 ```
@@ -44,7 +44,7 @@ IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
 In [1]: 
 ```
 
-where the @(command prompt) (`In [1]:`) looks slightly different. It is sometimes called an input
+where the [command prompt](glossary.md#command-prompt) (`In [1]:`) looks slightly different. It is sometimes called an input
 "cell".
 
 In IPython you can do all the things of a standard Python terminal session:
@@ -67,7 +67,7 @@ Out[1]: 12
 
 you get an `Out[N]` prompt containing the answer, where the number `[N]` is the same as the
 associated `In [N]` prompt that produced it. The `Out [N]` prompt actually stores the answer as a
-@(variable) that can be used later, e.g.,
+[variable](glossary.md#variable) that can be used later, e.g.,
 
 ```ipython
 In [2]: x = Out[1] - 4
@@ -80,7 +80,7 @@ It is _not_ recommended to store and use variables this way though!
 
 ## Python as a calculator
 
-You can use the Python terminal as a calculator using standard arithmetic @(operators):
+You can use the Python terminal as a calculator using standard arithmetic [operators](glossary.md#operator):
 
  * `+` : add to numbers
  * `-` : subtract two numbers
@@ -106,7 +106,7 @@ print(d)
 ```
 
 If you add, subtract or multiply two integers you will get an integer value back. For division it
-will return a @(floating point number) (i.e., a non-integer number with a decimal point in it) even
+will return a [floating point number](glossary.md#floating-point-number) (i.e., a non-integer number with a decimal point in it) even
 if the inputs are integers. To perform division that returns an integer rounded down to the nearest
 integer value use `//`, e.g.,
 
@@ -141,7 +141,7 @@ b = 13 % 4
 
 ### The `math` library
 
-For more complex mathematical operators you can use the @(built-in)
+For more complex mathematical operators you can use the [built-in](glossary.md#built-in)
 [`math`](https://docs.python.org/3/library/math.html) library. Some examples are:
 
 ```python
@@ -291,7 +291,7 @@ scroll back and forth between old commands with the up ++up++ and down ++down++ 
 If you had previously typed a long command, you can start typing it and then press up ++up++ and it
 will automatically fill in the rest.
 
-Tab completion allows you to explore an objects @(attributes), e.g., if you define an integer `x =
+Tab completion allows you to explore an objects [attributes](glossary.md#attribute), e.g., if you define an integer `x =
 1` and write
 
 ```ipython

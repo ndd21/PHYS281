@@ -9,21 +9,21 @@ date: 2020-08-12
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1SfbkcOipiA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Almost everything in Python is an @(object). All objects (e.g., variables, functions) have a type.
+Almost everything in Python is an [object](glossary.md#object). All objects (e.g., variables, functions) have a type.
 An object's type is also known as its [**class**](https://docs.python.org/3/tutorial/classes.html).
-A @(class) can also be thought of as a template for creating an object of that type.
+A [class](glossary.md#class) can also be thought of as a template for creating an object of that type.
 
 Objects can combine holding data with functionality. Anything that you can access in an object is
-known as an @(attribute). Attributes can either be @(data attributes) (sometime also known as class
-properties, class members or class variables) or @(function attributes) (also known as @(class
+known as an [attribute](glossary.md#attribute). Attributes can either be [data attributes](glossary.md#data-attribute) (sometime also known as class
+properties, class members or class variables) or [function attributes](glossary.md#function-attribute) (also known as @(class
 methods)). In Python all of a class' attributes are public, i.e., you can access them from an
 instance of a class.
 
-To add to this, @(data attributes) can be of two types:
+To add to this, [data attributes](glossary.md#data-attribute) can be of two types:
 
-1. @(class attributes) - these belong to the class itself and are the same value for every instance
-   of the class (and can even be used without creating a @(class instance)),
-2. @(instance attributes) - these belong to a specific @(class instance) and may be different (based
+1. [class attributes](glossary.md#class-attribute) - these belong to the class itself and are the same value for every instance
+   of the class (and can even be used without creating a [class instance](glossary.md#class-instance)),
+2. [instance attributes](glossary.md#instance-attribute) - these belong to a specific [class instance](glossary.md#class-instance) and may be different (based
    on user input) between instances.
 
 A new class can be defined using the
@@ -37,7 +37,7 @@ A new class can be defined using the
 
 ## A simple class
 
-A simple class containing just @(class attributes) can be created using:
+A simple class containing just [class attributes](glossary.md#class-attribute) can be created using:
 
 ```python
 class Electron:
@@ -47,13 +47,13 @@ class Electron:
     mass = 9.1e-31  # mass in kg
 ```
 
-Variables can then be created from this class (also known as @(class instances)) with:
+Variables can then be created from this class (also known as [class instances](glossary.md#class-instance)) with:
 
 ```python
 e = Electron()  # note the brackets are required
 ```
 
-The @(class attributes) of the object can be accessed using a `.` followed by their name, e.g.,:
+The [class attributes](glossary.md#class-attribute) of the object can be accessed using a `.` followed by their name, e.g.,:
 
 ```python
 print(e.mass)
@@ -61,14 +61,14 @@ print(e.mass)
 ```
 
 !!! note
-    Even though @(class attributes) are public (i.e., viewable and changeable by the user), it is
-    not good practice to change them in any @(class instance). If you want
-    to set @(data attributes) that can be altered you should use @(instance attributes) that are set
+    Even though [class attributes](glossary.md#class-attribute) are public (i.e., viewable and changeable by the user), it is
+    not good practice to change them in any [class instance](glossary.md#class-instance). If you want
+    to set [data attributes](glossary.md#data-attribute) that can be altered you should use [instance attributes](glossary.md#instance-attribute) that are set
     when initialising the class, or through a class method, or
     using [properties](https://www.python-course.eu/python3_properties.php) (setters are not covered
     in this course).
 
-@(Class attributes) can also be accessed directly from the class rather than an instance, e.g.,:
+[Class attributes](glossary.md#Class-attribute) can also be accessed directly from the class rather than an instance, e.g.,
 
 ```python
 print(Electron.mass)
@@ -77,7 +77,7 @@ print(Electron.mass)
 
 ## A class with initialisation
 
-The above class has been created with a fixed set of values using @(class attributes). Every time an
+The above class has been created with a fixed set of values using [class attributes](glossary.md#class-attribute). Every time an
 instance of the class is created the attributes will be the same.
 
 It is often useful to be able to create an instance of a class with user defined values rather than
@@ -108,7 +108,7 @@ electron mass = 9.1e-31
 proton mass = 1.7e-27
 ```
 
-The `__init__` method of a class can have @(positional arguments) and/or @(keyword arguments),
+The `__init__` method of a class can have [positional arguments](glossary.md#positional-argument) and/or [keyword arguments](glossary.md#keyword-argument),
 just like any other function. Using keyword arguments allows the setting of default initialisation
 values if no user supplied values are given, e.g.,
 
@@ -358,7 +358,7 @@ attributes, i.e., they are standalone and must be supplied with all the variable
 
 Unlike normal methods they do not get passed the `self` argument. To make a method static you use
 the [`@staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)
-@(decorator) on the line above the method definition, e.g.,:
+[decorator](glossary.md#decorator) on the line above the method definition, e.g.,:
 
 ```python
 class Line2D:
@@ -491,8 +491,8 @@ class Galaxy:
 ```
 
 Now, suppose we want a class specifically for a spiral galaxy, but that keeps the attributes of a
-`Galaxy`, i.e., `Galaxy` is the @(parent) class (or superclass) and `SpiralGalaxy` will be its
-@(child) (or subclass). We can create a new class with:
+`Galaxy`, i.e., `Galaxy` is the [parent](glossary.md#parent) class (or superclass) and `SpiralGalaxy` will be its
+[child](glossary.md#child) (or subclass). We can create a new class with:
 
 ```python
 class SpiralGalaxy(Galaxy):  # this is where the Galaxy gets inherited
@@ -660,7 +660,7 @@ class Vector:
 ```
 
 !!! note
-    In the above definition it has used the `@property` function @(decorator). This is a way to
+    In the above definition it has used the `@property` function [decorator](glossary.md#decorator). This is a way to
     define methods in a class that can allow aspects of a current data attributes to be accessed
     with a different name. Here it is handy to store the vector as a list-type data attribute,
     but it is also nice to be able to access the individual components in an intuitively named

@@ -40,7 +40,7 @@ binary file.
     filename = r"C:\My Documents\myfile.txt"
     ```
 
-    which both stop Python interpreting backslashes (`\`) in a string as an @(escape character)
+    which both stop Python interpreting backslashes (`\`) in a string as an [escape character](glossary.md#escape-character)
     for the following letter (e.g., `\n` in a string means new line).
 
     Another option is to use the [`pathlib`](https://docs.python.org/3/library/pathlib.html)

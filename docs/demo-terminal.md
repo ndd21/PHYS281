@@ -4,8 +4,8 @@
 
 As described in the [_VS Code_](demo-vs-code.md) introduction, any Python code that you
 write can be run within [_VS Code_](demo-vs-code.md#running-code). However, it use also
-useful to know how run code and navigate a file system using a @(terminal) (sometimes referred to as
-a Command Prompt window, console or @(shell)). Indeed, a Python code interpreter can be run
+useful to know how run code and navigate a file system using a [terminal](glossary.md#terminal) (sometimes referred to as
+a Command Prompt window, console or [shell](glossary.md#shell)). Indeed, a Python code interpreter can be run
 interactively via a terminal as will be described in [another
 tutorial](demo-python-terminal.md).
 
@@ -18,7 +18,7 @@ terminal programs for different operating systems, the most common being:
     !!! note
         If you have installed [Anaconda](demo-anaconda.md) you should access the
         PowerShell using the "Anaconda PowerShell Prompt", which automatically starts the terminal
-        with the ability to run `conda` commands and within @(virtual environments), instead of the
+        with the ability to run `conda` commands and within [virtual environments](glossary.md#virtual-environment), instead of the
         standard Windows PowerShell.
 
     Open this by either:
@@ -50,11 +50,11 @@ terminal programs for different operating systems, the most common being:
 
     ![Linux terminal](img/linuxterminal.png)
 
-Within a terminal, the line you input commands onto is called the @(command line) and it starts with
-some characters called the @(command prompt):
+Within a terminal, the line you input commands onto is called the [command line](glossary.md#command-line) and it starts with
+some characters called the [command prompt](glossary.md#command-prompt):
 
 === "Windows"
-    The PowerShell @(command prompt) will generally end in a `>` character and contain the path of
+    The PowerShell [command prompt](glossary.md#command-prompt) will generally end in a `>` character and contain the path of
     the current directory.
 
 === "Mac OS/Linux"
@@ -63,13 +63,13 @@ some characters called the @(command prompt):
 If you have installed Anaconda, the command prompt should start with the name of the Anaconda
 environment in brackets, e.g., `(base)` for the default environment.
 
-A terminal might sometimes be referred to as a "@(shell)"; the shell is a program that runs within
+A terminal might sometimes be referred to as a "[shell](glossary.md#shell)"; the shell is a program that runs within
 the terminal and is what you actually interact with when running commands. Another common term used
 to describe a terminal is a "console". Despite subtly different meanings terminal, console and shell
 are often used interchangeably.
 
 !!! note
-    In a Mac OS/Linux terminal there are a variety of different @(shells) that you can use with
+    In a Mac OS/Linux terminal there are a variety of different [shells](glossary.md#shell) that you can use with
     slightly different syntaxes and abilities (shells are themselves programming languages), but on
     most distributions the default shell is called
     [bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)).

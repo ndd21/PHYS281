@@ -10,7 +10,7 @@ date: 2020-08-14
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FIckY_FMpc8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 [NumPy](https://numpy.org/) is a Python library containing many useful features for numerical and
-scientific computation. It is not a @(built-in) module, but is available in the default Anaconda `base`
+scientific computation. It is not a [built-in](glossary.md#built-in) module, but is available in the default Anaconda `base`
 environment.
 
 NumPy can be imported using:
@@ -19,7 +19,7 @@ NumPy can be imported using:
 import numpy
 ```
 
-You will often find that the NumPy @(namespace) is aliased as:
+You will often find that the NumPy [namespace](glossary.md#namespace) is aliased as:
 
 ```python
 import numpy as np
@@ -38,7 +38,7 @@ The basic class for NumPy arrays is the
 [`ndarray`](https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html) class. They can
 hold arrays of any Python object, but are most generally used to hold arrays of numbers.
 
-NumPy `ndarray`s have a variety of useful @(data attributes) and @(methods), a few of which will be
+NumPy `ndarray`s have a variety of useful [data attributes](glossary.md#data-attribute) and [methods](glossary.md#method), a few of which will be
 mentioned below.
 
 ### Creating an array
@@ -351,7 +351,7 @@ print(x[0, 2])  # get the value from the 1st row and 3rd column
 3
 ```
 
-@(Slices) can also be used, e.g.,:
+[Slices](glossary.md#Slice) can also be used, e.g.,:
 
 ```python
 print(x[1, :])  # get all values from the 2nd row
@@ -435,7 +435,7 @@ functions that are similar to `concatenate`.
 ### Mathematical operations on an array
 
 NumPy `ndarray`s are [overloaded](demo-classes.md#operator-overloading) so that the
-standard mathematical @(operators) can be applied to them.
+standard mathematical [operators](glossary.md#operator) can be applied to them.
 
 ```python
 # adding two arrays

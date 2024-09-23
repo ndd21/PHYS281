@@ -10,7 +10,7 @@ basics.
 
 The plotting functions within Matplotlib are found within the
 [`pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot)
-submodule, which is often imported using the @(alias):
+submodule, which is often imported using the [alias](glossary.md#alias):
 
 ```python
 from matplotlib import pyplot as plt

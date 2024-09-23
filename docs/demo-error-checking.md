@@ -10,12 +10,12 @@ date: 2020-08-12
 <iframe width="560" height="315" src="https://www.youtube.com/embed/biimYBveWJE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 If there is a problem in some Python code being run it will often stop and print out an error
-message to the screen. This is called "raising" an error, also known as an @(exception). The final
+message to the screen. This is called "raising" an error, also known as an [exception](glossary.md#exception). The final
 line of the error message will be the [type of
 exception](https://docs.python.org/3/library/exceptions.html) that has been raised. Preceding this
-will be a "@(traceback)" showing where the error occurred in the code, often with a line number, and
+will be a "[traceback](glossary.md#traceback)" showing where the error occurred in the code, often with a line number, and
 can be nested down through the chain of functions calling the buggy code. This chain of functions
-may be ones that you have defined or functions within a @(built-in) or user installed module.
+may be ones that you have defined or functions within a [built-in](glossary.md#built-in) or user installed module.
 
 These errors are often not that informative for novices (or indeed experts), especially at first
 glance. But looking at the exception type can give hints as to the cause of the problem.
@@ -26,7 +26,7 @@ A non-exhaustive list of errors and some reasons for them is given below.
 
 ### Syntax errors
 
-If code contains invalid Python @(syntax) then a
+If code contains invalid Python [syntax](glossary.md#syntax) then a
 [`SyntaxError`](https://docs.python.org/3/library/exceptions.html#SyntaxError) may be raised, often
 when importing a module containing a bug. The cause of such an error is often:
 

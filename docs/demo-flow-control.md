@@ -2,7 +2,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/fdTCVX2CqPk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-When Python runs a @(script) the code is executed from the top to the bottom. However, you might
+When Python runs a [script](glossary.md#script) the code is executed from the top to the bottom. However, you might
 want to only run certain parts of the code given specific conditions, or you might want to repeat
 something multiple times. To do this you can use flow control:
 
@@ -17,7 +17,7 @@ function, or class, is by using indenting. Most other languages use parentheses 
 some sort, but in Python indenting is essential.
 
 Things that are together within the same statement or definition must be indented using
-@(whitespace) (regular spaces or tabs) to the same level.
+[whitespace](glossary.md#whitespace) (regular spaces or tabs) to the same level.
 
 !!! tip
     Be consistent with your whitespace. It is highly recommended that you use spaces rather than
@@ -150,7 +150,7 @@ False
     such as lists, dictionaries or tuples, or strings, an empty array will evaluate as `False` while
     an array containing any number of values will evaluate as `True`.
 
-The `is` @(keyword) can be used to test if two variables have the same value and are also of the
+The `is` [keyword](glossary.md#keyword) can be used to test if two variables have the same value and are also of the
 same type:
 
 ```python
@@ -277,8 +277,8 @@ print(sentence)
 Coding in Python is fun!
 ```
 
-The @(keywords) used here are `for` and `in`. The value after `in` is the sequence to be iterated
-through; it can be any @(iterable), which in Python is any object that contains a set of values that
+The [keywords](glossary.md#keyword) used here are `for` and `in`. The value after `in` is the sequence to be iterated
+through; it can be any [iterable](glossary.md#iterable), which in Python is any object that contains a set of values that
 can be moved through. The value between `for` and `in` will contain the current value from the
 sequence and can be used within the loop. It is a variable and can be named whatever you want it to
 be.
@@ -287,7 +287,7 @@ be.
 
 #### `range`
 
-The [`range`](https://docs.python.org/3/library/functions.html#func-range) @(built-in) function is
+The [`range`](https://docs.python.org/3/library/functions.html#func-range) [built-in](glossary.md#built-in) function is
 very useful in `for` loops to allow you to loop over a set of increasing or decreasing integer
 numbers. `range` can take either one, two or three integer value arguments:
 
@@ -384,7 +384,7 @@ c 6.7
 #### `break` and `continue`
 
 The [`break`](https://www.w3schools.com/python/ref_keyword_break.asp) and
-[`continue`](https://www.w3schools.com/python/ref_keyword_continue.asp) @(keywords), combined with
+[`continue`](https://www.w3schools.com/python/ref_keyword_continue.asp) [keywords](glossary.md#keyword), combined with
 `if...elif...else` conditional statements, are ways of using flow control within a loop. `break`
 allows you to exit a loop if a certain condition is fulfilled, e.g.,
 

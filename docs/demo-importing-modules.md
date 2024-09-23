@@ -2,7 +2,7 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Jnj4Ivbt9G8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-A @(module) is ["*... a file containing Python definitions and
+A [module](glossary.md#module) is ["*... a file containing Python definitions and
 statements*"](https://docs.python.org/3/tutorial/modules.html#modules).
 
 Python comes with a large range of [modules](https://docs.python.org/3/py-modindex.html) within the
@@ -10,16 +10,16 @@ Python comes with a large range of [modules](https://docs.python.org/3/py-modind
 classes. These modules are files that are automatically bundled with, and accessible by, every
 Python installation (the bundled modules can change between different Python versions).
 
-There are also a huge range of third-party @(packages) that can be installed and then used within
+There are also a huge range of third-party [packages](glossary.md#package) that can be installed and then used within
 Python; see, for example, the [PyPI](https://pypi.org/) package repository and the [Anaconda
 Cloud](https://anaconda.org/anaconda/repo).
 
 To use a module within a Python terminal or script you must "import" it, which means loading in either
 the entire module or certain things within it.
 
-For example, if we wanted to determine the date we could use the @(built-in) module
+For example, if we wanted to determine the date we could use the [built-in](glossary.md#built-in) module
 [`datetime`](https://docs.python.org/3/library/datetime.html#module-datetime), by importing it with
-the Python [`import`](https://docs.python.org/3/reference/simple_stmts.html#import) @(keyword)
+the Python [`import`](https://docs.python.org/3/reference/simple_stmts.html#import) [keyword](glossary.md#keyword)
 statement:
 
 ```python
@@ -28,8 +28,8 @@ print(datatime.date.today())
 2020-06-10
 ```
 
-Once imported, the module @(variables), @(functions) and @(classes) exist within the module's
-@(namespace): the "namespace" is, generally, a way to try and keep names used within a program
+Once imported, the module [variables](glossary.md#variable), [functions](glossary.md#function) and [classes](glossary.md#class) exist within the module's
+[namespace](glossary.md#namespace): the "namespace" is, generally, a way to try and keep names used within a program
 unique (i.e., if another module was imported that also had a `date` class it would still be separate
 from that in `datetime`).
 
@@ -37,7 +37,7 @@ In the example above, to use the `date` class that exists within the `datetime` 
 to write `datatime.date`, where in this case the module name `datetime` becomes the "namespace" within which we used the `date` class.
 
 You don't need to keep the namespace, e.g., we could just import the `date` class from `datetime`
-using the `from` @(keyword):
+using the `from` [keyword](glossary.md#keyword):
 
 ```python
 from datetime import date
@@ -48,7 +48,7 @@ print(date.today())
 But, this runs more risk of clashing names.
 
 As the module definition states, you can import from any Python file,
-where a Python file is one saved with the "`.py`" @(file extension),
+where a Python file is one saved with the "`.py`" [file extension](glossary.md#file-extension),
 e.g., `myfunctions.py` (it's best to have file names that are
 representative of the contents). If we had a file called `message.py`
 with the following content:

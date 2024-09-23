@@ -41,7 +41,7 @@ defining a [decorator](#decorator) function wrapping another function.
 ## Alias
 
 An alternative, and generally shorter, way of referring to a [namespace](#namespace). When importing
-a @(module), the module's namespace can be aliased using the `as` keyword, e.g., in `import numpy as
+a [module](#module), the module's namespace can be aliased using the `as` keyword, e.g., in `import numpy as
 np` the `numpy` namespace has been aliased to `np`, which can then be used within the code in place
 of `numpy`. 
 

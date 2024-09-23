@@ -4,7 +4,7 @@
 
 [Anaconda](https://www.anaconda.com/products/individual)<sup>&#174;</sup> is a Python distribution
 and package management system. It provides an installation of Python and a way
-to create "@(virtual environments)" that can contain different Python version and software packages
+to create "[virtual environments](glossary.md#virtual-environment)" that can contain different Python version and software packages
 required for a specific task.
 
 !!! important
@@ -25,7 +25,7 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
 !!! note
     The full Anaconda installation will require just under 3 Gb of space on your computer.
     
-    For users who are confident using a text-based @(terminal) there is a much lighter weight
+    For users who are confident using a text-based [terminal](glossary.md#terminal) there is a much lighter weight
     installation that can be used called [Miniconda](https://docs.conda.io/en/latest/miniconda.html),
     which does not provide many of the graphical user interface tools.
 
@@ -117,7 +117,7 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
     ```
 
     If correctly installed the conda version and other information should be printed to screen. If
-    you open a new terminal the @(command prompt) should now begin with `(base)`, which is the name
+    you open a new terminal the [command prompt](glossary.md#command-prompt) should now begin with `(base)`, which is the name
     of the default conda environment.
 
 === "Opening with AppsAnywhere"
@@ -162,7 +162,7 @@ containing different Python packages, and install new packages.
     It will open within the ":fontawesome-solid-house: Home" tab and show a set of applications
     that can be launched. The most relevant of these for this course is:
     
-     * Powershell Prompt: this opens a @(terminal) program for running commands.
+     * Powershell Prompt: this opens a [terminal](glossary.md#terminal) program for running commands.
     
     !!! note
         After installing _VS Code_ (a text editor that is useful for writing code) as described
@@ -170,7 +170,7 @@ containing different Python packages, and install new packages.
         application within _Anaconda Navigator_.
 
     Above the table of applications the Navigator says "Applications on `base (root)`". Here `base`
-    is the name of the default @(virtual environment) that Anaconda creates. This environment has
+    is the name of the default [virtual environment](glossary.md#virtual-environment) that Anaconda creates. This environment has
     various Python packages installed in it by default. This set of packages can be seen by
     clicking on the "Environments" tab:
 
@@ -187,11 +187,11 @@ containing different Python packages, and install new packages.
 ### Creating a new environment
 
 For this course, every Python package you should need is installed within the Anaconda `base`
-@(virtual environment). However, as good practice for future projects, it is useful to know how to
+[virtual environment](glossary.md#virtual-environment). However, as good practice for future projects, it is useful to know how to
 create new environment.
 
 Instructions for creating a new environment using either _Anaconda Navigator_ or via the @(command
-line) in a @(terminal) are given below:
+line) in a [terminal](glossary.md#terminal) are given below:
 
 === "Anaconda Navigator"
     After opening _Anaconda Navigator_ (as described above) click on the
@@ -207,7 +207,7 @@ line) in a @(terminal) are given below:
     listed under the `base (root)` environment and the packages it contains will be shown.
 
 === "Terminal"
-    A new environment can be create using a @(terminal) (e.g., the Anaconda Powershell prompt in
+    A new environment can be create using a [terminal](glossary.md#terminal) (e.g., the Anaconda Powershell prompt in
     Windows or the default terminal program on Mac OS or Linux). To start open the terminal (in
     Windows use the start menu or search bar to find "Anaconda Powershell Prompt", or launch it via
     the _Anaconda Navigator_).
@@ -255,7 +255,7 @@ Python version and packages installed within it.
     conda activate awesome_project
     ```
 
-    The @(command prompt) should now start with the name of the environment in brackets, e.g.,
+    The [command prompt](glossary.md#command-prompt) should now start with the name of the environment in brackets, e.g.,
     `(awesome_project)`. If you start a [Python terminal session](demo-python-terminal.md)
     it will use the version of Python installed in that environment and have access to that
     environment's packages.
@@ -268,8 +268,8 @@ Python version and packages installed within it.
 
 #### Installing packages
 
-Within an environment you can install Python @(packages) that you require so long as they are
-available either within the [Anaconda Cloud](https://anaconda.org/) or the @(PyPI) package
+Within an environment you can install Python [packages](glossary.md#package) that you require so long as they are
+available either within the [Anaconda Cloud](https://anaconda.org/) or the [PyPI](glossary.md#PyPI) package
 repositories.
 
 === "Anaconda Navigator"
@@ -321,7 +321,7 @@ repositories.
         and install non-Python dependencies of a package.
 
         If you can, stick to using `conda install`. However, sometimes `pip install` is
-        required if the package is only available via @(PyPI).
+        required if the package is only available via [PyPI](glossary.md#PyPI).
 
     If you want a particular version of a package then you can supply that information with, e.g.,
 

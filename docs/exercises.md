@@ -14,7 +14,7 @@ aim is for you to think about how you would code up the function yourself.
 ### Exercise {{ counter() }}
 
 !!! question "Part 1"
-    Open a Python/IPython terminal and declare two variables as @(floating point numbers). Add the
+    Open a Python/IPython terminal and declare two variables as [floating point numbers](glossary.md#floating-point-number). Add the
     two variables and store the output as a new variable. Print out the new variable value to the
     screen.
 
@@ -54,7 +54,7 @@ aim is for you to think about how you would code up the function yourself.
 
 !!! question "Part 3"
     Perform the same task, but this time write the code in a text file saved with the `.py`
-    extension. Run the code in VS Code and also from the @(command line).
+    extension. Run the code in VS Code and also from the [command line](glossary.md#command-line).
 
 ### Exercise {{ counter() }}
 
