@@ -22,17 +22,16 @@ questions or comments please contact the current module lecturer:
 
 In this course we will use many jargon terms and unfortunately this is
 inevitable. In some cases certain terms will be used interchangeably
-as synonyms. We have created a [glossary](glossary.md) of many
-terms to try and help with this, but it will be incomplete.  Please do
-ask us if there are any concepts or terms that you do not understand
-and remember that Google is your friend (or, to be more precise, they
-provide a useful search engine)! It is worth noting that the aim of
-this course is to allow you to write and use Python code. However,
-this is not a computer science course and we do not expect you to
-understand the detailed reasons behind why something is done in a
-certain way. In the majority of cases you can treat what we show you
-as a recipe to follow without needing to know why a particular syntax
-or formatting is required.
+as synonyms. We have created a [glossary](glossary.md) of many terms
+to try and help with this, but it will be incomplete.  Please do ask
+us if there are any concepts or terms that you do not understand and
+remember that it may be helpful to search for the terms on the
+Internet! It is worth noting that the aim of this course is to allow
+you to write and use Python code. However, this is not a computer
+science course and we do not expect you to understand the detailed
+reasons behind why something is done in a certain way. In the majority
+of cases you can treat what we show you as a recipe to follow without
+needing to know why a particular syntax or formatting is required.
 
 ## Course aims
 
@@ -139,13 +138,13 @@ weekly (Weeks 1-10) computer labs split over three sessions. All
 students will be assigned to one of these three sessions. There will
 also be an "office hour" drop-in slot for additional help.
 
-The programming exercises and quizzes must be submitted on Moodle by 14:00
-on the Tuesday the week after the associated lab session (e.g., the
-Week 1 assignment should be submitted no later than 14:00 on the
+The programming exercises and quizzes must be submitted on Moodle by
+14:00 on the Tuesday the week after the associated lab session (e.g.,
+the Week 1 assignment should be submitted no later than 14:00 on the
 Tuesday of Week 2). The late submission deadline is 14:00 on the
 following Wednesday. If you require an extension or have a problem
-please contact [Al
-Wood](https://teams.microsoft.com/l/chat/0/0?users=a.wood14@lancaster.ac.uk)
+please contact [Louise
+Crook](https://teams.microsoft.com/l/chat/0/0?users=louise.crook@lancaster.ac.uk)
 in the teaching office. Submitted code will be tested and marked
 automatically using a Moodle plugin. To avoid losing marks it is
 highly recommended that you test your code on your own machine before
