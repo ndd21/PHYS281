@@ -80,7 +80,7 @@ updated and new features added. The latest major version is Python 3,
 with Python 3.12 being a recent stable release. While most Python code
 is fairly backwards compatible, i.e., can run with previous versions
 of the language, there are some specific features that are
-not. Broadly speaking, code written based on Python 3.5 or above
+not. Broadly speaking, code written based on Python 3.6 or above
 should be compatible and in this course we will not use any syntax
 that does not work across these versions.
 

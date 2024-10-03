@@ -238,9 +238,11 @@ The sum of 12.96 + 13.99 = 26.95
 In this case the `0` represents the first argument to `format`, which is followed by the formatting
 type `:.2f` that means "show a floating point number (`f`) to two decimal places (`.2`)."
 
-In Python versions greater than 3.5 there is another way to use string formatting. If you define a
-string with an `f` (known as an [f-string](https://www.python.org/dev/peps/pep-0498/)) before the
-opening quotes you can use variable names within curly brackets to show their values, e.g.:
+In Python version 3.6, another way to use string formatting was
+introduced. If you define a string with an `f` before the opening
+quotes (known as an
+[f-string](https://www.python.org/dev/peps/pep-0498/)) you can use
+variable names within curly brackets to show their values, e.g.:
 
 ```python
 firstname = "Matthew"
