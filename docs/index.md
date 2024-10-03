@@ -137,15 +137,13 @@ Help and guidance for the exercises and project will be provided in
 weekly (Weeks 1-10) computer labs.
 
 The programming exercises and quizzes must be submitted via MOODLE,
-where information about deadlines can be found.  If you require an
-extension or have a problem please contact [Louise
-Crook](https://teams.microsoft.com/l/chat/0/0?users=louise.crook@lancaster.ac.uk)
-in the teaching office. Submitted code will be tested and marked
-automatically using a MOODLE plugin. To avoid losing marks it is
-highly recommended that you test your code on your own machine before
-submitting it on MOODLE. Read the questions and expected
-inputs/outputs carefully, including making sure functions/classes are
-named *exactly* as specified (including letter case).
+where information about deadlines can be found.  Submitted code will
+be tested and marked automatically using a MOODLE plugin. To avoid
+losing marks it is highly recommended that you test your code on your
+own machine before submitting it on MOODLE. Read the questions and
+expected inputs/outputs carefully, including making sure
+functions/classes are named *exactly* as specified (including letter
+case).
 
 The project grade is split between several components:
 
