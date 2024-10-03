@@ -33,7 +33,7 @@ Some general advice is:
 * For long simulations output the final data to a file(s) and have any plotting scripts as separate
   files that read in that data. You don't want to have to re-run a long simulation just to change
   the marker style or font size on a plot!
-* If you're not sure how to create a zip file then please look up how to do this more than 20 seconds before the deadline!  (Yes, that happened last year...)
+* If you're not sure how to create a zip file then please look up how to do this well before the deadline!
 * Back up your code, data files and plots somewhere (it's worth repeating!)
 
 You should try and generate results at each stage as you develop your simulation rather than waiting

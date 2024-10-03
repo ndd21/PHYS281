@@ -134,21 +134,16 @@ The programming exercises and quizzes in Weeks 1-5 count for 30% of the
 overall grade (6% each week), with the project counting for 70%.
 
 Help and guidance for the exercises and project will be provided in
-weekly (Weeks 1-10) computer labs split over three sessions. All
-students will be assigned to one of these three sessions. There will
-also be an "office hour" drop-in slot for additional help.
+weekly (Weeks 1-10) computer labs.
 
-The programming exercises and quizzes must be submitted on Moodle by
-14:00 on the Tuesday the week after the associated lab session (e.g.,
-the Week 1 assignment should be submitted no later than 14:00 on the
-Tuesday of Week 2). The late submission deadline is 14:00 on the
-following Wednesday. If you require an extension or have a problem
-please contact [Louise
+The programming exercises and quizzes must be submitted via MOODLE,
+where information about deadlines can be found.  If you require an
+extension or have a problem please contact [Louise
 Crook](https://teams.microsoft.com/l/chat/0/0?users=louise.crook@lancaster.ac.uk)
 in the teaching office. Submitted code will be tested and marked
-automatically using a Moodle plugin. To avoid losing marks it is
+automatically using a MOODLE plugin. To avoid losing marks it is
 highly recommended that you test your code on your own machine before
-submitting it on Moodle. Read the questions and expected
+submitting it on MOODLE. Read the questions and expected
 inputs/outputs carefully, including making sure functions/classes are
 named *exactly* as specified (including letter case).
 
