@@ -106,7 +106,7 @@ terminal and run the script for you.
     If you are using Linux or Mac you can start your scripts with the line:
 
     ```python
-    #!/usr/bin/env python
+    #!/usr/bin/env python3
     ```
 
     This is known as a ["shebang"](https://en.wikipedia.org/wiki/Shebang_(Unix)) and if you make

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """
 A class to create a tic-tac-toe game. The class can either be imported and run
