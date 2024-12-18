@@ -577,7 +577,7 @@ object:
 ```python
 from astropy.time import Time
 
-# get the time at 5pm on 27th Nov 2019
+# Get the time at 5pm on 27th Nov 2019.
 t = Time("2019-11-27 17:00:00.0", scale="tdb")
 ```
 
@@ -588,7 +588,7 @@ function, passing it the time and the name of the body you want to use:
 ```python
 from astropy.coordinates import get_body_barycentric_posvel
 
-# get positions of velocities for the Sun
+# Get positions and velocities for the Sun.
 pos, vel = get_body_barycentric_posvel("sun", t, ephemeris="jpl")
 ```
 
@@ -613,7 +613,7 @@ frame you can use functions from spiceypy:
 ```python
 from spiceypy import sxform, mxvg
 
-# make a "state vector" of positions and velocities (in metres and metres/second, respectively)
+# Make a "state vector" of positions and velocities (in metres and metres/second, respectively).
 statevec = [
     pos.xyz[0].to("m").value,
     pos.xyz[1].to("m").value,
@@ -623,13 +623,13 @@ statevec = [
     vel.xyz[2].to("m/s").value,
 ]
 
-# get transformation matrix to the ecliptic (use time in Julian Days)
+# Get transformation matrix to the ecliptic (use time in Julian Days).
 trans = sxform("J2000", "ECLIPJ2000", t.jd)
 
-# transform state vector to ecliptic
+# Transform state vector to ecliptic.
 statevececl = mxvg(trans, statevec)
 
-# get positions and velocities
+# Get positions and velocities.
 position = [statevececl[0], statevececl[1], statevececl[2]]
 velocity = [statevececl[3], statevececl[4], statevececl[5]]
 ```
@@ -640,10 +640,10 @@ You can get planetary masses by using the poliastro package:
 from poliastro import constants
 from astropy.constants import G  # Newton's gravitational constant
 
-# Sun mass (converting to kg)
+# Sun mass (converting to kg).
 msun = (constants.GM_sun / G).value
 
-# Earth mass
+# Earth mass.
 mearth = (constants.GM_earth / G).value 
 ```
 You can use these to create a `Particle` (or equivalent) object.
@@ -665,7 +665,7 @@ download the appropriate ephemeris file and get them as follows:
 # The version number (365) is OK in November 2023.  Might need updating in future years.
 JUPEPH = "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup365.bsp"  
 
-# get Io (see https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/aa_summaries.txt for kernel numbers)
+# Get Io (see https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/aa_summaries.txt for kernel numbers).
 body = [(0, 5), (5, 501)]  # kernel chain going from SSB->Jupiter barycentre then Jupiter barycentre -> Io
 
 pos, vel = get_body_barycentric_posvel(body, t, ephemeris=JUPEPH)
