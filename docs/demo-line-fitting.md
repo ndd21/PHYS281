@@ -2,7 +2,8 @@
 title: Fitting a line
 authors:
     - Matthew Pitkin
-date: 2020-10-07
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # Fitting a line

@@ -2,7 +2,8 @@
 title: Reading and writing data
 authors:
     - Matthew Pitkin
-date: 2020-09-24
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # Reading and writing data

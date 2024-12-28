@@ -4,7 +4,8 @@ authors:
     - Iain Bertram
     - Matthew Pitkin
     - Brooke Simmons
-date: 2020-10-07
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # Gravity simulation

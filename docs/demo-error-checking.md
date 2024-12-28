@@ -2,7 +2,8 @@
 title: Error checking and debugging
 authors:
     - Matthew Pitkin
-date: 2020-08-12
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # Error checking and debugging

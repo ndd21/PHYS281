@@ -2,7 +2,8 @@
 title: NumPy basics
 authors:
     - Matthew Pitkin
-date: 2020-08-14
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # NumPy

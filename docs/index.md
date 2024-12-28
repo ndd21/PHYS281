@@ -16,7 +16,8 @@ part of the course assessment.
 This website was originally created by Matthew Pitkin, based on
 earlier lecture notes by Iain Bertram, Robin Long and Brooke Simmons.
 Feedback to improve this website is very welcome, so if you have any
-questions or comments please contact the current module lecturer:
+questions or comments please contact the current module lecturer and
+website maintainer:
 
 * Neil Drummond, [n.drummond@lancaster.ac.uk](mailto:n.drummond@lancaster.ac.uk)
 

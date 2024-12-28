@@ -3,7 +3,8 @@ title: Numerical Integration
 authors:
     - Iain Bertram
     - Matthew Pitkin
-date: 2020-10-02
+    - Neil Drummond
+date: 2024-12-28
 ---
 
 # Numerical integration
