@@ -63,10 +63,14 @@ you write has to be compiled by a different program to produce an
 executable file (basically one written in a more primitive machine
 language), that you then run.
 
-Interpreted languages are often slightly slower at certain tasks than
-compiled languages, but have the advantage that they are easier for
-doing code development, and can even be run interactively, due to not
-having the extra compilation step.
+Interpreted languages are often slower at certain tasks than compiled
+languages, but have the advantage that they are easier for doing code
+development, and can even be run interactively, due to not having the
+extra compilation step.  Furthermore, many computationally intensive
+tasks can be performed efficiently in Python using libraries such as
+[NumPy](https://numpy.org/) and [SciPy](https://scipy.org/) that
+contain routines that are themselves written in optimised C,
+[C++](https://en.wikipedia.org/wiki/C%2B%2B) and Fortran code.
 
 Python is what is known as an [Object Oriented
 Programming](https://en.wikipedia.org/wiki/Object-oriented_programming)
@@ -96,10 +100,10 @@ course we will describe both these modes of use.
 There are many reasons why Python is a good choice as a programming
 language to learn:
 
-* Python is now becoming a popular language in school, so you are more likely to have experience
-  that we can build on.
+* Python is a popular language in school, so you are more likely to have
+  experience that we can build on.
 * Python is currently one of the most used languages in industry (see, e.g., the [IEEE Spectrum
-  report](https://spectrum.ieee.org/top-programming-languages-2022)).
+  report](https://spectrum.ieee.org/top-programming-languages-2024)).
 * There are a huge number of widely used and tested resources and packages out there for scientific
   computing (see, e.g.,
   [https://wiki.python.org/moin/NumericAndScientific](https://wiki.python.org/moin/NumericAndScientific)),
@@ -109,7 +113,7 @@ language to learn:
   today.
 * Many modern data science and machine learning applications use Python as an interface, which is
   driving its growth.
-* Python is currently used by many academics in the department.
+* Python is currently used by many physicists in Lancaster University and elsewhere.
 
 In the [TIOBE](https://www.tiobe.com/tiobe-index/) index, Python popularity and usage are high and still growing:
 
