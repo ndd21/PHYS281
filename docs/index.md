@@ -57,8 +57,9 @@ it is used to write instructions with a specific syntax that are
 interpreted and run by a computer. Python is an interpreted language
 rather than a compiled language. This means that you write a code that
 is then interpreted and run line-by-line. In a compiled language, such
-as [C](https://en.wikipedia.org/wiki/C_(programming_language)), the
-code you write has to be compiled by a different program to produce an
+as [Fortran](https://en.wikipedia.org/wiki/Fortran) or
+[C](https://en.wikipedia.org/wiki/C_(programming_language)), the code
+you write has to be compiled by a different program to produce an
 executable file (basically one written in a more primitive machine
 language), that you then run.
 
@@ -78,7 +79,7 @@ that can perform specific tasks on that data.
 
 There have been several versions of Python as the language gets
 updated and new features added. The latest major version is Python 3,
-with Python 3.12 being a recent stable release. While most Python code
+with Python 3.13 being a recent stable release. While most Python code
 is fairly backwards compatible, i.e., can run with previous versions
 of the language, there are some specific features that are
 not. Broadly speaking, code written based on Python 3.6 or above
@@ -112,15 +113,18 @@ language to learn:
 
 In the [TIOBE](https://www.tiobe.com/tiobe-index/) index, Python popularity and usage are high and still growing:
 
-| Jun 2023 | Jun 2022 | Change | Programming Language | Ratings | Change |
+| Jun 2025 | Jun 2024 | Change | Programming Language | Ratings | Change |
 | -------- | -------- | ------ | -------------------- | ------- | ------ |
-| 1 | 1 |  | Python | 12.46% | +0.26% |
-| 2 | 2 |  | C | 12.37% | +0.46% |
-| 3 | 4 | :fontawesome-solid-sort-up: | C++ | 11.36% | +1.73% |
-| 4 | 3 | :fontawesome-solid-sort-down: | Java | 11.28% | +0.81% |
-| 5 | 5 | | C# | 6.71% | +0.59% |
-| 6 | 6 | | Visual Basic | 3.34% | -2.08% |
-
+| 1 | 1 | | Python | 25.87% | +10.48% |
+| 2 | 2 | | C++ | 10.68% | +0.65% |
+| 3 | 3 | | C | 9.47% | +0.24% |
+| 4 | 4 | | Java | 8.84% | +0.44% |
+| 5 | 5 | | C# | 4.69% | -1.96% |
+| 6 | 6 | | JavaScript | 3.21% | -0.11% |
+| 7 | 7 | | Go | 2.28% | +0.35% |
+| 8 | 9 |:fontawesome-solid-sort-up: | Visual Basic | 2.20% | +0.54% |
+| 9 | 11 | :fontawesome-solid-sort-up: | Delphi/Object Pascal | 2.15% | +0.62% |
+| 10 | 10 | | Fortran | 1.86% | +0.33% |
 
 ## Course overview
 
@@ -204,13 +208,14 @@ There are a variety of useful Python tutorials freely available online:
 
 ### Recommended reading
 
-* **Python and Matplotlib Essentials for Scientists and Engineers**, Matt Wood, IoP Publishing, 2015
-  [https://iopscience.iop.org/book/mono/978-1-6270-5620-5](https://iopscience.iop.org/book/mono/978-1-6270-5620-5):
-  this book is freely available as a PDF from the IoP website. Note that this book is written based
-  on Python 2 rather than Python 3, so minor differences will be present.
-* **Python Data Science Handbook**, Jake VanderPlas, O'Reilly,
+* **Think Python**, 3rd ed., Allen B. Downey, O'Reilly (2024), [https://greenteapress.com/wp/think-python-3rd-edition/](https://greenteapress.com/wp/think-python-3rd-edition/): this book is freely available from the website.
+* **Python Data Science Handbook**, Jake VanderPlas, O'Reilly (2016),
   [https://jakevdp.github.io/PythonDataScienceHandbook/](https://jakevdp.github.io/PythonDataScienceHandbook/):
   this book is freely available from the website.
+* **Fluent Python**, 2nd ed., Luciano Ramalho, O'Reilly (2022): this book is a bit more advanced, and might be useful for extending what you have learned in PHYS281.
+
+Please let me know if you have found any other Python textbooks
+particularly useful.
 
 ### Asking for help
 

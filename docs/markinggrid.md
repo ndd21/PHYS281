@@ -50,11 +50,9 @@ If you are struggling with where to start it is useful for you to make
 use of the two project exercises ("Final Project Part 1" and "Final
 Project Part 2" on Moodle) as a basis for your simulation. If you look
 at the marking grid below, code similar to that from the Final Project
-Part 1 exercise would already enable you to get a grade D with some
-small additional work. The code from the Final Project Part 2
-exercises would give you a grade C with some additional work. Also
-look at, and experiment with, the example test file accompanying the
-Week 6 exercises on Moodle.
+Part 1 and 2 exercises would already enable you to get a grade D with
+some small additional work. Also look at, and experiment with, the
+example test file accompanying the Week 6 exercises on Moodle.
 
 ### Code marking grid
 
