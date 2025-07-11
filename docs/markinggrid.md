@@ -22,29 +22,45 @@ files are large.
 
 Some general advice:
 
-* *Back up your code somewhere* (e.g., Microsoft OneDrive, [Dropbox](https://www.dropbox.com/), Google Drive, [GitHub](https://github.com) or [GitLab](https://about.gitlab.com/)).
-* Break your program into modules consisting of logically related classes and functions, and place each of these modules in a separate file.  Where appropriate, place scripts that do
-  tests or post-simulation analyses in their own files too.
-* For long simulations, output the data to a file (or files) and write plotting programs as separate, standalone
-  scripts that read in the simulation data. You don't want to have to rerun a ten-hour simulation just to change
-  the marker style or font size on a plot!
-* If you're not sure how to create a zip file then please look up how to do this well before the deadline!
+* **Back up your code somewhere** (e.g., Microsoft OneDrive,
+   [Dropbox](https://www.dropbox.com/), Google Drive,
+   [GitHub](https://github.com), [GitLab](https://about.gitlab.com/)
+   or a USB memory stick).
 
-You should try to generate results at each stage as you develop your
-program rather than waiting until everything is complete; this way you
-ensure that you have results to discuss in your report.
+* As you develop your code, save copies of your Python files as you go
+  along (e.g., in directories with names such as
+  `PHYS281-program-2025-12-03`).  This will ensure that if you break
+  your program you can go back to an earlier version.  Alternatively,
+  if you are familiar with version-control software such as Git, you
+  are welcome to use that instead.
 
-If you have a working simulation it is much more important to test it
-and to gather scientific data than to make a fancy interface for your
-program.  While having a graphical user interface or the ability to
-make movies of your simulations would be nice, do not spend too much
-of your valuable time on these things when testing, gathering and
-analysing data, and writing your report are far more important.
+* You should try to generate results at each stage as you develop your
+  program rather than waiting until everything is complete; this way
+  you ensure that you have results to discuss in your report.
+
+* Break your program into modules consisting of logically related
+  classes and functions, and place each of these modules in a separate
+  file.  Where appropriate, place scripts that do tests or
+  post-simulation analyses in their own files too.
+
+* For long simulations, output the data to a file (or files) and write
+  plotting programs as separate, standalone scripts that read in the
+  simulation data. You don't want to have to rerun a ten-hour
+  simulation just to change the marker style or font size on a plot!
+
+* Whilst having a fancy graphical user interface or the ability to
+  make pretty movies of your simulations is nice, do not waste much of
+  your valuable time on these things; *testing, gathering and
+  analysing scientific data, and writing your report are much more
+  important*.
+
+* If you're not sure how to create a zip file then please look up how
+  to do this well before the deadline!
 
 If you are struggling with where to start, please make use of the two
 project exercises ("Final Project Part 1" and "Final Project Part 2"
-on MOODLE) as a basis for your simulation. Also look at the example
-test file accompanying the Week 6 exercises on MOODLE.  These
+on MOODLE) as a starting point for your simulation. Also look at the
+example test file accompanying the Week 6 exercises on MOODLE.  These
 exercises are intended to help you get started with your project code.
 
 ### Code marking grid
@@ -74,14 +90,17 @@ well as from the code written to enable those tests.
 
 ## Report
 
-The report should be **no more than 10 pages long** including pictures (but excluding title page,
-abstract and references). You do not need to include code within the report. The report can be
-written using whatever software you prefer (e.g., LaTeX or Word), but you **must** submit a **PDF**
-file for marking on MOODLE.
+The report should be **no more than 10 pages long** including figures
+and tables (but excluding title page, abstract, references and
+appendices). You do not need to include code within the report. The
+report can be written using whatever software you prefer (e.g., LaTeX
+or LibreOffice Writer or Microsoft Word), but you **must** submit a
+**PDF** file for marking on MOODLE.
 
-If you are using LaTeX, an example template file is available on MOODLE and you are welcome to make use of
-online services such as [Overleaf](https://overleaf.com) or [Authorea](https://www.authorea.com/)
-for writing your report.
+If you are using LaTeX, an example template file is available on
+MOODLE.  You are welcome to make use of online services such as
+[Overleaf](https://overleaf.com) or
+[Authorea](https://www.authorea.com/) for writing your report.
 
 Writing a report about a programming project may seem a challenge, but
 the report is not meant to be a description of your code. It is meant
@@ -90,37 +109,58 @@ determined if the simulation worked, how different methods (i.e.,
 numerical approximations) compared, and any physical or computational
 insights that you gained.
 
-Make sure the figures you include are legible, i.e., they have large
+Make sure the figures you include are legible, e.g., they have large
 enough label and legend fonts to be readable and they use
 distinguishable lines or markers. Within the report figures and tables
 should be captioned to describe briefly what they show, and they
-should be numbered and referred to in the text.  Do not include a
-figure if you are not going to describe and refer to it in the text of
-your report!  It is a good idea to save your Matplotlib figures as
-vector images (e.g., PDF files) rather than bitmap files (e.g.,
-JPEG). If saving as e.g. a JPEG file, please use a dots-per-inch value
-in excess of 150 to give good quality images.
+should be numbered and referred to in the text.  It is a good idea to
+save your Matplotlib figures as vector images (e.g., PDF files) rather
+than bitmap files (e.g., JPEG). If saving as a bitmap, please use a
+dots-per-inch value in excess of 150 to give good quality images.
 
 The report should contain:
 
-* An abstract briefly outlining the aims of the project and any outcomes. If you have quantifiable
-  results you can summarise them here.
-* An introduction describing the physics behind the simulation, providing motivation for the work and giving relevant information about the numerical
-  approximation methods used, including equations as appropriate. You do not need to include a long
-  historical background discussion of, e.g., planetary motion.
-* A description of how you tested your code and any outcomes of tests, e.g., simplified situations
-  or tests against analytical results.
-* A description of global tests of your simulation, quantified if possible and with some explanation
-  of features observed, e.g.,
-    * whether it produces stable orbits
-    * whether it conserves total linear momentum, total angular momentum and total energy
-    * comparisons against the JPL ephemeris
-    * comparisons with observed data such as orbit periods
-    * comparisons of different numerical approximation methods for the above cases and using different
-    time steps (in what situations did certain setups work well or fail?).
-* A conclusion/discussion summarising your findings, describing limitations of your simulation, and
-  discussing further work you could do to enhance you simulation.
-* Relevant references to the literature (textbooks or peer-reviewed journal articles).  References to websites are only acceptable for things such as software or Solar System ephemerides without an associated publication.
+* An abstract briefly outlining the aims of the project and any
+  outcomes. If you have quantifiable results you can summarise them
+  here.
+
+* An introduction describing the physics behind the simulation,
+  providing motivation for the work and giving relevant information
+  about the numerical approximation methods used, including equations
+  as appropriate. You do not need to include a long historical
+  background discussion of, e.g., planetary motion.
+
+* A description of how you tested your code and any outcomes of tests,
+  e.g., simplified situations or tests against analytical results.
+
+* A description of global tests of your simulation, quantified if
+  possible and with some explanation of features observed, e.g.,
+
+    * whether it produces stable orbits;
+
+    * whether it conserves total linear momentum, total angular
+      momentum and total energy;
+
+    * comparisons against the JPL ephemeris;
+
+    * comparisons with observed data such as orbit periods;
+
+    * comparisons of different numerical approximation methods for the
+      above cases and using different time steps (in what situations
+      did certain setups work well or fail?).
+
+* Analysis of your simulation results (what interesting physical or
+  mathematical/computational consequences are revealed by your
+  simulation results?).
+
+* A conclusion summarising your findings, describing limitations of
+  your simulation, and discussing further work you could do to enhance
+  your simulation.
+
+* Relevant references to the literature (textbooks or peer-reviewed
+  journal articles).  References to websites are only acceptable for
+  things such as software or Solar System ephemerides that do not have
+  an associated publication.
 
 Please do try to make your report legible and well laid out and
 formatted. If it is easy for us to see that you have fulfilled certain
@@ -133,17 +173,30 @@ text in the surrounding document, which should be at least 10 point.
 
 The report should not contain:
 
-* Lengthy descriptions or screenshots of your code (you are submitting your full code, so we do not need to see it twice);
-* Descriptions of the process of debugging your code (instead you should provide evidence that your final code works);
-* Too many figures; you only have 10 pages, so think about what you want to show and therefore
-  produce figures that provide useful summary information.
-* References purely to websites (unless to software or ephemerides without an associated publication).
+* Lengthy descriptions or screenshots of your code (you are submitting
+  your full code, so we do not need to see it twice);
+
+* Descriptions of the process of debugging your code (instead you
+  should provide evidence that your final code works);
+
+* Too many figures; you only have 10 pages, so think carefully about
+  what information you want to show, and focus on producing
+  high-quality, informative figures.
+
+* References purely to websites (unless to software or ephemerides
+  without an associated publication).
+
+You are welcome to include appendices, but please be aware that the
+markers will not read them, so appendices are only for your own
+satisfaction and should not include any crucial information.
 
 ### Report marking grid
 
-Below is a marking grid giving a guide to how the report will be marked. The report will be marked
-based on a set of five attributes: abstract, introduction, results (including testing), conclusions,
-and presentation. The weights of marks between the different attributes are given in brackets.
+Below is a marking grid giving a guide to how the report will be
+marked. The report will be marked based on a set of five attributes:
+abstract, introduction, results (including testing), conclusions, and
+presentation. The weights of marks between the different attributes
+are given in brackets.
 
 | Grade | Abstract (10%) | Introduction (20%) | Results (40%) | Conclusions (20%) | Presentation (10%) |
 | ----- | -------- | ------------ | ------- | ----------- | ------ |
