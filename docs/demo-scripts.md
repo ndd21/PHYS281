@@ -297,7 +297,7 @@ things would not work as expected.
 
 Sometimes we might not want to have to give all the command line values, or we might not want to
 worry about having them in the correct order. The standard Python module
-[`argparse`](https://docs.python.org/3.8/howto/argparse.html#id1) can instead be used to provide
+[`argparse`](https://docs.python.org/3/howto/argparse.html#id1) can instead be used to provide
 more control over the command line inputs, for example, allowing named flags to specify inputs
 required. We will not go into detail of `argparse` here, except to show a very basic example (which
 we will assume is saved as a script called `person.py`):

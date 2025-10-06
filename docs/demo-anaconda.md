@@ -52,7 +52,7 @@ On Lancaster University machines on campus, Anaconda can be accessed through App
       your own machine, this will be "`C:\Users\<username>\anaconda3`", where "`<username>`"
       will be replaced with your own user name on the machine.
     * On the "Advanced Installation Options" window leave the tick in the box next to "Register
-      Anaconda3 as my default Python 3.8" and click the ++"Install"++ button.
+      Anaconda3 as my default Python 3.$x$" and click the ++"Install"++ button.
     * Once installation is complete continue clicking though with the ++"Next >"++ buttons and finally
       click ++"Finish"++ (if you leave the check boxes on the final window ticked, then links to
       tutorials will open in your browser).

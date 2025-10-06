@@ -66,7 +66,7 @@ num = int("3")  # convert a string containing 3 into an int representing 3
 
 ## `input`
 
-The [`input()`](https://docs.python.org/3.8/library/functions.html#input) function allows you to get
+The [`input()`](https://docs.python.org/3/library/functions.html#input) function allows you to get
 user input from the keyboard, e.g.:
 
 ```python
