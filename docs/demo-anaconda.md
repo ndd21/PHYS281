@@ -15,21 +15,24 @@ required for a specific task.
 
 ## Installing Anaconda
 
-The official instructions for installing Anaconda on a variety of operating systems can be found at
-[https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/), but we
-will also go through the steps below.
+The official instructions for installing Anaconda on a variety of
+operating systems can be found at
+[https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/),
+but we will also go through the steps below.  Note that Anaconda and
+Python version numbers will have increased since these notes were
+written.
 
 On Lancaster University machines on campus, Anaconda can be accessed through AppsAnywhere at
 [https://apps.lancaster.ac.uk/](https://apps.lancaster.ac.uk/).
 
 !!! note
-    The full Anaconda installation will require just under 3 Gb of space on your computer.
+    The full Anaconda installation will require several GB of space on your computer.
     
     For users who are confident using a text-based [terminal](glossary.md#terminal) there is a much lighter weight
     installation that can be used called [Miniconda](https://docs.conda.io/en/latest/miniconda.html),
     which does not provide many of the graphical user interface tools.
 
-=== "Installation on Windows 10"    
+=== "Installation on Windows"
     * Visit [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
       and scroll down until you see the Download options:
 
@@ -152,7 +155,7 @@ If you have installed the full Anaconda package a program called "_Anaconda Navi
 available to use. It allows you to launch a range of applications, create new environments
 containing different Python packages, and install new packages.
 
-=== "Windows 10"
+=== "Windows"
     If you click on the Windows start button :fontawesome-brands-windows:, then click
     on "Anaconda3 (64-bit)" it will reveal a drop down menu containing "Anaconda Navigator
     (anaconda3)". Click on that button to open the Navigator:
@@ -184,7 +187,7 @@ containing different Python packages, and install new packages.
 === "Mac OS"
     In Finder type "Anaconda Navigator"...
 
-### Creating a new environment
+### Creating a new environment (optional)
 
 For this course, every Python package you should need is installed within the Anaconda `base`
 [virtual environment](glossary.md#virtual-environment). However, as good practice for future projects, it is useful to know how to

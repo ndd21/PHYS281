@@ -224,7 +224,7 @@ Or, make new directory based on an absolute of relative path, e.g.,:
 
 ### Show the content of a text file
 
-=== "Windows 10"
+=== "Windows"
     `more` or `type`
 
 === "Mac OS/Linux"
