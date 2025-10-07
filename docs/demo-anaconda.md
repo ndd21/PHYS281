@@ -2,10 +2,12 @@
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AxRTFKKMtjA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[Anaconda](https://www.anaconda.com/products/individual)<sup>&#174;</sup> is a Python distribution
-and package management system. It provides an installation of Python and a way
-to create "[virtual environments](glossary.md#virtual-environment)" that can contain different Python version and software packages
-required for a specific task.
+[Anaconda](https://www.anaconda.com/products/individual)<sup>&#174;</sup>
+is a Python distribution and package management system. It provides an
+installation of Python and a way to create "[virtual
+environments](glossary.md#virtual-environment)" that can contain
+different Python versions and software packages required for a
+specific task.
 
 !!! important
     This tutorial describes installing Anaconda on your own computer. It also describes creating
@@ -19,10 +21,10 @@ The official instructions for installing Anaconda on a variety of
 operating systems can be found at
 [https://docs.anaconda.com/anaconda/install/](https://docs.anaconda.com/anaconda/install/),
 but we will also go through the steps below.  Note that Anaconda and
-Python version numbers will have increased since these notes were
-written.
+Python version numbers may be different to those shown in the pictures below.
 
-On Lancaster University machines on campus, Anaconda can be accessed through AppsAnywhere at
+On Lancaster University machines on campus, Anaconda can be accessed
+through AppsAnywhere at
 [https://apps.lancaster.ac.uk/](https://apps.lancaster.ac.uk/).
 
 !!! note

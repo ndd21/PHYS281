@@ -26,8 +26,7 @@ be minor differences for other operating systems:
 ![VS Code download site](img/vscode-download.png)
 
 * Click on the downloaded installer file at the bottom of your browser (the Windows file will be
-  named something like `VSCodeUserSetup-x64-1.48.2.exe` where `1.48.2` was the current version at
-  the time of writing, but this may have increased). Follow the instructions given in the dialogue
+  named something like `VSCodeUserSetup-x64-1.104.3.exe`, where `1.104.3` was the current version in October 2025, but this may have increased). Follow the instructions given in the dialogue
   boxes.
 * Accept the license agreement and click ++"Next"++.
 * Leave the default install location unchanged (unless you have a preferred install location) and
