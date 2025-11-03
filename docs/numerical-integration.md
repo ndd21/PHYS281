@@ -288,7 +288,7 @@ mid-point rules), which we quote here for completeness without derivation. It ta
 
 $$
 \begin{aligned}
-\int_{x_1}^{x_{N}} f(x) \, dx \approx \dfrac{1}{3} \left[ f(x_1)+f(x_N) + 4\sum_{i=1}^{N/2}f(x_{1}+(2i-1)h) + 2\sum_{i=1}^{N/2-1}f(x_1+2ih)\right]
+\int_{x_1}^{x_{N}} f(x) \, dx \approx \dfrac{h}{3} \left[ f(x_1)+f(x_N) + 4\sum_{i=1}^{N/2}f(x_{1}+(2i-1)h) + 2\sum_{i=1}^{N/2-1}f(x_1+2ih)\right]
 \end{aligned}
 $$
 
