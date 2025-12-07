@@ -36,7 +36,7 @@ nav:
        - Fitting a line: 'demo-line-fitting.md'
        - Numerical integration: 'numerical-integration.md'
     - Course project:
-       - Gravity simulation: 'gravity.md'
+       - Gravitational simulation: 'gravity.md'
        - Marking criteria: 'markinggrid.md'
     - Exercises: 'exercises.md'
     - glossary.md

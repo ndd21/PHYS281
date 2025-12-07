@@ -1,77 +1,33 @@
 ---
-title: Gravity simulation
+title: Gravitational simulation
 authors:
     - Iain Bertram
     - Matthew Pitkin
     - Brooke Simmons
     - Neil Drummond
-date: 2024-12-28
+date: 2025-12-07
 ---
 
-# Gravity simulation
+# Gravitational simulation
 
-The final project for PHYS281 involves developing a Python program
-that simulates the time evolution of a physical system.  In
-particular, the goal is to explore the motion of several particles or
+The [final project](#project-description) for PHYS281 involves writing
+a Python program to simulate the motion of several particles or
 extended bodies under the mutual influence of their gravitational
-fields.  You will need to write up your findings in a report as
-detailed at the end of this [section](#project-description), so make
-sure that you leave enough time for this.
+fields.  You will also need to write up your findings in a report.
 
-As in the case of [numerical integration](numerical-integration.md),
-most physics simulations require approximations, which introduce
-errors (i.e., inaccuracies) in the results of the simulation. There
-are various ways to establish the size of this error:
+To understand what is involved in a gravitational simulation, let's
+start by considering various scenarios of increasing complexity in
+which one or more particles move under the influence of gravity.
 
-- Apply the simulation to a system for which there is an analytical
-  solution to the equations of motion so that the predictions of the
-  simulation can be directly tested against the exact results. This
-  approach has the advantage of allowing you to unambiguously
-  calculate the size of any error in the simulation due to
-  approximations. However, it does not guarantee that the simulation
-  will have the same size of error when it is applied to a situation
-  for which there is not an analytical solution.
+## "Particle" in a uniform gravitational field
 
-- Apply the simulation to a system for which there are experimental
-  data so that the simulation can be directly tested against
-  reality. In some ways this is of course what physics is all about
-  and so is a good approach. The difficulty here is that experimental
-  data often contain many additional subtle effects which may not be
-  included in your simulation, so it may not be easy to understand
-  where any discrepancies come from.  Furthermore, experimental
-  results are not always free of errors.
-
-- For a range of systems, consider whether the simulation conserves
-  quantities that you would expect to be conserved, e.g., total
-  energy, or total linear momentum, or total angular
-  momentum. Although conservation of energy etc. does not guarantee
-  that the details of the simulation are accurate, it provides a quick
-  global check of the simulation's properties.
-
-You will need to consider carefully how to use these approaches to
-assess the accuracy of your simulations.
-
-Let's consider the various steps in developing a simulation of
-particle motion in gravitational fields.
-
-## "Particle" (or "body") in the Earth's gravitational field
-
-To start off with, we want to simulate the trajectory of a particle in
-a cannonball-like trajectory close to the surface of the Earth. You
-should bear in mind from the start that ultimately we would like to
-create a simulation program that is extendible to the more general
-case where the acceleration due to gravity is not constant and depends
-on the other bodies involved in the simulation. You might initially
-write a program that can simulate the parabolic trajectories of a
-particle close to the surface of the Earth, but a bit of thought on
-how this might be extended to a more general case could save a lot of
-time later on.
-
-For simplicity, your simulation can be considered initially to be in
-two dimensions: the $x$-direction, which is parallel to the ground,
-and the $y$-direction, which is perpendicular to the ground. We are
-here assuming that the surface of the Earth can be treated as being
-approximately flat as long as we consider fairly short
+To start off with, suppose we want to simulate the trajectory of a
+particle in a cannonball-like trajectory close to the surface of the
+Earth. For simplicity, the simulation can be considered initially to
+be in two dimensions: the $x$-direction, which is parallel to the
+ground, and the $y$-direction, which is perpendicular to the
+ground. We are here assuming that the surface of the Earth can be
+treated as being approximately flat, because we consider fairly short
 trajectories. Later on we can remove this assumption.
 
 In this case we can represent the approximate acceleration by:
@@ -85,37 +41,27 @@ field we will need to be able to calculate the changes in the
 particle's position $\vec{r}=(x,y,z)$, and velocity
 $\vec{v}=(v_x,v_y,v_z)$ as a function of time, $t$.
 
-For many (although not all) physical systems we can write the velocity as
+The velocity and acceleration of a particle are defined as
 
 $$
-  \vec{v}(t) = \int^{t} \vec{a}(\vec{r}, t) \, dt,
-$$
-
-and position as
-
-$$
-  \vec{r}(t) = \int^{t} \vec{v}(\vec{r}, t) \, dt,
-$$
-
-where $\vec{a}(\vec{r},t)$ is the acceleration of the particle and we
-have restricted ourselves to considering a single
-particle. Equivalently, these can be written as a pair of differential
-equations
-
-$$
-\vec{v}(t) = \frac{\mathrm{d}\vec{r}(t)}{\mathrm{d}t},
+\vec{v} = \frac{\mathrm{d}\vec{r}}{\mathrm{d}t}
 $$
 
 and
 
 $$
-\vec{a}(t) = \frac{\mathrm{d}\vec{v}(t)}{\mathrm{d}t}.
+\vec{a} = \frac{\mathrm{d}\vec{v}(t)}{\mathrm{d}t}.
 $$
 
+Newton's second law of motion generally gives us an expression for the
+acceleration $\vec{a}$ of the particle, so that we can regard the two
+equations above as coupled first-order ordinary differential
+equations.
+
 In this simple example the acceleration is constant and we can of
-course just solve the equations analytically to give the basic
-equations of motion for a constant, uniform acceleration. The familiar
-expressions for the solution are:
+course just solve the equations analytically by integration to give
+the basic equations of motion for a constant, uniform
+acceleration. The familiar expressions for the solution are:
 
 $$
 \begin{align}
@@ -149,19 +95,25 @@ $$
 
 where we assume that the acceleration is approximately constant for
 the small duration $\Delta t$ and the subscript $n$ denotes the start
-of the $n$th time step and $n+1$ the end of this time step. As when we
+of the $n$th iteration. $\vec{r}_0$ and $\vec{v}_0$ are the initial
+position and velocity of the particle.  The small time interval
+$\Delta t$ is often referred to as the "time step" (although the
+phrase "$n$th time step" denotes the $n$th iteration, which finishes
+at time $t=n\Delta t$ after the start of the simulation).  As when we
 were considering [numerical integration](numerical-integration.md)
 methods, these equations are actually just the first couple of terms
-of a Taylor series expansion, and we expect that there will be an
+of Taylor series expansions, and we expect that there will be an
 error of order $\Delta t^2$ each time we apply this iterative formula,
 so that the cumulative error over a fixed time will be of order
 $\Delta t$. Alternative algorithms will be discussed later, but for
 now the Euler algorithm will suffice.
 
+## A nonuniform gravitational field
+
 If we want to consider a slightly more complicated case of motion in
 the Earth's gravitational field then we can take into account the
-variation of acceleration due to gravity with distance from the
-Earth's centre $r$ using
+variation of acceleration due to gravity with distance $r$ from the
+Earth's centre using
 
 $$
 \vec{g} = -\frac{G M_\mathrm{E}}{r^2} \hat{r}
@@ -169,11 +121,21 @@ $$
 
 for values of $r$ greater than the Earth's radius $R_\mathrm{E}=
 6380\,\mathrm{km}$. The mass of the Earth is $M_\mathrm{E} \approx
-5.974\!\times\!10^{24}\,\mathrm{kg}$ and $G$ is the gravitational
-constant.
+5.974\!\times\!10^{24}\,\mathrm{kg}$ and $G \approx 6.6743 \times
+10^{-11}\,\mathrm{m}^3\,\mathrm{kg}^{-1}\,\mathrm{s}^{-2}$ is the
+gravitational constant.
 
-Care must be taken when defining the direction of the field or you
+Care must be taken when defining the direction of the field or one
 could easily end up simulating anti-gravity!
+
+Solving for the motion of the particle analytically is now much more
+challenging than in the previous case of a uniform gravitational
+field; however, performing a simulation of the motion of the particle
+is hardly any more difficult than it was before.  We simply need to
+compute the acceleration of the particle as $\vec{a} = \vec{g} =
+-\frac{G M_\mathrm{E}}{r^2} \hat{r}$ at each step of the simulation,
+and then continue to use e.g. the Euler method to update the position
+and velocity.
 
 ## Particle traversing a tunnel through the Earth's core
 
@@ -184,43 +146,38 @@ $$
 \vec{g} = -\frac{G M_\mathrm{E}}{R^{2}_\mathrm{E}} \hat{r}.
 $$
 
-Suppose we wish to simulate the path of a projectile dropped from the
+Suppose we wish to simulate the path of a particle dropped from the
 Earth's surface into a hole that runs through the centre of the Earth
 in a straight line, i.e., in a radial direction.
 
-Assuming that the projectile has no component of velocity tangential
-to the Earth's surface, this is a one-dimensional problem (which
+Assuming that the particle has no component of velocity tangential to
+the Earth's surface, this is a one-dimensional problem (which
 simplifies matters considerably). The gravitational field strength
-will depend on the distance of the object from the centre of the
-Earth. To calculate the gravitational field we need the mass of the
-part of the Earth contained within a sphere of radius $r$ such that:
+will depend on the distance of the particle from the centre of the
+Earth. We assume that the Earth is a sphere of uniform density.  To
+calculate the gravitational field we need the mass $m$ of the part of
+the Earth contained within a sphere of radius $r$ such that:
 
 $$
 \frac{m}{M_\mathrm{E}} = \frac{\frac{4}{3} \pi r^{3}}{\frac{4}{3}\pi R^3_\mathrm{E}} = \frac{r^3}{R^3_\mathrm{E}}.
 $$
 
-So the gravitational field is given by:
+So the gravitational field is given by
 
 $$
 \vec{g} = -\frac{Gm}{r^2}\hat{r} = -G \frac{M_\mathrm{E}}{r^2} \frac{r^3}{R^3_\mathrm{E}}\hat{r}
-  = -G \frac{M_\mathrm{E}}{R^3_\mathrm{E}}r \hat{r}
+  = -G \frac{M_\mathrm{E}}{R^3_\mathrm{E}} \vec{r}.
 $$
 
 Hopefully it is clear from this result that we would expect the motion
-of a projectile dropped into this hole to be simple harmonic
-motion. You may wish to use this as an optional test of your code. You
-will clearly have to add new methods to represent the gravitational
-field inside the Earth. At this point it is quite likely you will
-start to see significant limitations of the Euler algorithm. You
-should read ahead to the discussion of alternative algorithms as you
-are likely to want to use the
-[Euler-Cromer](https://en.wikipedia.org/wiki/Semi-implicit_Euler_method)
-algorithm. Depending on how much time you have, you may want to skip
-this simulation entirely and move on with your own project plans, but
-either way you are likely going to want to replace the Euler algorithm
-with something more robust.
+of a particle dropped into this hole to be simple harmonic motion. If
+you wish you could use this as a simple test of the numerical
+algorithms implemented in your simulation code, because you can easily
+compare with a familiar pen-and-paper result.
 
-## Orbiting massive particles (e.g., planets)
+Next we consider an important problem that cannot be solved analytically.
+
+## Orbiting massive particles (e.g., planets in the Solar System)
 
 Consider the case of $N$ massive particles moving under the influence
 of each other's gravity. In this section, the subscript $i$ on
@@ -236,14 +193,14 @@ $$
 
 where $\vec{r}_{ij}$ is the displacement vector from the
 $j^{\mathrm{th}}$ mass to the $i^{\mathrm{th}}$ mass. In this case, to
-determine the field that is affecting a given particle, we need to know
-the locations of all the other particles in our simulation. Notice
-that the sum of all forces acting on all particles should be zero at
-all times. This result is just due to Newton's third law in the
-absence of an external field. Note that if we move one particle before
-calculating the effect of that particle on all the other particles in
-our simulation then (unless great care is taken) our code will violate
-Newton's third law.
+determine the field that is affecting a given particle, we need to
+know the locations of all the other particles in the
+simulation. Recall that the sum of all forces acting on all particles
+should be zero at all times. This result is just due to Newton's third
+law in the absence of an external field. Note that if we move one
+particle before calculating the effect of that particle on all the
+other particles in the simulation then (unless great care is taken)
+the program will violate Newton's third law.
 
 For a single Cartesian direction, e.g., the $x$-dimension, the above
 equation gives:
@@ -260,8 +217,8 @@ $$
 $$
 
 Be careful to make sure the indices of the values in $(x_i - x_j)$ are
-in the correct order, so that the acceleration on object $i$ caused by
-object $j$ points towards object $j$.
+in the correct order, so that the acceleration on particle $i$ caused by
+particle $j$ points towards particle $j$.
 
 ## Different methods of simulating kinematics
 
@@ -309,9 +266,9 @@ fixed duration $T$ is of order $\Delta t$ (because the cumulative
 error is of order $N_\text{steps} \Delta t^2$ for $N_\text{steps}$
 time steps, but the total timespan is $T=N_\text{steps} \Delta t$, and
 hence the cumulative error for fixed $T$ is $\propto T \Delta t$). In
-the following paragraphs other algorithms are introduced. The errors
-in these algorithms are not discussed here, but an investigation of
-the errors could form a part of your project.
+the following paragraphs other algorithms are very briefly
+introduced. *The errors in these algorithms are not discussed here, but
+an investigation of the errors could form a part of your project.*
 
 As well as not being very accurate, for oscillatory systems the Euler
 method can be unstable. An alternative method called the
@@ -328,9 +285,9 @@ $$
 \end{align}
 $$
 
-An obvious improvement to these methods is to compute the velocities
-and accelerations in the middle of the interval $\Delta t$. This
-suggests a method called the *Euler-Richardson* or *midpoint*
+An obvious improvement to these methods would be to compute the
+velocities and accelerations in the middle of the interval $\Delta
+t$. This suggests a method called the *Euler-Richardson* or *midpoint*
 algorithm. This is particularly useful for velocity-dependent
 forces. The algorithm requires use of the *Euler* method to calculate
 the intermediate positions $\vec{X}_\text{mid}$ and velocities
@@ -374,71 +331,126 @@ $$
 
 Clearly we need some way of estimating $\vec{A}_{n+1}$. If the
 accelerations only depend on positions, we can evaluate
-$\vec{A}_{n+1}$ once we have updated the positions to $\vec{R}_{n+1}$.
-For velocity-dependent forces, $\vec{A}_{n+1}$ can be approximated by
-first stepping forwards using any of the algorithms/methods mentioned
-above, calculating the accelerations, and then applying the Verlet
-update method.
+$\vec{A}_{n+1}$ as soon as we have updated the positions to
+$\vec{R}_{n+1}$.  For velocity-dependent forces, $\vec{A}_{n+1}$ can
+be approximated by first stepping forwards using any of the
+algorithms/methods mentioned above, calculating the accelerations, and
+then applying the Verlet update method.
 
 Beyond these algorithms you can also consider higher-order algorithms
 such as the well-known
 [Runge-Kutta](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 algorithms, which are very widely used in physics simulations.
 
+## Assessing the accuracy of a simulation
+
+As in the case of [numerical integration](numerical-integration.md),
+most physics simulations require approximations, which introduce
+errors (i.e., inaccuracies) into the results. There are various ways
+to estimate the size of these errors:
+
+- Apply the simulation program to a system for which there is an
+  analytical solution to the equations of motion, so that the
+  predictions of the simulation can be directly tested against the
+  exact results. This approach has the advantage of allowing one to
+  calculate unambiguously the errors in the simulation due to
+  approximations. However, it does not guarantee that the errors will
+  be the same when the simulation program is applied to a situation
+  for which there is not an analytical solution.
+
+- Apply the simulation program to a system for which there are
+  experimental or observational data, so that the predictions of the
+  simulation can be directly tested against reality. In some ways this
+  is of course what physics is all about and so is a good
+  approach. However, experimental data often contain many additional
+  subtle effects which may not be included in the simulation, so it
+  may not be easy to understand where discrepancies come from.
+  Furthermore, experimental results themselves are not always free of
+  errors.
+
+- Compare the predictions of different numerical simulation
+  algorithms, or the predictions of the same algorithm with different
+  simulation parameters (such as time steps), to see whether the
+  results are consistent.  Making such comparisons is an essential
+  aspect of developing and improving simulation methods.  However,
+  great care is needed when drawing conclusions from such comparisons.
+  It is not always clear which (if any) of the simulation results
+  should be regarded as being reliable.
+
+- For a range of systems, consider whether the simulation conserves
+  quantities that one would expect to be conserved, e.g., total
+  energy, or total linear momentum, or total angular
+  momentum. Although conservation of energy etc. does not guarantee
+  that the details of the simulation are accurate, it provides a quick
+  global check of the simulation's properties.
+
+You will need to consider carefully how to use these approaches to
+assess the accuracy of your simulations.
+
 ## Project description
 
-To summarise the above description, the aim of this project is to
-produce and analyse a simulation of a physical system that evolves
-with time. An interesting type of system to consider is the motion of
-multiple massive bodies interacting under the influence of their
-gravitational fields, e.g., the Solar System. This can be built up in
-stages of increasing complexity:
+The aims of this project are to write a program to simulate the motion
+of massive bodies interacting via gravitational forces, to test your
+simulation program, to use your program to generate interesting
+results and to write up your findings in a report.
 
-1. a single massive particle in a static field;
-2. a pair of massive particles interacting with each other in one, two and three dimensions;
-3. a set of three or more massive particles interacting in three dimensions;
-4. supplying initial conditions to the simulation based on masses, positions and velocities of solar system bodies.
+You are free to develop your simulation program however you wish, but
+the two predefined exercises (Final Project Parts 1 and 2 on MOODLE)
+provide a good starting point (e.g., the `Particle` class), which can
+be expanded and adapted into a more fully formed simulation code.  It
+may be helpful to build up your simulation program in stages of
+increasing complexity:
 
-To evolve the motion of the particles in the simulation the Euler,
-Euler-Cromer or other numerical approximation methods, as discussed
-above, should be used.
+1. write a program that simulates a pair of massive particles
+interacting with each other in two or three dimensions (e.g., Earth
+and an artificial satellite, as in the exercises on MOODLE);
 
-You are free to produce the simulation as you wish, but the two
-predefined exercises (Final Project Parts 1 and 2 on Moodle) that are
-part of the project provide a good starting point (e.g., the
-`Particle` class) for expansion to a more fully formed simulation. You
-can use results and experimentation with these exercises as part of
-your final report.
+2. expand this into a program that simulates a set of three massive
+particles interacting in three dimensions (e.g., the Sun, Earth and
+Jupiter);
 
-The simulation you write should come with tests that show that it
-works as expected, e.g., tests of parts of the code or simple systems
-against analytical calculations. Useful tests include checking that
-the simulation conserves **total** linear momentum or angular momentum
-to an acceptable level. The tests should ideally compare simulations
-produced using more than one numerical approximation method, with
-quantitative evaluation of the differences and consideration of the
-effects of changing the time step.
+3. generalise this to a program that can be used to simulate many
+interacting massive particles in three dimensions (e.g., all the major
+bodies of the Solar System).
 
-The simulation can include additional physics or simulate systems
-other than the Solar System provided that you can provide justifiable
-tests of its validity.  However, if you want to simulate something
-very different from the Solar System with Newtonian gravity, it would
-be advisable to discuss this with the lecturers.
+To evolve the positions and velocities of the particles in time the
+Euler, Euler-Cromer or other numerical approximation methods, as
+discussed above, should be used.
 
-Please note that this is an open-ended project: by completing the
-exercises you have been equipped with basic tools (Euler and
+Your program should include code for testing that the simulation works
+and for testing the accuracy of the results produced. For example, you
+could include code for simulating simple cases and comparing the
+results with analytical solutions, or code for calculating properties
+such as orbit periods that can easily be compared with observed
+results. It is important to check that the simulation conserves the
+**total** energy, linear momentum and angular momentum to an
+acceptable level. The results of your tests should be presented in
+your report.  Your tests should ideally compare different numerical
+approximation methods and consider the effects of changing the time
+step.
+
+Your simulation can include additional physics or simulate
+gravitational systems other than the Solar System so long as you can
+provide justifiable tests of the validity of your program.  However,
+if you want to simulate something more challenging, it might be
+advisable to discuss your proposed project with the lecturer.
+
+Please note that this is an open-ended project. By completing the
+exercises you have been equipped with basic tools (the Euler and
 Euler-Cromer methods) for simulating the motion of bodies subject to
-gravitational attraction; it is up to you to take these tools and
-decide what aspects you want to focus on or what questions you want to
-ask.  In a good project, you would use your simulation to examine
-interesting topics, e.g.: What sort of accuracy can be achieved over
-what sort of time scale in simulations of the Solar System using
-different methods?  How sensitive is the motion to the choice of
-initial conditions?  Can you calculate the trajectory of a space
-probe?  What happens to the Solar System if another star passes close
-by?  Better still, invent your own question(s) that can be answered
-using your simulation!  In all cases, you must provide evidence of
-testing to show that your conclusions are reliable.
+gravitational attraction; it is then up to you to take these tools,
+generalise and improve them, and decide what aspects of gravitational
+simulation you would like to focus on and what questions you would
+like to ask.  In a good project, you would use your simulation to
+examine interesting topics, e.g.: What sort of accuracy can be
+achieved over what sort of time scale in simulations of the Solar
+System using different methods?  How sensitive is the motion of a
+few-body gravitational system to the choice of initial conditions?
+Can you calculate the trajectory of a space probe?  What happens to
+the Solar System if another star passes close by?  How do the shapes
+and orientations of planetary orbits change over time?  Better still,
+invent your own question(s) that can be answered using your
+simulation!
 
 For more information and advice on the code and report, including
 guideline marking grids, make sure to read the [Marking criteria
@@ -446,11 +458,13 @@ page](markinggrid.md).
 
 ## Solar System ephemerides
 
+### JPL Horizons
+
 If simulating the Solar System you may want to use accurate values to
 initialise the positions of the Solar System bodies (known as an
 ephemeris). You can get these from the online JPL Horizons page at
-[https://ssd.jpl.nasa.gov/horizons.cgi](https://ssd.jpl.nasa.gov/horizons.cgi). You
-will initially see the following settings:
+[https://ssd.jpl.nasa.gov/horizons.cgi](https://ssd.jpl.nasa.gov/horizons.cgi).
+You will initially see the following settings:
 
 <div style="font-family:monospace;"}>
 &nbsp;&nbsp;&nbsp;Ephemeris Type [change]: <b>OBSERVER</b></br>
@@ -464,24 +478,35 @@ Observer Location [change]: 	<b>Geocentric</b> [500]</br>
 To get information to use for your Solar System body's initial
 conditions you should do the following:
 
-* For "Ephemeris Type" click "change" and select the "Vector Table" and click the "Use Selection
-  Above" button.
-* To change the "Target Body" click "change" and search for the body that you want. Note that you
-  can treat the Earth-Moon system as one object by selecting "Earth-Moon Barycenter".
-* For "Coordinate Origin" (which will appear when you switch to the "Vector Table" above) leave it
-  as "**Solar System Barycenter** (**SSB**) [500@0]". This is the centre of mass of the entire Solar
-  System.
-* For "Time Span" you can leave it as it is, which will default to today, or click "change" to
-  specify a start date, end date and time step between outputs. Make sure to use the same start time
-  for all the bodies in your simulation.
-* For "Table Settings" click "change", then in the "Select vector table output" drop down menu
-  select "Type 2 (state vector {x,y,z,vx,vy,vz})". This means the ephemeris will return the 3d
-  position and velocity coordinates of the selected body. In "Optional vector-table settings:"
-  select the "output units" you require from the options: "km & km/s" is recommended.
-* For "Display/Output" you can either leave this as the default, which will show the information on
-  a formatted HTML webpage, or select to download it as a text file.
+* For "Ephemeris Type" click "change" and select the "Vector Table"
+  and click the "Use Selection Above" button.
 
-If you had selected Venus as the object you would get the following
+* To change the "Target Body" click "change" and search for the body
+  that you want. Note that you can treat the Earth-Moon system as one
+  particle by selecting "Earth-Moon Barycenter".
+
+* For "Coordinate Origin" (which will appear when you switch to the
+  "Vector Table" above) leave it as "**Solar System Barycenter**
+  (**SSB**) [500@0]". This is the centre of mass of the entire Solar
+  System.
+
+* For "Time Span" you can leave it as it is, which will default to
+  today, or click "change" to specify a start date, end date and time
+  step between outputs. Make sure to use the same start time for all
+  the bodies in your simulation.
+
+* For "Table Settings" click "change", then in the "Select vector
+  table output" drop down menu select "Type 2 (state vector
+  {x,y,z,vx,vy,vz})". This means the ephemeris will return the 3D
+  position and velocity coordinates of the selected body. In "Optional
+  vector-table settings:" select the "output units" you require from
+  the options: "km & km/s" is recommended.
+
+* For "Display/Output" you can either leave this as the default, which
+  will show the information on a formatted HTML webpage, or select to
+  download it as a text file.
+
+If you had selected Venus as the body you would get the following
 information on the webpage:
 
 <table border="1" cellpadding="8" cellspacing="0" bgcolor="#EEEEEE">
@@ -561,14 +586,15 @@ as a [Julian Date](https://en.wikipedia.org/wiki/Julian_day), then in
 more familiar format, followed by the X, Y, and Z positions, and then
 the VX, VY, VZ velocity components.
 
-You will need to do this for each object that you want in your simulation.
+You will need to do this for each particle that you want in your simulation.
 
 If referencing the JPL Horizons webpage in your report you can use the
 following citation:
 
-> Giorgini, J. D., Yeomans, D. K., Chamberlin, A. B., Chodas, P. W., Jacobson, R. A., Keesey, M. S., Lieske, J. H.,
-Ostro, S. J., Standish, E. M., Wimberly, R. N., "JPL's On-Line Solar System Data Service", Bulletin of the American
-Astronomical Society, Vol 28, p. 1099, 1997.
+> Giorgini, J. D., Yeomans, D. K., Chamberlin, A. B., Chodas, P. W.,
+Jacobson, R. A., Keesey, M. S., Lieske, J. H., Ostro, S. J., Standish,
+E. M., Wimberly, R. N., "JPL's On-Line Solar System Data Service",
+Bulletin of the American Astronomical Society, Vol 28, p. 1099, 1997.
 
 or BibTeX entry:
 
@@ -614,7 +640,9 @@ The following additional packages are required, but are not available
 through the _Anaconda Navigator_:
 
 * [jplephem](https://github.com/brandon-rhodes/python-jplephem)
+
 * [spiceypy](https://spiceypy.readthedocs.io/en/master/)
+
 * [poliastro](https://docs.poliastro.space/en/stable/)
 
 However, these can be installed within a terminal. Open the _Anaconda
@@ -651,7 +679,7 @@ from astropy.coordinates import get_body_barycentric_posvel
 pos, vel = get_body_barycentric_posvel("sun", t, ephemeris="jpl")
 ```
 
-Note: The first time you run this it will download a large ephemeris
+The first time you run this it will download a large ephemeris
 file. Subsequently, the file will not be re-downloaded as it should be
 locally cached. This file only contains the position of the Sun and
 planets (including the Moon and Pluto), but not any other solar system
@@ -714,7 +742,7 @@ If using astropy the appropriate citations for your report are given
 [spiceypy](https://spiceypy.readthedocs.io/en/master/index.html) packages you can cite their
 associated webpages.
 
-#### More advanced!
+### Moons
 
 Suppose you wanted the positions of Jupiter's moons. You could
 download the appropriate ephemeris file and get them as follows:
@@ -736,45 +764,61 @@ You can search around for ephemeris files of other solar system bodies
 
 ## Frequently asked questions
 
-Here are a selection of common issues and potential things to check to
-resolve them:
+Here is a selection of common questions, issues and things to check.
 
-> My simulation flies apart or objects rush together. Why?
+> Do I need to produce an animation showing planets orbiting the Sun?
+
+No.  You need to produce informative results and graphs that can go in
+your report.  Plotting trajectories on a graph is often an excellent
+way of visualising the predictions of your simulation code, but
+animations will not work in a report.
+
+> My simulation flies apart or particles rush together. Why?
 
 There are a few things to check if your simulation is "exploding" or
 "imploding":
 
-* check that your acceleration vectors are pointing in the correct direction (e.g., have you
-  accidentally made gravity repulsive?)
-* check that your initial conditions (position, velocity, mass) are in consistent units and also are
-  consistent with the units of your value of the gravitational constant. E.g., if your velocities
-  are in $\text{km}\,\text{hr}^{-1}$, but $G$ is in $\text{N}\,\text{m}^2\,\text{kg}^{-2}$ your system
-  will not work.
-* check all your initial conditions. Have you remembered to include the Sun!?
+* check that your acceleration vectors are pointing in the correct
+  direction (e.g., have you accidentally made gravity repulsive?)
 
-> My Sun is making cycloids (semi-circles). Why?
+* check that your initial conditions (positions and velocities) and
+  masses are in consistent units and also are consistent with the
+  units of your value of the gravitational constant. E.g., if your
+  velocities are in $\text{km}\,\text{hr}^{-1}$, but $G$ is in
+  $\text{N}\,\text{m}^2\,\text{kg}^{-2}$ your simulation will not
+  produce correct results.
+
+* check all your initial conditions. Have you remembered to include
+  the Sun!?
+
+> The Sun is making cycloids (semi-circles). Why?
 
 This is normal if you have initialised the Sun at the exact centre of
 your system. You may want to work with coordinates referenced to the
 solar system barycentre.
 
-> My simulation isn't very stable, and planets seem to wander. Why?
+> My simulation isn't very stable, and the planets seem to wander
+  off. Why?
 
 There are a few things to check in this case:
 
-* check your initial conditions. Do you use consistent units for all planets? Have you made
-  copy-paste errors for some planets?
-* check your simulation time steps. For the inner planets if your time step is too large the
-  numerical approximation will accumulate errors and the simulation may drift. You can study this as
-  part of your project!
-* think about whether your initial conditions are reasonable, e.g., don't start all the planets in a
-  line!
-* check that the simulation respects Newton's third law.
+* check your initial conditions. Do you use consistent units for all
+  planets? Have you made copy-paste errors for some planets?
 
-> My momentum doesn't appear to be conserved. Why?
+* check your simulation time steps. For the inner planets if your time
+  step is too large the numerical approximation will accumulate errors
+  and the simulation may drift. You can study this as part of your
+  project!
+
+* think about whether your initial conditions are reasonable, e.g.,
+  don't start all the planets in a line!
+
+* check that the algorithms respect Newton's third law.
+
+> Momentum doesn't appear to be conserved. Why?
 
 Firstly, check that you are calculating the correct thing. You need to
-calculate the total linear momentum of all objects, but you must sum
+calculate the total linear momentum of all particles, but you must sum
 their individual linear momentum **vectors** before taking the
 magnitude rather than summing their individual magnitudes.
 
@@ -786,35 +830,56 @@ numerical approximations after all), and if there are features (e.g.,
 sinusoidal periodicities) in your data you can think about
 explanations and include that in your report.
 
-> My simulation program is completely broken. Why?
+> My simulation program is completely broken. Help!
 
-In addition to the checks above, there are a few further things that
-you can check:
+To debug your program it is often helpful to do the following:
 
-* read through your code and make sure you understand what each line is suppose to be doing. This
-  can help you spot bugs;
-* check that accelerations of objects are being summed together correctly and that the acceleration
-  is reinitialised to zero on each iteration (acceleration just depends on the current position and
-  not any previous values);
-* check the indices in any for loops are being applied to the correct object, e.g., if calculating
-  the acceleration on object A caused by object B, make sure to use the mass for object B;
-* make sure to not calculate the acceleration of an object caused by itself. The separation will be
-  zero, so you may end up getting infinities!
+1. Read through your code and make sure you understand what each line
+  is supposed to be doing.
 
-A good way to find causes of why your simulation is broken is to
-simplify it until you can get it working and then build it back up bit
-by bit. If it is not working for three bodies then check if a two-body
-system works or not.
+2. Try to find the simplest case in which your program fails (e.g.,
+  the smallest number of bodies and the smallest number of steps).
+  This will make it quicker to run tests and make the output less
+  complicated when you are searching for the bug.
+
+3. Insert `print` statements to see whether variables and arrays hold
+   the values that you expect at each stage of the calculation.  For
+   larger projects in the future, it may be helpful to learn how to
+   use a debugger such as
+   [pdb](https://docs.python.org/3/library/pdb.html); however, given
+   the timescale of the PHYS281 project, it is probably easier just to
+   insert `print` statements in your code.
+
+One way to investigate why your program does not work is to simplify
+it until you can get it working, and then build it back up bit by
+bit. E.g., if it is not working for three bodies then check whether a
+two-body system works.
+
+A few things to check for:
+
+* Check that the contributions to the acceleration of a given particle
+  are summed together correctly and that the acceleration is
+  initialised to zero at every iteration before the contributions are
+  added up.
+
+* Check the indices in any for loops are being applied to the correct
+  particle, e.g., if calculating the acceleration of particle A caused by
+  particle B, make sure to use the mass for particle B.
+
+* Make sure not to try to calculate a contribution to the acceleration
+  of a particle due to a gravitational force from itself! The
+  separation of a particle from itself is zero, so you will probably
+  get division-by-zero errors.
 
 > My simulation does not precisely match the JPL ephemerides. Why?
 
-The JPL ephemerides will use numerical methods and computational
-resources beyond those mentioned in this course. They also include all
-the Solar System bodies (all planets, minor planets, significant
-asteroids) and general relativistic effects. Therefore, you should not
-expect to precisely match the JPL ephemerides. However, studying the
-differences and discussing their potential causes may be interesting
-material for your report.
+The JPL ephemerides use numerical methods beyond those mentioned in
+this course. They also include all the Solar System bodies (all
+planets, minor planets, significant asteroids) and general
+relativistic effects. Therefore, you should not expect to precisely
+match the JPL ephemerides. However, studying the differences and
+discussing their potential causes may be interesting material for your
+report.
 
 > My simulation program works, but is creakingly slow.  How can I
   speed it up?
@@ -824,7 +889,7 @@ written in Python is about a thousand times slower than the equivalent
 program written in Fortran (a compiled language).  Nevertheless, you
 can take steps to speed up your program: where possible "vectorise" by
 applying operations to whole NumPy arrays rather than looping over
-Cartesian directions and particles (e.g., when updating positions and
+Cartesian directions and/or particles (e.g., when updating positions and
 velocities); exploit Newton's third law to halve the number of force
 calculations; and pull common factors out of sums to reduce the number
 of operations.  For bottlenecks such as the calculation of forces and
