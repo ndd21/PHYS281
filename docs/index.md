@@ -160,11 +160,10 @@ The project grade is split between several components:
 * The written project report (30%)
 * The project code (30%)
 
-The
-[project](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/gravity/)
-aim is to create and test an $n$-body gravitationally interacting
-system (e.g., the Solar System). The two exercises provide a basis on
-which to build up to the full $n$-body simulation.
+The [project](gravity.md) aim is to create and test an $n$-body
+gravitationally interacting system (e.g., the Solar System). The two
+exercises provide a basis on which to build up to the full $n$-body
+simulation.
 
 ## Prerequisites
 
@@ -180,23 +179,19 @@ path structure is formatted, including drive if necessary (e.g.,
 
 Please also see the material in the "Course notes" -> "Getting
 started" menu for information on installing the software required for
-this course
-([Anaconda](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-anaconda/)
-and [Visual Studio
-Code](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/demo-vs-code/))
-on your own machine or using AppsAnywhere on a machine on campus. The
-["Online Python environments"](#online-python-environments) section
-below has some options for running Python, which can be used as a
-back-up alternative if you have initial installation problems.
+this course ([Anaconda](demo-anaconda.md) and [Visual Studio
+Code](demo-vs-code.md)) on your own machine or using AppsAnywhere on a
+machine on campus. The ["Online Python
+environments"](#online-python-environments) section below has some
+options for running Python, which can be used as a back-up alternative
+if you have initial installation problems.
 
 ## Unassessed exercises
 
-A selection of
-[exercises](https://www.lancaster.ac.uk/staff/drummonn/PHYS281/exercises/)
-have been created for you to try out and test your Python
-knowledge. These exercises are not marked and are voluntary. They may
-also be used for demonstration purposes during the course lecture
-slots.
+A selection of [exercises](exercises.md) has been created for you to
+try out and test your Python knowledge. These exercises are not marked
+and are voluntary. They may also be used for demonstration purposes
+during the course lecture slots.
 
 ## Other material
 
@@ -284,13 +279,12 @@ Please let us know of any others.
 
 ### Generative artificial intelligence (ChatGPT, Gemini, etc.)
 
-Using generative artificial intelligence large language models to
-generate code or text for you should be viewed in a similar way to
-asking another human for help, or googling for example programs and
-downloading them from the Internet.  These are all fine, and indeed to
-be encouraged, if they help you learn how to do something, but you
-should never try to pass somebody else's work off as your own.  Above
-all, the whole point of the module is to enable you to learn how to
+Using large language models to generate code or text for you should be
+viewed in a similar way to asking another human for help, or
+downloading pieces of code from the Internet.  These are all fine, and
+indeed to be encouraged if they assist your learning, but you should
+never try to pass somebody else's work off as your own.  Above all,
+the whole point of the module is to enable you to learn how to
 program; if you undermine this by getting somebody or something else
 to carry out the exercises for you then it will not help you when you
 come to tackle the PHYS281 project (or indeed other projects in later
