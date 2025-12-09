@@ -157,22 +157,26 @@ $$
 $$
 
 where $\vec{r}_{ij}=\vec{r}_i-\vec{r}_j$ is the displacement vector
-from the $j^{\mathrm{th}}$ mass to the $i^{\mathrm{th}}$ mass. In this
-case, to determine the acceleration of a given particle, we need to
-know the locations of all the other particles in the simulation. Note
-that the sum of all forces acting on all particles should be zero at
-all times due to Newton's third law in the absence of an external
-field. If we move one particle before calculating the force due to that
-particle on all the other particles in the simulation then (unless
-great care is taken) the program will violate Newton's third law and
-hence conservation laws will be broken.
+from the $j^{\mathrm{th}}$ mass to the $i^{\mathrm{th}}$ mass. To
+determine the acceleration of a given particle, we need to know the
+locations of all the particles in the simulation.
+
+Note that the sum of all forces acting on all particles should be zero
+at all times due to Newton's third law in the absence of an external
+field. If we interleave single-particle position/velocity updates with
+calculations of forces on individual particles then, unless great care
+is taken, Newton's third law will be violated and conservation laws
+will be broken.  For example, when using the Euler method, at each
+iteration we must first calculate all the accelerations of all the
+particles, and only then can we update the positions and velocities of
+the particles.
 
 ## Different methods of simulating kinematics
 
-Regardless of the details of your final project you are going to need
-to have a way of approximating the motion of your system.  Earlier, we
-stated Euler's method for updating the position and velocity of a
-single particle; here we generalise this method to the motion of $N$
+Regardless of the details of your final project you will need to have
+a way of approximating the motion of your system.  Earlier, we stated
+Euler's method for updating the position and velocity of a single
+particle; here we generalise this method to the motion of $N$
 particles by introducing a $3N$-dimensional vector of all the particle
 positions, $\vec{R}=(x_1,y_1,z_1,x_2,y_2,z_2,\ldots,x_N,y_N,z_N)$,
 along with the corresponding $3N$-dimensional vectors of all particle
@@ -180,17 +184,28 @@ velocities
 $\vec{V}=({v_x}_1,{v_y}_1,{v_z}_1,\ldots,{v_x}_N,{v_y}_N,{v_z}_N)$ and
 accelerations
 $\vec{A}=({a_x}_1,{a_y}_1,{a_z}_1,\ldots,{a_x}_N,{a_y}_N,{a_z}_N)$.
-For a small time interval $\Delta t$, the change in accelerations is
-small and the changes in positions and velocities between the $n$th
-time step and the $(n+1)$th time step are approximately given by
-Euler's method:
+
+At any stage of a calculation, the accelerations $\vec{A}$ can be
+calculated using Newton's second law of motion:
+
+$$
+\forall i \in \{1 \ldots N\}, \qquad \vec{a}_i = \frac{\vec{F}_i(\vec{R},\vec{V},t)}{m_i},
+$$
+
+where $\vec{F}_i$ is the force on particle $i$.
+
+For a small time interval $\Delta t$, the updates to the positions and
+velocities are approximately given by Euler's method:
 
 $$
 \begin{align}
   \vec{R}_{n+1} & \approx \vec{R}_n + \vec{V}_n \Delta{t} \\
-  \vec{V}_{n+1} & \approx \vec{V}_n + \vec{A}_n \Delta{t}.
+  \vec{V}_{n+1} & \approx \vec{V}_n + \vec{A}_n \Delta{t},
 \end{align}
 $$
+
+where $\vec{R}_n$, $\vec{V}_n$ and $\vec{A}_n$ are the positions,
+velocities and accelerations at time $t_n=n \Delta t$.
 
 As stated above, this is based on a Taylor expansion of the positions
 and velocities:
@@ -204,18 +219,18 @@ $$
 
 where $\mathcal{O}\left(\Delta t^2\right)$ signifies contributions
 proportional to $\Delta t^2$.  If $\Delta t$ is small enough then
-these higher-order contributions can be ignored. The error in any
-given step is given by the truncation of the Taylor expansion, and for
-Euler's method is of order $\Delta t^2$. These errors accumulate each
-time the iteration scheme is applied, and hence the error in a
-simulation of fixed duration $T$ is of order $\Delta t$ (because the
-cumulative error is proportional to $N_\text{steps} \Delta t^2$ for
-$N_\text{steps}$ iterations, but the total duration of the simulation
-is $T=N_\text{steps} \Delta t$, so the cumulative error for fixed $T$
-is proportional to $T \Delta t$). In the following paragraphs other
-algorithms are very briefly introduced. *The errors in these
-algorithms are not discussed here, but an investigation of the errors
-could form a part of your project.*
+these higher-order contributions can be ignored. The error at any
+given iteration is given by the truncation of the Taylor expansion,
+and for Euler's method is of order $\Delta t^2$. These errors
+accumulate each time the iteration scheme is applied, and hence the
+error in a simulation of fixed duration $T$ is of order $\Delta t$
+(because the cumulative error is proportional to $N_\text{steps}
+\Delta t^2$ for $N_\text{steps}$ iterations, but the total duration of
+the simulation is $T=N_\text{steps} \Delta t$, so the cumulative error
+for fixed $T$ is proportional to $T \Delta t$). In the following
+paragraphs other algorithms are very briefly introduced. *The errors
+in these algorithms are not discussed here, but an investigation of
+the errors could form a part of your project.*
 
 As well as not being very accurate, for oscillatory systems the Euler
 method can be unstable. An alternative method called the
@@ -238,21 +253,18 @@ interval $\Delta t$. This suggests a method called the *midpoint*
 algorithm. The algorithm involves the use of the Euler method to
 estimate the midpoint positions $\vec{X}_\text{mid}$ and velocities
 $\vec{V}_\text{mid}$ at time $t_\text{mid} = t + \Delta t/2$. The
-forces and accelerations are then computed at this midpoint:
+forces and hence accelerations are then computed at this midpoint:
 
 $$
 \begin{align}
-  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{in} & = \vec{F}_i\left( \vec{R}_n, \vec{V}_n, t_n \right)/m_i \\
+  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{i,n} & = \frac{\vec{F}_i( \vec{R}_n, \vec{V}_n, t_n)}{m_i} \\
   \vec{V}_{\mathrm{mid}} & \approx \vec{V}_n + \frac{1}{2}\vec{A}_n \Delta{t}\\
   \vec{R}_{\mathrm{mid}} & \approx \vec{R}_n + \frac{1}{2}\vec{V}_n \Delta{t}\\
-  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{i,\mathrm{mid}} & \approx \vec{F}_i\left(\vec{R}_{\mathrm{mid}}, \vec{V}_{\mathrm{mid}}, t_n+\frac{1}{2}\Delta{t} \right)/m_i,
+  \forall i\in\{1\ldots N\}, \qquad \vec{a}_{i,\mathrm{mid}} & \approx \frac{\vec{F}_i\left(\vec{R}_{\mathrm{mid}}, \vec{V}_{\mathrm{mid}}, t_n+\frac{1}{2}\Delta{t} \right)}{m_i}.
 \end{align}
 $$
 
-where $\vec{F}_i\left( \vec{R}, \vec{V}, t \right)$ is the force on
-particle $i$ at time $t$ when the particle positions and velocities
-are $\vec{R}$ and $\vec{V}$, respectively.  We can then update the
-positions and velocities as
+We can then update the positions and velocities as
 
 $$
 \begin{align}
@@ -281,8 +293,8 @@ accelerations only depend on positions, we can evaluate
 $\vec{A}_{n+1}$ as soon as we have updated the positions to
 $\vec{R}_{n+1}$.  For velocity-dependent forces, $\vec{A}_{n+1}$ can
 be approximated by first stepping forwards using any of the algorithms
-mentioned above, calculating the accelerations, and then applying the
-Verlet update scheme.
+mentioned above, calculating the accelerations using Newton's second
+law of motion, and then applying the Verlet update scheme.
 
 Beyond these algorithms one can also consider higher-order methods
 such as the well-known
@@ -365,7 +377,7 @@ bodies of the Solar System).
 
 To evolve the positions and velocities of the particles in time the
 Euler, Euler-Cromer and/or other numerical approximation methods
-should be used.
+should be used (see [above](#different-methods-of-simulating-kinematics)).
 
 Your program should include code for testing that the simulation works
 and code for testing the accuracy of the results produced. For
